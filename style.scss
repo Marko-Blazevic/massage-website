@@ -6,45 +6,17 @@ $open-sans: 'Open Sans', sans-serif;
 $orange: rgb(255, 179, 58);
 
 html {
-  font-family: $open-sans;
+  font-family: $open-sans !important;
 }
 
-.navbar-nav {
-  font-family: $open-sans;
+#index,
+#about,
+#massages {
+  overflow: hidden;
+  // font-family: $open-sans !important;
 }
 
-.navabar-custom {
-  background-color: $orange;
-}
-
-.index-p {
-  font-size: 2rem;
-}
-
-.index-background {
-  background-image: url('images/index-background.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  min-height: 100vh;
-}
-
-.about-background {
-  background-image: url('images/about-img-size.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.overlay {
-  position: absolute;
-  min-height: 100%;
-  min-width: 100%;
-  left: 0;
-  top: 0;
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.nav-link {
+#index .nav-link {
   color: white;
   border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
   &:hover {
@@ -56,28 +28,71 @@ html {
   }
 }
 
-#about.nav-link {
-  color: black;
-  border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
-  &:hover {
-    color: $orange;
+#about,
+#massages {
+  .nav-link {
+    color: black;
+    border-bottom: solid rgba(128, 128, 128, 0.2) 1px;
+    &:hover {
+      color: $orange;
+    }
+    &.current-page {
+      color: $orange;
+      border-bottom: $orange solid 1px;
+    }
   }
-  &.current-page {
-    color: $orange;
-    border-bottom: $orange solid 1px;
-  }
+}
+
+// .navbar-nav {
+//   // font-family: $open-sans;
+// }
+
+.navabar-custom {
+  background-color: $orange;
+}
+
+.custom-toggler {
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, .8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E")
+    no-repeat center;
+}
+
+.index-p {
+  font-size: 2rem;
+}
+
+.index-background {
+  background-image: url('images/index-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: absolute;
+}
+
+.overlay {
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .name {
   font-family: $tangerine;
-  font-size: 2.4rem;
+  font-size: 2rem;
 }
 
-.p-custom-about {
-  font-family: $open-sans;
-  line-height: 2rem;
-  color: rgb(255, 255, 255);
-  text-shadow: 2px 2px 2px black;
+.custom-about-image,
+.custom-img-holisticka {
+  box-shadow: 0 0 5px black;
+  margin-top: 4rem;
+}
+
+.custom-para-about {
+  line-height: 1.8rem;
+  // font-family: $open-sans;
 }
 
 .current-page {
@@ -90,15 +105,6 @@ html {
   line-height: 4rem;
   font-family: $tangerine;
   text-shadow: 2px 2px 3px black;
-}
-
-.custom-toggler {
-  background: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, .8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E")
-    no-repeat center;
-}
-
-.custom-img-container {
-  height: 30px;
 }
 
 @media (max-width: 576px) {
