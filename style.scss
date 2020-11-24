@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Tangerine&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,600&display=swap');
+
+$tangerine: 'Tangerine', cursive;
+$open-sans: 'Open Sans', sans-serif;
+$orange: rgb(255, 179, 58);
+
+html {
+  font-family: $open-sans;
+}
+
+.navbar-nav {
+  font-family: $open-sans;
+}
+
+.navabar-custom {
+  background-color: $orange;
+}
+
+.index-p {
+  font-size: 2rem;
+}
+
+.index-background {
+  background-image: url('images/index-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.about-background {
+  background-image: url('images/about-img-size.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.overlay {
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.nav-link {
+  color: white;
+  border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
+  &:hover {
+    color: $orange;
+  }
+  &.current-page {
+    color: $orange;
+    border-bottom: $orange solid 1px;
+  }
+}
+
+#about.nav-link {
+  color: black;
+  border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
+  &:hover {
+    color: $orange;
+  }
+  &.current-page {
+    color: $orange;
+    border-bottom: $orange solid 1px;
+  }
+}
+
+.name {
+  font-family: $tangerine;
+  font-size: 2.4rem;
+}
+
+.p-custom-about {
+  font-family: $open-sans;
+  line-height: 2rem;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 2px black;
+}
+
+.current-page {
+  color: $orange;
+  border-bottom: $orange solid 1px;
+}
+
+.index-text {
+  font-size: 4.5rem;
+  line-height: 4rem;
+  font-family: $tangerine;
+  text-shadow: 2px 2px 3px black;
+}
+
+.custom-toggler {
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, .8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E")
+    no-repeat center;
+}
+
+.custom-img-container {
+  height: 30px;
+}
+
+@media (max-width: 576px) {
+  .index-text {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .index-text {
+    font-size: 5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .index-text {
+    font-size: 6rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .index-text {
+    font-size: 6.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .index-text {
+    font-size: 7.5rem;
+  }
+}
