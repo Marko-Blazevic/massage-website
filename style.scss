@@ -5,15 +5,14 @@ $tangerine: 'Tangerine', cursive;
 $open-sans: 'Open Sans', sans-serif;
 $orange: rgb(255, 179, 58);
 
-html {
-  font-family: $open-sans !important;
+body {
+  padding-top: 66px;
 }
 
 #index,
 #about,
 #massages {
   overflow: hidden;
-  // font-family: $open-sans !important;
 }
 
 #index .nav-link {
@@ -29,7 +28,8 @@ html {
 }
 
 #about,
-#massages {
+#massages,
+#prices {
   .nav-link {
     color: black;
     border-bottom: solid rgba(128, 128, 128, 0.2) 1px;
@@ -43,18 +43,10 @@ html {
   }
 }
 
-// .navbar-nav {
-//   // font-family: $open-sans;
+// .custom-toggler {
+//   background: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, .8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E")
+//     no-repeat center;
 // }
-
-.navabar-custom {
-  background-color: $orange;
-}
-
-.custom-toggler {
-  background: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, .8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E")
-    no-repeat center;
-}
 
 .index-p {
   font-size: 2rem;
@@ -67,7 +59,8 @@ html {
   background-position: center center;
   background-attachment: fixed;
   min-height: 100vh;
-  position: absolute;
+  position: fixed;
+  margin-top: -66px;
 }
 
 .overlay {
@@ -84,15 +77,17 @@ html {
   font-size: 2rem;
 }
 
+.custom-index {
+  min-height: calc(100vh - 66px);
+}
+
 .custom-about-image,
 .custom-img-holisticka {
   box-shadow: 0 0 5px black;
-  margin-top: 4rem;
 }
 
 .custom-para-about {
   line-height: 1.8rem;
-  // font-family: $open-sans;
 }
 
 .current-page {
@@ -107,10 +102,26 @@ html {
   text-shadow: 2px 2px 3px black;
 }
 
+.sticker {
+  position: sticky;
+  top: 4rem;
+}
+
+table tr[data-href] {
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
 @media (max-width: 576px) {
   .index-text {
     font-size: 3rem;
     line-height: 3rem;
+  }
+  h1 {
+    font-size: 2rem;
   }
 }
 
@@ -124,16 +135,25 @@ html {
   .index-text {
     font-size: 6rem;
   }
+  h1 {
+    font-size: 2.1rem;
+  }
 }
 
 @media (min-width: 992px) {
   .index-text {
     font-size: 6.5rem;
   }
+  h1 {
+    font-size: 2.1rem;
+  }
 }
 
 @media (min-width: 1200px) {
   .index-text {
     font-size: 7.5rem;
+  }
+  h1 {
+    font-size: 2.3rem;
   }
 }

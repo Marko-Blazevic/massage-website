@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Tangerine&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,600&display=swap");
-html {
-  font-family: "Open Sans", sans-serif !important; }
+body {
+  padding-top: 66px; }
 
 #index,
 #about,
@@ -18,22 +18,19 @@ html {
     border-bottom: #ffb33a solid 1px; }
 
 #about .nav-link,
-#massages .nav-link {
+#massages .nav-link,
+#prices .nav-link {
   color: black;
   border-bottom: solid rgba(128, 128, 128, 0.2) 1px; }
   #about .nav-link:hover,
-  #massages .nav-link:hover {
+  #massages .nav-link:hover,
+  #prices .nav-link:hover {
     color: #ffb33a; }
   #about .nav-link.current-page,
-  #massages .nav-link.current-page {
+  #massages .nav-link.current-page,
+  #prices .nav-link.current-page {
     color: #ffb33a;
     border-bottom: #ffb33a solid 1px; }
-
-.navabar-custom {
-  background-color: #ffb33a; }
-
-.custom-toggler {
-  background: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, .8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") no-repeat center; }
 
 .index-p {
   font-size: 2rem; }
@@ -45,7 +42,8 @@ html {
   background-position: center center;
   background-attachment: fixed;
   min-height: 100vh;
-  position: absolute; }
+  position: fixed;
+  margin-top: -66px; }
 
 .overlay {
   position: absolute;
@@ -59,10 +57,12 @@ html {
   font-family: "Tangerine", cursive;
   font-size: 2rem; }
 
+.custom-index {
+  min-height: calc(100vh - 66px); }
+
 .custom-about-image,
 .custom-img-holisticka {
-  box-shadow: 0 0 5px black;
-  margin-top: 4rem; }
+  box-shadow: 0 0 5px black; }
 
 .custom-para-about {
   line-height: 1.8rem; }
@@ -77,21 +77,43 @@ html {
   font-family: "Tangerine", cursive;
   text-shadow: 2px 2px 3px black; }
 
+.sticker {
+  position: sticky;
+  top: 4rem; }
+
+table tr[data-href] {
+  cursor: pointer; }
+
+h1 {
+  font-size: 2rem; }
+
 @media (max-width: 576px) {
   .index-text {
     font-size: 3rem;
-    line-height: 3rem; } }
+    line-height: 3rem; }
+
+  h1 {
+    font-size: 2rem; } }
 @media (min-width: 576px) {
   .index-text {
     font-size: 5rem; } }
 @media (min-width: 768px) {
   .index-text {
-    font-size: 6rem; } }
+    font-size: 6rem; }
+
+  h1 {
+    font-size: 2.1rem; } }
 @media (min-width: 992px) {
   .index-text {
-    font-size: 6.5rem; } }
+    font-size: 6.5rem; }
+
+  h1 {
+    font-size: 2.1rem; } }
 @media (min-width: 1200px) {
   .index-text {
-    font-size: 7.5rem; } }
+    font-size: 7.5rem; }
+
+  h1 {
+    font-size: 2.3rem; } }
 
 /*# sourceMappingURL=style.css.map */
