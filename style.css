@@ -10,30 +10,34 @@ body {
 
 #index .nav-link {
   color: white;
-  border-bottom: solid rgba(128, 128, 128, 0.4) 1px; }
+  border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
+  transition: 0.3s ease-in-out; }
   #index .nav-link:hover {
-    color: #ffb33a; }
+    color: #ff9d00;
+    transition: 0.3s ease-in-out; }
   #index .nav-link.current-page {
-    color: #ffb33a;
-    border-bottom: #ffb33a solid 1px; }
+    color: #ff9d00;
+    border-bottom: #ff9d00 solid 1px; }
 
 #about .nav-link,
 #massages .nav-link,
-#prices .nav-link {
+#prices .nav-link,
+#contact .nav-link {
   color: black;
-  border-bottom: solid rgba(128, 128, 128, 0.2) 1px; }
+  border-bottom: solid rgba(128, 128, 128, 0.2) 1px;
+  transition: 0.3s ease-in-out; }
   #about .nav-link:hover,
   #massages .nav-link:hover,
-  #prices .nav-link:hover {
-    color: #ffb33a; }
+  #prices .nav-link:hover,
+  #contact .nav-link:hover {
+    color: #ff9d00;
+    transition: 0.3s ease-in-out; }
   #about .nav-link.current-page,
   #massages .nav-link.current-page,
-  #prices .nav-link.current-page {
-    color: #ffb33a;
-    border-bottom: #ffb33a solid 1px; }
-
-.index-p {
-  font-size: 2rem; }
+  #prices .nav-link.current-page,
+  #contact .nav-link.current-page {
+    color: #ff9d00;
+    border-bottom: #ff9d00 solid 1px; }
 
 .index-background {
   background-image: url("images/index-background.jpg");
@@ -45,6 +49,28 @@ body {
   position: fixed;
   margin-top: -66px; }
 
+.contact-background {
+  background-image: url("images/index-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: fixed;
+  margin-top: -66px; }
+
+.index-logo {
+  opacity: 0.1;
+  animation: opacity 3s ease forwards; }
+
+.index-text {
+  font-size: 4.5rem;
+  line-height: 4rem;
+  font-family: "Tangerine", cursive;
+  text-shadow: 2px 2px 3px black;
+  transform: translateY(20%);
+  animation: slideIn 1s linear forwards; }
+
 .overlay {
   position: absolute;
   min-height: 100%;
@@ -55,34 +81,61 @@ body {
 
 .name {
   font-family: "Tangerine", cursive;
-  font-size: 2rem; }
+  font-size: 2.5rem; }
 
 .custom-index {
   min-height: calc(100vh - 66px); }
 
 .custom-about-image,
-.custom-img-holisticka {
-  box-shadow: 0 0 5px black; }
+.custom-img-massages {
+  box-shadow: 0 0 5px black;
+  opacity: 0.3;
+  animation: opacity 2s ease forwards; }
 
 .custom-para-about {
-  line-height: 1.8rem; }
+  line-height: 2.2rem;
+  transform: translateY(10%);
+  animation: slideIn 1s linear forwards; }
 
 .current-page {
-  color: #ffb33a;
-  border-bottom: #ffb33a solid 1px; }
+  color: #ff9d00;
+  border-bottom: #ff9d00 solid 1px; }
 
-.index-text {
-  font-size: 4.5rem;
-  line-height: 4rem;
-  font-family: "Tangerine", cursive;
-  text-shadow: 2px 2px 3px black; }
-
-.sticker {
+.thead-sticker {
   position: sticky;
   top: 4rem; }
 
+.custom-send-btn {
+  background-color: #ff9d00;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 2px gray;
+  box-shadow: 1px 1px 3px gray; }
+
+.custom-prices {
+  opacity: 0;
+  animation: opacity 1s ease forwards; }
+
+.custom-contact-navbar {
+  background-color: #ff9d00; }
+
+.custom-contact {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  transform: translateY(20%);
+  animation: slideIn 1s ease-in-out forwards; }
+
 table tr[data-href] {
   cursor: pointer; }
+
+textarea {
+  resize: none; }
+
+.form-control {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2) inset; }
+
+.contact-overlay {
+  background-color: rgba(0, 0, 0, 0.644); }
 
 h1 {
   font-size: 2rem; }
@@ -115,5 +168,11 @@ h1 {
 
   h1 {
     font-size: 2.3rem; } }
+@keyframes slideIn {
+  100% {
+    transform: translateX(0%); } }
+@keyframes opacity {
+  100% {
+    opacity: 1; } }
 
 /*# sourceMappingURL=style.css.map */
