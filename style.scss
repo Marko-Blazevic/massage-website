@@ -4,9 +4,10 @@
 $tangerine: 'Tangerine', cursive;
 $open-sans: 'Open Sans', sans-serif;
 $orange: rgb(255, 157, 0);
+$top-val: 66px;
 
 body {
-  padding-top: 66px;
+  padding-top: $top-val;
 }
 
 #index,
@@ -15,37 +16,48 @@ body {
   overflow: hidden;
 }
 
-#index .nav-link {
-  color: white;
+@mixin hover-style {
+  color: $orange;
+  transition: 0.3s ease-in-out;
+}
+
+@mixin current-page-style {
+  color: $orange;
+  border-bottom: $orange solid 1px;
+}
+
+@mixin nav-link-style {
   border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
   transition: 0.3s ease-in-out;
+}
 
-  &:hover {
-    color: $orange;
-    transition: 0.3s ease-in-out;
-  }
-  &.current-page {
-    color: $orange;
-    border-bottom: $orange solid 1px;
+#index,
+#contact {
+  .nav-link {
+    color: white;
+    @include nav-link-style;
+
+    &:hover {
+      @include hover-style;
+    }
+    &.current-page {
+      @include current-page-style;
+    }
   }
 }
 
 #about,
 #massages,
-#prices,
-#contact {
+#prices {
   .nav-link {
     color: black;
-    border-bottom: solid rgba(128, 128, 128, 0.2) 1px;
-    transition: 0.3s ease-in-out;
+    @include nav-link-style;
 
     &:hover {
-      color: $orange;
-      transition: 0.3s ease-in-out;
+      @include hover-style;
     }
     &.current-page {
-      color: $orange;
-      border-bottom: $orange solid 1px;
+      @include current-page-style;
     }
   }
 }
@@ -64,26 +76,28 @@ body {
 // <div id="backdrop"></div>
 
 .index-background {
-  background-image: url('images/index-background.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
+  background: {
+    image: url('images/index-background.jpg');
+    repeat: no-repeat;
+    size: cover;
+    position: center center;
+    attachment: fixed;
+  }
   min-height: 100vh;
   position: fixed;
-  margin-top: -66px;
+  margin-top: -$top-val;
 }
 
-.contact-background {
-  background-image: url('images/index-background.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  min-height: 100vh;
-  position: fixed;
-  margin-top: -66px;
-}
+// .contact-background {
+//   background-image: url('images/contact-bkg.jpg');
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center center;
+//   background-attachment: fixed;
+//   min-height: 100vh;
+//   position: fixed;
+//   margin-top: -66px;
+// }
 
 .index-logo {
   opacity: 0.1;
@@ -109,12 +123,14 @@ body {
 }
 
 .name {
-  font-family: $tangerine;
-  font-size: 2.5rem;
+  font: {
+    family: $tangerine;
+    size: 2.5rem;
+  }
 }
 
 .custom-index {
-  min-height: calc(100vh - 66px);
+  min-height: calc(100vh - #{$top-val});
 }
 
 .custom-about-image,
@@ -154,7 +170,7 @@ body {
 }
 
 .custom-contact-navbar {
-  background-color: $orange;
+  background-color: rgb(0, 0, 0);
 }
 
 .custom-contact {
@@ -172,7 +188,7 @@ textarea {
   resize: none;
 }
 
-.form-control {
+.custom-form {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2) inset;
   // background: image(images\contact-bkg.jpg);
 }
