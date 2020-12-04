@@ -12,7 +12,7 @@ body {
 #contact .nav-link {
   color: white;
   border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
-  transition: 0.3s ease-in-out; }
+  transition: 1s ease-in-out; }
   #index .nav-link:hover,
   #contact .nav-link:hover {
     color: #ff9d00;
@@ -27,7 +27,7 @@ body {
 #prices .nav-link {
   color: black;
   border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
-  transition: 0.3s ease-in-out; }
+  transition: 1s ease-in-out; }
   #about .nav-link:hover,
   #massages .nav-link:hover,
   #prices .nav-link:hover {
@@ -94,6 +94,21 @@ body {
 .thead-sticker {
   position: sticky;
   top: 4rem; }
+
+.dm-custom {
+  height: 100vh;
+  border-radius: 1rem;
+  box-shadow: 0 0 8px inset rgba(0, 0, 0, 0.2); }
+  .dm-custom li {
+    padding: 0.5rem 2rem;
+    width: 250px; }
+    .dm-custom li a {
+      color: #ff9d00;
+      transition: 0.5s ease-in-out; }
+      .dm-custom li a:hover {
+        color: black;
+        text-decoration: none;
+        transition: 0.3s ease-in-out; }
 
 .custom-send-btn {
   background-color: #ff9d00;
