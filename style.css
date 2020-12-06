@@ -8,34 +8,34 @@ body {
 #massages {
   overflow: hidden; }
 
-#index .nav-link,
-#contact .nav-link {
+#index .nav-link {
   color: white;
   border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
   transition: 1s ease-in-out; }
-  #index .nav-link:hover,
-  #contact .nav-link:hover {
+  #index .nav-link:hover {
     color: #ff9d00;
-    transition: 0.3s ease-in-out; }
-  #index .nav-link.current-page,
-  #contact .nav-link.current-page {
+    transition: 0.2s ease-in-out; }
+  #index .nav-link.current-page {
     color: #ff9d00;
     border-bottom: #ff9d00 solid 1px; }
 
 #about .nav-link,
 #massages .nav-link,
-#prices .nav-link {
+#prices .nav-link,
+#contact .nav-link {
   color: black;
   border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
   transition: 1s ease-in-out; }
   #about .nav-link:hover,
   #massages .nav-link:hover,
-  #prices .nav-link:hover {
+  #prices .nav-link:hover,
+  #contact .nav-link:hover {
     color: #ff9d00;
-    transition: 0.3s ease-in-out; }
+    transition: 0.2s ease-in-out; }
   #about .nav-link.current-page,
   #massages .nav-link.current-page,
-  #prices .nav-link.current-page {
+  #prices .nav-link.current-page,
+  #contact .nav-link.current-page {
     color: #ff9d00;
     border-bottom: #ff9d00 solid 1px; }
 
@@ -54,12 +54,13 @@ body {
   animation: opacity 3s ease forwards; }
 
 .index-text {
+  opacity: 0;
   font-size: 4.5rem;
   line-height: 4rem;
   font-family: "Tangerine", cursive;
   text-shadow: 2px 2px 3px black;
   transform: translateY(20%);
-  animation: slideIn 1s linear forwards; }
+  animation: slideIn 1s linear forwards, opacity 2s forwards; }
 
 .overlay {
   position: absolute;
@@ -84,8 +85,9 @@ body {
 
 .custom-para-about {
   line-height: 2.2rem;
+  opacity: 0;
   transform: translateY(10%);
-  animation: slideIn 1s linear forwards; }
+  animation: slideIn 1s linear forwards, opacity 2s forwards; }
 
 .current-page {
   color: #ff9d00;
@@ -95,20 +97,27 @@ body {
   position: sticky;
   top: 4rem; }
 
-.dm-custom {
+.drop-dwn-m-custom {
   height: 100vh;
-  border-radius: 1rem;
+  overflow-y: scroll;
   box-shadow: 0 0 8px inset rgba(0, 0, 0, 0.2); }
-  .dm-custom li {
+  .drop-dwn-m-custom::-webkit-scrollbar {
+    width: 0; }
+  .drop-dwn-m-custom li {
     padding: 0.5rem 2rem;
-    width: 250px; }
-    .dm-custom li a {
+    width: 250px;
+    transition: 0.4s ease-in-out; }
+    .drop-dwn-m-custom li:hover {
+      background-color: rgba(128, 128, 128, 0.1);
+      box-shadow: 0 0 8px inset rgba(0, 0, 0, 0.1);
+      transition: 0.1s ease-in-out; }
+    .drop-dwn-m-custom li a {
       color: #ff9d00;
-      transition: 0.5s ease-in-out; }
-      .dm-custom li a:hover {
+      transition: 0.3s ease-in-out; }
+      .drop-dwn-m-custom li a:hover {
         color: black;
         text-decoration: none;
-        transition: 0.3s ease-in-out; }
+        transition: 0.4s ease-in-out; }
 
 .custom-send-btn {
   background-color: #ff9d00;
@@ -121,14 +130,12 @@ body {
   opacity: 0;
   animation: opacity 1s ease forwards; }
 
-.custom-contact-navbar {
-  background-color: black; }
-
 .custom-contact {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  box-shadow: 0 0 10px #e2e2e2;
   border-radius: 1rem;
   transform: translateY(20%);
-  animation: slideIn 1s ease-in-out forwards; }
+  animation: slideIn 1.5s ease-in-out forwards, opacity 1s forwards; }
 
 table tr[data-href] {
   cursor: pointer; }
@@ -137,10 +144,7 @@ textarea {
   resize: none; }
 
 .custom-form {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2) inset; }
-
-.contact-overlay {
-  background-color: rgba(0, 0, 0, 0.644); }
+  box-shadow: 0 0 8px #e2e2e2; }
 
 h1 {
   font-size: 2rem; }

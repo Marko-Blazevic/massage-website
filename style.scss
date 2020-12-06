@@ -28,11 +28,10 @@ body {
 
 @mixin hover-style {
   color: $orange;
-  transition: 0.3s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
-#index,
-#contact {
+#index {
   .nav-link {
     color: white;
     @include nav-link-style;
@@ -48,7 +47,8 @@ body {
 
 #about,
 #massages,
-#prices {
+#prices,
+#contact {
   .nav-link {
     color: black;
     @include nav-link-style;
@@ -89,7 +89,7 @@ body {
 }
 
 // .contact-background {
-//   background-image: url('images/contact-bkg.jpg');
+//   background-image: url('images/E51B1764e.jpg');
 //   background-repeat: no-repeat;
 //   background-size: cover;
 //   background-position: center center;
@@ -105,12 +105,13 @@ body {
 }
 
 .index-text {
+  opacity: 0;
   font-size: 4.5rem;
   line-height: 4rem;
   font-family: $tangerine;
   text-shadow: 2px 2px 3px black;
   transform: translateY(20%);
-  animation: slideIn 1s linear forwards;
+  animation: slideIn 1s linear forwards, opacity 2s forwards;
 }
 
 .overlay {
@@ -142,13 +143,13 @@ body {
 
 .custom-para-about {
   line-height: 2.2rem;
+  opacity: 0;
   transform: translateY(10%);
-  animation: slideIn 1s linear forwards;
+  animation: slideIn 1s linear forwards, opacity 2s forwards;
 }
 
 .current-page {
-  color: $orange;
-  border-bottom: $orange solid 1px;
+  @include current-page-style;
 }
 
 .thead-sticker {
@@ -156,22 +157,31 @@ body {
   top: 4rem;
 }
 
-.dm-custom {
+.drop-dwn-m-custom {
   height: 100vh;
-  border-radius: 1rem;
+  overflow-y: scroll;
   box-shadow: 0 0 8px inset rgba(0, 0, 0, 0.2);
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
   li {
     padding: 0.5rem 2rem;
     width: 250px;
+    transition: 0.4s ease-in-out;
+    &:hover {
+      background-color: rgba(128, 128, 128, 0.1);
+      box-shadow: 0 0 8px inset rgba(0, 0, 0, 0.1);
+      transition: 0.1s ease-in-out;
+    }
 
     a {
       color: $orange;
-      transition: 0.5s ease-in-out;
-
+      transition: 0.3s ease-in-out;
       &:hover {
         color: black;
         text-decoration: none;
-        transition: 0.3s ease-in-out;
+        transition: 0.4s ease-in-out;
       }
     }
   }
@@ -191,14 +201,16 @@ body {
 }
 
 .custom-contact-navbar {
-  background-color: rgb(0, 0, 0);
+  // border-bottom: 1px solid rgb(226, 226, 226);
+  // box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.2);
 }
 
 .custom-contact {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  box-shadow: 0 0 10px rgb(226, 226, 226);
   border-radius: 1rem;
   transform: translateY(20%);
-  animation: slideIn 1s ease-in-out forwards;
+  animation: slideIn 1.5s ease-in-out forwards, opacity 1s forwards;
 }
 
 table tr[data-href] {
@@ -210,12 +222,8 @@ textarea {
 }
 
 .custom-form {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0 0 8px rgb(226, 226, 226);
   // background: image(images\contact-bkg.jpg);
-}
-
-.contact-overlay {
-  background-color: rgba(0, 0, 0, 0.644);
 }
 
 h1 {
