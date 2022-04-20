@@ -10,38 +10,9 @@ body {
   padding-top: $top-val;
 }
 
-#index,
-#about,
-#massages {
-  overflow: hidden;
-}
-
-@mixin current-page-style {
-  color: $orange;
-  border-bottom: $orange solid 1px;
-}
-
-@mixin nav-link-style {
-  border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
-  transition: 1s ease-in-out;
-}
-
-@mixin hover-style {
-  color: $orange;
-  transition: 0.2s ease-in-out;
-}
-
 #index {
-  .nav-link {
+  .nav-link-style {
     color: white;
-    @include nav-link-style;
-
-    &:hover {
-      @include hover-style;
-    }
-    &.current-page {
-      @include current-page-style;
-    }
   }
 }
 
@@ -49,16 +20,27 @@ body {
 #massages,
 #prices,
 #contact {
-  .nav-link {
+  .nav-link-style {
     color: black;
-    @include nav-link-style;
+  }
+}
 
+#index,
+#about,
+#massages,
+#prices,
+#contact {
+  .nav-link-style {
+    border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
+    transition: 0.5s ease-in-out;
     &:hover {
-      @include hover-style;
+      color: $orange;
+      transition: 0.2s ease-in-out;
     }
-    &.current-page {
-      @include current-page-style;
-    }
+  }
+  .current-page-style {
+    color: $orange;
+    border-bottom: $orange solid 1px;
   }
 }
 
@@ -100,18 +82,16 @@ body {
 // }
 
 .index-logo {
-  opacity: 0.1;
-  animation: opacity 3s ease forwards;
+  animation: fade-in 3s ease forwards;
 }
 
 .index-text {
-  opacity: 0;
   font-size: 4.5rem;
   line-height: 4rem;
   font-family: $tangerine;
   text-shadow: 2px 2px 3px black;
   transform: translateY(20%);
-  animation: slideIn 1s linear forwards, opacity 2s forwards;
+  animation: slideUp 1s linear forwards, fade-in 2s forwards;
 }
 
 .overlay {
@@ -138,18 +118,13 @@ body {
 .custom-img-massages {
   box-shadow: 0 0 5px black;
   opacity: 0.3;
-  animation: opacity 2s ease forwards;
+  animation: fade-in 2s ease forwards;
 }
 
 .custom-para-about {
   line-height: 2.2rem;
-  opacity: 0;
   transform: translateY(10%);
-  animation: slideIn 1s linear forwards, opacity 2s forwards;
-}
-
-.current-page {
-  @include current-page-style;
+  animation: slideUp 1s linear forwards, fade-in 2s forwards;
 }
 
 .thead-sticker {
@@ -196,21 +171,19 @@ body {
 }
 
 .custom-prices {
-  opacity: 0;
-  animation: opacity 1s ease forwards;
+  animation: fade-in 1s ease forwards;
 }
 
-.custom-contact-navbar {
-  // border-bottom: 1px solid rgb(226, 226, 226);
-  // box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.2);
-}
+// .custom-contact-navbar {
+//   // border-bottom: 1px solid rgb(226, 226, 226);
+//   // box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.2);
+// }
 
 .custom-contact {
-  opacity: 0;
   box-shadow: 0 0 10px rgb(226, 226, 226);
   border-radius: 1rem;
   transform: translateY(20%);
-  animation: slideIn 1.5s ease-in-out forwards, opacity 1s forwards;
+  animation: slideUp 1.5s ease-in-out forwards, fade-in 1s forwards;
 }
 
 table tr[data-href] {
@@ -273,14 +246,43 @@ h1 {
   }
 }
 
-@keyframes slideIn {
+@keyframes slideUp {
   100% {
-    transform: translateX(0%);
+    transform: translateY(0%);
   }
 }
 
-@keyframes opacity {
-  100% {
+@keyframes fade-in {
+  from {
+    opacity: 0.2;
+  }
+  to {
     opacity: 1;
   }
 }
+
+// .fade-out {
+//   animation: fade-out 1s linear forwards;
+// }
+
+// .slide-down {
+//   animation: slide-down 1s linear forwards, fade-out 0.5s linear forwards;
+// }
+
+// @keyframes fade-out {
+//   from {
+//     opacity: 1;
+//   }
+//   to {
+//     opacity: 0;
+//   }
+// }
+
+// @keyframes slide-down {
+//   from {
+//     transform: translateY(0%);
+//   }
+//   to {
+//     transform: translateY(20%);
+//   }
+// }
