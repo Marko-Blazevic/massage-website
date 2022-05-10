@@ -13,3 +13,13 @@ $('.click-offset').click(function () {
     window.scrollTo(window.scrollX, window.scrollY - 66);
   }, 10);
 });
+
+const masaze = gsap.utils.toArray('.slide-up');
+gsap.registerPlugin(ScrollTrigger);
+masaze.forEach((masaza) => {
+  gsap.from(masaza, {
+    scrollTrigger: masaza,
+    y: 100,
+    duration: 1,
+  });
+});
