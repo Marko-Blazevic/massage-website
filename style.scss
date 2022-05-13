@@ -44,8 +44,12 @@ body {
   }
 }
 
-.custom-navbar {
-  margin-left: -50px;
+// .custom-navbar {
+//   margin-left: -50px;
+// }
+
+.low-opacity {
+  opacity: 0.2;
 }
 
 // #backdrop {
@@ -74,28 +78,10 @@ body {
   margin-top: -$top-val;
 }
 
-// .contact-background {
-//   background-image: url('images/E51B1764e.jpg');
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   background-position: center center;
-//   background-attachment: fixed;
-//   min-height: 100vh;
-//   position: fixed;
-//   margin-top: -66px;
-// }
-
-.index-logo {
-  animation: fade-in 3s ease forwards;
-}
-
 .index-text {
   font-size: 4.5rem;
-  // line-height: 4rem;
   font-family: $tangerine;
   text-shadow: 2px 2px 3px black;
-  // transform: translateY(20%);
-  // animation: slideUp 1s linear forwards, fade-in 2s forwards;
 }
 
 .overlay {
@@ -118,17 +104,12 @@ body {
   min-height: calc(100vh - #{$top-val});
 }
 
-.custom-about-image,
-.custom-img-massages {
+.img-shadow {
   box-shadow: 0 0 5px black;
-  opacity: 0.3;
-  animation: fade-in 2s ease forwards;
 }
 
 .custom-para-about {
   line-height: 2.2rem;
-  transform: translateY(10%);
-  animation: slideUp 1s linear forwards, fade-in 2s forwards;
 }
 
 .thead-sticker {
@@ -140,8 +121,7 @@ body {
   box-shadow: 0 0 8px inset rgba(0, 0, 0, 0.2);
 
   li {
-    padding: 0.5rem 2rem;
-    width: 250px;
+    padding: 0.5rem 1rem;
     transition: 0.4s ease-in-out;
     &:hover {
       background-color: rgba(128, 128, 128, 0.1);
@@ -168,17 +148,6 @@ body {
   text-shadow: 0 0 2px gray;
   box-shadow: 1px 1px 3px gray;
 }
-
-.custom-prices {
-  animation: fade-in 1s ease forwards;
-}
-
-// .custom-contact {
-//   box-shadow: 0 0 10px rgb(226, 226, 226);
-//   border-radius: 1rem;
-//   transform: translateY(20%);
-//   animation: slideUp 1.5s ease-in-out forwards, fade-in 1s forwards;
-// }
 
 table tr[data-href] {
   cursor: pointer;
@@ -213,7 +182,7 @@ h1 {
 //   }
 // }
 
-// @media (min-width: 768px) {
+// @media (min-width: 992px) {
 //   .index-text {
 //     font-size: 6rem;
 //   }
@@ -237,46 +206,5 @@ h1 {
 //   }
 //   h1 {
 //     font-size: 2.3rem;
-//   }
-// }
-
-// @keyframes slideUp {
-//   100% {
-//     transform: translateY(0%);
-//   }
-// }
-
-@keyframes fade-in {
-  from {
-    opacity: 0.2;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-// .fade-out {
-//   animation: fade-out 1s linear forwards;
-// }
-
-// .slide-down {
-//   animation: slide-down 1s linear forwards, fade-out 0.5s linear forwards;
-// }
-
-// @keyframes fade-out {
-//   from {
-//     opacity: 1;
-//   }
-//   to {
-//     opacity: 0;
-//   }
-// }
-
-// @keyframes slide-down {
-//   from {
-//     transform: translateY(0%);
-//   }
-//   to {
-//     transform: translateY(20%);
 //   }
 // }

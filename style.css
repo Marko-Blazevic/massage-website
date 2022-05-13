@@ -43,8 +43,8 @@ body {
   border-bottom: #ff9d00 solid 1px;
 }
 
-.custom-navbar {
-  margin-left: -50px;
+.low-opacity {
+  opacity: 0.2;
 }
 
 .index-background {
@@ -56,11 +56,6 @@ body {
   min-height: 100vh;
   position: fixed;
   margin-top: -66px;
-}
-
-.index-logo {
-  -webkit-animation: fade-in 3s ease forwards;
-          animation: fade-in 3s ease forwards;
 }
 
 .index-text {
@@ -87,21 +82,13 @@ body {
   min-height: calc(100vh - 66px);
 }
 
-.custom-about-image,
-.custom-img-massages {
+.img-shadow {
   -webkit-box-shadow: 0 0 5px black;
           box-shadow: 0 0 5px black;
-  opacity: 0.3;
-  -webkit-animation: fade-in 2s ease forwards;
-          animation: fade-in 2s ease forwards;
 }
 
 .custom-para-about {
   line-height: 2.2rem;
-  -webkit-transform: translateY(10%);
-          transform: translateY(10%);
-  -webkit-animation: slideUp 1s linear forwards, fade-in 2s forwards;
-          animation: slideUp 1s linear forwards, fade-in 2s forwards;
 }
 
 .thead-sticker {
@@ -116,8 +103,7 @@ body {
 }
 
 .drop-dwn-m-custom li {
-  padding: 0.5rem 2rem;
-  width: 250px;
+  padding: 0.5rem 1rem;
   -webkit-transition: 0.4s ease-in-out;
   transition: 0.4s ease-in-out;
 }
@@ -152,11 +138,6 @@ body {
           box-shadow: 1px 1px 3px gray;
 }
 
-.custom-prices {
-  -webkit-animation: fade-in 1s ease forwards;
-          animation: fade-in 1s ease forwards;
-}
-
 table tr[data-href] {
   cursor: pointer;
 }
@@ -172,23 +153,5 @@ textarea {
 
 h1 {
   font-size: 2rem;
-}
-
-@-webkit-keyframes fade-in {
-  from {
-    opacity: 0.2;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0.2;
-  }
-  to {
-    opacity: 1;
-  }
 }
 /*# sourceMappingURL=style.css.map */
