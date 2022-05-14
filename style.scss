@@ -44,26 +44,9 @@ body {
   }
 }
 
-// .custom-navbar {
-//   margin-left: -50px;
-// }
-
 .low-opacity {
   opacity: 0.2;
 }
-
-// #backdrop {
-//   position: fixed;
-//   width: 100%;
-//   height: 100vh;
-//   top: 0;
-//   left: 0;
-//   background: rgba(0, 0, 0, 0.75);
-//   z-index: /10;
-//   pointer-events: none;
-//   display: block;
-// }
-// <div id="backdrop"></div>
 
 .index-background {
   background: {
@@ -100,9 +83,9 @@ body {
   }
 }
 
-.custom-index {
-  min-height: calc(100vh - #{$top-val});
-}
+// .custom-index {
+//   // min-height: calc(100vh - #{$top-val});
+// }
 
 .img-shadow {
   box-shadow: 0 0 5px black;
@@ -144,14 +127,6 @@ body {
   }
 }
 
-.custom-send-btn {
-  background-color: $orange;
-  color: white;
-  font-weight: bold;
-  text-shadow: 0 0 2px gray;
-  box-shadow: 1px 1px 3px gray;
-}
-
 table tr[data-href] {
   cursor: pointer;
 }
@@ -162,52 +137,20 @@ textarea {
 
 .custom-form {
   box-shadow: 0 0 8px rgb(226, 226, 226);
-  // background: image(images\contact-bkg.jpg);
 }
 
-h1 {
-  font-size: 2rem;
+@media (max-width: 1199px) {
+  .index-text {
+    font-size: 4.2rem;
+  }
 }
-
-// @media (max-width: 576px) {
-//   .index-text {
-//     font-size: 3rem;
-//     line-height: 3rem;
-//   }
-//   h1 {
-//     font-size: 2rem;
-//   }
-// }
-
-// @media (min-width: 576px) {
-//   .index-text {
-//     font-size: 5rem;
-//   }
-// }
-
-// @media (min-width: 992px) {
-//   .index-text {
-//     font-size: 6rem;
-//   }
-//   h1 {
-//     font-size: 2.1rem;
-//   }
-// }
-
-// @media (min-width: 992px) {
-//   .index-text {
-//     font-size: 6.5rem;
-//   }
-//   h1 {
-//     font-size: 2.1rem;
-//   }
-// }
-
-// @media (min-width: 1200px) {
-//   .index-text {
-//     font-size: 7.5rem;
-//   }
-//   h1 {
-//     font-size: 2.3rem;
-//   }
-// }
+@media (max-width: 991px) {
+  .index-text {
+    font-size: 3.5rem;
+  }
+}
+@media (max-width: 767px) {
+  .index-text {
+    font-size: 3rem;
+  }
+}
