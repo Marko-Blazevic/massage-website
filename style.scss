@@ -61,6 +61,10 @@ body {
   margin-top: -$top-val;
 }
 
+.custom-index {
+  min-height: calc(100vh - #{$top-val});
+}
+
 .index-text {
   font-size: 4.5rem;
   font-family: $tangerine;
