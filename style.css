@@ -102,8 +102,11 @@ body {
           box-shadow: 0 0 8px inset rgba(0, 0, 0, 0.2);
 }
 
+.drop-dwn-m-custom .dropdown-head {
+  color: black;
+}
+
 .drop-dwn-m-custom li {
-  padding: 0.5rem 1rem;
   -webkit-transition: 0.4s ease-in-out;
   transition: 0.4s ease-in-out;
 }
@@ -117,9 +120,10 @@ body {
 }
 
 .drop-dwn-m-custom li a {
+  padding: 0.5rem 1rem;
   color: #ff9d00;
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 
 .drop-dwn-m-custom li a:hover {
