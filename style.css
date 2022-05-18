@@ -1,42 +1,45 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,600&display=swap");
-#index .nav-link-style {
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Tangerine:wght@700&display=swap");
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.index-background {
+  background-image: url("images/index-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-height: 100vw;
+}
+
+.nav-link-style {
   color: white;
 }
 
-#about .nav-link-style,
-#massages .nav-link-style,
-#prices .nav-link-style,
-#contact .nav-link-style {
+.nav-link-style {
   color: black;
 }
 
-#index .nav-link-style,
-#about .nav-link-style,
-#massages .nav-link-style,
-#prices .nav-link-style,
-#contact .nav-link-style {
+.nav-link-style {
   border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
 }
 
-#index .nav-link-style:hover,
-#about .nav-link-style:hover,
-#massages .nav-link-style:hover,
-#prices .nav-link-style:hover,
-#contact .nav-link-style:hover {
+.nav-link-style:hover {
   color: #ff9d00;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
 
-#index .current-page-style,
-#about .current-page-style,
-#massages .current-page-style,
-#prices .current-page-style,
-#contact .current-page-style {
+.current-page-style {
   color: #ff9d00;
   border-bottom: #ff9d00 solid 1px;
+}
+
+.custom-navbar {
+  top: 0;
+  left: 0;
+  position: fixed;
 }
 
 .custom-navbar .nav-link-style {
@@ -57,20 +60,22 @@
   border-bottom: #ff9d00 solid 1px;
 }
 
-#index {
-  background-color: green;
-}
-
 main {
   max-width: 100vw;
   overflow-x: hidden;
 }
 
-.index-background {
-  background-image: url("images/index-background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+.low-opacity {
+  opacity: 0.2;
+}
+
+.overlay {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .index-text {

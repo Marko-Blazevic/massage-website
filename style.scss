@@ -1,68 +1,12 @@
-// @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Tangerine:wght@700&display=swap');
 
 $tangerine: 'Tangerine', cursive;
 $open-sans: 'Open Sans', sans-serif;
 $orange: rgb(255, 157, 0);
 $top-val: 66px;
 
-#index {
-  .nav-link-style {
-    color: white;
-  }
-}
-
-#about,
-#massages,
-#prices,
-#contact {
-  .nav-link-style {
-    color: black;
-  }
-}
-
-#index,
-#about,
-#massages,
-#prices,
-#contact {
-  .nav-link-style {
-    border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
-    transition: 0.5s ease-in-out;
-    &:hover {
-      color: $orange;
-      transition: 0.2s ease-in-out;
-    }
-  }
-  .current-page-style {
-    color: $orange;
-    border-bottom: $orange solid 1px;
-  }
-}
-
-.custom-navbar {
-  .nav-link-style {
-    color: black;
-    border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
-    transition: 0.5s ease-in-out;
-    &:hover {
-      color: $orange;
-      transition: 0.2s ease-in-out;
-    }
-  }
-  .current-page-style {
-    color: $orange;
-    border-bottom: $orange solid 1px;
-  }
-}
-
-#index {
-  background-color: green;
-}
-
-main {
-  max-width: 100vw;
-  overflow-x: hidden;
+body {
+  font-family: $open-sans;
 }
 
 .index-background {
@@ -71,7 +15,73 @@ main {
     size: cover;
     repeat: no-repeat;
     position: center center;
+    height: 100vw;
   }
+}
+
+.nav-link-style {
+  color: white;
+}
+
+.nav-link-style {
+  color: black;
+}
+
+.nav-link-style {
+  border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
+  transition: 0.5s ease-in-out;
+  &:hover {
+    color: $orange;
+    transition: 0.2s ease-in-out;
+  }
+}
+.current-page-style {
+  color: $orange;
+  border-bottom: $orange solid 1px;
+}
+
+.custom-navbar {
+  top: 0;
+  left: 0;
+  position: fixed;
+
+  .nav-link-style {
+    color: black;
+    border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
+    transition: 0.5s ease-in-out;
+    &:hover {
+      color: $orange;
+      transition: 0.2s ease-in-out;
+    }
+  }
+  .current-page-style {
+    color: $orange;
+    border-bottom: $orange solid 1px;
+  }
+}
+
+main {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.low-opacity {
+  opacity: 0.2;
+}
+
+// .custom-background {
+//   background-color: rgba(0, 0, 0, 0.6);
+//   // width: 100vw;
+//   height: 100vh;
+// }
+
+.overlay {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6);
 }
 
 // .custom-index {
@@ -83,15 +93,6 @@ main {
   font-family: $tangerine;
   text-shadow: 2px 2px 3px black;
 }
-
-// .overlay {
-//   position: absolute;
-//   height: 100vh;
-//   width: 100vw;
-//   left: 0;
-//   top: 0;
-//   background: rgba(0, 0, 0, 0.6);
-// }
 
 .name {
   font: {
