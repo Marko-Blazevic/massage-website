@@ -7,6 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" />
+
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
@@ -34,31 +36,31 @@
               <a class="nav-link nav-link-style" href="about.html">O nama</a>
             </li>
             <li class="dropdown nav-item">
-              <a href="massages.html" class="dropdown-toggle nav-link nav-link-style" id="dropdown-usluge"
-                data-toggle="dropdown" aria-expanded="false">Usluge</a>
+              <a href="" class="dropdown-toggle nav-link nav-link-style" id="dropdown-usluge" data-toggle="dropdown"
+                aria-expanded="false">Usluge</a>
               <ul class="dropdown-menu drop-dwn-m-custom" aria-labelledby="dropdown-usluge">
-                <li><a class="dropdown-item" href="massages.html">Masaže &raquo;</a>
+                <li><a class="dropdown-item" href="">Masaže &raquo;</a>
                   <ul class="submenu dropdown-menu drop-dwn-m-custom">
-                    <li><a class="dropdown-item" href=" massages.html#holisticka">Holistička masaža</a></li>
-                    <li><a class="dropdown-item" href=" massages.html#klasicna">Klasična
+                    <li><a class="dropdown-item" href=" #holisticka">Holistička masaža</a></li>
+                    <li><a class="dropdown-item" href=" #klasicna">Klasična
                         - Relax masaža</a></li>
-                    <li><a class="dropdown-item" href=" massages.html#anti-stres">Anti-Stres Masaža</a></li>
-                    <li><a class="dropdown-item" href=" massages.html#kamenje">Masaža
+                    <li><a class="dropdown-item" href=" #anti-stres">Anti-Stres Masaža</a></li>
+                    <li><a class="dropdown-item" href=" #kamenje">Masaža
                         Vulkanskim kamenjem</a></li>
-                    <li><a class="dropdown-item" href=" massages.html#trudnice">Masaža
+                    <li><a class="dropdown-item" href=" #trudnice">Masaža
                         za trudnice</a></li>
-                    <li><a class="dropdown-item" href=" massages.html#parcijalne">Parcijalne masaže</a></li>
-                    <li><a class="dropdown-item" href=" massages.html#terapeutska">Terapeutska masaža</a>
+                    <li><a class="dropdown-item" href=" #parcijalne">Parcijalne masaže</a></li>
+                    <li><a class="dropdown-item" href=" #terapeutska">Terapeutska masaža</a>
                     </li>
-                    <li><a class="dropdown-item" href=" massages.html#limfna">Limfna
+                    <li><a class="dropdown-item" href=" #limfna">Limfna
                         drenaža</a></li>
-                    <li><a class="dropdown-item" href=" massages.html#ampuku">Ampuku</a>
+                    <li><a class="dropdown-item" href=" #ampuku">Ampuku</a>
                     </li>
-                    <li><a class="dropdown-item" href=" massages.html#refleksologija">Refleksologija
+                    <li><a class="dropdown-item" href=" #refleksologija">Refleksologija
                         Stopala</a></li>
-                    <li><a class="dropdown-item" href=" massages.html#rasayana">Rasayana
+                    <li><a class="dropdown-item" href=" #rasayana">Rasayana
                         Abhyanga</a></li>
-                    <li><a class="dropdown-item" href=" massages.html#anticelulit">Anticelulit masaža</a></li>
+                    <li><a class="dropdown-item" href=" #anticelulit">Anticelulit masaža</a></li>
                   </ul>
                 </li>
                 <li><a class="dropdown-item" href="#">Neke druge usluge &raquo;</a>
@@ -87,7 +89,7 @@
   <main>
     <div class="container-fluid">
 
-      <div id="index" class="index-background row justify-content-center h-75">
+      <div id="index" class="index-background row justify-content-center">
 
         <div class="row mt-5 p-3">
           <div class="col">
@@ -101,7 +103,7 @@
 
 
 
-      <div id="about" class="container mt-5">
+      <div id="about" class="container my-5">
         <p class="slide-up font-italic lead custom-para-about">
           Studio za masažu <span class="name">Oasis</span> ima jedinstven i svojevrstan pristup klijentima. Spoj
           prepoznavanja individualnih potreba pojedinca i poznavanja većeg broja različitih tehnika masaža i
@@ -120,14 +122,12 @@
       </div>
 
 
-      <img src="images\holisticka.jpg" class="img-fluid fade-in low-opacity img-shadow"
-        alt="Picture of hands massaging a woman's back.">
-
-
-      <div class="container">
+      <div id="massages" class="container">
+        <img src="images\holisticka.jpg" class="img-fluid fade-in low-opacity "
+          alt="Picture of hands massaging a woman's back.">
 
         <div id="holisticka" class="slide-up mt-3 border-bottom ">
-          <h2>Holistička masaža</h2>
+          <h3>Holistička masaža</h3>
           <p>
             Kada se radi iz Holističke perspektive, telo se posmatra kao refleksija cele osobe i svih njenih
             proživljenih
@@ -161,7 +161,7 @@
         </div>
 
         <div id="klasicna" class=" slide-left mt-3 border-bottom ">
-          <h2>Klasična - Relax masaža</h2>
+          <h3>Klasična - Relax masaža</h3>
           <p>
             Prijatna manuelna masaža kojom se postiže opuštanje mišića i celokupnog organizma. Ima okrepljujuće i
             umirujuće
@@ -178,7 +178,7 @@
         </div>
 
         <div id="anti-stres" class="slide-right mt-3 border-bottom ">
-          <h2>Anti-Stres Masaža</h2>
+          <h3>Anti-Stres Masaža</h3>
           <p>
             Anti-Stres masaža je spoj nekoliko različitih tehnika masaže pomoću kojih se klijent na najefikasniji
             način
@@ -203,7 +203,7 @@
         </div>
 
         <div id="kamenje" class=" slide-up mt-3 border-bottom ">
-          <h2>Masaža Vulkanskim kamenjem</h2>
+          <h3>Masaža Vulkanskim kamenjem</h3>
           <p>
             Masaža vulkanskim kamenjem je vrsta opuštajuće termoterapije kod koje se masaža celog tela vrši
             posebnim,
@@ -230,7 +230,7 @@
         </div>
 
         <div id="trudnice" class=" slide-left mt-3 border-bottom ">
-          <h2>Masaža za trudnice</h2>
+          <h3>Masaža za trudnice</h3>
           <p>
             Posebne potrebe koje trudnice imaju, s obzirom da njihovo telo prolazi kroz ogromne promene, zahtevaju i
             poseban
@@ -258,7 +258,7 @@
         </div>
 
         <div id="parcijalne" class=" slide-right mt-3 border-bottom ">
-          <h2>Parcijalne masaže</h2>
+          <h3>Parcijalne masaže</h3>
           <p>
             Ukoliko klijent nema vremena za masažu celog tela, na raspolaganju su neke od mnogobrojnih parcijalnih
             masaža,
@@ -284,7 +284,7 @@
         </div>
 
         <div id="terapeutska" class=" slide-up mt-3 border-bottom ">
-          <h2>Terapeutska masaža</h2>
+          <h3>Terapeutska masaža</h3>
           <p>
             Kroz život, prilikom naglog pokreta ili trzaja, nošenjem prekomernog tereta ili stalnim ponavljanjem
             jednih te
@@ -308,7 +308,7 @@
         </div>
 
         <div id="limfna" class="slide-left mt-3 border-bottom">
-          <h2>Limfna drenaža</h2>
+          <h3>Limfna drenaža</h3>
           <p>
             Limfna drenaža je nezamenjiv terapeutski postupak za stimulisanje i uspostavljavljanje pravilne
             cirkulacije
@@ -335,7 +335,7 @@
           </p>
         </div>
         <div id="ampuku" class=" slide-right mt-3 border-bottom ">
-          <h2>Ampuku</h2>
+          <h3>Ampuku</h3>
           <p>
             Tradicionalna japanska tehnika masaže stomaka kod koje se palpacijom vrši dijagnoza i tretman abdomena.
             <br>
@@ -361,7 +361,7 @@
         </div>
 
         <div id="refleksologija" class=" slide-up mt-3 border-bottom ">
-          <h2>Refleksologija Stopala</h2>
+          <h3>Refleksologija Stopala</h3>
           <p>
             Refleksologija stopala je tehnika kod koje primenom odgovarajućih pokreta i pritisaka na specifične
             tačke
@@ -379,7 +379,7 @@
         </div>
 
         <div id="rasayana" class=" slide-left mt-3 border-bottom ">
-          <h2>Rasayana Abhyanga (Masaža Podmlađivanja)</h2>
+          <h3>Rasayana Abhyanga (Masaža Podmlađivanja)</h3>
           <p>
             Drevna Ajurvedska tehnika regenerativne masaže, namenjena očuvanju i unapredjenju metaboličkog perioda u
             životu
@@ -403,7 +403,7 @@
         </div>
 
         <div id="anticelulit" class=" slide-right mt-3 border-bottom ">
-          <h2>Anticelulit masaža</h2>
+          <h3>Anticelulit masaža</h3>
           <p>
             Anticelulit masaža predstavlja jedan od najefikasnijih metoda za uklanjanje celulita sa osetljivih
             regija
@@ -437,13 +437,143 @@
             </ul>
           </div>
         </div>
+      </div>
 
+      <div id="prices" class="container mt-5 fade-in">
+        <table class="table table-hover mt-3  w-auto">
+          <thead>
+            <tr>
+              <th class="thead-sticker bg-light" scope="col">Masaža</th>
+              <th class="thead-sticker bg-light" scope="col">Trajanje</th>
+              <th class="thead-sticker bg-light" scope="col">Cena</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-href="#holisticka">
+              <td scope="row">Holistička masaža</td>
+              <td scope="row"> 100-120 minuta</td>
+              <td scope="row">2500 dinara </td>
+            </tr>
+            <tr data-href="#klasicna">
+              <td scope="row">Klasična - Relax masaža</td>
+              <td scope="row">60 minuta</td>
+              <td scope="row">1800 dinara</td>
+            </tr>
+            <tr data-href="#anti-stres">
+              <td scope="row">Anti-Stres Masaža</td>
+              <td scope="row">75 minuta</td>
+              <td scope="row">2000 dinara</td>
+            </tr>
+            <tr data-href="#kamenje">
+              <td scope="row">Masaža Vulkanskim kamenjem</td>
+              <td scope="row">90 minuta</td>
+              <td scope="row">2200 dinara</td>
+            </tr>
+            <tr data-href="#trudnice">
+              <td scope="row">Masaža za trudnice</td>
+              <td scope="row">60 minuta</td>
+              <td scope="row">1800 dinara</td>
+            </tr>
+            <tr data-href="#parcijalne">
+              <td scope="row">Parcijalne masaže</td>
+              <td scope="row">30 minuta</td>
+              <td scope="row">1000 dinara</td>
+            </tr>
+            <tr data-href="#terapeutska">
+              <td scope="row">Terapeutska masaža</td>
+              <td scope="row">45 minuta</td>
+              <td scope="row">1200 dinara</td>
+            </tr>
+            <tr data-href="#limfna">
+              <td scope="row">Limfna drenaža</td>
+              <td scope="row">60 minuta</td>
+              <td scope="row">1800 dinara</td>
+            </tr>
+            <tr data-href="#ampuku">
+              <td scope="row">Ampuku</td>
+              <td scope="row">45 minuta</td>
+              <td scope="row">1400 dinara</td>
+            </tr>
+            <tr data-href="#refleksologija">
+              <td scope="row">Refleksologija Stopala</td>
+              <td scope="row">45 minuta</td>
+              <td scope="row">1400 dinara</td>
+            </tr>
+            <tr data-href="#rasayana">
+              <td scope="row">Rasayana Abhyanga</td>
+              <td scope="row">60 minuta</td>
+              <td scope="row">2200 dinara</td>
+            </tr>
+            <tr data-href="#anticelulit">
+              <td scope="row">Anticelulit masaža</td>
+              <td scope="row">kliknite za više informacija</td>
+              <td scope="row">kliknite za više informacija</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
 
+      <div id="contact" class="container mt-5">
+        <div class="row shadow p-5 mt-3 rounded">
+
+          <div class="col-8 border-right">
+            <form>
+              <div class=" row">
+                <div class="col mb-3 ">
+                  <label for="first-name" class="form-label">Ime</label>
+                  <input id="first-name" type="text" class="form-control">
+                </div>
+                <div class="col  mb-3">
+                  <label for="last-name" class="form-label">Prezime</label>
+                  <input id="last-name" type="text" class="form-control">
+                </div>
+              </div>
+              <div class="row ">
+                <div class="col mb-3">
+                  <label for="phone" class="form-label">Broj telefona</label>
+                  <input id="phone" type="number" class="form-control">
+                </div>
+                <div class="col  mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input id="email" type="email" class="form-control">
+                </div>
+              </div>
+              <div class="row px-3">
+                <label for="message" class="form-label">Poruka</label>
+                <textarea id="message" class="form-control"></textarea>
+              </div>
+              <div class="row mt-4 justify-content-center">
+                <button type="submit"
+                  class="btn btn-outline-warning text-dark border rounded shadow px-5 m-2">Pošalji</button>
+                <button type="button"
+                  class="btn btn-outline-warning text-dark border rounded shadow px-5 m-2">Otkaži</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-4">
+            <div class="container">
+              <p class="text-center">
+                <strong>Adresa:</strong>
+                <br> High Rock Settlement
+                <br> Bahamas
+                <br> (druga kuća sa leve strane)
+              </p>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5740.865875602776!2d-77.5696431519198!3d24.130846031240253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smoon%20satelite!5e1!3m2!1sen!2sus!4v1606435915712!5m2!1sen!2sus"
+                width="300" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0" class="img-fluid">
+              </iframe>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
-    </div>
+
   </main>
 
   <footer></footer>
