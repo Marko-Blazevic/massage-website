@@ -6,20 +6,6 @@ $open-sans: 'Open Sans', sans-serif;
 $orange: rgb(255, 157, 0);
 $top-val: 66px;
 
-// body {
-//   padding-top: $top-val;
-
-// }
-
-body {
-  padding-top: $top-val;
-}
-
-// header {
-//   max-width: 100vw;
-//   overflow-x: hidden;
-// }
-
 #index {
   .nav-link-style {
     color: white;
@@ -70,34 +56,14 @@ body {
   }
 }
 
-header {
-  width: 100vw;
-  // min-height: 66px;
-}
-
 #index {
   background-color: green;
 }
 
-.main-massages {
+main {
   max-width: 100vw;
   overflow-x: hidden;
 }
-
-// .low-opacity {
-//   opacity: 0.2;
-// }
-
-// .slide-up {
-//   transform: translateY(50px);
-// }
-
-// .slide-right {
-//   transform: translateX(50px);
-// }
-// .slide-left {
-//   transform: translateX(-50px);
-// }
 
 .index-background {
   background: {
@@ -105,9 +71,7 @@ header {
     size: cover;
     repeat: no-repeat;
     position: center center;
-    height: 100vh;
   }
-  // margin-top: -$top-val;
 }
 
 // .custom-index {
@@ -120,14 +84,14 @@ header {
   text-shadow: 2px 2px 3px black;
 }
 
-.overlay {
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  left: 0;
-  top: 0;
-  background: rgba(0, 0, 0, 0.6);
-}
+// .overlay {
+//   position: absolute;
+//   height: 100vh;
+//   width: 100vw;
+//   left: 0;
+//   top: 0;
+//   background: rgba(0, 0, 0, 0.6);
+// }
 
 .name {
   font: {
@@ -135,10 +99,6 @@ header {
     size: 2.5rem;
   }
 }
-
-// .custom-index {
-//   // min-height: calc(100vh - #{$top-val});
-// }
 
 .img-shadow {
   box-shadow: 0 0 5px black;
