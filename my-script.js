@@ -22,7 +22,7 @@ const slideUp = gsap.utils.toArray('.slide-up');
 slideUp.forEach((elem) => {
   gsap.from(elem, {
     scrollTrigger: elem,
-    y: 30,
+    y: 50,
     duration: 1,
     opacity: 0.2,
   });
@@ -32,7 +32,7 @@ const slideLeft = gsap.utils.toArray('.slide-left');
 slideLeft.forEach((elem) => {
   gsap.from(elem, {
     scrollTrigger: elem,
-    x: -30,
+    x: -50,
     duration: 1,
     opacity: 0.2,
   });
@@ -42,7 +42,7 @@ const slideRight = gsap.utils.toArray('.slide-right');
 slideRight.forEach((elem) => {
   gsap.from(elem, {
     scrollTrigger: elem,
-    x: 30,
+    x: 50,
     duration: 1,
     opacity: 0.2,
   });

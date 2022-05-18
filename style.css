@@ -43,23 +43,43 @@ body {
   border-bottom: #ff9d00 solid 1px;
 }
 
-.low-opacity {
-  opacity: 0.2;
+.custom-navbar .nav-link-style {
+  color: black;
+  border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+.custom-navbar .nav-link-style:hover {
+  color: #ff9d00;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+.custom-navbar .current-page-style {
+  color: #ff9d00;
+  border-bottom: #ff9d00 solid 1px;
+}
+
+header {
+  width: 100vw;
+}
+
+#index {
+  background-color: green;
+}
+
+.main-massages {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .index-background {
   background-image: url("images/index-background.jpg");
-  background-repeat: no-repeat;
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center center;
-  background-attachment: fixed;
-  min-height: 100vh;
-  position: fixed;
-  margin-top: -66px;
-}
-
-.custom-index {
-  min-height: calc(100vh - 66px);
+  background-height: 100vh;
 }
 
 .index-text {
@@ -70,8 +90,8 @@ body {
 
 .overlay {
   position: absolute;
-  min-height: 100%;
-  min-width: 100%;
+  height: 100vh;
+  width: 100vw;
   left: 0;
   top: 0;
   background: rgba(0, 0, 0, 0.6);
