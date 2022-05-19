@@ -73,47 +73,47 @@
         </div>
       </nav>
 
-      <div class="container">
-        <div class="row shadow p-5 mt-3 rounded">
 
-          <div class="col-8 border-right">
-            <form>
-              <div class=" row">
-                <div class="col mb-3 ">
-                  <label for="first-name" class="form-label">Ime</label>
-                  <input id="first-name" type="text" class="form-control">
-                </div>
-                <div class="col  mb-3">
-                  <label for="last-name" class="form-label">Prezime</label>
-                  <input id="last-name" type="text" class="form-control">
-                </div>
-              </div>
-              <div class="row ">
-                <div class="col mb-3">
-                  <label for="phone" class="form-label">Broj telefona</label>
-                  <input id="phone" type="number" class="form-control">
-                </div>
-                <div class="col  mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input id="email" type="email" class="form-control">
-                </div>
-              </div>
-              <div class="row px-3">
-                <label for="message" class="form-label">Poruka</label>
-                <textarea id="message" class="form-control"></textarea>
-              </div>
-              <div class="row mt-4 justify-content-center">
-                <button type="submit"
-                  class="btn btn-outline-warning text-dark border rounded shadow px-5 m-2">Pošalji</button>
-                <button type="button"
-                  class="btn btn-outline-warning text-dark border rounded shadow px-5 m-2">Otkaži</button>
-              </div>
-            </form>
+      <div class="container">
+        <div class="card">
+          <div class="card-image">
+            <h2 class="card-heading">
+              Get started
+              <small>Let us create your account</small>
+            </h2>
           </div>
 
-          <div class="col-4">
+          <form class="p-3">
+            <div class="input">
+              <input id="first-name" type="text" class="form-control input-field" required />
+              <label for="first-name" class="form-label input-label">Ime</label>
+            </div>
+            <div class="input">
+              <input id="last-name" type="text" class="form-control input-field" required />
+              <label for="last-name" class="form-label input-label">Prezime</label>
+            </div>
+            <div class="input">
+              <input id="phone-number" type="text" class="form-control input-field" required />
+              <label for="phone-number" class="form-label input-label">Broj telefona</label>
+            </div>
+            <div class="input">
+              <input id="email" type="email" class="form-control input-field" required />
+              <label class="form-label input-label">Email</label>
+            </div>
+            <div class="input">
+              <textarea id="message" class="form-control input-field" required></textarea>
+              <label for="message" class="form-label input-label">Poruka</label>
+            </div>
+
+            <div class="mt-4">
+              <button type="button" class="action-button btn shadow btn-warning  px-5 mb-3">Otkaži</button>
+              <button type="submit" class="action-button btn shadow btn-warning  px-5 mb-3">Pošalji</button>
+            </div>
+
+          </form>
+          <div class="col mt-3">
             <div class="container">
-              <p class="text-center">
+              <p>
                 <strong>Adresa:</strong>
                 <br> High Rock Settlement
                 <br> Bahamas
@@ -126,9 +126,10 @@
               </iframe>
             </div>
           </div>
-
+          <div class="card-info">
+            <p>By signing up you are agreeing to our <a href="#">Terms and Conditions</a></p>
+          </div>
         </div>
-
       </div>
 
     </div>

@@ -91,7 +91,7 @@
       <div id="index" class="index-background row justify-content-center">
         <div class="row mt-5 p-3">
           <div class="col">
-            <img src="images/logo-text.png" class="img-fluid low-opacity fade-in"
+            <img src="images/logo-text.png" class="img-fluid low-opacity fade-in e"
               alt="Big Oasis logo with palm trees inside the letter O">
             <p class="slide-up index-text text-center text-white mt-5">Mesto gde pustinja prestaje...</p>
           </div>
@@ -513,42 +513,67 @@
       </div>
 
 
-      <div id="contact" class="container mt-5">
-        <div class="row shadow p-3 mt-3 rounded">
 
-          <form>
-            <label for="first-name" class="form-label">Ime</label>
-            <input id="first-name" type="text" class="form-control mb-3">
-            <label for="last-name" class="form-label">Prezime</label>
-            <input id="last-name" type="text" class="form-control mb-3">
-            <label for="phone" class="form-label">Broj telefona</label>
-            <input id="phone" type="number" class="form-control mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input id="email" type="email" class="form-control mb-3">
-            <label for="message" class="form-label">Poruka</label>
-            <textarea id="message" class="form-control mb-3"></textarea>
-            <button type="button" class="btn shadow btn-warning  px-5 mb-3">Otkaži</button>
-            <button type="submit" class="btn shadow btn-warning px-5 mb-3">Pošalji</button>
-          </form>
-
-          <div class="col mt-3">
-            <div class="container">
-              <p>
-                <strong>Adresa:</strong>
-                <br> High Rock Settlement
-                <br> Bahamas
-                <br> (druga kuća sa leve strane)
-              </p>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5740.865875602776!2d-77.5696431519198!3d24.130846031240253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smoon%20satelite!5e1!3m2!1sen!2sus!4v1606435915712!5m2!1sen!2sus"
-                width="300" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-                tabindex="0" class="img-fluid">
-              </iframe>
-            </div>
-          </div>
-
-        </div>
+      <div class="row justify-content-center contact-card">
+        <img src="images/contact-smaller.jpg" class="img-fluid card-image ">
+        <h2 class="card-heading">
+          Kontaktirajte nas.
+          <p class="contact-small text-center">Stojimo Vam na raspolaganju.</p>
+        </h2>
+        <div class="overlay-contact"></div>
       </div>
+    </div>
+
+
+
+    <div class="container">
+      <form class="p-3">
+        <div class="input">
+          <input id="first-name" type="text" class="form-control input-field" required />
+          <label for="first-name" class="form-label input-label">Ime</label>
+        </div>
+        <div class="input">
+          <input id="last-name" type="text" class="form-control input-field" required />
+          <label for="last-name" class="form-label input-label">Prezime</label>
+        </div>
+        <div class="input">
+          <input id="phone-number" type="text" class="form-control input-field" required />
+          <label for="phone-number" class="form-label input-label">Broj telefona</label>
+        </div>
+        <div class="input">
+          <input id="email" type="email" class="form-control input-field" required />
+          <label class="form-label input-label">Email</label>
+        </div>
+        <div class="input">
+          <textarea id="message" class="form-control input-field" required></textarea>
+          <label for="message" class="form-label input-label">Poruka</label>
+        </div>
+        <div class="mt-4">
+          <button type="button" class="action-button btn shadow px-5 mb-3">Otkaži</button>
+          <button type="submit" class="action-button btn shadow px-5 mb-3">Pošalji</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="col mt-3">
+      <div class="container">
+        <p>
+          <strong>Adresa:</strong>
+          <br> High Rock Settlement
+          <br> Bahamas
+          <br> (druga kuća sa leve strane)
+        </p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5740.865875602776!2d-77.5696431519198!3d24.130846031240253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smoon%20satelite!5e1!3m2!1sen!2sus!4v1606435915712!5m2!1sen!2sus"
+          width="300" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"
+          class="img-fluid">
+        </iframe>
+      </div>
+    </div>
+    <div class="card-info">
+      <p>By signing up you are agreeing to our <a href="#">Terms and Conditions</a></p>
+    </div>
+    </div>
 
 
     </div>
