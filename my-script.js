@@ -40,11 +40,11 @@ $('table tr').click(function () {
 // href when clicked on table row
 if (document.location.hash) {
   setTimeout(function () {
-    window.scrollTo(window.scrollX, window.scrollY - 66);
+    window.scrollTo(window.scrollX, window.scrollY - 75);
   }, 10);
 }
 
-// href when clicked on nav dropdow Usluge
+// href when clicked on nav dropdown Usluge
 $('.click-offset').click(function () {
   setTimeout(function () {
     window.scrollTo(window.scrollX, window.scrollY - 75);
@@ -59,7 +59,7 @@ slideUp.forEach((elem) => {
     scrollTrigger: elem,
     y: 50,
     duration: 1,
-    opacity: 0.2,
+    opacity: 0.5,
   });
 });
 
@@ -85,4 +85,24 @@ slideRight.forEach((elem) => {
 
 gsap.to('.logo', { rotation: 360, duration: 1, delay: 1.5 });
 
-gsap.to('.fade-in', { duration: 2, opacity: 1 });
+gsap.from('.fade-in', { duration: 2.5, opacity: 0.2 });
+
+const slideLeftMassages = gsap.utils.toArray('.slide-left-massages');
+slideLeftMassages.forEach((elem) => {
+  gsap.from(elem, {
+    scrollTrigger: elem,
+    x: -50,
+    duration: 0.8,
+    opacity: 0.5,
+  });
+});
+
+const slideRightMassages = gsap.utils.toArray('.slide-right-massages');
+slideRightMassages.forEach((elem) => {
+  gsap.from(elem, {
+    scrollTrigger: elem,
+    x: 50,
+    duration: 0.8,
+    opacity: 0.5,
+  });
+});

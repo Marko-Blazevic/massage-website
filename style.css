@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Tangerine:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Tangerine:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Tangerine:wght@700&display=swap"');
 body {
   font-family: "Open Sans", sans-serif;
 }
@@ -9,7 +10,13 @@ main {
 }
 
 #index {
+  padding-top: 66px;
   height: 100vh;
+  overflow-y: hidden;
+}
+
+#about {
+  font-weight: 300;
 }
 
 .nav-link-style {
@@ -73,24 +80,23 @@ main {
 }
 
 .index-text {
+  position: relative;
   font-size: 4.5rem;
   font-family: "Tangerine", cursive;
   text-shadow: 2px 2px 3px black;
-  z-index: 30;
+}
+
+.logo-index-custom {
+  position: relative;
 }
 
 .overlay-index {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.65);
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
-}
-
-.logo-index-custom {
-  z-index: 30;
 }
 
 .overlay-contact {
@@ -225,7 +231,6 @@ form textarea {
 
 .card-heading {
   position: absolute;
-  margin: auto;
   font-family: "Tangerine", cursive;
   font-size: 4rem;
   color: #ff9d00;
