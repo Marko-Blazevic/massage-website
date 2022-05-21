@@ -85,6 +85,4 @@ slideRight.forEach((elem) => {
 
 gsap.to('.logo', { rotation: 360, duration: 1, delay: 1.5 });
 
-gsap.from('.slide-up-wo-trigger', { duration: 1.5, opacity: 0.2, y: 30 });
-
 gsap.to('.fade-in', { duration: 2, opacity: 1 });
