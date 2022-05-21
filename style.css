@@ -19,6 +19,15 @@ main {
   font-weight: 300;
 }
 
+#about h2 {
+  font-family: "Tangerine", cursive;
+  font-size: 4rem;
+}
+
+#massages {
+  padding-top: 66px;
+}
+
 .nav-link-style {
   color: white;
 }
