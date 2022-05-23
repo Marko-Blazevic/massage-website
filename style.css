@@ -10,13 +10,13 @@ main {
 }
 
 #index {
-  padding-top: 66px;
+  margin-top: 66px;
   height: 100vh;
   overflow-y: hidden;
 }
 
 #about {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 #about h2 {
@@ -26,14 +26,6 @@ main {
 
 #massages {
   padding-top: 66px;
-}
-
-.nav-link-style {
-  color: white;
-}
-
-.nav-link-style {
-  color: black;
 }
 
 .nav-link-style {
@@ -77,10 +69,6 @@ main {
   border-bottom: #ff9d00 solid 1px;
 }
 
-.low-opacity {
-  opacity: 0.2;
-}
-
 .index-background {
   background-image: url("images/index-background.jpg");
   background-size: cover;
@@ -97,15 +85,6 @@ main {
 
 .logo-index-custom {
   position: relative;
-}
-
-.overlay-index {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.65);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .overlay-contact {
