@@ -11,12 +11,43 @@ main {
 
 #index {
   margin-top: 66px;
-  height: 100vh;
-  overflow-y: hidden;
+  width: 100vw;
+  height: calc(100vh - 66px);
+}
+
+.index-height {
+  min-height: calc(100vh - 66px);
+}
+
+.index-background {
+  background-image: url("images/index-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.overlay-index {
+  margin-top: 66px;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 66px);
+}
+
+.index-text {
+  font-size: 4.5rem;
+  font-family: "Tangerine", cursive;
+  text-shadow: 2px 2px 3px black;
+}
+
+.logo-index-custom {
+  position: relative;
 }
 
 #about {
-  font-weight: 400;
+  font-weight: 300;
 }
 
 #about h2 {
@@ -24,11 +55,27 @@ main {
   font-size: 4rem;
 }
 
+.custom-para-about {
+  font-size: 1.2rem;
+  line-height: 2.2rem;
+}
+
+.about-name {
+  font-family: "Tangerine", cursive;
+  font-size: 2.5rem;
+}
+
 #massages {
   padding-top: 66px;
 }
 
+.custom-navbar {
+  background-color: black;
+  color: white;
+}
+
 .nav-link-style {
+  color: white;
   border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
@@ -43,79 +90,6 @@ main {
 .current-page-style {
   color: #ff9d00;
   border-bottom: #ff9d00 solid 1px;
-}
-
-.custom-navbar {
-  top: 0;
-  left: 0;
-  position: fixed;
-}
-
-.custom-navbar .nav-link-style {
-  color: black;
-  border-bottom: solid rgba(128, 128, 128, 0.4) 1px;
-  -webkit-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
-}
-
-.custom-navbar .nav-link-style:hover {
-  color: #ff9d00;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-}
-
-.custom-navbar .current-page-style {
-  color: #ff9d00;
-  border-bottom: #ff9d00 solid 1px;
-}
-
-.index-background {
-  background-image: url("images/index-background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-.index-text {
-  position: relative;
-  font-size: 4.5rem;
-  font-family: "Tangerine", cursive;
-  text-shadow: 2px 2px 3px black;
-}
-
-.logo-index-custom {
-  position: relative;
-}
-
-.overlay-contact {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 1;
-  border-radius: 0 100px 0 100px;
-}
-
-.about-name {
-  font-family: "Tangerine", cursive;
-  font-size: 2.5rem;
-}
-
-.img-shadow {
-  -webkit-box-shadow: 0 0 5px black;
-          box-shadow: 0 0 5px black;
-}
-
-.custom-para-about {
-  line-height: 2.2rem;
-}
-
-.thead-sticker {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 4rem;
 }
 
 .drop-dwn-m-custom {
@@ -154,6 +128,28 @@ main {
   transition: 0.4s ease-in-out;
 }
 
+.overlay-contact {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  border-radius: 0 100px 0 100px;
+}
+
+.img-shadow {
+  -webkit-box-shadow: 0 0 5px black;
+          box-shadow: 0 0 5px black;
+}
+
+.thead-sticker {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4rem;
+}
+
 table tr[data-href] {
   cursor: pointer;
 }
@@ -175,7 +171,7 @@ form textarea {
 
 @media (max-width: 991px) {
   .index-text {
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
 }
 

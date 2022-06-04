@@ -15,10 +15,11 @@
 <body>
 
   <header>
-    <nav class="navbar navbar-expand-sm navbar-dark custom-navbar">
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark custom-navbar">
       <div class="container-fluid">
-        <div class="navbar-brand"><img src="images\icon-png-white.png" alt="Icon image" height="40" class="logo">
-        </div>
+        <a href="index.html" class="navbar-brand"><img src="images\icon-png-white.png" alt="Icon image" height="40"
+            class="logo">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navigation"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -26,52 +27,44 @@
         <div class="collapse navbar-collapse custom-navbar" id="main-navigation">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <a class="nav-link nav-link-style current-page-style" href="index.html">Početna</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-style" href="about.html">O nama</a>
+              <a class="nav-link" href="#about">O nama</a>
             </li>
             <li class="dropdown nav-item">
-              <a href="" class="dropdown-toggle nav-link nav-link-style" id="dropdown-usluge" data-toggle="dropdown"
-                aria-expanded="false">Usluge</a>
+              <a href="massages.html" class="dropdown-toggle nav-link" id="dropdown-usluge" data-toggle="dropdown"
+                aria-expanded="false">Masaže</a>
               <ul class="dropdown-menu drop-dwn-m-custom" aria-labelledby="dropdown-usluge">
-                <li><a class="dropdown-item" href="massages.html#massages">Masaže &raquo;</a>
-                  <ul class="submenu dropdown-menu drop-dwn-m-custom">
-                    <li><a class="dropdown-item" href="massages.html#holisticka">Holistička masaža</a></li>
-                    <li><a class="dropdown-item" href="massages.html#klasicna">Klasična
-                        - Relax masaža</a></li>
-                    <li><a class="dropdown-item" href="massages.html#anti-stres">Anti-Stres Masaža</a></li>
-                    <li><a class="dropdown-item" href="massages.html#kamenje">Masaža
-                        Vulkanskim kamenjem</a></li>
-                    <li><a class="dropdown-item" href="massages.html#trudnice">Masaža
-                        za trudnice</a></li>
-                    <li><a class="dropdown-item" href="massages.html#parcijalne">Parcijalne masaže</a></li>
-                    <li><a class="dropdown-item" href="massages.html#terapeutska">Terapeutska masaža</a>
-                    </li>
-                    <li><a class="dropdown-item" href="massages.html#limfna">Limfna
-                        drenaža</a></li>
-                    <li><a class="dropdown-item" href="massages.html#ampuku">Ampuku</a>
-                    </li>
-                    <li><a class="dropdown-item" href="massages.html#refleksologija">Refleksologija
-                        Stopala</a></li>
-                    <li><a class="dropdown-item" href="massages.html#rasayana">Rasayana
-                        Abhyanga</a></li>
-                    <li><a class="dropdown-item" href="massages.html#anticelulit">Anticelulit masaža</a></li>
-                  </ul>
+
+
+                <li><a class="dropdown-item" href="massages.html#holisticka">Holistička masaža</a></li>
+                <li><a class="dropdown-item" href="massages.html#klasicna">Klasična
+                    - Relax masaža</a></li>
+                <li><a class="dropdown-item" href="massages.html#anti-stres">Anti-Stres Masaža</a></li>
+                <li><a class="dropdown-item" href="massages.html#kamenje">Masaža
+                    Vulkanskim kamenjem</a></li>
+                <li><a class="dropdown-item" href="massages.html#trudnice">Masaža
+                    za trudnice</a></li>
+                <li><a class="dropdown-item" href="massages.html#parcijalne">Parcijalne masaže</a></li>
+                <li><a class="dropdown-item" href="massages.html#terapeutska">Terapeutska masaža</a>
                 </li>
-                <li><a class="dropdown-item" href="#">Neke druge usluge &raquo;</a>
-                  <ul class="submenu dropdown-menu drop-dwn-m-custom">
-                    <li><a class="dropdown-item" href="#">Usluga 1</a></li>
-                    <li><a class="dropdown-item" href="#">Usluga 2</a></li>
-                  </ul>
+                <li><a class="dropdown-item" href="massages.html#limfna">Limfna
+                    drenaža</a></li>
+                <li><a class="dropdown-item" href="massages.html#ampuku">Ampuku</a>
                 </li>
+                <li><a class="dropdown-item" href="massages.html#refleksologija">Refleksologija
+                    Stopala</a></li>
+                <li><a class="dropdown-item" href="massages.html#rasayana">Rasayana
+                    Abhyanga</a></li>
+                <li><a class="dropdown-item" href="massages.html#anticelulit">Anticelulit masaža</a></li>
+
+
+
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-style" href="prices.html">Cenovnik</a>
+              <a class="nav-link nav-link-style" href="#prices">Cenovnik</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-style" href="contact.html">Kontakt</a>
+              <a class="nav-link nav-link-style" href="#contact">Kontakt</a>
             </li>
             <li class="nav-item">
               <a class="nav-link nav-link-style" href="#">Zakaži uslugu</a>
@@ -83,42 +76,45 @@
   </header>
 
   <main id="main">
-    <div class="container-fluid">
 
-      <div id="index" class="index-background row justify-content-center">
 
-        <div class="column px-3 align-self-center">
-          <div class="overlay-index position-absolute"></div>
+    <div id="index" class="container-fluid index-background">
+      <div class="row index-height justify-content-center align-items-center">
+        <div class="p-3">
+          <div class="overlay-index"></div>
           <img src="images/logo-text.png" class="img-fluid fade-in logo-index-custom"
             alt="Big Oasis logo with palm trees inside the letter O">
           <p class="slide-up index-text text-center text-white mt-5">Mesto gde pustinja prestaje...</p>
         </div>
-
       </div>
 
+    </div>
 
-      <div id="about" class="container pt-4">
-        <h2>O nama</h2>
-        <p class="slide-up font-italic custom-para-about">
-          Studio za masažu <span class="about-name">Oasis</span> ima jedinstven i svojevrstan pristup klijentima. Spoj
-          prepoznavanja individualnih potreba pojedinca i poznavanja većeg broja različitih tehnika masaža i
-          manuelnih
-          terapija, omogućava nam samopouzdan i jedinstven način rada sa svakim klijentom, dok vama ostavlja
-          nepogrešiv
-          osećaj celosti posle masaže. Ukoliko želite da predahnete od svakodnevnice, da se revitalizujete,
-          poboljšate
-          pokretljivost vašeg tela i podstaknete osećaje opuštenosti i zadovoljstva, Studio za masažu <span
-            class="about-name">Oasis</span> je pravo
-          mesto koje će da odgovori vašim potrebama. Nalazimo se u centru grada, pristupačni smo sa cenama i
-          razlikujemo
-          se po kvalitetu tehnika masaža koje koristimo. Svratite i proverite zašto je <span
-            class="about-name">Oasis</span>
-          vaše mesto za masažu.
-        </p>
-      </div>
 
-      <div id="prices" class="container mt-5">
-        <table class="table table-hover mt-3">
+    <div id="about" class="container pt-3">
+      <h2>O nama</h2>
+      <p class=" slide-up font-italic custom-para-about p-2">
+        Studio za masažu <span class="about-name">Oasis</span> ima jedinstven i svojevrstan pristup klijentima.
+        Spoj
+        prepoznavanja individualnih potreba pojedinca i poznavanja većeg broja različitih tehnika masaža i
+        manuelnih
+        terapija, omogućava nam samopouzdan i jedinstven način rada sa svakim klijentom, dok vama ostavlja
+        nepogrešiv
+        osećaj celosti posle masaže. Ukoliko želite da predahnete od svakodnevnice, da se revitalizujete,
+        poboljšate
+        pokretljivost vašeg tela i podstaknete osećaje opuštenosti i zadovoljstva, Studio za masažu <span
+          class="about-name">Oasis</span> je pravo
+        mesto koje će da odgovori vašim potrebama. Nalazimo se u centru grada, pristupačni smo sa cenama i
+        razlikujemo
+        se po kvalitetu tehnika masaža koje koristimo. Svratite i proverite zašto je <span
+          class="about-name">Oasis</span>
+        vaše mesto za masažu.
+      </p>
+    </div>
+
+    <div id="prices" class="container mt-3 ">
+      <div class="row justify-content-center p-3">
+        <table class="table table-hover w-auto">
           <thead>
             <tr class="slide-right-massages">
               <th class="thead-sticker bg-light" scope="col">Masaža</th>
@@ -127,62 +123,62 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="slide-left-massages" data-href="massages.html#holisticka">
+            <tr class="slide-left-massages table-row" data-href="massages.html#holisticka">
               <td scope="row">Holistička masaža</td>
               <td scope="row"> 100-120 minuta</td>
               <td scope="row">2500 dinara </td>
             </tr>
-            <tr class="slide-right-massages" data-href="massages.html#klasicna">
+            <tr class="slide-right-massages table-row" data-href="massages.html#klasicna">
               <td scope="row">Klasična - Relax masaža</td>
               <td scope="row">60 minuta</td>
               <td scope="row">1800 dinara</td>
             </tr>
-            <tr class="slide-left-massages" data-href="massages.html#anti-stres">
+            <tr class="slide-left-massages table-row" data-href="massages.html#anti-stres">
               <td scope="row">Anti-Stres Masaža</td>
               <td scope="row">75 minuta</td>
               <td scope="row">2000 dinara</td>
             </tr>
-            <tr class="slide-right-massages" data-href="massages.html#kamenje">
+            <tr class="slide-right-massages table-row" data-href="massages.html#kamenje">
               <td scope="row">Masaža Vulkanskim kamenjem</td>
               <td scope="row">90 minuta</td>
               <td scope="row">2200 dinara</td>
             </tr>
-            <tr class="slide-left-massages" data-href="massages.html#trudnice">
+            <tr class="slide-left-massages table-row" data-href="massages.html#trudnice">
               <td scope="row">Masaža za trudnice</td>
               <td scope="row">60 minuta</td>
               <td scope="row">1800 dinara</td>
             </tr>
-            <tr class="slide-right-massages" data-href="massages.html#parcijalne">
+            <tr class="slide-right-massages table-row" data-href="massages.html#parcijalne">
               <td scope="row">Parcijalne masaže</td>
               <td scope="row">30 minuta</td>
               <td scope="row">1000 dinara</td>
             </tr>
-            <tr class="slide-left-massages" data-href="massages.html#terapeutska">
+            <tr class="slide-left-massages table-row" data-href="massages.html#terapeutska">
               <td scope="row">Terapeutska masaža</td>
               <td scope="row">45 minuta</td>
               <td scope="row">1200 dinara</td>
             </tr>
-            <tr class="slide-right-massages" data-href="massages.html#limfna">
+            <tr class="slide-right-massages table-row" data-href="massages.html#limfna">
               <td scope="row">Limfna drenaža</td>
               <td scope="row">60 minuta</td>
               <td scope="row">1800 dinara</td>
             </tr>
-            <tr class="slide-left-massages" data-href="massages.html#ampuku">
+            <tr class="slide-left-massages table-row" data-href="massages.html#ampuku">
               <td scope="row">Ampuku</td>
               <td scope="row">45 minuta</td>
               <td scope="row">1400 dinara</td>
             </tr>
-            <tr class="slide-right-massages" data-href="massages.html#refleksologija">
+            <tr class="slide-right-massages table-row" data-href="massages.html#refleksologija">
               <td scope="row">Refleksologija Stopala</td>
               <td scope="row">45 minuta</td>
               <td scope="row">1400 dinara</td>
             </tr>
-            <tr class="slide-left-massages" data-href="massages.html#rasayana">
+            <tr class="slide-left-massages table-row" data-href="massages.html#rasayana">
               <td scope="row">Rasayana Abhyanga</td>
               <td scope="row">60 minuta</td>
               <td scope="row">2200 dinara</td>
             </tr>
-            <tr class="slide-right-massages" data-href="massages.html#anticelulit">
+            <tr class="slide-right-massages table-row" data-href="massages.html#anticelulit">
               <td scope="row">Anticelulit masaža</td>
               <td scope="row">kliknite za više informacija</td>
               <td scope="row">kliknite za više informacija</td>
@@ -190,65 +186,66 @@
           </tbody>
         </table>
       </div>
+    </div>
 
-      <div id="contact">
-        <div class="row justify-content-center contact-card">
-          <img src="images/contact-smaller.jpg" class="img-fluid card-image ">
-          <h2 class="card-heading">
-            Kontakt
-            <!-- <p class="contact-small text-center">Stojimo Vam na raspolaganju.</p> -->
-          </h2>
-          <div class="overlay-contact"></div>
-        </div>
-
-        <div class="container">
-          <form class="p-3">
-            <div class="input">
-              <input id="first-name" type="text" class="form-control input-field" required />
-              <label for="first-name" class="form-label input-label">Ime</label>
-            </div>
-            <div class="input">
-              <input id="last-name" type="text" class="form-control input-field" required />
-              <label for="last-name" class="form-label input-label">Prezime</label>
-            </div>
-            <div class="input">
-              <input id="phone-number" type="text" class="form-control input-field" required />
-              <label for="phone-number" class="form-label input-label">Broj telefona</label>
-            </div>
-            <div class="input">
-              <input id="email" type="email" class="form-control input-field" required />
-              <label class="form-label input-label">Email</label>
-            </div>
-            <div class="input">
-              <textarea id="message" class="form-control input-field" required></textarea>
-              <label for="message" class="form-label input-label">Poruka</label>
-            </div>
-            <div class="mt-4">
-              <button type="button" class="action-button btn shadow px-5 mb-3">Otkaži</button>
-              <button type="submit" class="action-button btn shadow px-5 mb-3">Pošalji</button>
-            </div>
-          </form>
-        </div>
-
-        <div class="col mt-3">
-          <div class="container">
-            <p>
-              <strong>Adresa:</strong>
-              <br> High Rock Settlement
-              <br> Bahamas
-              <br> (druga kuća sa leve strane)
-            </p>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5740.865875602776!2d-77.5696431519198!3d24.130846031240253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smoon%20satelite!5e1!3m2!1sen!2sus!4v1606435915712!5m2!1sen!2sus"
-              width="300" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-              tabindex="0" class="img-fluid">
-            </iframe>
-          </div>
-        </div>
+    <div id="contact">
+      <div class="row justify-content-center contact-card">
+        <img src="images/contact-smaller.jpg" class="img-fluid card-image ">
+        <h2 class="card-heading">
+          Kontakt
+          <!-- <p class="contact-small text-center">Stojimo Vam na raspolaganju.</p> -->
+        </h2>
+        <div class="overlay-contact"></div>
       </div>
 
+      <div class="container">
+        <form class="p-3">
+          <div class="input">
+            <input id="first-name" type="text" class="form-control input-field" required />
+            <label for="first-name" class="form-label input-label">Ime</label>
+          </div>
+          <div class="input">
+            <input id="last-name" type="text" class="form-control input-field" required />
+            <label for="last-name" class="form-label input-label">Prezime</label>
+          </div>
+          <div class="input">
+            <input id="phone-number" type="text" class="form-control input-field" required />
+            <label for="phone-number" class="form-label input-label">Broj telefona</label>
+          </div>
+          <div class="input">
+            <input id="email" type="email" class="form-control input-field" required />
+            <label class="form-label input-label">Email</label>
+          </div>
+          <div class="input">
+            <textarea id="message" class="form-control input-field" required></textarea>
+            <label for="message" class="form-label input-label">Poruka</label>
+          </div>
+          <div class="mt-4">
+            <button type="button" class="action-button btn shadow px-5 mb-3">Otkaži</button>
+            <button type="submit" class="action-button btn shadow px-5 mb-3">Pošalji</button>
+          </div>
+        </form>
+      </div>
 
+      <div class="col mt-3">
+        <div class="container">
+          <p>
+            <strong>Adresa:</strong>
+            <br> High Rock Settlement
+            <br> Bahamas
+            <br> (druga kuća sa leve strane)
+          </p>
+          <!-- <iframe
+            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5740.865875602776!2d-77.5696431519198!3d24.130846031240253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smoon%20satelite!5e1!3m2!1sen!2sus!4v1606435915712!5m2!1sen!2sus"
+            width="300" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0" class="img-fluid">
+          </iframe> -->
+        </div>
+      </div>
     </div>
+
+
+
 
   </main>
 

@@ -33,23 +33,39 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 // DOMContentLoaded  end
 
-$('table tr').click(function () {
-  window.location = $(this).data('href');
-});
+// const navLinks = document.querySelectorAll('.nav-item');
+// const menuToggle = document.getElementById('main-navigation');
+// const bsCollapse = new bootstrap.Collapse(menuToggle);
+// navLinks.forEach((l) => {
+//   l.addEventListener('click', () => {
+//     bsCollapse.toggle();
+//   });
+// });
+
+const tableTr = document.querySelectorAll('.table-row');
+tableTr.forEach((e) =>
+  e.addEventListener(`click`, function (e) {
+    window.location = this.getAttribute('data-href');
+  })
+);
+
+// $('table tr').click(function () {
+//   window.location = $(this).data('href');
+// });
 
 // href when clicked on table row
-if (document.location.hash) {
-  setTimeout(function () {
-    window.scrollTo(window.scrollX, window.scrollY - 75);
-  }, 10);
-}
+// if (document.location.hash) {
+//   setTimeout(function () {
+//     window.scrollTo(window.scrollX, window.scrollY + 66);
+//   }, 10);
+// }
 
 // href when clicked on nav dropdown Usluge
-$('.click-offset').click(function () {
-  setTimeout(function () {
-    window.scrollTo(window.scrollX, window.scrollY - 75);
-  }, 10);
-});
+// $('.click-offset').click(function () {
+//   setTimeout(function () {
+//     window.scrollTo(window.scrollX, window.scrollY + 666);
+//   }, 10);
+// });
 
 gsap.registerPlugin(ScrollTrigger);
 
