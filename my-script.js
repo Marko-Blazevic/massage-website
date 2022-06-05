@@ -1,71 +1,9 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // make it as accordion for smaller screens
-  if (window.innerWidth < 992) {
-    // close all inner dropdowns when parent is closed
-    document
-      .querySelectorAll('.navbar .dropdown')
-      .forEach(function (everydropdown) {
-        everydropdown.addEventListener('hidden.bs.dropdown', function () {
-          // after dropdown is hidden, then find all submenus
-          this.querySelectorAll('.submenu').forEach(function (everysubmenu) {
-            // hide every submenu as well
-            everysubmenu.style.display = 'none';
-          });
-        });
-      });
-
-    document.querySelectorAll('.dropdown-menu a').forEach(function (element) {
-      element.addEventListener('click', function (e) {
-        let nextEl = this.nextElementSibling;
-        if (nextEl && nextEl.classList.contains('submenu')) {
-          // prevent opening link if link needs to open dropdown
-          e.preventDefault();
-          if (nextEl.style.display == 'block') {
-            nextEl.style.display = 'none';
-          } else {
-            nextEl.style.display = 'block';
-          }
-        }
-      });
-    });
-  }
-  // end if innerWidth
-});
-// DOMContentLoaded  end
-
-// const navLinks = document.querySelectorAll('.nav-item');
-// const menuToggle = document.getElementById('main-navigation');
-// const bsCollapse = new bootstrap.Collapse(menuToggle);
-// navLinks.forEach((l) => {
-//   l.addEventListener('click', () => {
-//     bsCollapse.toggle();
-//   });
-// });
-
 const tableTr = document.querySelectorAll('.table-row');
 tableTr.forEach((e) =>
   e.addEventListener(`click`, function (e) {
     window.location = this.getAttribute('data-href');
   })
 );
-
-// $('table tr').click(function () {
-//   window.location = $(this).data('href');
-// });
-
-// href when clicked on table row
-// if (document.location.hash) {
-//   setTimeout(function () {
-//     window.scrollTo(window.scrollX, window.scrollY + 66);
-//   }, 10);
-// }
-
-// href when clicked on nav dropdown Usluge
-// $('.click-offset').click(function () {
-//   setTimeout(function () {
-//     window.scrollTo(window.scrollX, window.scrollY + 666);
-//   }, 10);
-// });
 
 gsap.registerPlugin(ScrollTrigger);
 
