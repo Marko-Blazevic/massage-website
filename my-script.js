@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   el_autohide = document.querySelector('.autohide');
 
   // add padding-top to bady (if necessary)
-  navbar_height = document.querySelector('.navbar').offsetHeight;
+  // navbar_height = document.querySelector('.navbar').offsetHeight;
   // document.body.style.paddingTop = navbar_height + 'px';
 
   if (el_autohide) {
@@ -65,7 +65,7 @@ slideRight.forEach((elem) => {
 gsap.to('.logo', {
   rotation: 360,
   duration: 1,
-  delay: 1.5,
+  delay: 1,
 });
 
 gsap.from('.fade-in', { duration: 2.5, opacity: 0.2 });
@@ -88,8 +88,4 @@ slideRightMassages.forEach((elem) => {
     duration: 0.8,
     opacity: 0.5,
   });
-});
-
-gsap.to('#about', {
-  scrollTrigger: '#about',
 });
