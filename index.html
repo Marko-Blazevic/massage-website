@@ -15,26 +15,24 @@
 <body>
 
   <header>
-    <nav class="navbar fixed-top navbar-expand-sm navbar-dark custom-navbar">
+    <nav class="navbar fixed-top navbar-expand-sm custom-navbar-index autohide">
       <div class="container-fluid">
         <a href="index.html" class="navbar-brand"><img src="images\icon-png-white.png" alt="Icon image" height="40"
             class="logo">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navigation"
+        <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse custom-navbar" id="main-navigation">
+        <div class="collapse navbar-collapse " id="main-navigation">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#about">O nama</a>
+              <a class="nav-link nav-link-style" href="#about">O nama</a>
             </li>
             <div class="dropdown nav-item">
-              <a href="massages.html" class="dropdown-toggle nav-link" id="dropdown-usluge" data-toggle="dropdown"
-                aria-expanded="false">Masaže</a>
-              <ul class="dropdown-menu drop-dwn-m-custom" aria-labelledby="dropdown-usluge">
-
-
+              <a href="massages.html" class="dropdown-toggle nav-link nav-link-style" id="dropdown-usluge"
+                data-toggle="dropdown" aria-expanded="false">Masaže</a>
+              <ul class="dropdown-menu drop-dwn-m-custom ddm-index" aria-labelledby="dropdown-usluge">
                 <li><a class="dropdown-item" href="massages.html">Holistička masaža</a></li>
                 <li><a class="dropdown-item" href="massages.html#klasicna">Klasična
                     - Relax masaža</a></li>
@@ -55,9 +53,6 @@
                 <li><a class="dropdown-item" href="massages.html#rasayana">Rasayana
                     Abhyanga</a></li>
                 <li><a class="dropdown-item" href="massages.html#anticelulit">Anticelulit masaža</a></li>
-
-
-
               </ul>
             </div>
             <li class="nav-item">
@@ -77,19 +72,16 @@
 
   <main id="main">
 
-
-    <div id="index" class="container-fluid index-background">
-      <div class="row index-height justify-content-center align-items-center">
-        <div class="p-3">
-          <div class="overlay-index"></div>
+    <div class="row justify-content-center">
+      <div id="index" class="justify-content-center ">
+        <div class="col index-wrapper">
+          <div class="overlay-index "></div>
           <img src="images/logo-text.png" class="img-fluid fade-in logo-index-custom"
             alt="Big Oasis logo with palm trees inside the letter O">
           <p class="slide-up index-text text-center text-white mt-5">Mesto gde pustinja prestaje...</p>
         </div>
       </div>
-
     </div>
-
 
     <div id="about" class="container pt-3">
       <h2>O nama</h2>
@@ -117,9 +109,9 @@
         <table class="table table-hover w-auto">
           <thead>
             <tr class="slide-right-massages">
-              <th class="thead-sticker bg-light" scope="col">Masaža</th>
-              <th class="thead-sticker bg-light" scope="col">Trajanje</th>
-              <th class="thead-sticker bg-light" scope="col">Cena</th>
+              <th class="bg-light" scope="col">Masaža</th>
+              <th class="bg-light" scope="col">Trajanje</th>
+              <th class="bg-light" scope="col">Cena</th>
             </tr>
           </thead>
           <tbody>
