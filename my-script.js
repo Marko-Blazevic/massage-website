@@ -62,7 +62,11 @@ slideRight.forEach((elem) => {
   });
 });
 
-gsap.to('.logo', { rotation: 360, duration: 1, delay: 1.5 });
+gsap.to('.logo', {
+  rotation: 360,
+  duration: 1,
+  delay: 1.5,
+});
 
 gsap.from('.fade-in', { duration: 2.5, opacity: 0.2 });
 
