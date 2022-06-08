@@ -46,7 +46,6 @@ main {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-attachment: fixed;
 }
 
 .overlay-index {
@@ -60,6 +59,7 @@ main {
 }
 
 .logo-index-custom {
+  opacity: 0;
   position: relative;
   z-index: 4;
 }

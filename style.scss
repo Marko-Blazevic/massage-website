@@ -27,10 +27,6 @@ main {
     z-index: 4;
   }
   .index-wrapper {
-    // position: absolute;
-    // z-index: 10;
-    // min-height: $page-height-minus-navbar;
-    // padding-top: $top-value;
     position: absolute;
     z-index: 2;
     top: 0;
@@ -47,7 +43,6 @@ main {
       size: cover;
       repeat: no-repeat;
       position: center;
-      attachment: fixed;
     }
   }
 }
@@ -60,11 +55,10 @@ main {
   height: 100vh;
   position: absolute;
   z-index: 3;
-
-  // display: none;
 }
 
 .logo-index-custom {
+  opacity: 0;
   position: relative;
   z-index: 4;
 }

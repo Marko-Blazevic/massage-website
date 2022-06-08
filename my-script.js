@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 document.addEventListener('DOMContentLoaded', function () {
   el_autohide = document.querySelector('.autohide');
 
@@ -29,8 +31,6 @@ tableTr.forEach((e) =>
     window.location = this.getAttribute('data-href');
   })
 );
-
-gsap.registerPlugin(ScrollTrigger);
 
 const slideUp = gsap.utils.toArray('.slide-up');
 slideUp.forEach((elem) => {
@@ -68,10 +68,62 @@ gsap.to('.logo', {
   delay: 1,
 });
 
-gsap.from('.fade-in', { duration: 2.5, opacity: 0.2 });
+gsap.to('.fade-in', { duration: 3, opacity: 1 });
 
-const currentPageStyle = gsap.to('.nav-link-style-about', {
-  scrollTrigger: '#about',
-  color: 'orange',
-  duration: 0.1,
+// const currentPageStyle = gsap.to('.nav-link-style-about', {
+//   scrollTrigger: '#about',
+//   color: 'orange',
+//   duration: 0.1,
+// });
+
+//PARALLAX
+
+// gsap.to('.index-wrapper', {
+//   yPercent: -50,
+//   ease: 'none',
+//   scrollTrigger: {
+//     trigger: '#about',
+//     // markers: true,
+//     // start: "top bottom", // the default values
+//     // end: "bottom top",
+//     scrub: true,
+//   },
+// });
+
+gsap.to('.index-text', {
+  yPercent: -200,
+  ease: 'none',
+  scrollTrigger: {
+    trigger: '#about',
+    // markers: true,
+
+    // start: "top bottom", // the default values
+    // end: "bottom top",
+    scrub: true,
+  },
 });
+gsap.to('.logo-index-custom', {
+  yPercent: -50,
+  ease: 'none',
+  scrollTrigger: {
+    trigger: '#about',
+    // markers: true,
+
+    // start: "top bottom", // the default values
+    // end: 'top 80%',
+    scrub: true,
+  },
+});
+
+// gsap.to('#about', {
+//   yPercent: 40,
+//   ease: 'none',
+//   scrollTrigger: {
+//     trigger: '#about',
+//     markers: true,
+
+//     // start: "top bottom", // the default values
+//     // end: 'center center',
+//     scrub: true,
+//   },
+// });
