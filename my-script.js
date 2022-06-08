@@ -70,22 +70,8 @@ gsap.to('.logo', {
 
 gsap.from('.fade-in', { duration: 2.5, opacity: 0.2 });
 
-const slideLeftMassages = gsap.utils.toArray('.slide-left-massages');
-slideLeftMassages.forEach((elem) => {
-  gsap.from(elem, {
-    scrollTrigger: elem,
-    x: -50,
-    duration: 0.8,
-    opacity: 0.5,
-  });
-});
-
-const slideRightMassages = gsap.utils.toArray('.slide-right-massages');
-slideRightMassages.forEach((elem) => {
-  gsap.from(elem, {
-    scrollTrigger: elem,
-    x: 50,
-    duration: 0.8,
-    opacity: 0.5,
-  });
+const currentPageStyle = gsap.to('.nav-link-style-about', {
+  scrollTrigger: '#about',
+  color: 'orange',
+  duration: 0.1,
 });

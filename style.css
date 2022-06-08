@@ -73,12 +73,12 @@ main {
   font-size: 4rem;
 }
 
-.custom-para-about {
+#about .custom-para-about {
   font-size: 1.2rem;
   line-height: 2.2rem;
 }
 
-.about-name {
+#about .about-name {
   font-family: "Tangerine", cursive;
   font-size: 2.5rem;
 }
