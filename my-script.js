@@ -1,29 +1,29 @@
 gsap.registerPlugin(ScrollTrigger);
 
-document.addEventListener('DOMContentLoaded', function () {
-  el_autohide = document.querySelector('.autohide');
+// document.addEventListener('DOMContentLoaded', function () {
+//   el_autohide = document.querySelector('.autohide');
 
-  // add padding-top to bady (if necessary)
-  // navbar_height = document.querySelector('.navbar').offsetHeight;
-  // document.body.style.paddingTop = navbar_height + 'px';
+//   // add padding-top to bady (if necessary)
+//   // navbar_height = document.querySelector('.navbar').offsetHeight;
+//   // document.body.style.paddingTop = navbar_height + 'px';
 
-  if (el_autohide) {
-    let last_scroll_top = 0;
-    window.addEventListener('scroll', function () {
-      let scroll_top = window.scrollY;
-      if (scroll_top < last_scroll_top) {
-        el_autohide.classList.remove('scrolled-down');
-        el_autohide.classList.add('scrolled-up');
-      } else {
-        el_autohide.classList.remove('scrolled-up');
-        el_autohide.classList.add('scrolled-down');
-      }
-      last_scroll_top = scroll_top;
-    });
-    // window.addEventListener
-  }
-  // if
-});
+//   if (el_autohide) {
+//     let last_scroll_top = 0;
+//     window.addEventListener('scroll', function () {
+//       let scroll_top = window.scrollY;
+//       if (scroll_top < last_scroll_top) {
+//         el_autohide.classList.remove('scrolled-down');
+//         el_autohide.classList.add('scrolled-up');
+//       } else {
+//         el_autohide.classList.remove('scrolled-up');
+//         el_autohide.classList.add('scrolled-down');
+//       }
+//       last_scroll_top = scroll_top;
+//     });
+//     // window.addEventListener
+//   }
+//   // if
+// });
 
 const tableTr = document.querySelectorAll('.table-row');
 tableTr.forEach((e) =>
@@ -95,10 +95,6 @@ gsap.to('.index-text', {
   ease: 'none',
   scrollTrigger: {
     trigger: '#about',
-    // markers: true,
-
-    // start: "top bottom", // the default values
-    // end: "bottom top",
     scrub: true,
   },
 });
@@ -107,10 +103,6 @@ gsap.to('.logo-index-custom', {
   ease: 'none',
   scrollTrigger: {
     trigger: '#about',
-    // markers: true,
-
-    // start: "top bottom", // the default values
-    // end: 'top 80%',
     scrub: true,
   },
 });
