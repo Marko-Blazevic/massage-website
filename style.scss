@@ -81,18 +81,12 @@ main {
 
 #massages {
   padding-top: $top-value; //for navbar
-  .massages-table-wrapper {
-    border-left: solid 1px $orange;
-  }
-  table td {
-    padding: 0.3rem 1rem;
-  }
+
   .massages-dropdown {
     position: fixed;
     z-index: 100;
     bottom: 10px;
     right: 10px;
-    font-size: smaller;
   }
 }
 
