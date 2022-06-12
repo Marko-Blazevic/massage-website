@@ -1,5 +1,3 @@
-gsap.registerPlugin(ScrollTrigger);
-
 // document.addEventListener('DOMContentLoaded', function () {
 //   el_autohide = document.querySelector('.autohide');
 
@@ -25,7 +23,10 @@ gsap.registerPlugin(ScrollTrigger);
 //   // if
 // });
 
+gsap.registerPlugin(ScrollTrigger);
+
 const tableTr = document.querySelectorAll('.table-row');
+
 tableTr.forEach((e) =>
   e.addEventListener(`click`, function (e) {
     window.location = this.getAttribute('data-href');
