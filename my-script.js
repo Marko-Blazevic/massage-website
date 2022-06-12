@@ -22,6 +22,10 @@
 //   }
 //   // if
 // });
+const navbar = document.querySelector('.navbar');
+const navabarHeight = navbar.offsetHeight;
+
+console.log(navabarHeight);
 
 gsap.registerPlugin(ScrollTrigger);
 

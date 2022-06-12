@@ -7,6 +7,10 @@ $orange: rgb(255, 157, 0);
 $top-value: 66px;
 $page-height-minus-navbar: calc(100vh - #{$top-value});
 
+html {
+  scroll-padding-top: $top-value;
+}
+
 body {
   font-family: $text-font-family;
 }
