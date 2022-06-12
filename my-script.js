@@ -22,10 +22,37 @@
 //   }
 //   // if
 // });
-const navbar = document.querySelector('.navbar');
-const navabarHeight = navbar.offsetHeight;
 
-console.log(navabarHeight);
+//FOR NAVBAR COLLAPSE AFTER CLICK (not working!)
+// const navLinks = document.querySelectorAll('.nav-item');
+// const menuToggle = document.getElementById('main-navigation');
+// const bsCollapse = new bootstrap.Collapse(menuToggle);
+// navLinks.forEach((l) => {
+//   l.addEventListener('click', () => {
+//     bsCollapse.toggle();
+//   });
+// });
+
+// const navbar = document.querySelector('.navbar-collapse');
+// const navbarAnchor = navbar.querySelector('li a');
+// navbar.addEventListener('click', function () {
+//   console.log(navbarAnchor);
+//   navbar.collapse('hide');
+// });
+
+// const navbarCollapse = document.querySelector('.navbar-collapse');
+// navbarCollapse.addEventListener('click', function (e) {
+//   if (e.target) {
+//     console.log(e);
+//     console.log(this);
+//     this.collapse('hide');
+//   }
+// });
+// $(document).on('click', '.navbar-collapse', function (e) {
+//   if ($(e.target).is('a')) {
+//     $(this).collapse('hide');
+//   }
+// });
 
 gsap.registerPlugin(ScrollTrigger);
 

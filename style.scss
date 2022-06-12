@@ -4,11 +4,10 @@
 $cursive-font-family: 'Tangerine', cursive;
 $text-font-family: 'Open Sans', sans-serif;
 $orange: rgb(255, 157, 0);
-$top-value: 66px;
-$page-height-minus-navbar: calc(100vh - #{$top-value});
+$navbar-height: 66px;
 
 html {
-  scroll-padding-top: $top-value;
+  scroll-padding-top: $navbar-height;
 }
 
 body {
@@ -41,7 +40,7 @@ main {
     align-items: center;
     height: 100vh;
     width: 100vw;
-    padding-top: $top-value;
+    padding-top: $navbar-height;
     background: {
       image: url('images/index-background.jpg');
       size: cover;
@@ -84,7 +83,7 @@ main {
 }
 
 #massages {
-  padding-top: $top-value; //for navbar
+  padding-top: $navbar-height; //for navbar
 
   .massages-dropdown {
     position: fixed;
