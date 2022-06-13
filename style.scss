@@ -3,7 +3,7 @@
 
 $cursive-font-family: "Tangerine", cursive;
 $text-font-family: "Open Sans", sans-serif;
-$orange: rgb(255, 157, 0);
+$orange: rgb(252, 155, 0);
 $navbar-height: 66px;
 
 html {
@@ -20,7 +20,7 @@ main {
 }
 
 #index {
-  height: 100vh;
+  height: 150vh;
   width: 100vw;
 
   .index-text {
@@ -38,9 +38,9 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 150vh;
     width: 100vw;
-    padding-top: $navbar-height;
+    padding: $navbar-height 1rem 0;
     background: {
       image: url("images/index-background.jpg");
       size: cover;
@@ -55,7 +55,7 @@ main {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 150vh;
   position: absolute;
   z-index: 3;
 }
@@ -188,6 +188,10 @@ table tr[data-href] {
   cursor: pointer;
 }
 
+.th-style {
+  background-color: $orange;
+}
+
 form {
   textarea {
     resize: none;
@@ -251,16 +255,11 @@ form {
 
 //For <form> style--------------------
 
-.contact-card {
-  position: relative;
-  border: none;
-}
+// .card-image {
+//   border-radius: 0 100px 0 100px;
 
-.card-image {
-  border-radius: 0 100px 0 100px;
-
-  // background-image: url('images/contact-smaller.jpg');
-}
+//   // background-image: url('images/contact-smaller.jpg');
+// }
 
 .card-heading {
   position: absolute;
@@ -313,20 +312,20 @@ form {
   }
 }
 
-.action-button {
-  font: inherit;
-  padding: 1em;
-  width: 100%;
-  color: #55585a;
-  background-color: $orange;
-  &:focus {
-    outline: 0;
-  }
-  &:hover {
-    color: white;
-    background-color: white;
-  }
-}
+// .action-button {
+//   font: inherit;
+//   padding: 1em;
+//   width: 100%;
+//   // color: #55585a;
+//   // background-color: $orange;
+//   &:focus {
+//     outline: 0;
+//   }
+//   // &:hover {
+//   //   color: white;
+//   //   background-color: $orange;
+//   // }
+// }
 
 .card-info {
   padding: 1rem 1rem;

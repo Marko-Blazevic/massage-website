@@ -14,7 +14,7 @@ main {
 }
 
 #index {
-  height: 100vh;
+  height: 150vh;
   width: 100vw;
 }
 
@@ -43,9 +43,9 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100vh;
+  height: 150vh;
   width: 100vw;
-  padding-top: 66px;
+  padding: 66px 1rem 0;
   background-image: url("images/index-background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -57,7 +57,7 @@ main {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 150vh;
   position: absolute;
   z-index: 3;
 }
@@ -120,7 +120,7 @@ main {
 }
 
 .nav-link-style:hover {
-  color: #ff9d00;
+  color: #fc9b00;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
@@ -143,14 +143,14 @@ main {
 }
 
 .custom-navbar-massages .nav-link-style:hover {
-  color: #ff9d00;
+  color: #fc9b00;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
 
 .custom-navbar-massages .current-page-style {
-  color: #ff9d00;
-  border-bottom: #ff9d00 solid 1px;
+  color: #fc9b00;
+  border-bottom: #fc9b00 solid 1px;
 }
 
 .drop-dwn-m-custom li {
@@ -180,7 +180,7 @@ main {
 }
 
 .ddm-index li a:hover {
-  color: #ff9d00;
+  color: #fc9b00;
 }
 
 .ddm-massages li {
@@ -210,6 +210,10 @@ table tr[data-href] {
   cursor: pointer;
 }
 
+.th-style {
+  background-color: #fc9b00;
+}
+
 form textarea {
   resize: none;
 }
@@ -233,20 +237,11 @@ form textarea {
 }
 
 /* ============ desktop view ============ */
-.contact-card {
-  position: relative;
-  border: none;
-}
-
-.card-image {
-  border-radius: 0 100px 0 100px;
-}
-
 .card-heading {
   position: absolute;
   font-family: "Tangerine", cursive;
   font-size: 4rem;
-  color: #ff9d00;
+  color: #fc9b00;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.664);
   line-height: 1.222;
   z-index: 2;
@@ -301,23 +296,6 @@ form textarea {
   -webkit-transform: translateY(-2rem);
           transform: translateY(-2rem);
   font-size: 0.9rem;
-}
-
-.action-button {
-  font: inherit;
-  padding: 1em;
-  width: 100%;
-  color: #55585a;
-  background-color: #ff9d00;
-}
-
-.action-button:focus {
-  outline: 0;
-}
-
-.action-button:hover {
-  color: white;
-  background-color: white;
 }
 
 .card-info {
