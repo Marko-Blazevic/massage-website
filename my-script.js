@@ -56,15 +56,15 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-const tableTr = document.querySelectorAll('.table-row');
+const tableTr = document.querySelectorAll(".table-row");
 
 tableTr.forEach((e) =>
   e.addEventListener(`click`, function (e) {
-    window.location = this.getAttribute('data-href');
+    window.location = this.getAttribute("data-href");
   })
 );
 
-const slideUp = gsap.utils.toArray('.slide-up');
+const slideUp = gsap.utils.toArray(".slide-up");
 slideUp.forEach((elem) => {
   gsap.from(elem, {
     scrollTrigger: elem,
@@ -74,7 +74,7 @@ slideUp.forEach((elem) => {
   });
 });
 
-const slideLeft = gsap.utils.toArray('.slide-left');
+const slideLeft = gsap.utils.toArray(".slide-left");
 slideLeft.forEach((elem) => {
   gsap.from(elem, {
     scrollTrigger: elem,
@@ -84,7 +84,7 @@ slideLeft.forEach((elem) => {
   });
 });
 
-const slideRight = gsap.utils.toArray('.slide-right');
+const slideRight = gsap.utils.toArray(".slide-right");
 slideRight.forEach((elem) => {
   gsap.from(elem, {
     scrollTrigger: elem,
@@ -94,13 +94,13 @@ slideRight.forEach((elem) => {
   });
 });
 
-gsap.to('.logo', {
+gsap.to(".logo", {
   rotation: 360,
   duration: 1,
   delay: 1,
 });
 
-gsap.to('.fade-in', { duration: 3, opacity: 1 });
+gsap.to(".fade-in", { duration: 3, opacity: 1 });
 
 // const currentPageStyle = gsap.to('.nav-link-style-about', {
 //   scrollTrigger: '#about',
@@ -122,19 +122,19 @@ gsap.to('.fade-in', { duration: 3, opacity: 1 });
 //   },
 // });
 
-gsap.to('.index-text', {
+gsap.to(".index-text", {
   yPercent: -200,
-  ease: 'none',
+  ease: "none",
   scrollTrigger: {
-    trigger: '#about',
+    trigger: "#about",
     scrub: true,
   },
 });
-gsap.to('.logo-index-custom', {
+gsap.to(".logo-index-custom", {
   yPercent: -50,
-  ease: 'none',
+  ease: "none",
   scrollTrigger: {
-    trigger: '#about',
+    trigger: "#about",
     scrub: true,
   },
 });
