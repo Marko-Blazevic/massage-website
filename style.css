@@ -6,16 +6,17 @@ html {
 
 body {
   font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
+  width: 100vw;
 }
 
 main {
-  max-width: 100vw;
   overflow-x: hidden;
+  width: 100vw;
 }
 
 #index {
-  height: 150vh;
-  width: 100vw;
+  height: 120vh;
 }
 
 #index .index-text {
@@ -40,16 +41,22 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 150vh;
+  height: 120vh;
   width: 100vw;
-  padding: 66px 1rem 0;
   background-image: url("images/index-background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+#index .index-img-wrapper {
+  width: 100%;
+  height: 80vh;
+  margin-top: 66px;
+}
+
+#index .text-index-wrapper {
+  height: 40vh;
 }
 
 .overlay-index {
@@ -57,7 +64,7 @@ main {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 150vh;
+  height: 120vh;
   position: absolute;
   z-index: 3;
 }
@@ -127,6 +134,11 @@ main {
 
 .custom-navbar-index {
   background-color: black;
+  width: 100vw;
+}
+
+.navbar-brand {
+  margin-right: 0;
 }
 
 .custom-navbar-massages {
@@ -210,33 +222,10 @@ table tr[data-href] {
   cursor: pointer;
 }
 
-.th-style {
-  background-color: #fc9b00;
-}
-
 form textarea {
   resize: none;
 }
 
-@media (max-width: 1199px) {
-  .index-text {
-    font-size: 4.2rem;
-  }
-}
-
-@media (max-width: 991px) {
-  .index-text {
-    font-size: 4rem;
-  }
-}
-
-@media (max-width: 767px) {
-  .index-text {
-    font-size: 3rem;
-  }
-}
-
-/* ============ desktop view ============ */
 .card-heading {
   position: absolute;
   font-family: "Tangerine", cursive;
@@ -309,5 +298,32 @@ form textarea {
   display: block;
   color: #6658d3;
   text-decoration: none;
+}
+
+@media (min-width: 576px) and (min-height: 390px) {
+  #index {
+    height: 200vh;
+  }
+  .index-wrapper {
+    height: 200vh;
+  }
+  .index-img-wrapper {
+    height: 150vh;
+  }
+  .text-index-wrapper {
+    height: 50vh;
+  }
+}
+
+@media (max-width: 576px) {
+  .index-text {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .index-text {
+    font-size: 2.5rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */

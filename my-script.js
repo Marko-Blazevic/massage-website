@@ -1,59 +1,3 @@
-// document.addEventListener('DOMContentLoaded', function () {
-//   el_autohide = document.querySelector('.autohide');
-
-//   // add padding-top to bady (if necessary)
-//   // navbar_height = document.querySelector('.navbar').offsetHeight;
-//   // document.body.style.paddingTop = navbar_height + 'px';
-
-//   if (el_autohide) {
-//     let last_scroll_top = 0;
-//     window.addEventListener('scroll', function () {
-//       let scroll_top = window.scrollY;
-//       if (scroll_top < last_scroll_top) {
-//         el_autohide.classList.remove('scrolled-down');
-//         el_autohide.classList.add('scrolled-up');
-//       } else {
-//         el_autohide.classList.remove('scrolled-up');
-//         el_autohide.classList.add('scrolled-down');
-//       }
-//       last_scroll_top = scroll_top;
-//     });
-//     // window.addEventListener
-//   }
-//   // if
-// });
-
-//FOR NAVBAR COLLAPSE AFTER CLICK (not working!)
-// const navLinks = document.querySelectorAll('.nav-item');
-// const menuToggle = document.getElementById('main-navigation');
-// const bsCollapse = new bootstrap.Collapse(menuToggle);
-// navLinks.forEach((l) => {
-//   l.addEventListener('click', () => {
-//     bsCollapse.toggle();
-//   });
-// });
-
-// const navbar = document.querySelector('.navbar-collapse');
-// const navbarAnchor = navbar.querySelector('li a');
-// navbar.addEventListener('click', function () {
-//   console.log(navbarAnchor);
-//   navbar.collapse('hide');
-// });
-
-// const navbarCollapse = document.querySelector('.navbar-collapse');
-// navbarCollapse.addEventListener('click', function (e) {
-//   if (e.target) {
-//     console.log(e);
-//     console.log(this);
-//     this.collapse('hide');
-//   }
-// });
-// $(document).on('click', '.navbar-collapse', function (e) {
-//   if ($(e.target).is('a')) {
-//     $(this).collapse('hide');
-//   }
-// });
-
 gsap.registerPlugin(ScrollTrigger);
 
 const tableTr = document.querySelectorAll(".table-row");
@@ -121,21 +65,25 @@ gsap.to(".fade-in", { duration: 3, opacity: 1 });
 //     scrub: true,
 //   },
 // });
+// let tl = gsap.timeline();
+
+// gsap.to(".logo-index-custom", {
+//   scrollTrigger: {
+//     trigger: ".logo-index-custom",
+//     start: "center center",
+//     pin: true,
+
+//     end: "center 15%",
+//     // markers: true,
+//   },
+//   // endTrigger: "#about",
+// });
 
 gsap.to(".index-text", {
-  yPercent: -200,
-  ease: "none",
+  yPercent: -150,
   scrollTrigger: {
-    trigger: "#about",
-    scrub: true,
-  },
-});
-gsap.to(".logo-index-custom", {
-  yPercent: -50,
-  ease: "none",
-  scrollTrigger: {
-    trigger: "#about",
-    scrub: true,
+    trigger: ".index-text",
+    scrub: 2,
   },
 });
 
