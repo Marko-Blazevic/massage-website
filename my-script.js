@@ -54,6 +54,7 @@ gsap.to(".fade-in", { duration: 3, opacity: 1 });
 
 //PARALLAX
 
+//For background scroll
 // gsap.to('.index-wrapper', {
 //   yPercent: -50,
 //   ease: 'none',

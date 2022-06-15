@@ -21,63 +21,51 @@ main {
   width: 100vw;
 }
 
-#index {
-  height: 120vh;
-  .index-text {
-    font-family: $cursive-font-family;
-    text-shadow: 2px 2px 3px black;
-    position: relative;
-    z-index: 4;
-  }
-  .index-wrapper {
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    // align-items: center;
-    height: 120vh;
-    width: 100vw;
-    // padding: $navbar-height 1rem 0;
-    background: {
-      image: url("images/index-background.jpg");
-      size: cover;
-      repeat: no-repeat;
-      position: center;
-    }
-  }
-  .index-img-wrapper {
-    width: 100%;
-    height: 80vh;
-    margin-top: $navbar-height;
-    // background-color: green;
-  }
-  .text-index-wrapper {
-    height: 40vh;
-    // background-color: red;
-  }
-}
-
 .overlay-index {
-  background-color: rgba(0, 0, 0, 0.6);
-  top: 0;
-  left: 0;
+  position: absolute;
+  z-index: 2;
   width: 100vw;
   height: 120vh;
-  position: absolute;
-  z-index: 3;
+  // padding: $navbar-height 1rem 0;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
-.logo-index-custom {
-  opacity: 0;
+.index-wrapper {
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+  height: 120vh;
+  // padding: $navbar-height 1rem 0;
+  background: {
+    image: url("images/index-background.jpg");
+    size: cover;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+.index-content {
   position: relative;
-  z-index: 4;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+}
+
+.index-img-wrapper {
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+}
+
+.index-text-wrapper {
+  width: 100%;
+  height: 20vh;
+}
+.index-text {
+  font-family: $cursive-font-family;
+  text-shadow: 2px 2px 3px black;
 }
 
 #about {
-  font-weight: 300;
   h2 {
     font-family: $cursive-font-family;
     font-size: 4rem;
@@ -85,6 +73,7 @@ main {
   .custom-para-about {
     font-size: 1.2rem;
     line-height: 2.2rem;
+    font-weight: 300;
   }
   .about-name {
     font-family: $cursive-font-family;
@@ -101,15 +90,6 @@ main {
     bottom: 10px;
     right: 10px;
   }
-}
-
-.scrolled-down {
-  transform: translateY(-100%);
-  transition: all 0.4s ease-in-out;
-}
-.scrolled-up {
-  transform: translateY(0);
-  transition: all 0.4s ease-in-out;
 }
 
 .nav-link-style {
@@ -203,6 +183,10 @@ table tr[data-href] {
   cursor: pointer;
 }
 
+.th-style {
+  border-bottom: solid 2px $orange;
+}
+
 form {
   textarea {
     resize: none;
@@ -287,28 +271,36 @@ form {
   }
 }
 //ovde pocinje logo text da ulazi ispod navbara
-@media (min-width: 576px) and (min-height: 390px) {
-  #index {
-    height: 200vh;
-  }
-  .index-wrapper {
-    height: 200vh;
-  }
-  .index-img-wrapper {
-    height: 150vh;
-  }
-  .text-index-wrapper {
-    height: 50vh;
+// @media (min-width: 576px) and (min-height: 370px) {
+//   // #index {
+//   //   height: 200vh;
+//   // }
+//   // .index-wrapper {
+//   //   height: 120vh;
+//   // }
+//   // .index-img-wrapper {
+//   //   height: 100vh;
+//   // }
+//   // .text-index-wrapper {
+//   //   height: 20vh;
+//   // }
+//   .index-text {
+//     font-size: 4rem;
+//   }
+// }
+
+@media (min-width: 576px) {
+  .index-text {
+    font-size: 2rem;
   }
 }
-
 @media (max-width: 576px) {
   .index-text {
     font-size: 3rem;
   }
 }
-@media (max-width: 400px) {
-  .index-text {
-    font-size: 2.5rem;
-  }
-}
+// @media (max-width: 400px) {
+//   .index-text {
+//     font-size: 2.5rem;
+//   }
+// }
