@@ -14,7 +14,7 @@ slideUp.forEach((elem) => {
     scrollTrigger: elem,
     y: 50,
     duration: 1,
-    opacity: 0.2,
+    opacity: 0,
   });
 });
 
@@ -24,7 +24,7 @@ slideLeft.forEach((elem) => {
     scrollTrigger: elem,
     x: -50,
     duration: 1,
-    opacity: 0.2,
+    opacity: 0,
   });
 });
 
@@ -34,7 +34,7 @@ slideRight.forEach((elem) => {
     scrollTrigger: elem,
     x: 50,
     duration: 1,
-    opacity: 0.2,
+    opacity: 0,
   });
 });
 
@@ -44,7 +44,7 @@ gsap.to(".logo", {
   delay: 1,
 });
 
-gsap.to(".fade-in", { duration: 3, opacity: 1 });
+gsap.to(".fade-in", { duration: 2, opacity: 1 });
 
 // const currentPageStyle = gsap.to('.nav-link-style-about', {
 //   scrollTrigger: '#about',
@@ -81,9 +81,9 @@ gsap.to(".fade-in", { duration: 3, opacity: 1 });
 // });
 
 gsap.to(".index-text", {
-  yPercent: -150,
+  yPercent: -200,
   scrollTrigger: {
-    trigger: ".index-text",
+    trigger: ".index-content",
     scrub: 2,
   },
 });

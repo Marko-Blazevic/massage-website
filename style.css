@@ -37,8 +37,8 @@ main {
 .index-content {
   position: relative;
   z-index: 3;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 120vh;
 }
 
 .index-img-wrapper {
@@ -267,6 +267,15 @@ form textarea {
   display: block;
   color: #6658d3;
   text-decoration: none;
+}
+
+@media (min-width: 576px) and (min-height: 370px) {
+  .index-img-wrapper {
+    padding-top: 66px;
+  }
+  .index-text p {
+    font-size: 8rem;
+  }
 }
 
 @media (min-width: 576px) {

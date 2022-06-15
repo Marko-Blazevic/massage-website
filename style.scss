@@ -35,7 +35,6 @@ main {
   z-index: 1;
   width: 100vw;
   height: 120vh;
-  // padding: $navbar-height 1rem 0;
   background: {
     image: url("images/index-background.jpg");
     size: cover;
@@ -46,11 +45,12 @@ main {
 .index-content {
   position: relative;
   z-index: 3;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 120vh;
 }
 
 .index-img-wrapper {
+  // padding-top: 33px;
   width: 100%;
   height: 100vh;
   opacity: 0;
@@ -271,23 +271,29 @@ form {
   }
 }
 //ovde pocinje logo text da ulazi ispod navbara
-// @media (min-width: 576px) and (min-height: 370px) {
-//   // #index {
-//   //   height: 200vh;
-//   // }
-//   // .index-wrapper {
-//   //   height: 120vh;
-//   // }
-//   // .index-img-wrapper {
-//   //   height: 100vh;
-//   // }
-//   // .text-index-wrapper {
-//   //   height: 20vh;
-//   // }
-//   .index-text {
-//     font-size: 4rem;
-//   }
-// }
+@media (min-width: 576px) and (min-height: 370px) {
+  // #index {
+  //   height: 200vh;
+  // }
+  // .index-wrapper {
+  //   height: 120vh;
+  // }
+  // .index-img-wrapper {
+  //   height: 100vh;
+  // }
+  // .text-index-wrapper {
+  //   height: 20vh;
+  // }
+
+  .index-img-wrapper {
+    padding-top: $navbar-height;
+  }
+  .index-text {
+    p {
+      font-size: 8rem;
+    }
+  }
+}
 
 @media (min-width: 576px) {
   .index-text {
