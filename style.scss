@@ -50,19 +50,22 @@ main {
 }
 
 .index-img-wrapper {
-  // padding-top: 33px;
   width: 100%;
   height: 100vh;
   opacity: 0;
 }
 
 .index-text-wrapper {
+  padding-top: 2rem;
   width: 100%;
   height: 20vh;
 }
 .index-text {
   font-family: $cursive-font-family;
   text-shadow: 2px 2px 3px black;
+  color: white;
+  font-size: 3rem;
+  margin-top: 8rem;
 }
 
 #about {
@@ -270,41 +273,39 @@ form {
     text-decoration: none;
   }
 }
-//ovde pocinje logo text da ulazi ispod navbara
-@media (min-width: 576px) and (min-height: 370px) {
-  // #index {
-  //   height: 200vh;
-  // }
-  // .index-wrapper {
-  //   height: 120vh;
-  // }
-  // .index-img-wrapper {
-  //   height: 100vh;
-  // }
-  // .text-index-wrapper {
-  //   height: 20vh;
-  // }
 
+//ovde pocinje logo text da ulazi ispod navbara
+@media (min-width: 576px) and (min-height: 270px) {
+  .index-text {
+    margin-top: 4.5rem;
+  }
   .index-img-wrapper {
+    width: 90%;
+    margin: 0 auto;
     padding-top: $navbar-height;
   }
-  .index-text {
-    p {
-      font-size: 8rem;
-    }
-  }
 }
 
-@media (min-width: 576px) {
-  .index-text {
-    font-size: 2rem;
-  }
-}
-@media (max-width: 576px) {
-  .index-text {
-    font-size: 3rem;
-  }
-}
+// @media (min-height: 360px) {
+//   .index-img-wrapper {
+//     // width: 80%;
+//     padding-top: $navbar-height;
+//   }
+//   .index-text {
+//     margin-top: 4rem;
+//   }
+// }
+
+// @media (min-width: 576px) {
+//   .index-text {
+//     font-size: 2rem;
+//   }
+// }
+// @media (max-width: 576px) {
+//   .index-text {
+//     font-size: 3rem;
+//   }
+// }
 // @media (max-width: 400px) {
 //   .index-text {
 //     font-size: 2.5rem;

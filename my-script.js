@@ -18,6 +18,8 @@ slideUp.forEach((elem) => {
   });
 });
 
+// gsap.from(".slide-up-index-text", { scrollTrigger: ".slide-up-index-text", y: 50, duration: 1, opacity: 0 });
+
 const slideLeft = gsap.utils.toArray(".slide-left");
 slideLeft.forEach((elem) => {
   gsap.from(elem, {
@@ -44,42 +46,32 @@ gsap.to(".logo", {
   delay: 1,
 });
 
-gsap.to(".fade-in", { duration: 2, opacity: 1 });
-
-// const currentPageStyle = gsap.to('.nav-link-style-about', {
-//   scrollTrigger: '#about',
-//   color: 'orange',
-//   duration: 0.1,
-// });
+gsap.to(".fade-in", { duration: 2, opacity: 1, ease: "power1.inOut" });
 
 //PARALLAX
-
 //For background scroll
-// gsap.to('.index-wrapper', {
-//   yPercent: -50,
-//   ease: 'none',
+
+// gsap.to(".index-wrapper", {
+//   yPercent: -10,
 //   scrollTrigger: {
-//     trigger: '#about',
-//     // markers: true,
-//     // start: "top bottom", // the default values
-//     // end: "bottom top",
+//     trigger: ".index-wrapper",
 //     scrub: true,
 //   },
 // });
-// let tl = gsap.timeline();
-
-// gsap.to(".logo-index-custom", {
+// gsap.to(".overlay-index", {
+//   yPercent: -10,
 //   scrollTrigger: {
-//     trigger: ".logo-index-custom",
-//     start: "center center",
-//     pin: true,
-
-//     end: "center 15%",
-//     // markers: true,
+//     trigger: ".index-wrapper",
+//     scrub: true,
 //   },
-//   // endTrigger: "#about",
 // });
-
+// gsap.to("#about", {
+//   yPercent: -30,
+//   scrollTrigger: {
+//     trigger: "#about",
+//     scrub: true,
+//   },
+// });
 gsap.to(".index-text", {
   yPercent: -200,
   scrollTrigger: {
@@ -87,16 +79,3 @@ gsap.to(".index-text", {
     scrub: 2,
   },
 });
-
-// gsap.to('#about', {
-//   yPercent: 40,
-//   ease: 'none',
-//   scrollTrigger: {
-//     trigger: '#about',
-//     markers: true,
-
-//     // start: "top bottom", // the default values
-//     // end: 'center center',
-//     scrub: true,
-//   },
-// });
