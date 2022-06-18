@@ -16,6 +16,52 @@ main {
   width: 100vw;
 }
 
+.nav-link-style {
+  color: white;
+  border-bottom: solid 1px rgba(128, 128, 128, 0.4);
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+.nav-link-style:hover {
+  color: #fc9b00;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+.custom-navbar-index {
+  background-color: black;
+  width: 100vw;
+}
+
+.navbar-brand {
+  margin-right: 0;
+}
+
+.custom-navbar-massages {
+  background-color: white;
+}
+
+.custom-navbar-massages .nav-link-style {
+  padding: 0.5rem 1rem;
+  color: rgba(0, 0, 0, 0.808);
+  background-color: white;
+  border-bottom: solid 1px rgba(158, 158, 158, 0.4);
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+.custom-navbar-massages .nav-link-style:hover {
+  color: #fc9b00;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+.custom-navbar-massages .current-page-style {
+  color: #fc9b00;
+  border-bottom: #fc9b00 solid 1px;
+}
+
 .overlay-index {
   position: absolute;
   z-index: 2;
@@ -102,52 +148,6 @@ main {
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
   background-color: rgba(200, 200, 200, 0.4);
-}
-
-.nav-link-style {
-  color: white;
-  border-bottom: solid 1px rgba(128, 128, 128, 0.4);
-  -webkit-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
-}
-
-.nav-link-style:hover {
-  color: #fc9b00;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-}
-
-.custom-navbar-index {
-  background-color: black;
-  width: 100vw;
-}
-
-.navbar-brand {
-  margin-right: 0;
-}
-
-.custom-navbar-massages {
-  background-color: white;
-}
-
-.custom-navbar-massages .nav-link-style {
-  padding: 0.5rem 1rem;
-  color: rgba(0, 0, 0, 0.808);
-  background-color: white;
-  border-bottom: solid 1px rgba(158, 158, 158, 0.4);
-  -webkit-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
-}
-
-.custom-navbar-massages .nav-link-style:hover {
-  color: #fc9b00;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-}
-
-.custom-navbar-massages .current-page-style {
-  color: #fc9b00;
-  border-bottom: #fc9b00 solid 1px;
 }
 
 .overlay-contact {
@@ -255,6 +255,12 @@ form textarea {
   }
   .index-text {
     margin-top: 4.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .index-text {
+    font-size: 5rem;
   }
 }
 /*# sourceMappingURL=style.css.map */
