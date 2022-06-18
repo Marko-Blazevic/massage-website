@@ -177,6 +177,12 @@ main {
   background-color: rgba(200, 200, 200, 0.4);
 }
 
+#massages .massages-dropup-custom .massages-dropup-menu {
+  overflow-y: auto;
+  max-height: calc(100vh - 150px);
+  padding: 1rem;
+}
+
 .overlay-contact {
   position: absolute;
   height: 100%;
