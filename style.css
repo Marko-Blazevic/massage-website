@@ -8,6 +8,7 @@ body {
   font-family: "Open Sans", sans-serif;
   overflow-x: hidden;
   width: 100vw;
+  position: relative;
 }
 
 main {
@@ -81,11 +82,26 @@ main {
   padding-top: 66px;
 }
 
-#massages .massages-dropdown {
+#massages .massages-dropup-custom {
   position: fixed;
+  height: 200px;
+  overflow-y: visible;
   z-index: 100;
   bottom: 10px;
   right: 10px;
+}
+
+#massages .massages-dropup-custom a {
+  color: #787e83;
+  -webkit-transition: 0.8s ease-in-out;
+  transition: 0.8s ease-in-out;
+}
+
+#massages .massages-dropup-custom a:hover {
+  color: #fc9b00;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  background-color: rgba(200, 200, 200, 0.4);
 }
 
 .nav-link-style {
@@ -132,48 +148,6 @@ main {
 .custom-navbar-massages .current-page-style {
   color: #fc9b00;
   border-bottom: #fc9b00 solid 1px;
-}
-
-.drop-dwn-m-custom li {
-  -webkit-transition: 0.4s ease-in-out;
-  transition: 0.4s ease-in-out;
-}
-
-.drop-dwn-m-custom li a {
-  padding: 0.5rem 1rem;
-  -webkit-transition: 0.6s ease-in-out;
-  transition: 0.6s ease-in-out;
-}
-
-.drop-dwn-m-custom li a:hover {
-  text-decoration: none;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-  background-color: rgba(158, 158, 158, 0.4);
-}
-
-.ddm-index {
-  background-color: black;
-}
-
-.ddm-index li a {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.ddm-index li a:hover {
-  color: #fc9b00;
-}
-
-.ddm-massages li {
-  background-color: white;
-}
-
-.ddm-massages li a {
-  color: black;
-}
-
-.ddm-massages li a:hover {
-  background-color: rgba(158, 158, 158, 0.4);
 }
 
 .overlay-contact {
@@ -274,13 +248,13 @@ form textarea {
 }
 
 @media (min-width: 576px) and (min-height: 270px) {
-  .index-text {
-    margin-top: 4.5rem;
-  }
   .index-img-wrapper {
     width: 90%;
     margin: 0 auto;
     padding-top: 66px;
+  }
+  .index-text {
+    margin-top: 4.5rem;
   }
 }
 /*# sourceMappingURL=style.css.map */

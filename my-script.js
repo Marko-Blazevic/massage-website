@@ -1,5 +1,18 @@
 gsap.registerPlugin(ScrollTrigger);
 
+gsap.to(".about-page", {
+  scrollTrigger: { trigger: "#about", toggleActions: "restart reset restart reset" },
+  color: "orange",
+});
+gsap.to(".prices-page", {
+  scrollTrigger: { trigger: "#prices", toggleActions: "restart reset restart reset" },
+  color: "orange",
+});
+gsap.to(".contact-page", {
+  scrollTrigger: { trigger: "#contact", toggleActions: "restart reset restart reset" },
+  color: "orange",
+});
+
 const tableTr = document.querySelectorAll(".table-row");
 
 tableTr.forEach((e) =>
@@ -17,8 +30,6 @@ slideUp.forEach((elem) => {
     opacity: 0,
   });
 });
-
-// gsap.from(".slide-up-index-text", { scrollTrigger: ".slide-up-index-text", y: 50, duration: 1, opacity: 0 });
 
 const slideLeft = gsap.utils.toArray(".slide-left");
 slideLeft.forEach((elem) => {

@@ -14,6 +14,7 @@ body {
   font-family: $text-font-family;
   overflow-x: hidden;
   width: 100vw;
+  position: relative;
 }
 
 main {
@@ -87,11 +88,23 @@ main {
 #massages {
   padding-top: $navbar-height; //for navbar
 
-  .massages-dropdown {
+  .massages-dropup-custom {
     position: fixed;
+    height: 200px;
+    overflow-y: visible;
     z-index: 100;
     bottom: 10px;
     right: 10px;
+    a {
+      color: #787e83;
+      // padding: 0.5rem 1rem;
+      transition: 0.8s ease-in-out;
+      &:hover {
+        color: $orange;
+        transition: 0.2s ease-in-out;
+        background-color: rgba(200, 200, 200, 0.4);
+      }
+    }
   }
 }
 
@@ -130,44 +143,6 @@ main {
   .current-page-style {
     color: $orange;
     border-bottom: $orange solid 1px;
-  }
-}
-
-.drop-dwn-m-custom {
-  li {
-    transition: 0.4s ease-in-out;
-    a {
-      padding: 0.5rem 1rem;
-      transition: 0.6s ease-in-out;
-      &:hover {
-        text-decoration: none;
-        transition: 0.2s ease-in-out;
-        background-color: rgba(158, 158, 158, 0.4);
-      }
-    }
-  }
-}
-
-.ddm-index {
-  background-color: black;
-  li {
-    a {
-      color: rgba(255, 255, 255, 0.7);
-      &:hover {
-        color: $orange;
-      }
-    }
-  }
-}
-.ddm-massages {
-  li {
-    background-color: white;
-    a {
-      color: black;
-      &:hover {
-        background-color: rgba(158, 158, 158, 0.4);
-      }
-    }
   }
 }
 
@@ -247,21 +222,6 @@ form {
   }
 }
 
-// .action-button {
-//   font: inherit;
-//   padding: 1em;
-//   width: 100%;
-//   // color: #55585a;
-//   // background-color: $orange;
-//   &:focus {
-//     outline: 0;
-//   }
-//   // &:hover {
-//   //   color: white;
-//   //   background-color: $orange;
-//   // }
-// }
-
 .card-info {
   padding: 1rem 1rem;
   text-align: center;
@@ -274,40 +234,13 @@ form {
   }
 }
 
-//ovde pocinje logo text da ulazi ispod navbara
 @media (min-width: 576px) and (min-height: 270px) {
-  .index-text {
-    margin-top: 4.5rem;
-  }
   .index-img-wrapper {
     width: 90%;
     margin: 0 auto;
     padding-top: $navbar-height;
   }
+  .index-text {
+    margin-top: 4.5rem;
+  }
 }
-
-// @media (min-height: 360px) {
-//   .index-img-wrapper {
-//     // width: 80%;
-//     padding-top: $navbar-height;
-//   }
-//   .index-text {
-//     margin-top: 4rem;
-//   }
-// }
-
-// @media (min-width: 576px) {
-//   .index-text {
-//     font-size: 2rem;
-//   }
-// }
-// @media (max-width: 576px) {
-//   .index-text {
-//     font-size: 3rem;
-//   }
-// }
-// @media (max-width: 400px) {
-//   .index-text {
-//     font-size: 2.5rem;
-//   }
-// }

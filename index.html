@@ -16,7 +16,7 @@
 
   <body>
     <header>
-      <nav class="navbar fixed-top navbar-expand-sm custom-navbar-index autohide">
+      <nav class="navbar fixed-top navbar-expand-sm custom-navbar-index">
         <div class="container-fluid">
           <a href="index.html" class="navbar-brand"
             ><img src="images\icon-png-white.png" alt="Icon image" width="40" height="40" class="logo" />
@@ -34,16 +34,16 @@
           <div class="collapse navbar-collapse" id="main-navigation">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item">
-                <a class="nav-link nav-link-style" href="#about">O nama</a>
+                <a class="nav-link nav-link-style about-page" href="#about">O nama</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link nav-link-style" href="massages.html">Masaže</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link nav-link-style" href="#prices">Cenovnik</a>
+                <a class="nav-link nav-link-style prices-page" href="#prices">Cenovnik</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link nav-link-style" href="#contact">Kontakt</a>
+                <a class="nav-link nav-link-style contact-page" href="#contact">Kontakt</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link nav-link-style" href="#">Zakaži masažu</a>
@@ -71,123 +71,125 @@
           </div>
         </div>
       </div>
-      <div id="about" class="container my-3">
-        <h2>O nama</h2>
-        <p class="slide-up font-italic custom-para-about p-2">
-          Studio za masažu <span class="about-name">Oasis</span> ima jedinstven i svojevrstan pristup klijentima. Spoj
-          prepoznavanja individualnih potreba pojedinca i poznavanja većeg broja različitih tehnika masaža i manuelnih
-          terapija, omogućava nam samopouzdan i jedinstven način rada sa svakim klijentom, dok vama ostavlja nepogrešiv
-          osećaj celosti posle masaže. Ukoliko želite da predahnete od svakodnevnice, da se revitalizujete, poboljšate
-          pokretljivost vašeg tela i podstaknete osećaje opuštenosti i zadovoljstva, Studio za masažu
-          <span class="about-name">Oasis</span> je pravo mesto koje će da odgovori vašim potrebama. Nalazimo se u centru
-          grada, pristupačni smo sa cenama i razlikujemo se po kvalitetu tehnika masaža koje koristimo. Svratite i
-          proverite zašto je <span class="about-name">Oasis</span>
-          vaše mesto za masažu.
-        </p>
-      </div>
-      <div id="prices" class="container my-5">
-        <div class="row justify-content-center p-3">
-          <table class="table table-hover w-auto">
-            <thead>
-              <tr class="slide-right th-style">
-                <th scope="col">Masaža</th>
-                <th scope="col">Trajanje</th>
-                <th scope="col">Cena</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="slide-left table-row" data-href="massages.html#holisticka">
-                <td>Holistička masaža</td>
-                <td>100-120 minuta</td>
-                <td>2500 dinara</td>
-              </tr>
-              <tr class="slide-right table-row" data-href="massages.html#klasicna">
-                <td>Klasična - Relax masaža</td>
-                <td>60 minuta</td>
-                <td>1800 dinara</td>
-              </tr>
-              <tr class="slide-left table-row" data-href="massages.html#anti-stres">
-                <td>Anti-Stres Masaža</td>
-                <td>75 minuta</td>
-                <td>2000 dinara</td>
-              </tr>
-              <tr class="slide-right table-row" data-href="massages.html#kamenje">
-                <td>Masaža Vulkanskim kamenjem</td>
-                <td>90 minuta</td>
-                <td>2200 dinara</td>
-              </tr>
-              <tr class="slide-left table-row" data-href="massages.html#trudnice">
-                <td>Masaža za trudnice</td>
-                <td>60 minuta</td>
-                <td>1800 dinara</td>
-              </tr>
-              <tr class="slide-right table-row" data-href="massages.html#parcijalne">
-                <td>Parcijalne masaže</td>
-                <td>30 minuta</td>
-                <td>1000 dinara</td>
-              </tr>
-              <tr class="slide-left table-row" data-href="massages.html#terapeutska">
-                <td>Terapeutska masaža</td>
-                <td>45 minuta</td>
-                <td>1200 dinara</td>
-              </tr>
-              <tr class="slide-right table-row" data-href="massages.html#limfna">
-                <td>Limfna drenaža</td>
-                <td>60 minuta</td>
-                <td>1800 dinara</td>
-              </tr>
-              <tr class="slide-left table-row" data-href="massages.html#ampuku">
-                <td>Ampuku</td>
-                <td>45 minuta</td>
-                <td>1400 dinara</td>
-              </tr>
-              <tr class="slide-right table-row" data-href="massages.html#refleksologija">
-                <td>Refleksologija Stopala</td>
-                <td>45 minuta</td>
-                <td>1400 dinara</td>
-              </tr>
-              <tr class="slide-left table-row" data-href="massages.html#rasayana">
-                <td>Rasayana Abhyanga</td>
-                <td>60 minuta</td>
-                <td>2200 dinara</td>
-              </tr>
-              <tr class="slide-right table-row" data-href="massages.html#anticelulit">
-                <td>Anticelulit masaža</td>
-                <td>kliknite za više informacija</td>
-                <td>kliknite za više informacija</td>
-              </tr>
-            </tbody>
-          </table>
+      <div data-bs-spy="scroll" data-bs-target="#main-navigation" data-bs-offset="0" tabindex="0">
+        <div id="about" class="container my-3">
+          <h2>O nama</h2>
+          <p class="slide-up font-italic custom-para-about p-2">
+            Studio za masažu <span class="about-name">Oasis</span> ima jedinstven i svojevrstan pristup klijentima. Spoj
+            prepoznavanja individualnih potreba pojedinca i poznavanja većeg broja različitih tehnika masaža i manuelnih
+            terapija, omogućava nam samopouzdan i jedinstven način rada sa svakim klijentom, dok vama ostavlja
+            nepogrešiv osećaj celosti posle masaže. Ukoliko želite da predahnete od svakodnevnice, da se revitalizujete,
+            poboljšate pokretljivost vašeg tela i podstaknete osećaje opuštenosti i zadovoljstva, Studio za masažu
+            <span class="about-name">Oasis</span> je pravo mesto koje će da odgovori vašim potrebama. Nalazimo se u
+            centru grada, pristupačni smo sa cenama i razlikujemo se po kvalitetu tehnika masaža koje koristimo.
+            Svratite i proverite zašto je <span class="about-name">Oasis</span>
+            vaše mesto za masažu.
+          </p>
         </div>
-      </div>
-      <div id="contact" class="container">
-        <div class="container border shadow my-5 w-75">
-          <form class="p-3">
-            <div class="input">
-              <input id="first-name" type="text" class="form-control input-field" required />
-              <label for="first-name" class="form-label input-label">Ime</label>
-            </div>
-            <div class="input">
-              <input id="last-name" type="text" class="form-control input-field" required />
-              <label for="last-name" class="form-label input-label">Prezime</label>
-            </div>
-            <div class="input">
-              <input id="phone-number" type="text" class="form-control input-field" required />
-              <label for="phone-number" class="form-label input-label">Broj telefona</label>
-            </div>
-            <div class="input">
-              <input id="email" type="email" class="form-control input-field" required />
-              <label class="form-label input-label">Email</label>
-            </div>
-            <div class="input">
-              <textarea id="message" class="form-control input-field" required></textarea>
-              <label for="message" class="form-label input-label">Poruka</label>
-            </div>
-            <div class="mt-4">
-              <button type="button" class="action-button btn btn-warning shadow px-5 mb-3">Otkaži</button>
-              <button type="submit" class="action-button btn btn-warning shadow px-5 mb-3">Pošalji</button>
-            </div>
-          </form>
+        <div id="prices" class="container my-5">
+          <div class="row justify-content-center p-3">
+            <table class="table table-hover w-auto">
+              <thead>
+                <tr class="slide-right th-style">
+                  <th scope="col">Masaža</th>
+                  <th scope="col">Trajanje</th>
+                  <th scope="col">Cena</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="slide-left table-row" data-href="massages.html#holisticka">
+                  <td>Holistička masaža</td>
+                  <td>100-120 minuta</td>
+                  <td>2500 dinara</td>
+                </tr>
+                <tr class="slide-right table-row" data-href="massages.html#klasicna">
+                  <td>Klasična - Relax masaža</td>
+                  <td>60 minuta</td>
+                  <td>1800 dinara</td>
+                </tr>
+                <tr class="slide-left table-row" data-href="massages.html#anti-stres">
+                  <td>Anti-Stres Masaža</td>
+                  <td>75 minuta</td>
+                  <td>2000 dinara</td>
+                </tr>
+                <tr class="slide-right table-row" data-href="massages.html#kamenje">
+                  <td>Masaža Vulkanskim kamenjem</td>
+                  <td>90 minuta</td>
+                  <td>2200 dinara</td>
+                </tr>
+                <tr class="slide-left table-row" data-href="massages.html#trudnice">
+                  <td>Masaža za trudnice</td>
+                  <td>60 minuta</td>
+                  <td>1800 dinara</td>
+                </tr>
+                <tr class="slide-right table-row" data-href="massages.html#parcijalne">
+                  <td>Parcijalne masaže</td>
+                  <td>30 minuta</td>
+                  <td>1000 dinara</td>
+                </tr>
+                <tr class="slide-left table-row" data-href="massages.html#terapeutska">
+                  <td>Terapeutska masaža</td>
+                  <td>45 minuta</td>
+                  <td>1200 dinara</td>
+                </tr>
+                <tr class="slide-right table-row" data-href="massages.html#limfna">
+                  <td>Limfna drenaža</td>
+                  <td>60 minuta</td>
+                  <td>1800 dinara</td>
+                </tr>
+                <tr class="slide-left table-row" data-href="massages.html#ampuku">
+                  <td>Ampuku</td>
+                  <td>45 minuta</td>
+                  <td>1400 dinara</td>
+                </tr>
+                <tr class="slide-right table-row" data-href="massages.html#refleksologija">
+                  <td>Refleksologija Stopala</td>
+                  <td>45 minuta</td>
+                  <td>1400 dinara</td>
+                </tr>
+                <tr class="slide-left table-row" data-href="massages.html#rasayana">
+                  <td>Rasayana Abhyanga</td>
+                  <td>60 minuta</td>
+                  <td>2200 dinara</td>
+                </tr>
+                <tr class="slide-right table-row" data-href="massages.html#anticelulit">
+                  <td>Anticelulit masaža</td>
+                  <td>kliknite za više informacija</td>
+                  <td>kliknite za više informacija</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="contact" class="container">
+          <div class="container border shadow my-5 w-75">
+            <form class="p-3">
+              <div class="input">
+                <input id="first-name" type="text" class="form-control input-field" required />
+                <label for="first-name" class="form-label input-label">Ime</label>
+              </div>
+              <div class="input">
+                <input id="last-name" type="text" class="form-control input-field" required />
+                <label for="last-name" class="form-label input-label">Prezime</label>
+              </div>
+              <div class="input">
+                <input id="phone-number" type="text" class="form-control input-field" required />
+                <label for="phone-number" class="form-label input-label">Broj telefona</label>
+              </div>
+              <div class="input">
+                <input id="email" type="email" class="form-control input-field" required />
+                <label class="form-label input-label">Email</label>
+              </div>
+              <div class="input">
+                <textarea id="message" class="form-control input-field" required></textarea>
+                <label for="message" class="form-label input-label">Poruka</label>
+              </div>
+              <div class="mt-4">
+                <button type="button" class="action-button btn btn-warning shadow px-5 mb-3">Otkaži</button>
+                <button type="submit" class="action-button btn btn-warning shadow px-5 mb-3">Pošalji</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </main>
