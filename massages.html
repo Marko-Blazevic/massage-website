@@ -1,395 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="images\icon.ico" />
-    <title>Oasis</title>
-  </head>
 
-  <body>
-    <header>
-      <nav class="navbar fixed-top navbar-expand-sm custom-navbar-massages autohide">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="index.html"
-            ><img src="images\icon-png-edge.png" alt="Icon image" width="40" height="40" class="logo"
-          /></a>
-          <button
-            class="navbar-toggler navbar-light"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#main-navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="main-navigation">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav-item">
-                <a class="nav-link nav-link-style" href="index.html">Početna</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link nav-link-style" href="index.html#about">O nama</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link nav-link-style current-page-style" href="massages.html">Masaže</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link nav-link-style" href="index.html#prices">Cenovnik</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link nav-link-style" href="index.html#contact">Kontakt</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link nav-link-style" href="#">Zakaži masažu</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="images\icon.ico" />
+  <title>Oasis</title>
+</head>
 
-    <main class="main-massages container">
-      <div id="massages" class="container">
-        <div class="dropup massages-dropup-custom">
-          <button
-            class="btn btn-warning dropdown-toggle text-white"
-            type="button"
-            id="dropdownMassagesBtn"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Masaže
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMassagesBtn">
-            <li><a class="dropdown-item" href="#holisticka">Holistička masaža</a></li>
-            <li><a class="dropdown-item" href="#klasicna">Klasična - Relax masaža</a></li>
-            <li><a class="dropdown-item" href="#anti-stres">Anti-Stres Masaža</a></li>
-            <li><a class="dropdown-item" href="#kamenje">Masaža Vulkanskim kamenjem</a></li>
-            <li><a class="dropdown-item" href="#trudnice">Masaža za trudnice</a></li>
-            <li><a class="dropdown-item" href="#parcijalne">Parcijalne masaže</a></li>
-            <li><a class="dropdown-item" href="#terapeutska">Terapeutska masaža</a></li>
-            <li><a class="dropdown-item" href="#limfna">Limfna drenaža</a></li>
-            <li><a class="dropdown-item" href="#ampuku">Ampuku</a></li>
-            <li><a class="dropdown-item" href="#refleksologija">Refleksologija Stopala</a></li>
-            <li><a class="dropdown-item" href="#rasayana">Rasayana Abhyanga</a></li>
-            <li><a class="dropdown-item" href="#anticelulit">Anticelulit masaža</a></li>
-          </ul>
-        </div>
-
-        <div id="holisticka" class="slide-up border-bottom">
-          <img
-            src="images\holisticka.jpg"
-            class="slide-right mb-3 img-fluid shadow massage-images"
-            alt="Man hands massaging a woman's back."
-          />
-          <h3>Holistička masaža</h3>
-          <p>
-            Kada se radi iz Holističke perspektive, telo se posmatra kao refleksija cele osobe i svih njenih
-            proživljenih iskustava. Telo je “dom” emocijama, sistemima verovanja i izrazima duha, pa ga kao takvo i
-            moramo poštovati. Svaki put kada proživljavamo neku stresnu, mentalno zahtevnu ili emotivno iscrpljujuću
-            situaciju, naše telo to pamti i skladišti. Iz tog razloga, nakon određenog vremena, počinjemo da osećamo
-            tenziju i nelagodnost. To nam telo šalje poruku da bismo mogli nešto da promenimo u našem životu. Holistički
-            pristup masaži u svojoj osnovi predstavlja razumevanje da je osoba mnogo više od tela i da se kompleksnost i
-            lepota svakog od nas sastoji od mnogo faktora. Svi ovi delovi nas su u direktnoj vezi sa nasim telom i
-            načinom na koji ga osećamo (da li se osećamo fantastično, fleksibilno i izuzetno pokretno ili nas nešto
-            boli, ukočeni smo, imamo problem), te se, zbog toga, prilikom primene holističkog tretmana i masaže koriste
-            različite tehnike (tradicionalna, terapeutska, shiatsu, limfna drenaža, reflexologija, rad sa suptilnim
-            energijama…) čime se postiže dubinska relaksacija organizma na fizičkom, emotivnom i mentalnom nivou.
-            Holističkom masažom se brzo unapređuje kvalitet sna i koncentracije, poboljšava cirkulacija krvi i limfe u
-            organizmu i eliminacija otrova i ublažavaju se tegobe izazvane stresom i lošim životnim navikama. Holistička
-            masaža može da ublaži ili da potpuno uspostavi izgubljenu ravnotežu u organizmu.
-            <br /><br />
-            <strong>Trajanje:</strong> 100-120 minuta
-            <br />
-            <strong>Cena:</strong> 2500 dinara
-          </p>
-        </div>
-
-        <div id="klasicna" class="slide-left mt-3 border-bottom">
-          <h3>Klasična - Relax masaža</h3>
-          <p>
-            Prijatna manuelna masaža kojom se postiže opuštanje mišića i celokupnog organizma. Ima okrepljujuće i
-            umirujuće dejstvo. Redovnom primenom masaže ubrzavaju se i pospešuju metabolički procesi, stimuliše
-            regeneracija ćelija, jača imunološki i opušta nervni sistem. Tokom relaksacione masaže akcenat nije na
-            “razbijanju čvorova” i dubinskom radu sa mekim tkivom, već je njena glavna svrha da se klijent opusti i
-            oporavi od zahteva svakodnevnice. Ova masaža se bira ukoliko želite da se smirite i razmazite sebe na
-            trenutak.
-            <br /><br />
-            <strong>Trajanje:</strong> 60 minuta
-            <br />
-            <strong>Cena:</strong> 1800 dinara
-          </p>
-        </div>
-
-        <div id="anti-stres" class="slide-right mt-3 border-bottom">
-          <img
-            src="images/antistres2.jpg"
-            class="massage-images img-fluid my-3 shadow massage-images"
-            alt="Massage therapist puring massage oil from nice glass bottle into his hand"
-          />
-
-          <h3>Anti-Stres Masaža</h3>
-          <p class="slide-up">
-            Anti-Stres masaža je spoj nekoliko različitih tehnika masaže pomoću kojih se klijent na najefikasniji način
-            oslobađa napetosti koja se akumulira u organizmu životnim navikama, tempom života i zahtevima svakodnevnice.
-            Anti-Stres masaža je kombinacija klasične relax i terapeutske masaže kod koje se koriste esencijalna ulja,
-            adekvatno kombinovana prema klijentovim potrebama, čime ova masaža dobija karakter Aromaterapije za koju je
-            dokazano da ima blagorodno dejstvo na ceo organizam, naročito na centralni nervni sistem, koji ima najjače
-            dejstvo na psiho-fizičke procese u telu. Kod Anti-Stres masaže akcenat se stavlja na masažu ledja, glave i
-            stopala, jer su to tri dela čovekovog tela na ili u kojima se stres prvo manifestuje, a preko kojih se,
-            masažom, najefikasnije oslobađa.
-            <br /><br />
-            <strong>Trajanje:</strong> 75 minuta
-            <br />
-            <strong>Cena:</strong> 2000 dinara
-          </p>
-        </div>
-
-        <div id="kamenje" class="slide-up mt-3 border-bottom">
-          <img
-            src="images/hot-stone2.jpg"
-            class="img-fluid my-3 shadow"
-            alt="Hands positioning black vulcanic stones onto the woman's back."
-          />
-          <h3>Masaža Vulkanskim kamenjem</h3>
-          <p class="slide-up">
-            Masaža vulkanskim kamenjem je vrsta opuštajuće termoterapije kod koje se masaža celog tela vrši posebnim,
-            zagrejanim vulkanskim kamenjem, i tehnikom koja je formirana isključivo za ovaj tip masaže. Zbog svoje
-            termalne karakteristike, masaža toplim vulkanskim kamenjem obezbeđuje duboku mišićnu i tkivnu relaksaciju,
-            oslobađa od nagomilanog stresa, pojačava cirkulaciju i omogućava brzo izbacivanje toksina iz tela. Takodje,
-            ovaj tip masaže je izuzetno učinkovit kod ublažavanja bolova hroničnih problema mišićno-koštano-zglobne
-            strukture tela. Dokazano je da ova vrsta masaže ima pozitivno dejstvo na kardiovaskularni, limfni,
-            mišićnoskeletni, endokrini, nervni i digestivni sistem.
-            <br />
-            Masaža vrućim kamenjem predstavlja izvanredno iskustvo koje umiruje, relaksira i pojačava životnu energiju.
-            <br /><br />
-            <strong>Trajanje:</strong> 90 minuta
-            <br />
-            <strong>Cena:</strong> 2200 dinara
-          </p>
-        </div>
-
-        <div id="trudnice" class="slide-left mt-3 border-bottom">
-          <img
-            src="images/trudnice2.jpg"
-            class="img-fluid my-3 shadow"
-            alt="Both hands massaging the belly of the pregnant lady."
-          />
-          <h3>Masaža za trudnice</h3>
-          <p class="slide-up">
-            Posebne potrebe koje trudnice imaju, s obzirom da njihovo telo prolazi kroz ogromne promene, zahtevaju i
-            poseban i predan terapeutski rad. Masaža tokom tudnoće predstavlja jedan od lepih i sigurnih načina da se
-            tegobe koje se javljaju u telu ublaže i time smanji pritisak i bolovi koji su prisutni, čime se trudna žena
-            oslobađa mentalnog i fizičkog umora. Masažom će se smanjiti bol u leđima koji je neizostavan pratilac svake
-            trudnice, ublažiće se otečenost nogu i grčevi, poboljšati cirkulacija u telu, opustiće se nervni sistem, što
-            je od velikog značaja i za žene koje muči nesanica. Masaža predstavlja posebnu pažnju za trudnicu, koja
-            uzvraća pažnjom prema novom životu koji se rađa u njoj. <br />
-            Sa prenatalnom masažom se može početi od drugog trimestra, tj od 4 meseca, naravno uz konsultaciju lekara,
-            koji će odobriti ovakav vid tretmana.
-            <br /><br />
-            <strong>Trajanje:</strong> 60 minuta
-            <br />
-            <strong>Cena:</strong> 1800 dinara
-          </p>
-        </div>
-
-        <div id="parcijalne" class="slide-right mt-3 border-bottom">
-          <h3>Parcijalne masaže</h3>
-          <p>
-            Ukoliko klijent nema vremena za masažu celog tela, na raspolaganju su neke od mnogobrojnih parcijalnih
-            masaža, od kojih preporučujemo:
-          </p>
-          <ul>
-            <li>Masažu leđa</li>
-            <li>
-              Masažu nogu (oslobađa osećaja “natečenih” i “teških” nogu, uspostavlja normalnu cirkulaciju krvi i limfe
-              čime se regulišu procesi varenja, izbacivanja viška tečnosti i toksina iz tela)
+<body data-bs-spy="scroll" data-bs-target="#massages-list" data-bs-offset="200" tabindex="0" class="scrollspy-example">
+  <header>
+    <nav class="navbar fixed-top navbar-expand-sm custom-navbar-massages autohide">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img src="images\icon-png-edge.png" alt="Icon image" width="40"
+            height="40" class="logo" /></a>
+        <button class="navbar-toggler navbar-light" type="button" data-bs-toggle="collapse"
+          data-bs-target="#main-navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-navigation">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link nav-link-style" href="index.html">Početna</a>
             </li>
-            <li>
-              Masažu glave, vrata i ramenog pojasa (blagodeti ove masaže su višestruki, jer se na ovom predelu tela
-              nalaze akupresurne tačke kojima se stimulišu procesi u čitavom organizmu)
+            <li class="nav-item">
+              <a class="nav-link nav-link-style" href="index.html#about">O nama</a>
             </li>
-            <li>Masažu abdomena (otklanja probleme konstipacije, uspostavlja normalan rad abdomena…)</li>
-            <li>Bilo koja kombinacija, prema klijentovim potrebama, u adekvatnom trajanju.</li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-style current-page-style" href="massages.html">Masaže</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-style" href="index.html#prices">Cenovnik</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-style" href="index.html#contact">Kontakt</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-style" href="#">Zakaži masažu</a>
+            </li>
           </ul>
-          <p>
-            <strong>Trajanje:</strong> 30 minuta
-            <br />
-            <strong>Cena:</strong> 1000 dinara
-          </p>
-        </div>
-
-        <div id="terapeutska" class="slide-up mt-3 border-bottom">
-          <img
-            src="images/therapeutic2.jpg"
-            class="img-fluid my-3 shadow massage-images"
-            alt="Women hands massaging the neck of a man."
-          />
-          <h3>Terapeutska masaža</h3>
-          <p class="slide-up">
-            Kroz život, prilikom naglog pokreta ili trzaja, nošenjem prekomernog tereta ili stalnim ponavljanjem jednih
-            te istih pokreta u poslu ili sportu, na mišićima ostaje trag povrede koja vremenom, ukoliko se ne tretira i
-            ne leči, onemogućava normalno funkcionisanje delova tela koji su u korespodenciji sa njim, i dovodi do
-            pojave bola, ukočenosti, tj problema koji je tada već postao hroničan i “prateći”. <br />
-            Za one koje već duže vreme (meseci, godine) prate hronični problem, bolovi, ukočenost u mišićima, zglobovima
-            ili bilo kom delu tela, u ponudi je i terapeutska masaža koja se radi adekvatnim gelovima protiv bolova i
-            upalnih procesa i tehnikom usmerenom ka oslobadjanju tela od hroničnog problema.
-            <br /><br />
-            <strong>Trajanje:</strong> 45 minuta
-            <br />
-            <strong>Cena:</strong> 1200 dinara
-          </p>
-        </div>
-
-        <div id="limfna" class="slide-left mt-3 border-bottom">
-          <h3>Limfna drenaža</h3>
-          <p>
-            Limfna drenaža je nezamenjiv terapeutski postupak za stimulisanje i uspostavljavljanje pravilne cirkulacije
-            limfe, poboljšanje venske cirkulacije i celokupnu detoksikaciju organizma. To je forma blage masaže pomoću
-            koje se podstiče kretanje limfe, čime se smanjuju otok i bolovi prouzrokovani preteranom količinom limfe u
-            telu ili delovima tela. Ima povoljan efekat na nervni, mišićni i imuni sistem. <br />
-            Limfna drenaža takođe doprinosi boljoj ishrani ćelija i regeneraciji tkiva, otklanjanju viška tečnosti i
-            jačanju imunološkog sistema, smanjuje ili potpuno uklanja osećaj natečenih i umornih nogu, ubrzava procese
-            razgradnje celulita i omogućava normalno i zdravo funkcionisanje organizma. <br />
-            Regenerišući efekti limfne drenaže nisu ograničeni samo na tkivo koje dreniramo, već i na duboka tkiva, npr.
-            kod osteoporoze i ukočenih zglobova.
-            <br /><br />
-            <strong>Trajanje:</strong> 60 minuta
-            <br />
-            <strong>Cena:</strong> 1800 dinara
-          </p>
-        </div>
-        <div id="ampuku" class="slide-right mt-3 border-bottom">
-          <h3>Ampuku</h3>
-          <p>
-            Tradicionalna japanska tehnika masaže stomaka kod koje se palpacijom vrši dijagnoza i tretman abdomena.
-            <br />
-            Reč “Ampuku”znači “Puls Hare” ili “Smirivanje abdomena”. U japanskoj tradiciji “Hara” predstavlja centar
-            životne energije svakog čoveka. Kroz ampuku terapiju, palpiranjem tačaka na abdomenu se omogućava
-            uspostavljanje normalnog toka energije i uklanjaju blockade, što je preduslov za neometano funkcionisanje
-            kako unutrašnjih organa, tako i celog bića. U japanskoj medicini, Hara je centar zdravlja i ona utiče na sve
-            aspekte života, zbog čega joj se i pridaje tolika pažnja, jer kroz nju prolaze glavni krvni sudovi pomoću
-            kojih se telo snabdeva krvlju. Na emocionalnom nivou, Hara je mesto gde osećamo emocije. <br />
-            Pomoću Ampuku masaže abdomen se osobadja napetosti, opuštaju se unutarnji organi, harmonizuju stomačne i
-            crevne funkcije, poboljšava varenje, podiže mentalna snaga, eliminišu hronični problemi.
-            <br /><br />
-            <strong>Trajanje:</strong> 45 minuta
-            <br />
-            <strong>Cena:</strong> 1400 dinara
-          </p>
-        </div>
-
-        <div id="refleksologija" class="slide-up mt-3 border-bottom">
-          <img
-            src="images/foot-massage2.jpg"
-            class="img-fluid my-3 shadow massage-images"
-            alt="Both hands of a woman on one sole of a feet with both thumbs used for massaging."
-          />
-          <h3>Refleksologija Stopala</h3>
-          <p class="slide-up">
-            Refleksologija stopala je tehnika kod koje primenom odgovarajućih pokreta i pritisaka na specifične tačke i
-            područja na stopalima, možemo direktno uticati na unutrašnje organe i sisteme u organizmu i time ublažiti
-            ili potpuno ukloniti bol, kako u nogama, tako i u organima sa kojima te tačke i zone korespondiraju. <br />
-            Refleksologija je dubinsko opuštajući tretman čije se koristi mogu osetiti širom celog tela.
-            <br /><br />
-            <strong>Trajanje:</strong> 45 minuta
-            <br />
-            <strong>Cena:</strong> 1400 dinara
-          </p>
-        </div>
-
-        <div id="rasayana" class="slide-left mt-3 border-bottom">
-          <h3>Rasayana Abhyanga (Masaža Podmlađivanja)</h3>
-          <p>
-            Drevna Ajurvedska tehnika regenerativne masaže, namenjena očuvanju i unapredjenju metaboličkog perioda u
-            životu svakog čoveka. Metabolički period je naš najaktivniji period u životu, vreme kad smo najkreativniji i
-            imamo najviše energije. To je, naravno, razdoblje između 20 i 60 godina. Redovnom primenom Rasayane,
-            pospešuje se revitalizacija celokupnog organizma, čime se prolongira trajanje “mladosti”. Ova regenerativna
-            masaža umanjuje stres i anksioznost, pomaže u eliminaciji toksina, balansiranju i tonaciji tela, umiruje
-            mentalne procese, i neguje duh pojedinca. Rasayana uspostavlja dobro stanje u telu oslobađajući emocionalne
-            tenzije i fizičke nelagodnosti i stvara temelj dobrobiti i stabilnosti fiziologije klijenta.
-            <br /><br />
-            <strong>Trajanje:</strong> 60 minuta
-            <br />
-            <strong>Cena:</strong> 2200 dinara
-          </p>
-        </div>
-
-        <div id="anticelulit" class="slide-right mt-3 border-bottom">
-          <img
-            src="images/anticelulite2.jpg"
-            class="img-fluid my-3 shadow massage-images"
-            alt="Woman measuring a quantity of celulite on her thigh by squeezing it between her hands."
-          />
-          <h3>Anticelulit masaža</h3>
-          <p class="slide-up">
-            Anticelulit masaža predstavlja jedan od najefikasnijih metoda za uklanjanje celulita sa osetljivih regija na
-            telu. Anticelulit masažom se značajno poboljšava cirkulacija na tretiranim delovima tela i time telo
-            oslobađa toksina nagomilanih u masnim ćelijama, zateže i podmlađuje koža, tj vraća njen tonus i elastičnost.
-            Ovo je tip intenzivne masaže kod koje se kombinacijom specijalnih masažnih tehnika gnječenja, dreniranja,
-            lupkanja, uvrtanja, vidno popravlja stanje i izgled regija tela koje to zahtevaju. Anticelulit masaža
-            posebno pomaže onim delovim tela na koje se teško utiče vežbanjem, kao što su unutrašnja strana kolena ili
-            gornji spoljni deo bedara.
-            <br />
-            Sa anticelulit tretmanima se počinje odmah po prestanku mesečnog ciklusa, jer se tada, u narednih 10 dana,
-            postižu najbolji efekti.
-          </p>
-          <div class="mt-3">
-            <p>Pojedinačan tretman:</p>
-            <ul>
-              <li>
-                <strong>Trajanje:</strong> (bez pakovanja) 25 minuta <br />
-                <strong>Cena:</strong> 900 dinara
-              </li>
-              <li>
-                <strong>Trajanje:</strong> (sa pakovanjem) 45 minuta <br />
-                <strong>Cena:</strong> 1000 dinara
-              </li>
-            </ul>
-            <p class="mt-3">Serijski tretman:</p>
-            <ul>
-              <li>
-                <strong>Trajanje:</strong> (bez pakovanja) 10x25 minuta <br />
-                <strong>Cena:</strong> 8000 dinara
-              </li>
-              <li>
-                <strong>Trajanje:</strong> (sa pakovanjem) 10x45 minuta <br />
-                <strong>Cena:</strong> 9000 dinara
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
-    </main>
+    </nav>
+  </header>
 
-    <footer></footer>
+  <main class="main-massages container">
+    <div id="massages" class="container">
+      <div class="dropup massages-dropup-custom">
+        <button class="btn btn-warning dropdown-toggle text-white" type="button" id="dropdownMassagesBtn"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Masaže
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMassagesBtn">
+          <li><a class="dropdown-item" href="#holisticka">Holistička masaža</a></li>
+          <li><a class="dropdown-item" href="#klasicna">Klasična - Relax masaža</a></li>
+          <li><a class="dropdown-item" href="#anti-stres">Anti-Stres Masaža</a></li>
+          <li><a class="dropdown-item" href="#kamenje">Masaža Vulkanskim kamenjem</a></li>
+          <li><a class="dropdown-item" href="#trudnice">Masaža za trudnice</a></li>
+          <li><a class="dropdown-item" href="#parcijalne">Parcijalne masaže</a></li>
+          <li><a class="dropdown-item" href="#terapeutska">Terapeutska masaža</a></li>
+          <li><a class="dropdown-item" href="#limfna">Limfna drenaža</a></li>
+          <li><a class="dropdown-item" href="#ampuku">Ampuku</a></li>
+          <li><a class="dropdown-item" href="#refleksologija">Refleksologija Stopala</a></li>
+          <li><a class="dropdown-item" href="#rasayana">Rasayana Abhyanga</a></li>
+          <li><a class="dropdown-item" href="#anticelulit">Anticelulit masaža</a></li>
+        </ul>
+      </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+      <div id="massages-list" class="list-group massages-list-custom">
 
-    <script src="my-script.js"></script>
+        <a class="list-group-item list-group-item-action" href="#holisticka">Holistička masaža</a>
+        <a class="list-group-item list-group-item-action" href="#klasicna">Klasična - Relax masaža</a>
+        <a class="list-group-item list-group-item-action" href="#anti-stres">Anti-Stres Masaža</a>
+        <a class="list-group-item list-group-item-action" href="#kamenje">Masaža Vulkanskim kamenjem</a>
+        <a class="list-group-item list-group-item-action" href="#trudnice">Masaža za trudnice</a>
+        <a class="list-group-item list-group-item-action" href="#parcijalne">Parcijalne masaže</a>
+        <a class="list-group-item list-group-item-action" href="#terapeutska">Terapeutska masaža</a>
+        <a class="list-group-item list-group-item-action" href="#limfna">Limfna drenaža</a>
+        <a class="list-group-item list-group-item-action" href="#ampuku">Ampuku</a>
+        <a class="list-group-item list-group-item-action" href="#refleksologija">Refleksologija Stopala</a>
+        <a class="list-group-item list-group-item-action" href="#rasayana">Rasayana Abhyanga</a>
+        <a class="list-group-item list-group-item-action" href="#anticelulit">Anticelulit masaža</a>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
+      </div>
 
-    <script>
-      const massages = document.getElementById("massages");
-      const navLinks = document.querySelectorAll(".nav-item");
-      const menuToggle = document.getElementById("main-navigation");
-      const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
-      massages.addEventListener("click", () => {
-        bsCollapse.hide();
-      });
-    </script>
-  </body>
+      <div id="holisticka" class="slide-up border-bottom">
+        <img src="images\holisticka.jpg" class="slide-right mb-3 img-fluid shadow massage-images"
+          alt="Man hands massaging a woman's back." />
+        <h3>Holistička masaža</h3>
+        <p>
+          Kada se radi iz Holističke perspektive, telo se posmatra kao refleksija cele osobe i svih njenih
+          proživljenih iskustava. Telo je “dom” emocijama, sistemima verovanja i izrazima duha, pa ga kao takvo i
+          moramo poštovati. Svaki put kada proživljavamo neku stresnu, mentalno zahtevnu ili emotivno iscrpljujuću
+          situaciju, naše telo to pamti i skladišti. Iz tog razloga, nakon određenog vremena, počinjemo da osećamo
+          tenziju i nelagodnost. To nam telo šalje poruku da bismo mogli nešto da promenimo u našem životu. Holistički
+          pristup masaži u svojoj osnovi predstavlja razumevanje da je osoba mnogo više od tela i da se kompleksnost i
+          lepota svakog od nas sastoji od mnogo faktora. Svi ovi delovi nas su u direktnoj vezi sa nasim telom i
+          načinom na koji ga osećamo (da li se osećamo fantastično, fleksibilno i izuzetno pokretno ili nas nešto
+          boli, ukočeni smo, imamo problem), te se, zbog toga, prilikom primene holističkog tretmana i masaže koriste
+          različite tehnike (tradicionalna, terapeutska, shiatsu, limfna drenaža, reflexologija, rad sa suptilnim
+          energijama…) čime se postiže dubinska relaksacija organizma na fizičkom, emotivnom i mentalnom nivou.
+          Holističkom masažom se brzo unapređuje kvalitet sna i koncentracije, poboljšava cirkulacija krvi i limfe u
+          organizmu i eliminacija otrova i ublažavaju se tegobe izazvane stresom i lošim životnim navikama. Holistička
+          masaža može da ublaži ili da potpuno uspostavi izgubljenu ravnotežu u organizmu.
+          <br /><br />
+          <strong>Trajanje:</strong> 100-120 minuta
+          <br />
+          <strong>Cena:</strong> 2500 dinara
+        </p>
+      </div>
+
+      <div id="klasicna" class="slide-left mt-3 border-bottom">
+        <h3>Klasična - Relax masaža</h3>
+        <p>
+          Prijatna manuelna masaža kojom se postiže opuštanje mišića i celokupnog organizma. Ima okrepljujuće i
+          umirujuće dejstvo. Redovnom primenom masaže ubrzavaju se i pospešuju metabolički procesi, stimuliše
+          regeneracija ćelija, jača imunološki i opušta nervni sistem. Tokom relaksacione masaže akcenat nije na
+          “razbijanju čvorova” i dubinskom radu sa mekim tkivom, već je njena glavna svrha da se klijent opusti i
+          oporavi od zahteva svakodnevnice. Ova masaža se bira ukoliko želite da se smirite i razmazite sebe na
+          trenutak.
+          <br /><br />
+          <strong>Trajanje:</strong> 60 minuta
+          <br />
+          <strong>Cena:</strong> 1800 dinara
+        </p>
+      </div>
+
+      <div id="anti-stres" class="slide-right mt-3 border-bottom">
+        <img src="images/antistres2.jpg" class="massage-images img-fluid my-3 shadow massage-images"
+          alt="Massage therapist puring massage oil from nice glass bottle into his hand" />
+
+        <h3>Anti-Stres Masaža</h3>
+        <p class="slide-up">
+          Anti-Stres masaža je spoj nekoliko različitih tehnika masaže pomoću kojih se klijent na najefikasniji način
+          oslobađa napetosti koja se akumulira u organizmu životnim navikama, tempom života i zahtevima svakodnevnice.
+          Anti-Stres masaža je kombinacija klasične relax i terapeutske masaže kod koje se koriste esencijalna ulja,
+          adekvatno kombinovana prema klijentovim potrebama, čime ova masaža dobija karakter Aromaterapije za koju je
+          dokazano da ima blagorodno dejstvo na ceo organizam, naročito na centralni nervni sistem, koji ima najjače
+          dejstvo na psiho-fizičke procese u telu. Kod Anti-Stres masaže akcenat se stavlja na masažu ledja, glave i
+          stopala, jer su to tri dela čovekovog tela na ili u kojima se stres prvo manifestuje, a preko kojih se,
+          masažom, najefikasnije oslobađa.
+          <br /><br />
+          <strong>Trajanje:</strong> 75 minuta
+          <br />
+          <strong>Cena:</strong> 2000 dinara
+        </p>
+      </div>
+
+      <div id="kamenje" class="slide-up mt-3 border-bottom">
+        <img src="images/hot-stone2.jpg" class="img-fluid my-3 shadow"
+          alt="Hands positioning black vulcanic stones onto the woman's back." />
+        <h3>Masaža Vulkanskim kamenjem</h3>
+        <p class="slide-up">
+          Masaža vulkanskim kamenjem je vrsta opuštajuće termoterapije kod koje se masaža celog tela vrši posebnim,
+          zagrejanim vulkanskim kamenjem, i tehnikom koja je formirana isključivo za ovaj tip masaže. Zbog svoje
+          termalne karakteristike, masaža toplim vulkanskim kamenjem obezbeđuje duboku mišićnu i tkivnu relaksaciju,
+          oslobađa od nagomilanog stresa, pojačava cirkulaciju i omogućava brzo izbacivanje toksina iz tela. Takodje,
+          ovaj tip masaže je izuzetno učinkovit kod ublažavanja bolova hroničnih problema mišićno-koštano-zglobne
+          strukture tela. Dokazano je da ova vrsta masaže ima pozitivno dejstvo na kardiovaskularni, limfni,
+          mišićnoskeletni, endokrini, nervni i digestivni sistem.
+          <br />
+          Masaža vrućim kamenjem predstavlja izvanredno iskustvo koje umiruje, relaksira i pojačava životnu energiju.
+          <br /><br />
+          <strong>Trajanje:</strong> 90 minuta
+          <br />
+          <strong>Cena:</strong> 2200 dinara
+        </p>
+      </div>
+
+      <div id="trudnice" class="slide-left mt-3 border-bottom">
+        <img src="images/trudnice2.jpg" class="img-fluid my-3 shadow"
+          alt="Both hands massaging the belly of the pregnant lady." />
+        <h3>Masaža za trudnice</h3>
+        <p class="slide-up">
+          Posebne potrebe koje trudnice imaju, s obzirom da njihovo telo prolazi kroz ogromne promene, zahtevaju i
+          poseban i predan terapeutski rad. Masaža tokom tudnoće predstavlja jedan od lepih i sigurnih načina da se
+          tegobe koje se javljaju u telu ublaže i time smanji pritisak i bolovi koji su prisutni, čime se trudna žena
+          oslobađa mentalnog i fizičkog umora. Masažom će se smanjiti bol u leđima koji je neizostavan pratilac svake
+          trudnice, ublažiće se otečenost nogu i grčevi, poboljšati cirkulacija u telu, opustiće se nervni sistem, što
+          je od velikog značaja i za žene koje muči nesanica. Masaža predstavlja posebnu pažnju za trudnicu, koja
+          uzvraća pažnjom prema novom životu koji se rađa u njoj. <br />
+          Sa prenatalnom masažom se može početi od drugog trimestra, tj od 4 meseca, naravno uz konsultaciju lekara,
+          koji će odobriti ovakav vid tretmana.
+          <br /><br />
+          <strong>Trajanje:</strong> 60 minuta
+          <br />
+          <strong>Cena:</strong> 1800 dinara
+        </p>
+      </div>
+
+      <div id="parcijalne" class="slide-right mt-3 border-bottom">
+        <h3>Parcijalne masaže</h3>
+        <p>
+          Ukoliko klijent nema vremena za masažu celog tela, na raspolaganju su neke od mnogobrojnih parcijalnih
+          masaža, od kojih preporučujemo:
+        </p>
+        <ul>
+          <li>Masažu leđa</li>
+          <li>
+            Masažu nogu (oslobađa osećaja “natečenih” i “teških” nogu, uspostavlja normalnu cirkulaciju krvi i limfe
+            čime se regulišu procesi varenja, izbacivanja viška tečnosti i toksina iz tela)
+          </li>
+          <li>
+            Masažu glave, vrata i ramenog pojasa (blagodeti ove masaže su višestruki, jer se na ovom predelu tela
+            nalaze akupresurne tačke kojima se stimulišu procesi u čitavom organizmu)
+          </li>
+          <li>Masažu abdomena (otklanja probleme konstipacije, uspostavlja normalan rad abdomena…)</li>
+          <li>Bilo koja kombinacija, prema klijentovim potrebama, u adekvatnom trajanju.</li>
+        </ul>
+        <p>
+          <strong>Trajanje:</strong> 30 minuta
+          <br />
+          <strong>Cena:</strong> 1000 dinara
+        </p>
+      </div>
+
+      <div id="terapeutska" class="slide-up mt-3 border-bottom">
+        <img src="images/therapeutic2.jpg" class="img-fluid my-3 shadow massage-images"
+          alt="Women hands massaging the neck of a man." />
+        <h3>Terapeutska masaža</h3>
+        <p class="slide-up">
+          Kroz život, prilikom naglog pokreta ili trzaja, nošenjem prekomernog tereta ili stalnim ponavljanjem jednih
+          te istih pokreta u poslu ili sportu, na mišićima ostaje trag povrede koja vremenom, ukoliko se ne tretira i
+          ne leči, onemogućava normalno funkcionisanje delova tela koji su u korespodenciji sa njim, i dovodi do
+          pojave bola, ukočenosti, tj problema koji je tada već postao hroničan i “prateći”. <br />
+          Za one koje već duže vreme (meseci, godine) prate hronični problem, bolovi, ukočenost u mišićima, zglobovima
+          ili bilo kom delu tela, u ponudi je i terapeutska masaža koja se radi adekvatnim gelovima protiv bolova i
+          upalnih procesa i tehnikom usmerenom ka oslobadjanju tela od hroničnog problema.
+          <br /><br />
+          <strong>Trajanje:</strong> 45 minuta
+          <br />
+          <strong>Cena:</strong> 1200 dinara
+        </p>
+      </div>
+
+      <div id="limfna" class="slide-left mt-3 border-bottom">
+        <h3>Limfna drenaža</h3>
+        <p>
+          Limfna drenaža je nezamenjiv terapeutski postupak za stimulisanje i uspostavljavljanje pravilne cirkulacije
+          limfe, poboljšanje venske cirkulacije i celokupnu detoksikaciju organizma. To je forma blage masaže pomoću
+          koje se podstiče kretanje limfe, čime se smanjuju otok i bolovi prouzrokovani preteranom količinom limfe u
+          telu ili delovima tela. Ima povoljan efekat na nervni, mišićni i imuni sistem. <br />
+          Limfna drenaža takođe doprinosi boljoj ishrani ćelija i regeneraciji tkiva, otklanjanju viška tečnosti i
+          jačanju imunološkog sistema, smanjuje ili potpuno uklanja osećaj natečenih i umornih nogu, ubrzava procese
+          razgradnje celulita i omogućava normalno i zdravo funkcionisanje organizma. <br />
+          Regenerišući efekti limfne drenaže nisu ograničeni samo na tkivo koje dreniramo, već i na duboka tkiva, npr.
+          kod osteoporoze i ukočenih zglobova.
+          <br /><br />
+          <strong>Trajanje:</strong> 60 minuta
+          <br />
+          <strong>Cena:</strong> 1800 dinara
+        </p>
+      </div>
+      <div id="ampuku" class="slide-right mt-3 border-bottom">
+        <h3>Ampuku</h3>
+        <p>
+          Tradicionalna japanska tehnika masaže stomaka kod koje se palpacijom vrši dijagnoza i tretman abdomena.
+          <br />
+          Reč “Ampuku”znači “Puls Hare” ili “Smirivanje abdomena”. U japanskoj tradiciji “Hara” predstavlja centar
+          životne energije svakog čoveka. Kroz ampuku terapiju, palpiranjem tačaka na abdomenu se omogućava
+          uspostavljanje normalnog toka energije i uklanjaju blockade, što je preduslov za neometano funkcionisanje
+          kako unutrašnjih organa, tako i celog bića. U japanskoj medicini, Hara je centar zdravlja i ona utiče na sve
+          aspekte života, zbog čega joj se i pridaje tolika pažnja, jer kroz nju prolaze glavni krvni sudovi pomoću
+          kojih se telo snabdeva krvlju. Na emocionalnom nivou, Hara je mesto gde osećamo emocije. <br />
+          Pomoću Ampuku masaže abdomen se osobadja napetosti, opuštaju se unutarnji organi, harmonizuju stomačne i
+          crevne funkcije, poboljšava varenje, podiže mentalna snaga, eliminišu hronični problemi.
+          <br /><br />
+          <strong>Trajanje:</strong> 45 minuta
+          <br />
+          <strong>Cena:</strong> 1400 dinara
+        </p>
+      </div>
+
+      <div id="refleksologija" class="slide-up mt-3 border-bottom">
+        <img src="images/foot-massage2.jpg" class="img-fluid my-3 shadow massage-images"
+          alt="Both hands of a woman on one sole of a feet with both thumbs used for massaging." />
+        <h3>Refleksologija Stopala</h3>
+        <p class="slide-up">
+          Refleksologija stopala je tehnika kod koje primenom odgovarajućih pokreta i pritisaka na specifične tačke i
+          područja na stopalima, možemo direktno uticati na unutrašnje organe i sisteme u organizmu i time ublažiti
+          ili potpuno ukloniti bol, kako u nogama, tako i u organima sa kojima te tačke i zone korespondiraju. <br />
+          Refleksologija je dubinsko opuštajući tretman čije se koristi mogu osetiti širom celog tela.
+          <br /><br />
+          <strong>Trajanje:</strong> 45 minuta
+          <br />
+          <strong>Cena:</strong> 1400 dinara
+        </p>
+      </div>
+
+      <div id="rasayana" class="slide-left mt-3 border-bottom">
+        <h3>Rasayana Abhyanga (Masaža Podmlađivanja)</h3>
+        <p>
+          Drevna Ajurvedska tehnika regenerativne masaže, namenjena očuvanju i unapredjenju metaboličkog perioda u
+          životu svakog čoveka. Metabolički period je naš najaktivniji period u životu, vreme kad smo najkreativniji i
+          imamo najviše energije. To je, naravno, razdoblje između 20 i 60 godina. Redovnom primenom Rasayane,
+          pospešuje se revitalizacija celokupnog organizma, čime se prolongira trajanje “mladosti”. Ova regenerativna
+          masaža umanjuje stres i anksioznost, pomaže u eliminaciji toksina, balansiranju i tonaciji tela, umiruje
+          mentalne procese, i neguje duh pojedinca. Rasayana uspostavlja dobro stanje u telu oslobađajući emocionalne
+          tenzije i fizičke nelagodnosti i stvara temelj dobrobiti i stabilnosti fiziologije klijenta.
+          <br /><br />
+          <strong>Trajanje:</strong> 60 minuta
+          <br />
+          <strong>Cena:</strong> 2200 dinara
+        </p>
+      </div>
+
+      <div id="anticelulit" class="slide-right mt-3 border-bottom">
+        <img src="images/anticelulite2.jpg" class="img-fluid my-3 shadow massage-images"
+          alt="Woman measuring a quantity of celulite on her thigh by squeezing it between her hands." />
+        <h3>Anticelulit masaža</h3>
+        <p class="slide-up">
+          Anticelulit masaža predstavlja jedan od najefikasnijih metoda za uklanjanje celulita sa osetljivih regija na
+          telu. Anticelulit masažom se značajno poboljšava cirkulacija na tretiranim delovima tela i time telo
+          oslobađa toksina nagomilanih u masnim ćelijama, zateže i podmlađuje koža, tj vraća njen tonus i elastičnost.
+          Ovo je tip intenzivne masaže kod koje se kombinacijom specijalnih masažnih tehnika gnječenja, dreniranja,
+          lupkanja, uvrtanja, vidno popravlja stanje i izgled regija tela koje to zahtevaju. Anticelulit masaža
+          posebno pomaže onim delovim tela na koje se teško utiče vežbanjem, kao što su unutrašnja strana kolena ili
+          gornji spoljni deo bedara.
+          <br />
+          Sa anticelulit tretmanima se počinje odmah po prestanku mesečnog ciklusa, jer se tada, u narednih 10 dana,
+          postižu najbolji efekti.
+        </p>
+        <div class="mt-3">
+          <p>Pojedinačan tretman:</p>
+          <ul>
+            <li>
+              <strong>Trajanje:</strong> (bez pakovanja) 25 minuta <br />
+              <strong>Cena:</strong> 900 dinara
+            </li>
+            <li>
+              <strong>Trajanje:</strong> (sa pakovanjem) 45 minuta <br />
+              <strong>Cena:</strong> 1000 dinara
+            </li>
+          </ul>
+          <p class="mt-3">Serijski tretman:</p>
+          <ul>
+            <li>
+              <strong>Trajanje:</strong> (bez pakovanja) 10x25 minuta <br />
+              <strong>Cena:</strong> 8000 dinara
+            </li>
+            <li>
+              <strong>Trajanje:</strong> (sa pakovanjem) 10x45 minuta <br />
+              <strong>Cena:</strong> 9000 dinara
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer></footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+
+  <script src="my-script.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <script>
+    const massages = document.getElementById("massages");
+    const navLinks = document.querySelectorAll(".nav-item");
+    const menuToggle = document.getElementById("main-navigation");
+    const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
+    massages.addEventListener("click", () => {
+      bsCollapse.hide();
+    });
+  </script>
+</body>
+
 </html>

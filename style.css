@@ -128,10 +128,37 @@ main {
   padding-top: 66px;
 }
 
+#massages .massages-list-custom {
+  display: none;
+  position: fixed;
+  z-index: 110;
+  top: 100px;
+  left: 10px;
+  width: auto;
+}
+
+#massages .massages-list-custom a {
+  border: none;
+  border-right: solid 1px rgba(200, 200, 200, 0.4);
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  -webkit-transition: 0.8s ease-in-out;
+  transition: 0.8s ease-in-out;
+}
+
+#massages .massages-list-custom a:hover {
+  color: #fc9b00;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+#massages .massages-list-custom a.active {
+  color: #fc9b00;
+  background-color: white;
+}
+
 #massages .massages-dropup-custom {
   position: fixed;
-  height: 200px;
-  overflow-y: visible;
   z-index: 100;
   bottom: 10px;
   right: 10px;
@@ -261,6 +288,12 @@ form textarea {
 @media (min-width: 1200px) {
   .index-text {
     font-size: 5rem;
+  }
+  .massages-dropup-custom {
+    display: none;
+  }
+  #massages .massages-list-custom {
+    display: block;
   }
 }
 /*# sourceMappingURL=style.css.map */
