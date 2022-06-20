@@ -204,6 +204,7 @@ table tr[data-href] {
 
 form textarea {
   resize: none;
+  height: 100px;
 }
 
 .card-heading {
@@ -252,7 +253,7 @@ form textarea {
   background-color: transparent;
   border-bottom: 2px solid #eee;
   font: inherit;
-  padding: 0.25rem 0;
+  padding: 0.25rem 0.5rem;
 }
 
 .input-field:focus, .input-field:valid {
@@ -280,6 +281,52 @@ form textarea {
   text-decoration: none;
 }
 
+@media (max-width: 330px) {
+  #about h2 {
+    font-size: 3.5rem;
+  }
+  #about .custom-para-about {
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+  #about .about-name {
+    font-size: 2rem;
+  }
+  .contact-form-custom {
+    padding: 1rem;
+  }
+  .prices-table-custom {
+    font-size: 0.95rem;
+  }
+  .input-field {
+    font-size: 0.8rem;
+  }
+  .input-label {
+    font-size: 0.9rem;
+  }
+  .contact-form-custom {
+    padding: 1rem 0.5em;
+  }
+  .contact-btn-custom {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 310px) {
+  .contact-form-custom {
+    padding: 1rem 0.5em;
+  }
+  .prices-table-custom {
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 330px) {
+  .contact-form-custom {
+    padding: 1rem;
+  }
+}
+
 @media (min-width: 576px) and (min-height: 270px) {
   .index-img-wrapper {
     width: 90%;
@@ -288,6 +335,15 @@ form textarea {
   }
   .index-text {
     margin-top: 4.5rem;
+  }
+  .contact-form-custom {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  #contact {
+    width: 60%;
   }
 }
 
@@ -300,6 +356,9 @@ form textarea {
   }
   #massages .massages-list-custom {
     display: block;
+  }
+  #contact {
+    width: 40%;
   }
 }
 /*# sourceMappingURL=style.css.map */
