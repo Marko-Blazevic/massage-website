@@ -274,15 +274,27 @@ form {
 }
 .index-footer-custom {
   color: white;
-  padding: 1rem 2rem;
-  font-size: 0.9rem;
+  border-top: solid 1px rgba(200, 200, 200, 0.4);
+  padding: 1rem;
+  font-size: 0.7rem;
+  font-family: sans-serif;
+  margin-top: 1rem;
+  .footer-links {
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+  .footer-logo {
+    max-width: 80px;
+  }
 }
 
 .massage-footer-custom {
   width: 100vw;
   border-top: solid 1px rgba(200, 200, 200, 0.4);
   background-color: white;
-  padding: 1rem 0;
+  padding: 1rem;
   font-size: 0.7rem;
   font-family: sans-serif;
   margin-top: 1rem;
