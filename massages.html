@@ -8,12 +8,13 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
   <link rel="stylesheet" href="style.css" />
   <link rel="shortcut icon" href="images\icon.ico" />
+  <script src="https://kit.fontawesome.com/ee55f02415.js" crossorigin="anonymous"></script>
   <title>Oasis</title>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#massages-list" data-bs-offset="200" tabindex="0" class="scrollspy-example">
   <header>
-    <nav class="navbar fixed-top navbar-expand-sm custom-navbar-massages autohide">
+    <nav class="navbar fixed-top navbar-expand-sm custom-navbar-massages">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.html"><img src="images\icon-png-edge.png" alt="Icon image" width="40"
             height="40" class="logo" /></a>
@@ -48,7 +49,8 @@
   </header>
 
   <main class="main-massages container">
-    <div id="massages" class="container">
+    <div id="massages" class="container ">
+
       <div class="dropup massages-dropup-custom">
         <button class="btn btn-warning dropdown-toggle text-white" type="button" id="dropdownMassagesBtn"
           data-bs-toggle="dropdown" aria-expanded="false">
@@ -71,7 +73,6 @@
       </div>
 
       <div id="massages-list" class="list-group massages-list-custom">
-
         <a class="list-group-item list-group-item-action" href="#holisticka">Holistička masaža</a>
         <a class="list-group-item list-group-item-action" href="#klasicna">Klasična - Relax masaža</a>
         <a class="list-group-item list-group-item-action" href="#anti-stres">Anti-Stres Masaža</a>
@@ -84,7 +85,6 @@
         <a class="list-group-item list-group-item-action" href="#refleksologija">Refleksologija Stopala</a>
         <a class="list-group-item list-group-item-action" href="#rasayana">Rasayana Abhyanga</a>
         <a class="list-group-item list-group-item-action" href="#anticelulit">Anticelulit masaža</a>
-
       </div>
 
       <div id="holisticka" class="slide-up border-bottom">
@@ -308,7 +308,7 @@
         </p>
       </div>
 
-      <div id="anticelulit" class="slide-right mt-3 border-bottom">
+      <div id="anticelulit" class="slide-right mt-3">
         <img src="images/anticelulite2.jpg" class="img-fluid my-3 shadow massage-images"
           alt="Woman measuring a quantity of celulite on her thigh by squeezing it between her hands." />
         <h3>Anticelulit masaža</h3>
@@ -352,7 +352,35 @@
     </div>
   </main>
 
-  <footer></footer>
+  <footer class="container p-2  massage-footer-custom">
+
+
+    <div class="row justify-content-center ">
+      <div class="col-3 footer-logo p-2 mx-auto"> <img src="images/logo-text.png" class="img-fluid"
+          alt="Oasis logo with palm trees inside the letter O" /></div>
+      <div class="col-3 p-2 footer-links">
+        <strong>LINKOVI</strong><br />
+        <a href="index.html#about"> O nama</a><br>
+        <a href="index.html#prices"> Cene</a><br>
+        <a href="index.html#contact"> Kontakt</a><br>
+      </div>
+      <div class="col-3 p-2 footer-links">
+        <p> <strong>ADRESA</strong> <br>
+          The Bluff Settlement <br>
+          Bahamas <br>
+          <a href="https://goo.gl/maps/aQ2ySV9GqZuKLTTK6">
+            <u> Google Map</u>
+          </a>
+        </p>
+      </div>
+      <div class="col-3 p-2">
+        <a href="#" class="btn" role="button"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="btn" role="button"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+
+  </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
