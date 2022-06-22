@@ -46,31 +46,6 @@ gsap.to('.logo', {
 
 gsap.to('.fade-in', { duration: 2, opacity: 1, ease: 'power1.inOut' });
 
-//PARALLAX
-//For background scroll
-
-// gsap.to(".index-wrapper", {
-//   yPercent: -10,
-//   scrollTrigger: {
-//     trigger: ".index-wrapper",
-//     scrub: true,
-//   },
-// });
-// gsap.to(".overlay-index", {
-//   yPercent: -10,
-//   scrollTrigger: {
-//     trigger: ".index-wrapper",
-//     scrub: true,
-//   },
-// });
-// gsap.to("#about", {
-//   yPercent: -30,
-//   scrollTrigger: {
-//     trigger: "#about",
-//     scrub: true,
-//   },
-// });
-
 gsap.set('.index-img-wrapper', {
   yPercent: 40,
 });
