@@ -1,27 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// gsap.to('.about-page', {
-//   scrollTrigger: {
-//     trigger: '#about',
-//     toggleActions: 'restart reset restart reset',
-//   },
-//   color: 'orange',
-// });
-// gsap.to('.prices-page', {
-//   scrollTrigger: {
-//     trigger: '#prices',
-//     toggleActions: 'restart reset restart reset',
-//   },
-//   color: 'orange',
-// });
-// gsap.to('.contact-page', {
-//   scrollTrigger: {
-//     trigger: '#contact',
-//     toggleActions: 'restart reset restart reset',
-//   },
-//   color: 'orange',
-// });
-
 const tableTr = document.querySelectorAll('.table-row');
 
 tableTr.forEach((e) =>
@@ -92,10 +70,14 @@ gsap.to('.fade-in', { duration: 2, opacity: 1, ease: 'power1.inOut' });
 //     scrub: true,
 //   },
 // });
+
+gsap.set('.index-img-wrapper', {
+  yPercent: 40,
+});
 gsap.to('.index-img-wrapper', {
   yPercent: -20,
   scrollTrigger: {
-    trigger: '.index-text',
+    trigger: '.index-content',
     scrub: true,
   },
 });
