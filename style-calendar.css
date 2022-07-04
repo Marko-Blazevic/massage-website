@@ -13,7 +13,7 @@
 .calendar {
   width: 40rem;
   height: 38rem;
-  background-color: black;
+  /* background-color: black; */
 }
 
 .month {
@@ -60,13 +60,12 @@
 }
 
 .days div {
-  width: calc(38rem / 7);
+  width: calc(40rem / 7);
   height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0.5rem;
   transition: background-color 0.2s ease-in-out;
 }
 
