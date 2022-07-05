@@ -1,78 +1,104 @@
-const date = new Date();
-date.setMonth(7);
+const arrowPrev = document.querySelector('.arrow-prev');
+const arrowNext = document.querySelector('.arrow-next');
 const days = document.querySelector('.days');
 const currentMonth = document.querySelector('.date h1');
-const currentDate = document.querySelector('.date p');
-const month = date.getMonth();
-const day = date.getDay();
+const currentDateField = document.querySelector('.date p');
 
-const meseci = [
-  'Januar',
-  'Februar',
-  'Mart',
-  'April',
-  'Maj',
-  'Jun',
-  'Jul',
-  'Avgust',
-  'Septembar',
-  'Oktobar',
-  'Novembar',
-  'Decembar',
-];
-const dani = [
-  'Nedelja',
-  'Ponedeljak',
-  'Utorak',
-  'Sreda',
-  'Četvrtak',
-  'Petak',
-  'Subota',
-];
+const date = new Date();
 
-const mesec = meseci[month];
-const dan = dani[day];
-currentMonth.innerHTML = mesec.toUpperCase();
-currentDate.innerHTML = `${dan} ${date.getDate()} ${mesec} ${date.getFullYear()}`;
+const renderCalendar = () => {
+  const day = date.getDay();
+  const month = date.getMonth();
+  console.log(month);
 
-const lastDateOfMonth = new Date(
-  date.getFullYear(),
-  date.getMonth() + 1,
-  0
-).getDate();
-const prevMonthLastDate = new Date(
-  date.getFullYear(),
-  date.getMonth(),
-  0
-).getDate();
-const prevMonthLastDayIndex = new Date(
-  date.getFullYear(),
-  date.getMonth(),
-  0
-).getDay();
-const firstDateNextMonth = new Date(
-  date.getFullYear(),
-  date.getMonth() + 1,
-  1
-).getDate();
-const nextMonthFirstDayIndex = new Date(
-  date.getFullYear(),
-  date.getMonth() + 1,
-  1
-).getDay();
+  const meseci = [
+    'Januar',
+    'Februar',
+    'Mart',
+    'April',
+    'Maj',
+    'Jun',
+    'Jul',
+    'Avgust',
+    'Septembar',
+    'Oktobar',
+    'Novembar',
+    'Decembar',
+  ];
+  const dani = [
+    'Nedelja',
+    'Ponedeljak',
+    'Utorak',
+    'Sreda',
+    'Četvrtak',
+    'Petak',
+    'Subota',
+  ];
 
-console.log(prevMonthLastDate);
-console.log(prevMonthLastDayIndex);
-console.log(lastDateOfMonth);
-console.log(nextMonthFirstDayIndex);
-console.log(date);
+  const mesec = meseci[month];
+  const dan = dani[day];
 
-for (j = prevMonthLastDayIndex; j > 0; j--) {
-  days.innerHTML += `<div class="prev-date">${prevMonthLastDate - j + 1}</div>`;
-}
-for (i = 1; i <= lastDateOfMonth; i++) {
-  days.innerHTML += `<div>${i}</div>`;
-}
-for (x = 1; x < 9 - nextMonthFirstDayIndex; x++) {
-  days.innerHTML += `<div class="next-date">${x}</div>`;
-}
+  currentMonth.innerHTML = mesec.toUpperCase();
+
+  if (new Date().getMonth() === date.getMonth()) {
+    currentDateField.innerHTML = `${dan} ${date.getDate()} ${mesec} ${date.getFullYear()}`;
+  } else {
+    currentMonth.innerHTML = `${mesec.toUpperCase()} ${date.getFullYear()}`;
+    currentDateField.innerHTML = '';
+  }
+
+  const lastDateOfMonth = new Date(
+    date.getFullYear(),
+    date.getMonth() + 1,
+    0
+  ).getDate();
+  const prevMonthLastDate = new Date(
+    date.getFullYear(),
+    date.getMonth(),
+    0
+  ).getDate();
+  const prevMonthLastDayIndex = new Date(
+    date.getFullYear(),
+    date.getMonth(),
+    0
+  ).getDay();
+  const nextMonthFirstDayIndex = new Date(
+    date.getFullYear(),
+    date.getMonth() + 1,
+    1
+  ).getDay();
+
+  days.innerHTML = '';
+
+  for (j = prevMonthLastDayIndex; j > 0; j--) {
+    days.innerHTML += `<div class="prev-date">${
+      prevMonthLastDate - j + 1
+    }</div>`;
+  }
+
+  for (i = 1; i <= lastDateOfMonth; i++) {
+    if (
+      new Date().getDate() === i &&
+      new Date().getMonth() === date.getMonth()
+    ) {
+      days.innerHTML += `<div class="today">${i}</div>`;
+    } else {
+      days.innerHTML += `<div>${i}</div>`;
+    }
+  }
+
+  for (x = 1; x < 9 - nextMonthFirstDayIndex; x++) {
+    days.innerHTML += `<div class="next-date">${x}</div>`;
+  }
+};
+
+arrowPrev.addEventListener('click', () => {
+  date.setMonth(date.getMonth() - 1);
+  renderCalendar();
+});
+arrowNext.addEventListener('click', () => {
+  date.setMonth(date.getMonth() + 1);
+  renderCalendar();
+});
+
+renderCalendar();
