@@ -270,6 +270,7 @@ form {
   &:valid {
     outline: 0;
     border-bottom-color: #8597a3;
+    box-shadow: 0 0 7px $orange;
     & + .input-label {
       color: #787e83;
       transform: translateY(-2rem);
