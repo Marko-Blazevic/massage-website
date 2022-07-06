@@ -13,7 +13,7 @@
 
 <body>
   <header>
-    <nav class="navbar fixed-top navbar-expand-sm custom-navbar-index">
+    <nav class="navbar fixed-top navbar-expand-sm custom-navbar-dark">
       <div class="container-fluid">
         <a href="index.html" class="navbar-brand"><img src="images\icon-png-white.png" alt="Icon image" width="40"
             height="40" class="logo" />
@@ -37,7 +37,7 @@
               <a class="nav-link nav-link-style contact-page" href="#contact">Kontakt</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-style" href="#">Zakaži masažu</a>
+              <a class="nav-link nav-link-style" href="calendar.html">Zakaži masažu</a>
             </li>
           </ul>
         </div>
@@ -46,6 +46,8 @@
   </header>
 
   <main id="main">
+    <div class="overlay"> </div>
+
     <div id="index">
       <div class="overlay-index"></div>
       <div class="index-wrapper"></div>
@@ -184,7 +186,7 @@
   </main>
 
 
-  <footer class="bg-dark container-fluid p-2 index-footer-custom">
+  <footer class="bg-dark container-fluid p-2 dark-footer-custom">
     <div class="row justify-content-center ">
       <div class="col-3 footer-logo p-2 mx-auto"> <img src="images/logo-text.png" class="img-fluid"
           alt="Oasis logo with palm trees inside the letter O" /></div>
@@ -220,11 +222,11 @@
     crossorigin="anonymous"></script>
 
   <script>
+    //Hide navbar
     const main = document.getElementById("main");
     const navLinks = document.querySelectorAll(".nav-item");
     const menuToggle = document.getElementById("main-navigation");
     const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
-
     navLinks.forEach((l) => {
       l.addEventListener("click", () => {
         bsCollapse.toggle();

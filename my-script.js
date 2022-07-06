@@ -1,3 +1,18 @@
+const navbarToggler = document.querySelector('.navbar-toggler');
+const overlay = document.querySelector('.overlay');
+
+navbarToggler.addEventListener('click', () => {
+  if (overlay.style.display === 'none') {
+    overlay.style.display = 'block';
+  } else {
+    overlay.style.display = 'none';
+  }
+});
+
+overlay.addEventListener('click', () => {
+  overlay.style.display = 'none';
+});
+
 gsap.registerPlugin(ScrollTrigger);
 
 const tableTr = document.querySelectorAll('.table-row');

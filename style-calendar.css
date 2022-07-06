@@ -13,7 +13,6 @@
 .calendar {
   width: 40rem;
   height: 38rem;
-  /* background-color: black; */
 }
 
 .month {
@@ -28,6 +27,11 @@
 
 .arrow {
   font-size: 2rem;
+  transition: transform 0.2s ease;
+}
+
+.arrow:hover {
+  transform: scale(1.2);
 }
 
 .date {

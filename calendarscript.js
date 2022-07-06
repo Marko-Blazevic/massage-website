@@ -1,15 +1,14 @@
 const arrowPrev = document.querySelector('.arrow-prev');
 const arrowNext = document.querySelector('.arrow-next');
 const days = document.querySelector('.days');
-const currentMonth = document.querySelector('.date h1');
-const currentDateField = document.querySelector('.date p');
+const currentMonth = document.querySelector('.month h2');
+// const currentDateField = document.querySelector('.date p');
 
 const date = new Date();
 
 const renderCalendar = () => {
   const day = date.getDay();
   const month = date.getMonth();
-  console.log(month);
 
   const meseci = [
     'Januar',
@@ -36,16 +35,17 @@ const renderCalendar = () => {
   ];
 
   const mesec = meseci[month];
-  const dan = dani[day];
 
-  currentMonth.innerHTML = mesec.toUpperCase();
+  const dan = dani[day]; //not used
 
-  if (new Date().getMonth() === date.getMonth()) {
-    currentDateField.innerHTML = `${dan} ${date.getDate()} ${mesec} ${date.getFullYear()}`;
-  } else {
-    currentMonth.innerHTML = `${mesec.toUpperCase()} ${date.getFullYear()}`;
-    currentDateField.innerHTML = '';
-  }
+  // currentMonth.innerHTML = mesec.toUpperCase();
+
+  // if (new Date().getMonth() === date.getMonth()) {
+  //   currentDateField.innerHTML = `${dan} ${date.getDate()} ${mesec} ${date.getFullYear()}`;
+  // } else {
+  //   currentDateField.innerHTML = '';
+  // }
+  currentMonth.innerHTML = `${mesec.toUpperCase()} ${date.getFullYear()}`;
 
   const lastDateOfMonth = new Date(
     date.getFullYear(),
@@ -75,7 +75,6 @@ const renderCalendar = () => {
       prevMonthLastDate - j + 1
     }</div>`;
   }
-
   for (i = 1; i <= lastDateOfMonth; i++) {
     if (
       new Date().getDate() === i &&
@@ -86,7 +85,6 @@ const renderCalendar = () => {
       days.innerHTML += `<div>${i}</div>`;
     }
   }
-
   for (x = 1; x < 9 - nextMonthFirstDayIndex; x++) {
     days.innerHTML += `<div class="next-date">${x}</div>`;
   }
