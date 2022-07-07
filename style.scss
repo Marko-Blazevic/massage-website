@@ -148,7 +148,7 @@ main {
     a {
       border: none;
       border-right: solid 1px rgba(200, 200, 200, 0.4);
-      color: rgba(0, 0, 0, 0.8);
+      color: rgba(0, 0, 0, 1);
       text-decoration: none;
       transition: 0.5s;
       &:hover {
@@ -185,14 +185,14 @@ main {
 }
 
 .overlay {
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 100vw;
   left: 0;
   top: 0;
   background: rgba(0, 0, 0, 0.7);
   display: none;
-  z-index: 2;
+  z-index: 999;
 }
 
 #calendar {

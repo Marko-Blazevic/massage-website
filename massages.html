@@ -11,7 +11,7 @@
   <title>Oasis</title>
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#massages-list" data-bs-offset="200" tabindex="0" class="scrollspy-example">
+<body data-bs-spy="scroll" data-bs-target="#massages-list" data-bs-offset="200" tabindex="0">
   <header>
     <nav class="navbar fixed-top navbar-expand-sm custom-navbar-light">
       <div class="container-fluid">
@@ -48,6 +48,7 @@
   </header>
 
   <main class="main-massages container">
+    <div class="overlay"> </div>
     <div id="massages" class="container ">
 
       <div class="dropup massages-dropup-custom">
@@ -388,11 +389,28 @@
 
   <script>
     //Hide navbar
-    const massages = document.getElementById("massages");
+    const navLinks = document.querySelectorAll(".nav-item");
     const menuToggle = document.getElementById("main-navigation");
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const overlay = document.querySelector('.overlay');
     const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
-    massages.addEventListener("click", () => {
+    navLinks.forEach((l) => {
+      l.addEventListener("click", () => {
+        bsCollapse.toggle();
+        overlay.style.display = 'none';
+      });
+    });
+
+    overlay.addEventListener("click", () => {
       bsCollapse.hide();
+      overlay.style.display = 'none';
+    });
+    navbarToggler.addEventListener('click', () => {
+      if (overlay.style.display === 'block') {
+        overlay.style.display = 'none';
+      } else {
+        overlay.style.display = 'block';
+      }
     });
   </script>
 </body>

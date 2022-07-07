@@ -223,19 +223,31 @@
 
   <script>
     //Hide navbar
-    const main = document.getElementById("main");
     const navLinks = document.querySelectorAll(".nav-item");
     const menuToggle = document.getElementById("main-navigation");
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const overlay = document.querySelector('.overlay');
     const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
     navLinks.forEach((l) => {
       l.addEventListener("click", () => {
         bsCollapse.toggle();
+        overlay.style.display = 'none';
       });
     });
-    main.addEventListener("click", () => {
+
+    overlay.addEventListener("click", () => {
       bsCollapse.hide();
+      overlay.style.display = 'none';
+    });
+    navbarToggler.addEventListener('click', () => {
+      if (overlay.style.display === 'block') {
+        overlay.style.display = 'none';
+      } else {
+        overlay.style.display = 'block';
+      }
     });
   </script>
+
 </body>
 
 </html>

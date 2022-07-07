@@ -104,7 +104,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
 
-  <script src="calendarscript.js"></script>
+  <script src="calendar-script.js"></script>
   <script src="my-script.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -113,12 +113,29 @@
 
   <script>
     //Hide navbar
-    // const overlayToggle = document.querySelector(".overlay");
-    // const menuToggle = document.getElementById("main-navigation");
-    // const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
-    // overlayToggle.addEventListener("click", () => {
-    //   bsCollapse.hide();
-    // });
+    const navLinks = document.querySelectorAll(".nav-item");
+    const menuToggle = document.getElementById("main-navigation");
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const overlay = document.querySelector('.overlay');
+    const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
+    navLinks.forEach((l) => {
+      l.addEventListener("click", () => {
+        bsCollapse.toggle();
+        overlay.style.display = 'none';
+      });
+    });
+
+    overlay.addEventListener("click", () => {
+      bsCollapse.hide();
+      overlay.style.display = 'none';
+    });
+    navbarToggler.addEventListener('click', () => {
+      if (overlay.style.display === 'block') {
+        overlay.style.display = 'none';
+      } else {
+        overlay.style.display = 'block';
+      }
+    });
   </script>
 </body>
 
