@@ -196,6 +196,13 @@ main {
   padding: 1rem;
 }
 
+#calendar {
+  position: relative;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
 .overlay {
   position: fixed;
   height: 100vh;
@@ -205,13 +212,6 @@ main {
   background: rgba(0, 0, 0, 0.7);
   display: none;
   z-index: 999;
-}
-
-#calendar {
-  position: relative;
-  z-index: 1;
-  top: 0;
-  left: 0;
 }
 
 table tr[data-href] {
@@ -361,7 +361,6 @@ form textarea {
 }
 
 .month {
-  background-color: #fc9b00;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -441,7 +440,7 @@ form textarea {
 }
 
 .days div:hover:not(.today) {
-  background-color: #681a1a;
+  background-color: #fc9b00;
   cursor: pointer;
 }
 
@@ -451,7 +450,7 @@ form textarea {
 }
 
 .today {
-  background-color: #fc9b00;
+  background-color: #ffc107;
 }
 
 @media (max-width: 330px) {
