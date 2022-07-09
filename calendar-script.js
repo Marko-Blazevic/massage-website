@@ -2,7 +2,7 @@ const arrowPrev = document.querySelector('.arrow-prev');
 const arrowNext = document.querySelector('.arrow-next');
 const days = document.querySelector('.days');
 const currentMonth = document.querySelector('.month h2');
-// const currentDateField = document.querySelector('.date p');
+const dateDetails = document.querySelector('.chosen-date h2');
 
 const date = new Date();
 
@@ -40,12 +40,9 @@ const renderCalendar = () => {
 
   // currentMonth.innerHTML = mesec.toUpperCase();
 
-  // if (new Date().getMonth() === date.getMonth()) {
-  //   currentDateField.innerHTML = `${dan} ${date.getDate()} ${mesec} ${date.getFullYear()}`;
-  // } else {
-  //   currentDateField.innerHTML = '';
-  // }
   currentMonth.innerHTML = `${mesec.toUpperCase()} ${date.getFullYear()}`;
+
+  dateDetails.innerHTML = `${dan} ${date.getDate()} ${mesec} ${date.getFullYear()}`;
 
   const lastDateOfMonth = new Date(
     date.getFullYear(),
