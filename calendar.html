@@ -50,47 +50,93 @@
 
   <main>
     <div class="overlay"></div>
-    <div id="calendar" class="container col justify-content-center align-content-center">
-      <div class="calendar-wrapper">
-        <div class="calendar shadow">
-          <div class="month bg-warning">
-            <i class="bi bi-chevron-left arrow arrow-prev"></i>
-            <h2></h2>
-            <i class="bi bi-chevron-right arrow arrow-next"></i>
+    <div id="calendar">
+      <div class="container col justify-content-center align-content-center">
+        <div class="calendar-wrapper">
+          <div class="calendar shadow">
+            <div class="month bg-warning">
+              <i class="bi bi-chevron-left arrow arrow-prev"></i>
+              <h2></h2>
+              <i class="bi bi-chevron-right arrow arrow-next"></i>
+            </div>
+            <div class="weekdays">
+              <div>Pon</div>
+              <div>Uto</div>
+              <div>Sre</div>
+              <div>Čet</div>
+              <div>Pet</div>
+              <div>Sub</div>
+              <div>Ned</div>
+            </div>
+            <div class="days"></div>
           </div>
-          <div class="weekdays">
-            <div>Pon</div>
-            <div>Uto</div>
-            <div>Sre</div>
-            <div>Čet</div>
-            <div>Pet</div>
-            <div>Sub</div>
-            <div>Ned</div>
-          </div>
-          <div class="days"></div>
         </div>
-      </div>
 
-      <div class="schedule-wrapper col mt-3 mb-5 shadow">
-        <div class="row chosen-date bg-warning p-3 text-center">
-          <h2 class="mb-0"></h2>
-        </div>
-        <div class="row schedule-input-wrapper">
-          <div class="row">
-            <div class="schedule-input col mt-3 p-1">
-              <label class="row mb-1">Raspoloživo vreme</label>
-              <input id="available-time" type="time" min="10:00:00" max="22:00:00" step="900" class="row w-100" />
-            </div>
+        <div class="schedule-wrapper mt-3 mb-5 shadow">
+          <div class=" chosen-date bg-warning p-3 text-center">
+            <h2 class="mb-0"></h2>
           </div>
-          <div class="row">
-            <div class="schedule-input col mt-3">
-              <label class="row mb-1">Tip masaže</label>
-              <input id="massage-type" type="text" class="row w-100" />
+          <div class=" schedule-input-wrapper p-3 container">
+            <p class="mt-3 text-center fw-light">Odaberite vreme i željenu masažu</p>
+            <div class="schedule-input mt-3  col">
+              <p class="mb-1 row text-center mx-0">Raspoloživo vreme</p>
+              <div class="row">
+                <div class="dropdown col">
+                  <button class="btn btn-light dropdown-toggle " type="button" id="dropdownMenuButton2"
+                    data-bs-toggle="dropdown" aria-expanded="false">sat</button>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-item">10</li>
+                    <li class="dropdown-item">11</li>
+                    <li class="dropdown-item">12</li>
+                    <li class="dropdown-item">13</li>
+                    <li class="dropdown-item">14</li>
+                    <li class="dropdown-item">15</li>
+                    <li class="dropdown-item">16</li>
+                    <li class="dropdown-item">17</li>
+                    <li class="dropdown-item">18</li>
+                    <li class="dropdown-item">19</li>
+                    <li class="dropdown-item">20</li>
+                    <li class="dropdown-item">21</li>
+                  </ul>
+                </div>
+                <p class="col mb-0 align-self-center">:</p>
+                <div class="dropdown col">
+                  <button class="btn btn-light dropdown-toggle " type="button" id="dropdownMenuButton2"
+                    data-bs-toggle="dropdown" aria-expanded="false">minut</button>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-item">00</li>
+                    <li class="dropdown-item">15</li>
+                    <li class="dropdown-item">30</li>
+                    <li class="dropdown-item">45</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="row schedule-btn mt-3 mb-3">
-            <button type="button" class="col action-button btn btn-warning shadow px-3 my-2 mx-2 ">Obriši</button>
-            <button type="submit" class="col action-button btn btn-warning shadow px-3 my-2 mx-2 ">Nastavi</button>
+            <div class="schedule-input mt-4 col">
+              <p class="mb-1 row"></p>
+              <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton2"
+                  data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="-50,0">Vrsta masaže</button>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-item">Holistička masaža</li>
+                  <li class="dropdown-item">Klasična - Relax masaža</li>
+                  <li class="dropdown-item">Anti-Stres Masaža</li>
+                  <li class="dropdown-item">Masaža Vulkanskim kamenjem</li>
+                  <li class="dropdown-item">Masaža za trudnice</li>
+                  <li class="dropdown-item">Parcijalne masaže</li>
+                  <li class="dropdown-item">Terapeutska masaža</li>
+                  <li class="dropdown-item">Limfna drenaža</li>
+                  <li class="dropdown-item">Ampuku</li>
+                  <li class="dropdown-item">Refleksologija Stopala</li>
+                  <li class="dropdown-item">Rasayana Abhyanga</li>
+                  <li class="dropdown-item">Anticelulit masaža</li>
+                </ul>
+              </div>
+            </div>
+            <div class="schedule-btn mt-5 mb-1">
+              <button type="button" class="col action-button btn btn-warning shadow px-3 my-2 mx-2 ">Obriši</button>
+              <button type="submit" class="col action-button btn btn-warning shadow px-3 my-2 mx-2 ">Nastavi</button>
+            </div>
           </div>
         </div>
       </div>
