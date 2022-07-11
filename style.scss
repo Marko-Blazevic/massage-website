@@ -411,15 +411,14 @@ form {
   }
   .dropdown-menu {
     min-width: 70%;
-    max-height: 100px;
+    max-height: 110px;
     overflow-y: scroll;
   }
 }
 
 .schedule-btn {
-  text-align: center;
   button {
-    width: 40%;
+    width: 100px;
   }
 }
 

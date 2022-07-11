@@ -482,16 +482,12 @@ form textarea {
 
 .schedule-input-wrapper .dropdown-menu {
   min-width: 70%;
-  max-height: 100px;
+  max-height: 110px;
   overflow-y: scroll;
 }
 
-.schedule-btn {
-  text-align: center;
-}
-
 .schedule-btn button {
-  width: 40%;
+  width: 100px;
 }
 
 @media (max-width: 330px) {

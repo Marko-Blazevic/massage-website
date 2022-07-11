@@ -97,3 +97,38 @@ arrowNext.addEventListener('click', () => {
 });
 
 renderCalendar();
+
+const scheduleHours = document.querySelector('.hours-dropdown');
+const scheduleMinutes = document.querySelector('.minutes-dropdown');
+const scheduleMassage = document.querySelector('.mass-type-dropdown');
+
+const schHoursBtn = scheduleHours.querySelector('button');
+const schMinutesBtn = scheduleMinutes.querySelector('button');
+const schMassageBtn = scheduleMassage.querySelector('button');
+
+const schHoursLink = scheduleHours.querySelectorAll('li');
+const schMinutesLink = scheduleMinutes.querySelectorAll('li');
+const schMassageLink = scheduleMassage.querySelectorAll('li');
+
+let schHours = '';
+let schMinutes = '';
+let schMassage = '';
+
+schHoursLink.forEach((link) => {
+  link.addEventListener('click', () => {
+    schHours = link.innerHTML;
+    schHoursBtn.innerHTML = schHours;
+  });
+});
+schMinutesLink.forEach((link) => {
+  link.addEventListener('click', () => {
+    schMinutes = link.innerHTML;
+    schMinutesBtn.innerHTML = schMinutes;
+  });
+});
+schMassageLink.forEach((link) => {
+  link.addEventListener('click', () => {
+    schMassage = link.innerHTML;
+    schMassageBtn.innerHTML = schMassage;
+  });
+});
