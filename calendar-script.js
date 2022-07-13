@@ -111,7 +111,9 @@ const renderCalendar = () => {
   const removeBlur = (elem) => {
     elem.addEventListener('click', () => {
       const dateDetailsWrapper = document.querySelector('.schedule-wrapper');
+      const overlaySch = document.querySelector('.overlay-schedule');
       dateDetailsWrapper.style.filter = ' blur(0)';
+      overlaySch.style.display = 'none';
     });
   };
 

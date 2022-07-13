@@ -398,20 +398,18 @@ form {
 .schedule-wrapper {
   width: 21rem;
   height: 28rem;
-  filter: blur(3px);
-
-  // position: static;
-  // z-index: 1;
+  position: static;
+  z-index: 1;
+  filter: blur(4px);
 }
 
-// .overlay-parent {
-//   width: 21rem;
-//   height: 28rem;
-//   position: absolute;
-//   z-index: 10;
-//   // background: rgba(255, 255, 255, 0.8);
-//   filter: blur(4px);
-// }
+.overlay-schedule {
+  width: 21rem;
+  height: 28rem;
+  position: absolute;
+  z-index: 10;
+  // background-color: white;
+}
 
 .schedule-input-wrapper {
   display: flex;

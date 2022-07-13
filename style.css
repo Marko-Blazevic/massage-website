@@ -456,8 +456,17 @@ form textarea {
 .schedule-wrapper {
   width: 21rem;
   height: 28rem;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
+  position: static;
+  z-index: 1;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+}
+
+.overlay-schedule {
+  width: 21rem;
+  height: 28rem;
+  position: absolute;
+  z-index: 10;
 }
 
 .schedule-input-wrapper {
