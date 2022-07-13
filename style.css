@@ -455,6 +455,9 @@ form textarea {
 
 .schedule-wrapper {
   width: 21rem;
+  height: 28rem;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
 }
 
 .schedule-input-wrapper {
