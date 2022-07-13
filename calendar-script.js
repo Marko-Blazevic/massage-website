@@ -2,7 +2,7 @@ const arrowPrev = document.querySelector('.arrow-prev');
 const arrowNext = document.querySelector('.arrow-next');
 const days = document.querySelector('.days');
 const currentMonth = document.querySelector('.month h2');
-const dateDetails = document.querySelector('.chosen-date h2');
+const dateDetails = document.querySelector('.chosen-date h3');
 
 const date = new Date();
 
@@ -35,13 +35,9 @@ const renderCalendar = () => {
   ];
 
   const mesec = meseci[month];
+  const dan = dani[day];
 
-  const dan = dani[day]; //not used
-
-  // currentMonth.innerHTML = mesec.toUpperCase();
-
-  currentMonth.innerHTML = `${mesec.toUpperCase()} ${date.getFullYear()}`;
-
+  currentMonth.innerHTML = `${mesec} ${date.getFullYear()}`;
   dateDetails.innerHTML = `${dan} ${date.getDate()} ${mesec} ${date.getFullYear()}`;
 
   const lastDateOfMonth = new Date(
@@ -85,6 +81,18 @@ const renderCalendar = () => {
   for (x = 1; x < 9 - nextMonthFirstDayIndex; x++) {
     days.innerHTML += `<div class="next-date">${x}</div>`;
   }
+
+  const monthDates = days.querySelectorAll('div');
+
+  monthDates.forEach((clickedOn) => {
+    let clickedDate = '';
+    clickedOn.addEventListener('click', () => {
+      clickedDate = new Date(date.getFullYear(), month, clickedOn.innerHTML);
+      const day = clickedDate.getDay();
+      const clickedDan = dani[day];
+      dateDetails.innerHTML = `${clickedDan} ${clickedDate.getDate()} ${mesec} ${clickedDate.getFullYear()}`;
+    });
+  });
 };
 
 arrowPrev.addEventListener('click', () => {
