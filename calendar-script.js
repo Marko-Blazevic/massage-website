@@ -82,16 +82,38 @@ const renderCalendar = () => {
     days.innerHTML += `<div class="next-date">${x}</div>`;
   }
 
+  //change date-details on calendar date click
   const monthDates = days.querySelectorAll('div');
+  const nextDate = days.querySelectorAll('.next-date');
+  const prevDate = days.querySelectorAll('.prev-date');
 
-  monthDates.forEach((clickedOn) => {
-    let clickedDate = '';
-    clickedOn.addEventListener('click', () => {
-      clickedDate = new Date(date.getFullYear(), month, clickedOn.innerHTML);
+  let clickedDate = '';
+
+  const changeDateDetails = (elem) => {
+    elem.addEventListener('click', () => {
+      clickedDate = new Date(date.getFullYear(), month, elem.innerHTML);
       const day = clickedDate.getDay();
       const clickedDan = dani[day];
       dateDetails.innerHTML = `${clickedDan} ${clickedDate.getDate()} ${mesec} ${clickedDate.getFullYear()}`;
     });
+  };
+
+  const changePrevNextMonth = (elem) => {
+    elem.addEventListener('click', () => {
+      if (elem.classList.contains('next-date')) {
+        date.setMonth(month + 1);
+        renderCalendar();
+      }
+      if (elem.classList.contains('prev-date')) {
+        date.setMonth(month - 1);
+        renderCalendar();
+      }
+    });
+  };
+
+  monthDates.forEach((clickedOn) => {
+    changeDateDetails(clickedOn);
+    changePrevNextMonth(clickedOn);
   });
 };
 
