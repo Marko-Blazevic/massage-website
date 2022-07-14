@@ -416,7 +416,6 @@ form {
   height: inherit;
   position: absolute;
   z-index: 10;
-  // background-color: rgba(0, 0, 0, 0.5);
 }
 
 .chosen-date {
@@ -424,6 +423,7 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .schedule-input-wrapper {

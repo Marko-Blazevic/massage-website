@@ -497,6 +497,7 @@ form textarea {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  text-align: center;
 }
 
 .schedule-input-wrapper {
