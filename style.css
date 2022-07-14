@@ -340,11 +340,27 @@ form textarea {
   left: 0;
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
+  margin-top: 66px;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .calendar-wrapper {
   width: 21rem;
-  margin-top: 66px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -364,7 +380,8 @@ form textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 4rem;
+  height: 5rem;
+  width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -455,7 +472,7 @@ form textarea {
 
 .schedule-wrapper {
   width: 21rem;
-  height: 28rem;
+  height: 29rem;
   position: static;
   z-index: 1;
   -webkit-filter: blur(4px);
@@ -464,9 +481,22 @@ form textarea {
 
 .overlay-schedule {
   width: 21rem;
-  height: 28rem;
+  height: inherit;
   position: absolute;
   z-index: 10;
+}
+
+.chosen-date {
+  height: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .schedule-input-wrapper {

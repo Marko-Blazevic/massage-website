@@ -318,11 +318,18 @@ form {
   left: 0;
   font-family: $text-font-family;
   font-size: 1rem;
+  margin-top: $navbar-height;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .calendar-wrapper {
   width: 21rem;
-  margin-top: $navbar-height;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -331,7 +338,8 @@ form {
 
 .month {
   display: flex;
-  height: 4rem;
+  height: 5rem;
+  width: 100%;
   justify-content: space-between;
   align-content: center;
   align-items: center;
@@ -397,7 +405,7 @@ form {
 
 .schedule-wrapper {
   width: 21rem;
-  height: 28rem;
+  height: 29rem;
   position: static;
   z-index: 1;
   filter: blur(4px);
@@ -405,10 +413,17 @@ form {
 
 .overlay-schedule {
   width: 21rem;
-  height: 28rem;
+  height: inherit;
   position: absolute;
   z-index: 10;
-  // background-color: white;
+  // background-color: rgba(0, 0, 0, 0.5);
+}
+
+.chosen-date {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .schedule-input-wrapper {
