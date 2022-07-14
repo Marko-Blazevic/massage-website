@@ -20,6 +20,16 @@ slideUp.forEach((elem) => {
   });
 });
 
+const slideDown = gsap.utils.toArray('.slide-down');
+slideDown.forEach((elem) => {
+  gsap.from(elem, {
+    scrollTrigger: elem,
+    y: -100,
+    duration: 2,
+    opacity: 0,
+  });
+});
+
 const slideLeft = gsap.utils.toArray('.slide-left');
 slideLeft.forEach((elem) => {
   gsap.from(elem, {
