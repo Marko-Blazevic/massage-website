@@ -498,6 +498,7 @@ form textarea {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
+  padding: 0.5rem;
 }
 
 .schedule-input-wrapper {
