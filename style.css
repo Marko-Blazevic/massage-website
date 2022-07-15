@@ -340,7 +340,7 @@ form textarea {
   left: 0;
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
-  margin-top: 66px;
+  padding-top: 66px;
 }
 
 .wrapper {
@@ -396,6 +396,17 @@ form textarea {
 .month h2 {
   padding: 0.5rem;
   margin-bottom: 0;
+}
+
+.month .month-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
 }
 
 .arrow {
@@ -472,16 +483,17 @@ form textarea {
 
 .schedule-wrapper {
   width: 21rem;
-  height: 29rem;
+  height: 25rem;
   position: static;
   z-index: 1;
   -webkit-filter: blur(4px);
           filter: blur(4px);
+  margin: 2rem 0;
 }
 
 .overlay-schedule {
   width: 21rem;
-  height: inherit;
+  height: 25rem;
   position: absolute;
   z-index: 10;
 }
@@ -528,10 +540,6 @@ form textarea {
   min-width: 70%;
   max-height: 110px;
   overflow-y: scroll;
-}
-
-.schedule-btn button {
-  width: 100px;
 }
 
 @media (max-width: 330px) {
@@ -606,6 +614,24 @@ form textarea {
   }
   .contact-form-custom {
     padding: 2rem;
+  }
+}
+
+@media (min-width: 810px) {
+  .wrapper {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+  }
+  .calendar-wrapper {
+    margin-right: 2rem;
+  }
+  .schedule-wrapper {
+    margin: 0 0 2rem 0;
   }
 }
 

@@ -1,5 +1,3 @@
-// overlay.addEventListener('click', () => {});
-
 gsap.registerPlugin(ScrollTrigger);
 
 const tableTr = document.querySelectorAll('.table-row');
@@ -15,7 +13,7 @@ slideUp.forEach((elem) => {
   gsap.from(elem, {
     scrollTrigger: elem,
     y: 50,
-    duration: 1,
+    duration: 1.5,
     opacity: 0,
   });
 });
@@ -24,8 +22,8 @@ const slideDown = gsap.utils.toArray('.slide-down');
 slideDown.forEach((elem) => {
   gsap.from(elem, {
     scrollTrigger: elem,
-    y: -100,
-    duration: 2,
+    y: -50,
+    duration: 1.5,
     opacity: 0,
   });
 });
@@ -35,7 +33,7 @@ slideLeft.forEach((elem) => {
   gsap.from(elem, {
     scrollTrigger: elem,
     x: -50,
-    duration: 1,
+    duration: 1.5,
     opacity: 0,
   });
 });
@@ -45,7 +43,7 @@ slideRight.forEach((elem) => {
   gsap.from(elem, {
     scrollTrigger: elem,
     x: 50,
-    duration: 1,
+    duration: 1.5,
     opacity: 0,
   });
 });

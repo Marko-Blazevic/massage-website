@@ -52,11 +52,13 @@
     <div class="overlay"></div>
     <div id="calendar">
       <div class="wrapper">
-
         <div class="calendar-wrapper shadow slide-up">
           <div class="month bg-warning">
             <i class="bi bi-chevron-left arrow arrow-prev"></i>
-            <h2></h2>
+            <div class="month-text">
+              <h2></h2>
+              <p class="fs-6 mb-0 fw-light">Odaberite datum</p>
+            </div>
             <i class="bi bi-chevron-right arrow arrow-next"></i>
           </div>
           <div class="weekdays px-1">
@@ -73,17 +75,17 @@
           </div>
         </div>
 
-        <div class="schedule-wrapper my-3 shadow slide-down">
+        <div class="schedule-wrapper shadow slide-down">
           <div class="overlay-schedule"></div>
           <div class="chosen-date bg-warning">
             <h3 class="mb-0"></h3>
           </div>
           <div class="schedule-input-wrapper p-3 container">
-            <p class="mt-3 text-center fw-light">Odaberite vreme i željenu masažu</p>
-            <div class="schedule-input mt-3  col">
+            <p class="text-center fw-light">Odaberite vreme i željenu masažu</p>
+            <div class="schedule-input mt-1 col">
               <div class="row">
                 <div class="dropdown col hours-dropdown">
-                  <button class="btn btn-light dropdown-toggle " type="button" id="hours-dropdown-btn"
+                  <button class="btn btn-light dropdown-toggle" type="button" id="hours-dropdown-btn"
                     data-bs-toggle="dropdown" aria-expanded="false">sat</button>
                   <ul class="dropdown-menu">
                     <li class="dropdown-item">10</li>
@@ -115,11 +117,11 @@
             </div>
             <div class="schedule-input mt-4 col">
               <p class="mb-1 row"></p>
-              <div class="dropdown mass-type-dropdown text-center">
-                <button class="btn btn-light dropdown-toggle" type="button" id="mass-type-dropdown-btn"
+              <div class="dropdown mass-type-dropdown">
+                <button class="btn btn-light dropdown-toggle text-center" type="button" id="mass-type-dropdown-btn"
                   data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="-20,0">Vrsta masaže</button>
                 <ul class="dropdown-menu ">
-                  <li class="dropdown-item">Holistička masaža</li>
+                  <li class=" dropdown-item">Holistička masaža</li>
                   <li class="dropdown-item">Klasična - Relax masaža</li>
                   <li class="dropdown-item">Anti-Stres Masaža</li>
                   <li class="dropdown-item">Vulkansko kamenje</li>
@@ -134,11 +136,10 @@
                 </ul>
               </div>
             </div>
-            <p class="fw-light mt-4 text-center">Za više informacija o ponudi masaža, kliknite <a href="massages.html"
+            <p class="fw-light mt-3 text-center">Za više informacija o ponudi masaža, kliknite <a href="massages.html"
                 class="text-link ">ovde</a> </p>
-            <div class="schedule-btn mt-4">
-              <button type="button" class="col action-button btn btn-warning shadow px-3 mx-2 ">Odustani</button>
-              <button type="submit" class="col action-button btn btn-warning shadow px-3 mx-2 ">Nastavi</button>
+            <div class="mt-2">
+              <button type="submit" class="col action-button btn btn-warning shadow text-center px-5">Nastavi</button>
             </div>
           </div>
         </div>
