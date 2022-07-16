@@ -139,13 +139,67 @@
             <p class="fw-light mt-3 text-center">Za više informacija o ponudi masaža, kliknite <a href="massages.html"
                 class="text-link ">ovde</a> </p>
             <div class="mt-2">
-              <button type="submit" class="col action-button btn btn-warning shadow text-center px-5">Nastavi</button>
+              <button type="button" class="action-button btn btn-warning shadow text-center px-5" data-bs-toggle="modal"
+                data-bs-target="#form-modal">Nastavi</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </main>
+
+  <div class="modal fade" id="form-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="form-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0 mx-auto">
+          <h5 class="modal-title " id="form-modal-label">Molimo Vas upišite Vaše podatke</h5>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <form class="px-3">
+              <div class="input">
+                <input id="name" type="text" class="form-control input-field" required />
+                <label for="name" class="form-label input-label">Ime i prezime</label>
+              </div>
+              <div class="input">
+                <input id="phone-number" type="text" class="form-control input-field" required />
+                <label for="phone-number" class="form-label input-label">Broj telefona</label>
+              </div>
+              <div class="input">
+                <input id="email" type="email" class="form-control input-field" required />
+                <label class="form-label input-label">Email</label>
+              </div>
+              <div class="input">
+                <textarea id="message" class="form-control input-field" required></textarea>
+                <label for="message" class="form-label input-label">Poruka</label>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer border-0 mx-auto">
+          <button type="button" class="btn btn-light shadow px-5" data-bs-dismiss="modal">Odustani</button>
+          <button type="submit" class="action-button btn btn-warning shadow px-5" data-bs-toggle="modal"
+            data-bs-target="#confirmation-modal" data-bs-dismiss="modal">Pošalji</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="confirmation-modal" aria-hidden="true" aria-labelledby="confirmation-modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0"></div>
+        <div class="modal-body">
+          <p>Vaša rezervacija je uspešno urađena.</p>
+          <p>Uskoro ćete primiti email potvrde sa svim detaljima.</p>
+        </div>
+        <div class="modal-footer border-0 mx-auto">
+          <button class="btn btn-warning shadow px-5" data-bs-toggle="modal" data-bs-dismiss="modal">Zatvori</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer class=" container p-2 light-footer-custom">
 
@@ -185,6 +239,7 @@
     </div>
 
   </footer>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
