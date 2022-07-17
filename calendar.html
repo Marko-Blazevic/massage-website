@@ -82,7 +82,47 @@
           </div>
           <div class="schedule-input-wrapper p-3 container">
             <p class="text-center fw-light">Odaberite vreme i željenu masažu</p>
-            <div class="schedule-input mt-1 col">
+
+            <div class="row mb-3">
+              <select class="form-select col w-auto mx-2" aria-label="Default select example">
+                <option selected>sat</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13 </option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+              </select>
+              <select class="form-select col w-auto mx-2" aria-label="Default select example">
+                <option selected>minut</option>
+                <option value="00">00</option>
+                <option value="15">15</option>
+                <option value="30">30</option>
+                <option value="45">45 </option>
+              </select>
+            </div>
+            <select class="form-select w-auto mx-3 my-2" aria-label="Default select example">
+              <option selected>Vrsta masaže</option>
+              <option value="Holistička masaža">Holistička masaža</option>
+              <option value="Klasična - Relax masaža">Klasična - Relax masaža</option>
+              <option value="Anti-Stres Masaža">Anti-Stres Masaža</option>
+              <option value="Masaža Vulkanskim kamenjem">Masaža Vulkanskim kamenjem </option>
+              <option value="Masaža za trudnice">Masaža za trudnice</option>
+              <option value="Parcijalne masaže">Parcijalne masaže</option>
+              <option value="Terapeutska masaža">Terapeutska masaža</option>
+              <option value="Limfna drenaža">Limfna drenaža</option>
+              <option value="Ampuku">Ampuku</option>
+              <option value="Refleksologija Stopala">Refleksologija Stopala</option>
+              <option value="Rasayana Abhyanga">Rasayana Abhyanga</option>
+              <option value="Anticelulit masaža">Anticelulit masaža</option>
+            </select>
+            <!-- <div class="schedule-input mt-1 col">
               <div class="row">
                 <div class="dropdown col hours-dropdown">
                   <button class="btn btn-light dropdown-toggle" type="button" id="hours-dropdown-btn"
@@ -114,8 +154,8 @@
                   </ul>
                 </div>
               </div>
-            </div>
-            <div class="schedule-input mt-4 col">
+            </div> -->
+            <!-- <div class="schedule-input mt-4 col">
               <p class="mb-1 row"></p>
               <div class="dropdown mass-type-dropdown">
                 <button class="btn btn-light dropdown-toggle text-center" type="button" id="mass-type-dropdown-btn"
@@ -135,11 +175,11 @@
                   <li class="dropdown-item">Anticelulit masaža</li>
                 </ul>
               </div>
-            </div>
+            </div> -->
             <p class="fw-light mt-3 text-center">Za više informacija o ponudi masaža, kliknite <a href="massages.html"
                 class="text-link ">ovde</a> </p>
             <div class="mt-2">
-              <button type="button" class="action-button btn btn-warning shadow text-center px-5" data-bs-toggle="modal"
+              <button type="button" class="action-button btn btn-warning shadow text-center px-5" id="nastavi-btn"
                 data-bs-target="#form-modal">Nastavi</button>
             </div>
           </div>

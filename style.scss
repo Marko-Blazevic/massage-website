@@ -252,7 +252,7 @@ form {
   &:valid {
     outline: 0;
     border-bottom-color: #8597a3;
-    box-shadow: 0 0 7px $orange;
+    box-shadow: 0 0 3px 2px $orange;
     & + .input-label {
       color: #787e83;
       transform: translateY(-2rem);
@@ -403,11 +403,10 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  input:focus {
-    outline: 0;
-    border-bottom-color: #8597a3;
-    box-shadow: 0 0 7px $orange;
+  select:focus {
+    box-shadow: 0 0 3px 2px $orange;
   }
+
   .dropdown-menu {
     min-width: 70%;
     max-height: 110px;

@@ -272,8 +272,8 @@ form textarea {
 .input-field:focus, .input-field:valid {
   outline: 0;
   border-bottom-color: #8597a3;
-  -webkit-box-shadow: 0 0 7px #fc9b00;
-          box-shadow: 0 0 7px #fc9b00;
+  -webkit-box-shadow: 0 0 3px 2px #fc9b00;
+          box-shadow: 0 0 3px 2px #fc9b00;
 }
 
 .input-field:focus + .input-label, .input-field:valid + .input-label {
@@ -492,11 +492,9 @@ form textarea {
           justify-content: center;
 }
 
-.schedule-input-wrapper input:focus {
-  outline: 0;
-  border-bottom-color: #8597a3;
-  -webkit-box-shadow: 0 0 7px #fc9b00;
-          box-shadow: 0 0 7px #fc9b00;
+.schedule-input-wrapper select:focus {
+  -webkit-box-shadow: 0 0 3px 2px #fc9b00;
+          box-shadow: 0 0 3px 2px #fc9b00;
 }
 
 .schedule-input-wrapper .dropdown-menu {
