@@ -503,6 +503,10 @@ form textarea {
   overflow-y: scroll;
 }
 
+.schedule-input-wrapper .error {
+  border: solid 1px red;
+}
+
 footer {
   border-top: solid 1px rgba(200, 200, 200, 0.4);
   padding: 1rem;

@@ -412,6 +412,10 @@ form {
     max-height: 110px;
     overflow-y: scroll;
   }
+  .error {
+    border: solid 1px red;
+    // box-shadow: 0 0 2px red;
+  }
 }
 
 footer {

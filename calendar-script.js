@@ -134,3 +134,53 @@ arrowNext.addEventListener('click', () => {
 });
 
 renderCalendar();
+
+const selectHour = document.getElementById('hour-select');
+const selectMin = document.getElementById('min-select');
+const selectMass = document.getElementById('mass-select');
+const nastaviBtn = document.getElementById('nastavi-btn');
+
+selectHour.addEventListener('click', (event) => {
+  if (event.target.value !== '') {
+    selectHour.classList.remove('error');
+  }
+});
+selectMin.addEventListener('click', (event) => {
+  if (event.target.value !== '') {
+    selectMin.classList.remove('error');
+  }
+});
+selectMass.addEventListener('click', (event) => {
+  if (event.target.value !== '') {
+    selectMass.classList.remove('error');
+  }
+});
+
+nastaviBtn.addEventListener('click', () => {
+  if (
+    selectHour.value === '' ||
+    selectMin.value === '' ||
+    selectMass.value === ''
+  ) {
+    if (selectHour.value === '') {
+      selectHour.classList.add('error');
+    }
+    if (selectMin.value === '') {
+      selectMin.classList.add('error');
+    }
+    if (selectMass.value === '') {
+      selectMass.classList.add('error');
+    }
+  } else {
+    // selectHour.classList.remove('error');
+    // selectMin.classList.remove('error');
+    // selectMass.classList.remove('error');
+    let selectModal = new bootstrap.Modal(
+      document.getElementById('form-modal'),
+      {
+        keyboard: false,
+      }
+    );
+    selectModal.show();
+  }
+});
