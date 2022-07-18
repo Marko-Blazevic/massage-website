@@ -138,7 +138,7 @@ renderCalendar();
 const selectHour = document.getElementById('hour-select');
 const selectMin = document.getElementById('min-select');
 const selectMass = document.getElementById('mass-select');
-const nastaviBtn = document.getElementById('nastavi-btn');
+const schSubBtn = document.getElementById('sch-sub-btn');
 
 selectHour.addEventListener('click', (event) => {
   if (event.target.value !== '') {
@@ -156,7 +156,7 @@ selectMass.addEventListener('click', (event) => {
   }
 });
 
-nastaviBtn.addEventListener('click', () => {
+schSubBtn.addEventListener('click', () => {
   if (
     selectHour.value === '' ||
     selectMin.value === '' ||
@@ -172,15 +172,15 @@ nastaviBtn.addEventListener('click', () => {
       selectMass.classList.add('error');
     }
   } else {
-    // selectHour.classList.remove('error');
-    // selectMin.classList.remove('error');
-    // selectMass.classList.remove('error');
-    let selectModal = new bootstrap.Modal(
-      document.getElementById('form-modal'),
-      {
-        keyboard: false,
-      }
-    );
-    selectModal.show();
+    // let selectModal = new bootstrap.Modal(
+    //   document.getElementById('form-modal'),
+    //   {
+    //     keyboard: false,
+    //   }
+    // );
+    // selectModal.show();
+    selectHour.value = '';
+    selectMin.value = '';
+    selectMass.value = '';
   }
 });
