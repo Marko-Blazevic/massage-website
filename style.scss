@@ -293,7 +293,6 @@ form {
 
 .calendar-wrapper {
   width: 21rem;
-  // height: 25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -345,7 +344,6 @@ form {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  // background-color: brown;
 }
 
 .days div {
@@ -411,9 +409,8 @@ form {
     max-height: 110px;
     overflow-y: scroll;
   }
-  .error {
+  .error-style {
     border: solid 1px red;
-    // box-shadow: 0 0 2px red;
   }
 }
 
@@ -433,7 +430,6 @@ footer {
     max-width: 100px;
   }
   .newsletter {
-    // max-width: 300px;
     input {
       max-width: 200px;
     }

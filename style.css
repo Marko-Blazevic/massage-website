@@ -502,7 +502,7 @@ form textarea {
   overflow-y: scroll;
 }
 
-.schedule-input-wrapper .error {
+.schedule-input-wrapper .error-style {
   border: solid 1px red;
 }
 

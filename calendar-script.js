@@ -142,45 +142,45 @@ const schSubBtn = document.getElementById('sch-sub-btn');
 
 selectHour.addEventListener('click', (event) => {
   if (event.target.value !== '') {
-    selectHour.classList.remove('error');
+    selectHour.classList.remove('error-style');
   }
 });
 selectMin.addEventListener('click', (event) => {
   if (event.target.value !== '') {
-    selectMin.classList.remove('error');
+    selectMin.classList.remove('error-style');
   }
 });
 selectMass.addEventListener('click', (event) => {
   if (event.target.value !== '') {
-    selectMass.classList.remove('error');
+    selectMass.classList.remove('error-style');
   }
 });
 
 schSubBtn.addEventListener('click', () => {
   if (
-    selectHour.value === '' ||
-    selectMin.value === '' ||
-    selectMass.value === ''
+    selectHour.value !== '' &&
+    selectMin.value !== '' &&
+    selectMass.value !== ''
   ) {
-    if (selectHour.value === '') {
-      selectHour.classList.add('error');
-    }
-    if (selectMin.value === '') {
-      selectMin.classList.add('error');
-    }
-    if (selectMass.value === '') {
-      selectMass.classList.add('error');
-    }
-  } else {
-    // let selectModal = new bootstrap.Modal(
-    //   document.getElementById('form-modal'),
-    //   {
-    //     keyboard: false,
-    //   }
-    // );
-    // selectModal.show();
+    let selectModal = new bootstrap.Modal(
+      document.getElementById('form-modal'),
+      {
+        keyboard: false,
+      }
+    );
+    selectModal.show();
     selectHour.value = '';
     selectMin.value = '';
     selectMass.value = '';
+  } else {
+    if (selectHour.value === '') {
+      selectHour.classList.add('error-style');
+    }
+    if (selectMin.value === '') {
+      selectMin.classList.add('error-style');
+    }
+    if (selectMass.value === '') {
+      selectMass.classList.add('error-style');
+    }
   }
 });
