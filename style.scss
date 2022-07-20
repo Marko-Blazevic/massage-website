@@ -275,6 +275,13 @@ form {
 //Calendar
 
 #calendar {
+  // background: {
+  //   image: url('images/contact21.jpg');
+  //   size: cover;
+  //   repeat: no-repeat;
+  //   position: center;
+  //   // height: 100vh;
+  // }
   position: relative;
   z-index: 1;
   top: 0;
@@ -282,13 +289,22 @@ form {
   font-family: $text-font-family;
   font-size: 1rem;
   padding-top: $navbar-height;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .wrapper {
+  box-shadow: 0 0 10px $gray inset;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgba(245, 245, 245, 0.5);
+  padding: 2rem;
+  margin: 1rem 0;
 }
 
 .calendar-wrapper {
@@ -344,6 +360,9 @@ form {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  background-color: white;
+  // background-color: rgba(0, 0, 0, 0.8);
+  // color: white;
 }
 
 .days div {
@@ -368,6 +387,7 @@ form {
 
 .today {
   background-color: #ffc107;
+  // color: black;
 }
 
 .schedule-wrapper {
@@ -376,7 +396,7 @@ form {
   position: static;
   z-index: 1;
   filter: blur(4px);
-  margin: 2rem 0;
+  margin: 2rem 0 0 0;
 }
 
 .overlay-schedule {
@@ -396,19 +416,17 @@ form {
 }
 
 .schedule-input-wrapper {
+  height: 20rem;
+  width: 21rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: white;
   select:focus {
     box-shadow: 0 0 3px 2px $orange;
   }
 
-  .dropdown-menu {
-    min-width: 70%;
-    max-height: 110px;
-    overflow-y: scroll;
-  }
   .error-style {
     border: solid 1px red;
   }
@@ -458,7 +476,14 @@ footer {
     }
   }
 }
-
+@media (max-width: 310px) {
+  .contact-form-custom {
+    padding: 1rem 0.5em;
+  }
+  .prices-table-custom {
+    font-size: 0.85rem;
+  }
+}
 @media (max-width: 330px) {
   #about {
     h2 {
@@ -511,15 +536,12 @@ footer {
   .contact-btn-custom {
     font-size: 0.9rem;
   }
-}
-@media (max-width: 310px) {
-  .contact-form-custom {
-    padding: 1rem 0.5em;
-  }
-  .prices-table-custom {
-    font-size: 0.85rem;
+  .wrapper {
+    transform: scale(0.9);
+    margin-top: -2rem;
   }
 }
+
 @media (min-width: 330px) {
   .contact-form-custom {
     padding: 1rem;
@@ -539,16 +561,21 @@ footer {
   }
 }
 @media (min-width: 810px) {
+  // #calendar {
+  //   height: 100vh;
+  // }
   .wrapper {
     flex-direction: row;
     align-items: start;
+    margin: 0;
   }
   .calendar-wrapper {
     margin-right: 2rem;
   }
   .schedule-wrapper {
-    margin: 0 0 2rem 0;
+    margin: 0;
   }
+
   footer {
     display: flex;
     flex-direction: row;
