@@ -9,133 +9,122 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
   <link rel="stylesheet" href="style.css" />
   <link rel="shortcut icon" href="images\icon.ico" />
+  <script src="calendar-script.js" defer></script>
+  <script src="my-script.js" defer></script>
   <title>Oasis</title>
 </head>
 
-<body>
-  <header>
-    <nav class="navbar fixed-top navbar-expand-sm custom-navbar-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><img src="images\icon-png-edge.png" alt="Icon image" width="40"
-            height="40" class="logo" /></a>
-        <button class="navbar-toggler navbar-light" type="button" data-bs-toggle="collapse"
-          data-bs-target="#main-navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="main-navigation">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link nav-link-style" href="index.html">Početna</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-style" href="index.html#about">O nama</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-style " href="massages.html">Masaže</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-style" href="index.html#prices">Cenovnik</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-style" href="index.html#contact">Kontakt</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-style current-page-style" href="calendar.html">Zakaži masažu</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+<body onload="onCalendarLoad()">
+  <!-- <div id="calendar"> -->
 
-  <main>
-    <div class="overlay"></div>
-    <div id="calendar">
-      <div class="wrapper">
-        <div class="calendar-wrapper shadow slide-up">
-          <div class="month bg-warning">
-            <i class="bi bi-chevron-left arrow arrow-prev"></i>
-            <div class="month-text">
-              <h2></h2>
-              <p class="fs-6 mb-0 fw-light">Odaberite datum</p>
+  <!-- <div class="wrapper"> -->
+
+  <div class="modal fade" id="calendar-modal" tabindex="-1" aria-labelledby="calendar-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0 mx-auto">
+          <h5 class="modal-title" id="form-modal-label">Odaberite datum</h5>
+        </div>
+        <div class="modal-body">
+          <div class="calendar-wrapper">
+            <div class="calendar shadow slide-up">
+              <div class="month bg-warning">
+                <i class="bi bi-chevron-left arrow arrow-prev"></i>
+                <div class="month-text">
+                  <h2></h2>
+                </div>
+                <i class="bi bi-chevron-right arrow arrow-next"></i>
+              </div>
+              <div class="weekdays px-1">
+                <div>Pon</div>
+                <div>Uto</div>
+                <div>Sre</div>
+                <div>Čet</div>
+                <div>Pet</div>
+                <div>Sub</div>
+                <div>Ned</div>
+              </div>
+              <div class="days">
+                <div></div>
+              </div>
             </div>
-            <i class="bi bi-chevron-right arrow arrow-next"></i>
-          </div>
-          <div class="weekdays px-1">
-            <div>Pon</div>
-            <div>Uto</div>
-            <div>Sre</div>
-            <div>Čet</div>
-            <div>Pet</div>
-            <div>Sub</div>
-            <div>Ned</div>
-          </div>
-          <div class="days">
-            <div></div>
-          </div>
-        </div>
-
-        <div class="schedule-wrapper shadow slide-down">
-          <div class="overlay-schedule"></div>
-          <div class="chosen-date bg-warning">
-            <h3 class="mb-0"></h3>
-          </div>
-          <div class="schedule-input-wrapper p-3 container">
-            <p class="text-center fw-light">Odaberite vreme i željenu masažu</p>
-            <form>
-              <div class="row my-2 m-auto justify-content-center">
-                <select id="hour-select" class="form-select col-3 w-auto mx-1" aria-label="Schedule hour select">
-                  <option value="" disabled selected hidden>sat</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13 </option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                </select>
-                <select id="min-select" class="form-select col-3 w-auto  mx-1" aria-label="Schedule minute select">
-                  <option value="" disabled selected hidden>minut</option>
-                  <option value="00">00</option>
-                  <option value="15">15</option>
-                  <option value="30">30</option>
-                  <option value="45">45 </option>
-                </select>
-              </div>
-              <div class="row justify-content-center ">
-                <select id="mass-select" class="form-select w-auto my-2" aria-label="Schedule massage select">
-                  <option value="" disabled selected hidden>Vrsta masaže</option>
-                  <option value="Holistička masaža">Holistička masaža</option>
-                  <option value="Klasična - Relax masaža">Klasična - Relax masaža</option>
-                  <option value="Anti-Stres Masaža">Anti-Stres Masaža</option>
-                  <option value="Masaža Vulkanskim kamenjem">Masaža Vulkanskim kamenjem </option>
-                  <option value="Masaža za trudnice">Masaža za trudnice</option>
-                  <option value="Parcijalne masaže">Parcijalne masaže</option>
-                  <option value="Terapeutska masaža">Terapeutska masaža</option>
-                  <option value="Limfna drenaža">Limfna drenaža</option>
-                  <option value="Ampuku">Ampuku</option>
-                  <option value="Refleksologija Stopala">Refleksologija Stopala</option>
-                  <option value="Rasayana Abhyanga">Rasayana Abhyanga</option>
-                  <option value="Anticelulit masaža">Anticelulit masaža</option>
-                </select>
-              </div>
-              <p class="fw-light mt-3 text-center">Za više informacija o ponudi masaža, kliknite <a href="massages.html"
-                  class="text-link ">ovde</a> </p>
-              <div class="text-center">
-                <button id="sch-sub-btn" type="button"
-                  class="action-button btn btn-warning shadow px-5 mt-3">Nastavi</button>
-              </div>
-            </form>
           </div>
         </div>
       </div>
     </div>
-  </main>
+  </div>
+
+  <div class="modal fade" id="schedule-modal" tabindex="-1" aria-labelledby="schedule-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0 mx-auto">
+          <h5 class="modal-title" id="form-modal-label">Odaberite vreme i željenu masažu</h5>
+        </div>
+        <div class="modal-body">
+          <div class="schedule-wrapper shadow slide-down">
+            <div class="overlay-schedule"></div>
+            <div class="chosen-date bg-warning">
+              <h3 class="mb-0"></h3>
+            </div>
+            <div class="schedule-input-wrapper p-3 container">
+
+              <form>
+                <div class="row my-2 m-auto justify-content-center">
+                  <select id="hour-select" class="form-select col-3 w-auto mx-1" aria-label="Schedule hour select">
+                    <option value="" disabled selected hidden>sat</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13 </option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                  </select>
+                  <select id="min-select" class="form-select col-3 w-auto  mx-1" aria-label="Schedule minute select">
+                    <option value="" disabled selected hidden>minut</option>
+                    <option value="00">00</option>
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                    <option value="45">45 </option>
+                  </select>
+                </div>
+                <div class="row justify-content-center ">
+                  <select id="mass-select" class="form-select w-auto my-2" aria-label="Schedule massage select">
+                    <option value="" disabled selected hidden>Vrsta masaže</option>
+                    <option value="Holistička masaža">Holistička masaža</option>
+                    <option value="Klasična - Relax masaža">Klasična - Relax masaža</option>
+                    <option value="Anti-Stres Masaža">Anti-Stres Masaža</option>
+                    <option value="Masaža Vulkanskim kamenjem">Masaža Vulkanskim kamenjem </option>
+                    <option value="Masaža za trudnice">Masaža za trudnice</option>
+                    <option value="Parcijalne masaže">Parcijalne masaže</option>
+                    <option value="Terapeutska masaža">Terapeutska masaža</option>
+                    <option value="Limfna drenaža">Limfna drenaža</option>
+                    <option value="Ampuku">Ampuku</option>
+                    <option value="Refleksologija Stopala">Refleksologija Stopala</option>
+                    <option value="Rasayana Abhyanga">Rasayana Abhyanga</option>
+                    <option value="Anticelulit masaža">Anticelulit masaža</option>
+                  </select>
+                </div>
+                <p class="fw-light mt-3 text-center">Za više informacija o ponudi masaža, kliknite <a
+                    href="massages.html" class="text-link ">ovde</a> </p>
+                <div class="text-center">
+                  <button id="sch-sub-btn" type="button"
+                    class="action-button btn btn-warning shadow px-5 mt-3">Nastavi</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+  <!-- </div> -->
 
   <div class="modal fade" id="form-modal" tabindex="-1" aria-labelledby="form-modal-label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -233,40 +222,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
 
-  <script src="calendar-script.js"></script>
-  <script src="my-script.js"></script>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
 
-  <script>
-    //Hide navbar
-    const navLinks = document.querySelectorAll(".nav-item");
-    const menuToggle = document.getElementById("main-navigation");
-    const navbarToggler = document.querySelector('.navbar-toggler');
-    const overlay = document.querySelector('.overlay');
-    const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
-    navLinks.forEach((l) => {
-      l.addEventListener("click", () => {
-        bsCollapse.toggle();
-        overlay.style.display = 'none';
-      });
-    });
 
-    //Toggle Overlay
-    overlay.addEventListener("click", () => {
-      bsCollapse.hide();
-      overlay.style.display = 'none';
-    });
-    navbarToggler.addEventListener('click', () => {
-      if (overlay.style.display === 'block') {
-        overlay.style.display = 'none';
-      } else {
-        overlay.style.display = 'block';
-      }
-    });
-  </script>
 </body>
 
 </html>

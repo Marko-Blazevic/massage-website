@@ -1,3 +1,13 @@
+let startModal = new bootstrap.Modal(
+  document.getElementById('calendar-modal'),
+  {
+    keyboard: false,
+  }
+);
+const onCalendarLoad = () => {
+  startModal.show();
+};
+
 const arrowPrev = document.querySelector('.arrow-prev');
 const arrowNext = document.querySelector('.arrow-next');
 const days = document.querySelector('.days');
@@ -108,20 +118,31 @@ const renderCalendar = () => {
     });
   };
 
-  const removeBlur = (elem) => {
-    elem.addEventListener('click', () => {
-      const dateDetailsWrapper = document.querySelector('.schedule-wrapper');
-      const overlaySch = document.querySelector('.overlay-schedule');
-      dateDetailsWrapper.style.filter = ' blur(0)';
-      overlaySch.style.display = 'none';
-    });
-  };
+  // const removeBlur = (elem) => {
+  //   elem.addEventListener('click', () => {
+  //     const dateDetailsWrapper = document.querySelector('.schedule-wrapper');
+  //     const overlaySch = document.querySelector('.overlay-schedule');
+  //     dateDetailsWrapper.style.filter = ' blur(0)';
+  //     overlaySch.style.display = 'none';
+  //   });
+  // };
 
   monthDates.forEach((clickedOn) => {
     changeDateDetails(clickedOn);
     changePrevNextMonth(clickedOn);
-    removeBlur(clickedOn);
+
+    clickedOn.addEventListener('click', () => {
+      let scheduleModal = new bootstrap.Modal(
+        document.getElementById('schedule-modal'),
+        {
+          keyboard: false,
+        }
+      );
+      startModal.hide();
+      scheduleModal.show();
+    });
   });
+  // loadScheduleModal();
 };
 
 arrowPrev.addEventListener('click', () => {

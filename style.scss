@@ -183,6 +183,7 @@ main {
   }
 }
 
+//da li ima neku funkciju
 .overlay {
   position: fixed;
   height: 100vh;
@@ -274,26 +275,26 @@ form {
 
 //Calendar
 
-#calendar {
-  // background: {
-  //   image: url('images/contact21.jpg');
-  //   size: cover;
-  //   repeat: no-repeat;
-  //   position: center;
-  //   // height: 100vh;
-  // }
-  position: relative;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  font-family: $text-font-family;
-  font-size: 1rem;
-  padding-top: $navbar-height;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+// #calendar {
+//   // background: {
+//   //   image: url('images/contact21.jpg');
+//   //   size: cover;
+//   //   repeat: no-repeat;
+//   //   position: center;
+//   //   // height: 100vh;
+//   // }
+//   position: relative;
+//   z-index: 1;
+//   top: 0;
+//   left: 0;
+//   font-family: $text-font-family;
+//   font-size: 1rem;
+//   padding-top: $navbar-height;
+//   background-color: white;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
 
 .wrapper {
   box-shadow: 0 0 10px $gray inset;
@@ -308,6 +309,12 @@ form {
 }
 
 .calendar-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0 3rem 3rem 3rem;
+}
+
+.calendar {
   width: 21rem;
   display: flex;
   flex-direction: column;
@@ -361,8 +368,6 @@ form {
   display: flex;
   flex-wrap: wrap;
   background-color: white;
-  // background-color: rgba(0, 0, 0, 0.8);
-  // color: white;
 }
 
 .days div {
@@ -387,24 +392,19 @@ form {
 
 .today {
   background-color: #ffc107;
-  // color: black;
 }
 
 .schedule-wrapper {
   width: 21rem;
   height: 25rem;
-  position: static;
-  z-index: 1;
-  filter: blur(4px);
-  margin: 2rem 0 0 0;
 }
 
-.overlay-schedule {
-  width: 21rem;
-  height: 25rem;
-  position: absolute;
-  z-index: 10;
-}
+// .overlay-schedule {
+//   width: 21rem;
+//   height: 25rem;
+//   position: absolute;
+//   z-index: 10;
+// }
 
 .chosen-date {
   height: 5rem;
@@ -569,9 +569,9 @@ footer {
     align-items: start;
     margin: 0;
   }
-  .calendar-wrapper {
-    margin-right: 2rem;
-  }
+  // .calendar-wrapper {
+  //   margin-right: 2rem;
+  // }
   .schedule-wrapper {
     margin: 0;
   }

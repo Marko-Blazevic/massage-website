@@ -295,26 +295,6 @@ form textarea {
   text-decoration: none;
 }
 
-#calendar {
-  position: relative;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1rem;
-  padding-top: 66px;
-  background-color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 .wrapper {
   -webkit-box-shadow: 0 0 10px rgba(128, 128, 128, 0.4) inset;
           box-shadow: 0 0 10px rgba(128, 128, 128, 0.4) inset;
@@ -338,6 +318,16 @@ form textarea {
 }
 
 .calendar-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 3rem 3rem 3rem;
+}
+
+.calendar {
   width: 21rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -463,18 +453,6 @@ form textarea {
 .schedule-wrapper {
   width: 21rem;
   height: 25rem;
-  position: static;
-  z-index: 1;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  margin: 2rem 0 0 0;
-}
-
-.overlay-schedule {
-  width: 21rem;
-  height: 25rem;
-  position: absolute;
-  z-index: 10;
 }
 
 .chosen-date {
@@ -659,9 +637,6 @@ footer .newsletter button {
         -ms-flex-align: start;
             align-items: start;
     margin: 0;
-  }
-  .calendar-wrapper {
-    margin-right: 2rem;
   }
   .schedule-wrapper {
     margin: 0;
