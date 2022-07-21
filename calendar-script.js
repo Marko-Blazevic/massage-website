@@ -1,17 +1,7 @@
-let startModal = new bootstrap.Modal(
-  document.getElementById('calendar-modal'),
-  {
-    keyboard: false,
-  }
-);
-const onCalendarLoad = () => {
-  startModal.show();
-};
-
 const arrowPrev = document.querySelector('.arrow-prev');
 const arrowNext = document.querySelector('.arrow-next');
 const days = document.querySelector('.days');
-const currentMonth = document.querySelector('.month h2');
+const currentMonth = document.querySelector('.month h3');
 const dateDetailH = document.querySelector('.chosen-date h3');
 
 const date = new Date();
@@ -92,7 +82,6 @@ const renderCalendar = () => {
     days.innerHTML += `<div class="next-date">${x}</div>`;
   }
 
-  //change date-details on calendar date click
   const monthDates = days.querySelectorAll('div');
 
   const changeDateDetails = (elem) => {
@@ -118,31 +107,18 @@ const renderCalendar = () => {
     });
   };
 
-  // const removeBlur = (elem) => {
-  //   elem.addEventListener('click', () => {
-  //     const dateDetailsWrapper = document.querySelector('.schedule-wrapper');
-  //     const overlaySch = document.querySelector('.overlay-schedule');
-  //     dateDetailsWrapper.style.filter = ' blur(0)';
-  //     overlaySch.style.display = 'none';
-  //   });
-  // };
-
   monthDates.forEach((clickedOn) => {
     changeDateDetails(clickedOn);
     changePrevNextMonth(clickedOn);
-
     clickedOn.addEventListener('click', () => {
-      let scheduleModal = new bootstrap.Modal(
-        document.getElementById('schedule-modal'),
-        {
-          keyboard: false,
-        }
-      );
-      startModal.hide();
+      calendarModal.hide();
       scheduleModal.show();
+      resetScheduleValues();
+      removeErrorStyle(selectHour);
+      removeErrorStyle(selectMin);
+      removeErrorStyle(selectMass);
     });
   });
-  // loadScheduleModal();
 };
 
 arrowPrev.addEventListener('click', () => {
@@ -159,40 +135,72 @@ renderCalendar();
 const selectHour = document.getElementById('hour-select');
 const selectMin = document.getElementById('min-select');
 const selectMass = document.getElementById('mass-select');
-const schSubBtn = document.getElementById('sch-sub-btn');
+const continueBtn = document.getElementById('continue-btn');
+const backBtn = document.getElementById('back-btn');
+
+let calendarModal = new bootstrap.Modal(
+  document.getElementById('calendar-modal'),
+  {
+    keyboard: false,
+  }
+);
+let scheduleModal = new bootstrap.Modal(
+  document.getElementById('schedule-modal'),
+  {
+    keyboard: false,
+  }
+);
+let errorModal = new bootstrap.Modal(document.getElementById('error-modal'), {
+  keyboard: false,
+});
+let formModal = new bootstrap.Modal(document.getElementById('form-modal'), {
+  keyboard: false,
+});
+
+const onCalendarLoad = () => {
+  calendarModal.show();
+};
+
+// backBtn.addEventListener('click', () => {
+//   scheduleModal.hide();
+//   calendarModal.show();
+// });
+
+const removeErrorStyle = (elem) => {
+  elem.classList.remove('error-style');
+};
 
 selectHour.addEventListener('click', (event) => {
   if (event.target.value !== '') {
-    selectHour.classList.remove('error-style');
+    removeErrorStyle(selectHour);
   }
 });
 selectMin.addEventListener('click', (event) => {
   if (event.target.value !== '') {
-    selectMin.classList.remove('error-style');
+    removeErrorStyle(selectMin);
   }
 });
 selectMass.addEventListener('click', (event) => {
   if (event.target.value !== '') {
-    selectMass.classList.remove('error-style');
+    removeErrorStyle(selectMass);
   }
 });
 
-schSubBtn.addEventListener('click', () => {
+const resetScheduleValues = () => {
+  selectHour.value = '';
+  selectMin.value = '';
+  selectMass.value = '';
+};
+
+continueBtn.addEventListener('click', () => {
   if (
     selectHour.value !== '' &&
     selectMin.value !== '' &&
     selectMass.value !== ''
   ) {
-    let selectModal = new bootstrap.Modal(
-      document.getElementById('form-modal'),
-      {
-        keyboard: false,
-      }
-    );
-    selectModal.show();
-    selectHour.value = '';
-    selectMin.value = '';
-    selectMass.value = '';
+    scheduleModal.hide();
+    formModal.show();
+    resetScheduleValues();
   } else {
     if (selectHour.value === '') {
       selectHour.classList.add('error-style');
@@ -203,5 +211,7 @@ schSubBtn.addEventListener('click', () => {
     if (selectMass.value === '') {
       selectMass.classList.add('error-style');
     }
+    scheduleModal.hide();
+    errorModal.show();
   }
 });

@@ -15,9 +15,6 @@
 </head>
 
 <body onload="onCalendarLoad()">
-  <!-- <div id="calendar"> -->
-
-  <!-- <div class="wrapper"> -->
 
   <div class="modal fade" id="calendar-modal" tabindex="-1" aria-labelledby="calendar-modal-label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -27,11 +24,11 @@
         </div>
         <div class="modal-body">
           <div class="calendar-wrapper">
-            <div class="calendar shadow slide-up">
+            <div class="calendar shadow ">
               <div class="month bg-warning">
                 <i class="bi bi-chevron-left arrow arrow-prev"></i>
                 <div class="month-text">
-                  <h2></h2>
+                  <h3></h3>
                 </div>
                 <i class="bi bi-chevron-right arrow arrow-next"></i>
               </div>
@@ -50,6 +47,9 @@
             </div>
           </div>
         </div>
+        <div class="modal-footer border-0 mx-auto">
+          <button type="button" class="btn btn-light shadow px-5" data-bs-dismiss="modal">Zatvori</button>
+        </div>
       </div>
     </div>
   </div>
@@ -58,18 +58,16 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header border-0 mx-auto">
-          <h5 class="modal-title" id="form-modal-label">Odaberite vreme i željenu masažu</h5>
+          <h5 class="modal-title text-center" id="schedule-modal-label">Odaberite vreme i željenu masažu</h5>
         </div>
         <div class="modal-body">
-          <div class="schedule-wrapper shadow slide-down">
-            <div class="overlay-schedule"></div>
-            <div class="chosen-date bg-warning">
-              <h3 class="mb-0"></h3>
-            </div>
-            <div class="schedule-input-wrapper p-3 container">
-
-              <form>
-                <div class="row my-2 m-auto justify-content-center">
+          <div class="schedule-wrapper">
+            <div class="shadow">
+              <div class="chosen-date bg-warning">
+                <h3 class="mb-0"></h3>
+              </div>
+              <div class="schedule-input-wrapper  p-3 container">
+                <div class="row justify-content-center mb-3">
                   <select id="hour-select" class="form-select col-3 w-auto mx-1" aria-label="Schedule hour select">
                     <option value="" disabled selected hidden>sat</option>
                     <option value="10">10</option>
@@ -85,7 +83,7 @@
                     <option value="20">20</option>
                     <option value="21">21</option>
                   </select>
-                  <select id="min-select" class="form-select col-3 w-auto  mx-1" aria-label="Schedule minute select">
+                  <select id="min-select" class="form-select col-3 w-auto mx-1" aria-label="Schedule minute select">
                     <option value="" disabled selected hidden>minut</option>
                     <option value="00">00</option>
                     <option value="15">15</option>
@@ -93,8 +91,8 @@
                     <option value="45">45 </option>
                   </select>
                 </div>
-                <div class="row justify-content-center ">
-                  <select id="mass-select" class="form-select w-auto my-2" aria-label="Schedule massage select">
+                <div class="row justify-content-center w-auto">
+                  <select id="mass-select" class="form-select" aria-label="Schedule massage select">
                     <option value="" disabled selected hidden>Vrsta masaže</option>
                     <option value="Holistička masaža">Holistička masaža</option>
                     <option value="Klasična - Relax masaža">Klasična - Relax masaža</option>
@@ -110,21 +108,35 @@
                     <option value="Anticelulit masaža">Anticelulit masaža</option>
                   </select>
                 </div>
-                <p class="fw-light mt-3 text-center">Za više informacija o ponudi masaža, kliknite <a
-                    href="massages.html" class="text-link ">ovde</a> </p>
-                <div class="text-center">
-                  <button id="sch-sub-btn" type="button"
-                    class="action-button btn btn-warning shadow px-5 mt-3">Nastavi</button>
-                </div>
-              </form>
+                <p class="fw-light my-4 text-center">Za više informacija o ponudi masaža, kliknite <a
+                    href="massages.html" class="text-link">ovde</a> </p>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="modal-footer border-0 justify-content-center">
+          <button type="button" class="action-button btn btn-light shadow px-5 mx-1" data-bs-target="#calendar-modal"
+            data-bs-toggle="modal" data-bs-dismiss="modal">Nazad</button>
+          <button id="continue-btn" type="button"
+            class="action-button btn btn-warning shadow px-5 mx-1">Nastavi</button>
         </div>
       </div>
     </div>
   </div>
-  <!-- </div> -->
-  <!-- </div> -->
+
+  <div class="modal fade" id="error-modal" tabindex="-1" aria-labelledby="error-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p class="error-text text-center m-0">Molimo Vas odaberite vreme i masažu.</p>
+        </div>
+        <div class="modal-footer justify-content-center border-0">
+          <button class="btn btn-warning px-5" data-bs-target="#schedule-modal" data-bs-toggle="modal"
+            data-bs-dismiss="modal">U redu</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="modal fade" id="form-modal" tabindex="-1" aria-labelledby="form-modal-label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -154,10 +166,11 @@
             </form>
           </div>
         </div>
-        <div class="modal-footer border-0 mx-auto">
-          <button type="button" class="btn btn-light shadow px-5" data-bs-dismiss="modal">Odustani</button>
-          <button type="submit" class="action-button btn btn-warning shadow px-5" data-bs-toggle="modal"
-            data-bs-target="#confirmation-modal" data-bs-dismiss="modal">Pošalji</button>
+        <div class="modal-footer border-0 justify-content-center">
+          <button type="button" class="btn btn-light shadow px-5" data-bs-target="#schedule-modal"
+            data-bs-toggle="modal" data-bs-dismiss="modal">Nazad</button>
+          <button type="submit" class="action-button btn btn-warning shadow px-5"
+            data-bs-dismiss="modal">Pošalji</button>
         </div>
       </div>
     </div>
