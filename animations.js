@@ -48,13 +48,32 @@ slideRight.forEach((elem) => {
   });
 });
 
-gsap.to('.logo', {
-  rotation: 360,
-  duration: 1,
-  delay: 1,
+gsap.set('.fade-in', {
+  opacity: 0,
 });
 
-gsap.to('.fade-in', { duration: 2, opacity: 1, ease: 'power1.inOut' });
+let tl = gsap.timeline();
+
+const fadeIn = document.querySelectorAll('.fade-in');
+fadeIn.forEach((elem) => {
+  tl.to(
+    elem,
+    {
+      duration: 2,
+      opacity: 1,
+      ease: 'power1.inOut',
+    },
+    '<.2'
+  );
+});
+tl.to(
+  '.logo',
+  {
+    rotation: 360,
+    duration: 1,
+  },
+  '-=1'
+);
 
 gsap.set('.index-img-wrapper', {
   yPercent: 40,
@@ -88,7 +107,7 @@ slideUpText.forEach((elem) => {
 gsap.from('.pop-up', {
   scrollTrigger: '.pop-up',
   scale: 0,
-  duration: 2,
+  duration: 3,
   delay: 0.2,
   ease: Elastic.easeOut.config(1, 0.5),
 });

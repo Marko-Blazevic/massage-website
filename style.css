@@ -76,7 +76,7 @@ main {
   position: absolute;
   z-index: 2;
   width: 100vw;
-  height: 120vh;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
 }
 
@@ -84,7 +84,7 @@ main {
   position: absolute;
   z-index: 1;
   width: 100vw;
-  height: 120vh;
+  height: 100vh;
   background-image: url("images/index-background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -95,19 +95,18 @@ main {
   position: relative;
   z-index: 3;
   width: 100vw;
-  height: 120vh;
+  height: 100vh;
 }
 
 .index-img-wrapper {
   width: 100%;
-  height: 100vh;
-  opacity: 0;
+  height: 80vh;
+  padding-top: 66px;
 }
 
 .index-text-wrapper {
-  padding-top: 2rem;
   width: 100%;
-  height: 20vh;
+  height: 10vh;
 }
 
 .index-text {
@@ -585,11 +584,6 @@ footer .newsletter button {
   .contact-btn-custom {
     font-size: 0.9rem;
   }
-  .wrapper {
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9);
-    margin-top: -2rem;
-  }
 }
 
 @media (min-width: 330px) {
@@ -613,16 +607,6 @@ footer .newsletter button {
 }
 
 @media (min-width: 810px) {
-  .wrapper {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: start;
-    margin: 0;
-  }
   .schedule-wrapper {
     margin: 0;
   }
