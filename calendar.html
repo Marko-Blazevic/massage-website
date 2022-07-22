@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="shortcut icon" href="images\icon.ico" />
   <script src="calendar-script.js" defer></script>
-  <script src="my-script.js" defer></script>
+  <script src="animations.js" type="module" defer></script>
   <title>Oasis</title>
 </head>
 
@@ -48,7 +48,8 @@
           </div>
         </div>
         <div class="modal-footer border-0 mx-auto">
-          <button type="button" class="btn btn-light shadow px-5" data-bs-dismiss="modal">Zatvori</button>
+          <button type="button" class="btn btn-light shadow px-5" data-bs-dismiss="modal"
+            onclick="javascript:window.history.back();">Zatvori</button>
         </div>
       </div>
     </div>
@@ -146,18 +147,27 @@
         </div>
         <div class="modal-body">
           <div class="container">
-            <form class="px-3 ">
+            <form class="px-3 needs-validation" novalidate>
               <div class="input">
                 <input id="name" type="text" class="form-control input-field" required />
                 <label for="name" class="form-label input-label">Ime i prezime</label>
+                <div class="invalid-feedback">
+                  Please choose a username.
+                </div>
               </div>
               <div class="input">
                 <input id="phone-number" type="text" class="form-control input-field" required />
                 <label for="phone-number" class="form-label input-label">Broj telefona</label>
+                <div class="invalid-feedback">
+                  Please choose a username.
+                </div>
               </div>
               <div class="input">
                 <input id="email" type="email" class="form-control input-field" required />
                 <label class="form-label input-label">Email</label>
+                <div class="invalid-feedback">
+                  Please choose a username.
+                </div>
               </div>
               <div class="input">
                 <textarea id="message" class="form-control input-field" required></textarea>

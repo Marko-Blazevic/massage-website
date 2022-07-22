@@ -73,3 +73,22 @@ gsap.to('.index-text', {
     scrub: true,
   },
 });
+
+const slideUpText = gsap.utils.toArray('.slide-up-text');
+slideUpText.forEach((elem) => {
+  gsap.from(elem, {
+    scrollTrigger: elem,
+    y: 50,
+    duration: 1,
+    opacity: 0,
+    delay: 0.2,
+  });
+});
+
+gsap.from('.pop-up', {
+  scrollTrigger: '.pop-up',
+  scale: 0,
+  duration: 2,
+  delay: 0.2,
+  ease: Elastic.easeOut.config(1, 0.5),
+});
