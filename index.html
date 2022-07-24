@@ -46,21 +46,26 @@
   </header>
 
   <main id="main">
-    <div class="overlay"> </div>
+    <!-- <div class="overlay"> </div> -->
 
     <div id="index">
-      <div class="overlay-index"></div>
-      <div class="index-wrapper"></div>
-      <div class="index-content container justify-content-center align-items-center">
-        <div class="d-flex justify-content-center align-items-center index-img-wrapper fade-in">
-          <img src="images/logo-text.png" class="img-fluid" alt="Big Oasis logo with palm trees inside the letter O" />
-        </div>
-        <div class="justify-content-center align-items-center index-text-wrapper fade-in">
-          <p class="index-text text-center">Mesto gde pustinja prestaje...</p>
-        </div>
+      <!-- <div class="overlay-index"></div>
+      <div class="index-wrapper"></div> -->
+      <div class="index-content ">
+
+
+        <img src="images/logo-text.png" class=" index-img fade-in"
+          alt="Big Oasis logo with palm trees inside the letter O" />
+
+
+
+
+        <p class="index-text text-center index-text-wrapper fade-in">Mesto gde pustinja prestaje...</p>
+
+
       </div>
     </div>
-    <div data-bs-spy="scroll" data-bs-target="#main-navigation" data-bs-offset="0" tabindex="0">
+    <div class="scroll-spy" data-bs-spy="scroll" data-bs-target="#main-navigation" data-bs-offset="0" tabindex="0">
       <div id="about" class="container my-3">
         <h2>O nama</h2>
         <p class="slide-up font-italic custom-para-about p-2">
@@ -75,84 +80,82 @@
           vaše mesto za masažu.
         </p>
       </div>
-      <div id="prices" class="container my-5">
-        <div class="row justify-content-center p-3">
-          <table class="table table-hover w-auto prices-table-custom">
-            <thead>
-              <tr class="slide-right th-style">
-                <th scope="col">Masaža</th>
-                <th scope="col">Trajanje</th>
-                <th scope="col">Cena</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="slide-left table-row" data-href="massages.html#holisticka">
-                <td>Holistička masaža</td>
-                <td>100-120 minuta</td>
-                <td>2500 dinara</td>
-              </tr>
-              <tr class="slide-right table-row" data-href="massages.html#klasicna">
-                <td>Klasična - Relax masaža</td>
-                <td>60 minuta</td>
-                <td>1800 dinara</td>
-              </tr>
-              <tr class="slide-left table-row" data-href="massages.html#anti-stres">
-                <td>Anti-Stres Masaža</td>
-                <td>75 minuta</td>
-                <td>2000 dinara</td>
-              </tr>
-              <tr class="slide-right table-row" data-href="massages.html#kamenje">
-                <td>Masaža Vulkanskim kamenjem</td>
-                <td>90 minuta</td>
-                <td>2200 dinara</td>
-              </tr>
-              <tr class="slide-left table-row" data-href="massages.html#trudnice">
-                <td>Masaža za trudnice</td>
-                <td>60 minuta</td>
-                <td>1800 dinara</td>
-              </tr>
-              <tr class="slide-right table-row" data-href="massages.html#parcijalne">
-                <td>Parcijalne masaže</td>
-                <td>30 minuta</td>
-                <td>1000 dinara</td>
-              </tr>
-              <tr class="slide-left table-row" data-href="massages.html#terapeutska">
-                <td>Terapeutska masaža</td>
-                <td>45 minuta</td>
-                <td>1200 dinara</td>
-              </tr>
-              <tr class="slide-right table-row" data-href="massages.html#limfna">
-                <td>Limfna drenaža</td>
-                <td>60 minuta</td>
-                <td>1800 dinara</td>
-              </tr>
-              <tr class="slide-left table-row" data-href="massages.html#ampuku">
-                <td>Ampuku</td>
-                <td>45 minuta</td>
-                <td>1400 dinara</td>
-              </tr>
-              <tr class="slide-right table-row" data-href="massages.html#refleksologija">
-                <td>Refleksologija Stopala</td>
-                <td>45 minuta</td>
-                <td>1400 dinara</td>
-              </tr>
-              <tr class="slide-left table-row" data-href="massages.html#rasayana">
-                <td>Rasayana Abhyanga</td>
-                <td>60 minuta</td>
-                <td>2200 dinara</td>
-              </tr>
-              <tr class="slide-right table-row" data-href="massages.html#anticelulit">
-                <td>Anticelulit masaža</td>
-                <td>kliknite za više informacija</td>
-                <td>kliknite za više informacija</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div id="prices" class="container my-5 table-prices-custom">
+        <table class="table table-hover prices-table-custom">
+          <thead>
+            <tr class="slide-right th-style">
+              <th scope="col">Masaža</th>
+              <th scope="col">Trajanje</th>
+              <th scope="col">Cena</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="slide-left table-row" data-href="massages.html#holisticka">
+              <td>Holistička masaža</td>
+              <td>100-120 minuta</td>
+              <td>2500 dinara</td>
+            </tr>
+            <tr class="slide-right table-row" data-href="massages.html#klasicna">
+              <td>Klasična - Relax masaža</td>
+              <td>60 minuta</td>
+              <td>1800 dinara</td>
+            </tr>
+            <tr class="slide-left table-row" data-href="massages.html#anti-stres">
+              <td>Anti-Stres Masaža</td>
+              <td>75 minuta</td>
+              <td>2000 dinara</td>
+            </tr>
+            <tr class="slide-right table-row" data-href="massages.html#kamenje">
+              <td>Masaža Vulkanskim kamenjem</td>
+              <td>90 minuta</td>
+              <td>2200 dinara</td>
+            </tr>
+            <tr class="slide-left table-row" data-href="massages.html#trudnice">
+              <td>Masaža za trudnice</td>
+              <td>60 minuta</td>
+              <td>1800 dinara</td>
+            </tr>
+            <tr class="slide-right table-row" data-href="massages.html#parcijalne">
+              <td>Parcijalne masaže</td>
+              <td>30 minuta</td>
+              <td>1000 dinara</td>
+            </tr>
+            <tr class="slide-left table-row" data-href="massages.html#terapeutska">
+              <td>Terapeutska masaža</td>
+              <td>45 minuta</td>
+              <td>1200 dinara</td>
+            </tr>
+            <tr class="slide-right table-row" data-href="massages.html#limfna">
+              <td>Limfna drenaža</td>
+              <td>60 minuta</td>
+              <td>1800 dinara</td>
+            </tr>
+            <tr class="slide-left table-row" data-href="massages.html#ampuku">
+              <td>Ampuku</td>
+              <td>45 minuta</td>
+              <td>1400 dinara</td>
+            </tr>
+            <tr class="slide-right table-row" data-href="massages.html#refleksologija">
+              <td>Refleksologija Stopala</td>
+              <td>45 minuta</td>
+              <td>1400 dinara</td>
+            </tr>
+            <tr class="slide-left table-row" data-href="massages.html#rasayana">
+              <td>Rasayana Abhyanga</td>
+              <td>60 minuta</td>
+              <td>2200 dinara</td>
+            </tr>
+            <tr class="slide-right table-row" data-href="massages.html#anticelulit">
+              <td>Anticelulit masaža</td>
+              <td>kliknite za više informacija</td>
+              <td>kliknite za više informacija</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div id="contact" class="container">
-        <div class="container border shadow my-5 ">
-          <form class="contact-form-custom">
+        <div class="container border shadow my-5 contact-form-custom">
+          <form class=" p-3">
             <div class="input slide-up-text">
               <input id="name" type="text" class="form-control input-field" required />
               <label for="name" class="form-label input-label">Ime i prezime</label>
@@ -180,42 +183,43 @@
   </main>
 
 
-  <footer class="bg-dark container-fluid p-2 dark-footer-custom">
-    <div class="row justify-content-center ">
-      <div class="col footer-logo p-2"> <img src="images/logo-text.png" class="img-fluid"
-          alt="Oasis logo with palm trees inside the letter O" />
-      </div>
-      <div class="col p-2 mx-2 footer-links">
-        <strong>LINKOVI</strong><br />
-        <a href="index.html#about"> O nama</a><br>
-        <a href="index.html#prices"> Cene</a><br>
-        <a href="index.html#contact"> Kontakt</a><br>
-      </div>
-      <div class="col p-2 footer-links">
-        <p> <strong>ADRESA</strong> <br>
-          The Bluff Settlement <br>
-          Bahamas <br>
-          <a href="https://goo.gl/maps/aQ2ySV9GqZuKLTTK6">
-            <u> Google Map</u>
-          </a>
-        </p>
-      </div>
-    </div>
+  <footer>
 
-    <div class="text-center mx-2 p-2 news-socia">
-      <div class="news-wrapper">
-        <p class="mb-1 p-0">Upišite se kako biste prvi znali o našim promocijama i ponudama.</p>
+    <div class="bg-dark container-fluid p-2 dark-footer-custom">
+      <div class="row justify-content-center m-0">
+        <div class="col footer-logo p-2"> <img src="images/logo-text.png" class="img-fluid"
+            alt="Oasis logo with palm trees inside the letter O" />
+        </div>
+        <div class="col p-2 mx-2 footer-links">
+          <strong>LINKOVI</strong><br />
+          <a href="index.html#about"> O nama</a><br>
+          <a href="index.html#prices"> Cene</a><br>
+          <a href="index.html#contact"> Kontakt</a><br>
+        </div>
+        <div class="col p-2 footer-links">
+          <p> <strong>ADRESA</strong> <br>
+            The Bluff Settlement <br>
+            Bahamas <br>
+            <a href="https://goo.gl/maps/aQ2ySV9GqZuKLTTK6">
+              <u> Google Map</u>
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center mx-2 p-2 news-socia">
+        <p class="mb-1">Upišite se kako biste prvi znali o našim promocijama i ponudama.</p>
         <div class="newsletter">
           <input type="email" id="email" placeholder="Vaš email" class=" px-2">
           <button type="submit" class="btn-light mx-1 text-center px-1">Pošalji</button>
         </div>
+        <div class="social-links my-3">
+          <a href="#" class="btn col" role="button"><img src="images/instagram-16x16-icon-white.png"></a>
+          <a href="#" class="btn col" role="button"><img src="images/facebook-16x16-icon-white.png"></a>
+        </div>
       </div>
-      <div class="social-links my-3">
-        <a href="#" class="btn col" role="button"><img src="images/instagram-16x16-icon-white.png"></a>
-        <a href="#" class="btn col" role="button"><img src="images/facebook-16x16-icon-white.png"></a>
-      </div>
-
     </div>
+
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>

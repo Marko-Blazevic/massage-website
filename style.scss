@@ -13,15 +13,9 @@ html {
 body {
   font-family: $text-font-family;
   overflow-x: hidden;
-  width: 100vw;
   position: relative;
   top: 0;
   left: 0;
-}
-
-main {
-  overflow-x: hidden;
-  width: 100vw;
 }
 
 .navbar-light .navbar-toggler-icon {
@@ -90,29 +84,32 @@ main {
   }
 }
 .index-content {
-  position: relative;
-  z-index: 3;
+  // position: relative;
+  // z-index: 3;
+  margin-top: $navbar-height;
+  padding: 0 0.5rem;
+  background-color: #666b70;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - #{$navbar-height});
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
-.index-img-wrapper {
+.index-img {
   width: 100%;
-  height: 80vh;
-  padding-top: $navbar-height;
+  background-color: red;
 }
 
-.index-text-wrapper {
-  // padding-top: 2rem;
-  width: 100%;
-  height: 10vh;
-}
 .index-text {
+  background-color: blue;
+  width: 100%;
   font-family: $cursive-font-family;
   text-shadow: 2px 2px 3px black;
   color: white;
-  font-size: 3rem;
-  margin-top: 8rem;
+  font-size: 2.5rem;
+  margin-bottom: 0;
 }
 
 #about {
@@ -208,21 +205,6 @@ form {
   }
 }
 
-.card-heading {
-  position: absolute;
-  font-family: $cursive-font-family;
-  font-size: 4rem;
-  color: $orange;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.664);
-  line-height: 1.222;
-  z-index: 2;
-}
-.contact-small {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
 .input {
   display: flex;
   flex-direction: column-reverse;
@@ -257,18 +239,6 @@ form {
       transform: translateY(-2rem);
       font-size: 0.9rem;
     }
-  }
-}
-
-.card-info {
-  padding: 1rem 1rem;
-  text-align: center;
-  font-size: 0.875rem;
-  color: #8597a3;
-  a {
-    display: block;
-    color: #6658d3;
-    text-decoration: none;
   }
 }
 
@@ -383,8 +353,6 @@ form {
 }
 
 footer {
-  border-top: solid 1px rgba(200, 200, 200, 0.4);
-  padding: 1rem;
   font-size: 0.7rem;
   font-family: sans-serif;
   margin-top: 1rem;
@@ -420,6 +388,7 @@ footer {
   }
 }
 .light-footer-custom {
+  border-top: solid 1px rgba(200, 200, 200, 0.4);
   background-color: white;
   .footer-links {
     a {
@@ -427,123 +396,153 @@ footer {
     }
   }
 }
-@media (max-width: 310px) {
-  .contact-form-custom {
-    padding: 1rem 0.5em;
-  }
-  .prices-table-custom {
-    font-size: 0.85rem;
-  }
-}
-@media (max-width: 330px) {
-  #about {
-    h2 {
-      font-size: 3.5rem;
-    }
-    .custom-para-about {
-      font-size: 1rem;
-      line-height: 2rem;
-    }
-    .about-name {
-      font-size: 2rem;
-    }
-  }
-  .custom-navbar-dark {
-    .nav-link-style {
-      font-size: 0.9rem;
-    }
-  }
-  .custom-navbar-light {
-    .nav-link-style {
-      font-size: 0.9rem;
-    }
-  }
-  #massages {
-    font-size: 0.9rem;
-    .massages-dropup-custom {
-      button {
-        font-size: 0.9rem;
-      }
-      a {
-        font-size: 0.9rem;
-      }
-    }
-  }
-  .contact-form-custom {
-    padding: 1rem;
-  }
-  .prices-table-custom {
-    font-size: 0.95rem;
-  }
-  .input-field {
-    font-size: 0.8rem;
-  }
-  .input-label {
-    font-size: 0.9rem;
-  }
-  .contact-form-custom {
-    padding: 1rem 0.5em;
-  }
-  .contact-btn-custom {
-    font-size: 0.9rem;
-  }
-}
-
-@media (min-width: 330px) {
-  .contact-form-custom {
-    padding: 1rem;
-  }
-}
-@media (min-width: 576px) and (min-height: 270px) {
-  .index-img-wrapper {
-    width: 90%;
-    margin: 0 auto;
-    padding-top: $navbar-height;
-  }
+@media (min-width: 360px) {
   .index-text {
-    margin-top: 4.5rem;
+    font-size: 3rem;
   }
+}
+@media (min-width: 500px) {
   .contact-form-custom {
     padding: 2rem;
-  }
-}
-@media (min-width: 810px) {
-  .schedule-wrapper {
-    margin: 0;
-  }
-  footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    .news-socia {
-      display: flex;
-      flex-direction: row;
-    }
-    .social-links {
-      margin: -0.5rem 0 0 2rem !important;
-    }
+    // width: 40rem;
   }
 }
 
-@media (min-width: 992px) {
-  #contact {
-    width: 60%;
-  }
-}
-@media (min-width: 1200px) {
+@media (min-width: 576px) {
   .index-text {
-    font-size: 5rem;
-  }
-  .massages-dropup-custom {
-    display: none;
-  }
-  #massages {
-    width: 60%;
-    .massages-list-custom {
-      display: block;
-    }
-  }
-  #contact {
-    width: 40%;
+    font-size: 3.5rem;
   }
 }
+@media (min-width: 768px) {
+  .index-text {
+    font-size: 4rem;
+  }
+  .table-prices-custom {
+    width: 50rem;
+  }
+  .contact-form-custom {
+    width: 75%;
+  }
+}
+@media (min-width: 992px) {
+  .index-text {
+    font-size: 4.5rem;
+  }
+
+  .contact-form-custom {
+    width: 35rem;
+  }
+}
+
+// @media (max-width: 330px) {
+//   #about {
+//     h2 {
+//       font-size: 3.5rem;
+//     }
+//     .custom-para-about {
+//       font-size: 1rem;
+//       line-height: 2rem;
+//     }
+//     .about-name {
+//       font-size: 2rem;
+//     }
+//   }
+//   .custom-navbar-dark {
+//     .nav-link-style {
+//       font-size: 0.9rem;
+//     }
+//   }
+//   .custom-navbar-light {
+//     .nav-link-style {
+//       font-size: 0.9rem;
+//     }
+//   }
+//   #massages {
+//     font-size: 0.9rem;
+//     .massages-dropup-custom {
+//       button {
+//         font-size: 0.9rem;
+//       }
+//       a {
+//         font-size: 0.9rem;
+//       }
+//     }
+//   }
+//   .contact-form-custom {
+//     padding: 1rem;
+//   }
+//   .prices-table-custom {
+//     font-size: 0.95rem;
+//   }
+//   .input-field {
+//     font-size: 0.8rem;
+//   }
+//   .input-label {
+//     font-size: 0.9rem;
+//   }
+//   .contact-form-custom {
+//     padding: 1rem 0.5em;
+//   }
+//   .contact-btn-custom {
+//     font-size: 0.9rem;
+//   }
+// }
+
+// @media (min-width: 330px) {
+//   .contact-form-custom {
+//     padding: 1rem;
+//   }
+// }
+// @media (min-width: 576px) and (min-height: 270px) {
+//   .index-img-wrapper {
+//     width: 90%;
+//     margin: 0 auto;
+//     padding-top: $navbar-height;
+//   }
+//   .index-text {
+//     margin-top: 4.5rem;
+//   }
+//   .contact-form-custom {
+//     padding: 2rem;
+//   }
+// }
+// @media (min-width: 810px) {
+//   .schedule-wrapper {
+//     margin: 0;
+//   }
+//   footer {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//     .news-socia {
+//       display: flex;
+//       flex-direction: row;
+//     }
+//     .social-links {
+//       margin: -0.5rem 0 0 2rem !important;
+//     }
+//   }
+// }
+
+// @media (min-width: 992px) {
+//   #contact {
+//     width: 60%;
+//   }
+// }
+// @media (min-width: 1200px) {
+//   .index-text {
+//     font-size: 5rem;
+//   }
+//   .massages-dropup-custom {
+//     display: none;
+//   }
+//   #massages {
+//     width: 60%;
+//     .massages-list-custom {
+//       display: block;
+//     }
+//   }
+//   #contact {
+//     width: 40%;
+//   }
+// }
