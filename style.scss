@@ -108,7 +108,7 @@ body {
   font-family: $cursive-font-family;
   text-shadow: 2px 2px 3px black;
   color: white;
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   margin-bottom: 0;
 }
 
@@ -179,7 +179,7 @@ body {
   }
 }
 
-//da li ima neku funkciju
+//za navbar toggle
 .overlay {
   position: fixed;
   height: 100vh;
@@ -396,6 +396,34 @@ footer {
     }
   }
 }
+
+@media (max-width: 360px) {
+  #about {
+    h2 {
+      font-size: 3.6rem;
+    }
+    .custom-para-about {
+      font-size: 1.1rem;
+      line-height: 2rem;
+    }
+    .about-name {
+      font-size: 2rem;
+    }
+  }
+  .prices-table-custom {
+    font-size: 0.95rem;
+  }
+  .input-field {
+    font-size: 0.8rem;
+  }
+  .input-label {
+    font-size: 0.9rem;
+  }
+  .contact-form-custom {
+    padding: 1rem 0.5em;
+  }
+}
+
 @media (min-width: 360px) {
   .index-text {
     font-size: 3rem;
@@ -404,13 +432,16 @@ footer {
 @media (min-width: 500px) {
   .contact-form-custom {
     padding: 2rem;
-    // width: 40rem;
   }
 }
-
 @media (min-width: 576px) {
   .index-text {
     font-size: 3.5rem;
+  }
+  .footer-custom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
 }
 @media (min-width: 768px) {
