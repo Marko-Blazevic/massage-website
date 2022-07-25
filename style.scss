@@ -186,7 +186,7 @@ body {
   }
 }
 
-//za navbar toggle
+//for navbar toggle backdrop click
 .overlay {
   position: fixed;
   height: 100vh;
@@ -250,7 +250,19 @@ form {
 }
 
 //Calendar
-
+#calendar {
+  width: 100vw;
+  height: 100vh;
+  background: {
+    image: url('images/calendar-background.jpg');
+    size: cover;
+    repeat: no-repeat;
+    position: center;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+}
 .calendar-wrapper {
   display: flex;
   justify-content: center;
@@ -334,6 +346,7 @@ form {
 .schedule-wrapper {
   display: flex;
   justify-content: center;
+  align-content: center;
   padding: 0 3rem 0 3rem;
 }
 .chosen-date {
