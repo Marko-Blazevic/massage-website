@@ -6,6 +6,12 @@ $orange: rgb(252, 155, 0);
 $gray: rgba(128, 128, 128, 0.4);
 $navbar-height: 66px;
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-padding-top: $navbar-height;
 }
@@ -380,6 +386,7 @@ footer {
   }
 }
 .dark-footer-custom {
+  background-color: black;
   color: white;
   .footer-links {
     a {
@@ -424,16 +431,6 @@ footer {
   }
 }
 
-@media screen and (orientation: landscape) {
-  .index-img {
-    width: 50%;
-  }
-}
-@media screen and (orientation: portrait) {
-  .index-text {
-    margin-top: 5rem;
-  }
-}
 @media screen and (min-width: 360px) {
   .index-text {
     font-size: 3rem;
@@ -472,6 +469,22 @@ footer {
 
   .contact-form-custom {
     width: 35rem;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .index-img {
+    width: 50%;
+    margin-top: -3rem;
+  }
+  .index-text {
+    font-size: 3rem;
+    margin-top: -1rem;
+  }
+}
+@media screen and (orientation: portrait) {
+  .index-text {
+    margin-top: 5rem;
   }
 }
 

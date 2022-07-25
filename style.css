@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Tangerine:wght@400;700&display=swap");
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 html {
   scroll-padding-top: 66px;
 }
@@ -491,6 +498,7 @@ footer .newsletter button {
 }
 
 .dark-footer-custom {
+  background-color: black;
   color: white;
 }
 
@@ -529,18 +537,6 @@ footer .newsletter button {
   }
   .contact-form-custom {
     padding: 1rem 0.5em;
-  }
-}
-
-@media screen and (orientation: landscape) {
-  .index-img {
-    width: 50%;
-  }
-}
-
-@media screen and (orientation: portrait) {
-  .index-text {
-    margin-top: 5rem;
   }
 }
 
@@ -592,6 +588,23 @@ footer .newsletter button {
   }
   .contact-form-custom {
     width: 35rem;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .index-img {
+    width: 50%;
+    margin-top: -3rem;
+  }
+  .index-text {
+    font-size: 3rem;
+    margin-top: -1rem;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .index-text {
+    margin-top: 5rem;
   }
 }
 /*# sourceMappingURL=style.css.map */
