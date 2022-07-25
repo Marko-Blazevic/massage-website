@@ -14,6 +14,7 @@ $navbar-height: 66px;
 
 html {
   scroll-padding-top: $navbar-height;
+  overflow-x: hidden;
 }
 
 body {
@@ -471,6 +472,20 @@ footer {
     width: 35rem;
   }
 }
+@media screen and (min-width: 1200px) {
+  .index-text {
+    font-size: 5rem;
+  }
+  .massages-dropup-custom {
+    display: none;
+  }
+  #massages {
+    width: 60%;
+    .massages-list-custom {
+      display: block;
+    }
+  }
+}
 
 @media screen and (orientation: landscape) {
   .index-img {
@@ -478,7 +493,6 @@ footer {
     margin-top: -3rem;
   }
   .index-text {
-    font-size: 3rem;
     margin-top: -1rem;
   }
 }
@@ -487,116 +501,3 @@ footer {
     margin-top: 5rem;
   }
 }
-
-// @media screen and (max-width: 330px) {
-//   #about {
-//     h2 {
-//       font-size: 3.5rem;
-//     }
-//     .custom-para-about {
-//       font-size: 1rem;
-//       line-height: 2rem;
-//     }
-//     .about-name {
-//       font-size: 2rem;
-//     }
-//   }
-//   .custom-navbar-dark {
-//     .nav-link-style {
-//       font-size: 0.9rem;
-//     }
-//   }
-//   .custom-navbar-light {
-//     .nav-link-style {
-//       font-size: 0.9rem;
-//     }
-//   }
-//   #massages {
-//     font-size: 0.9rem;
-//     .massages-dropup-custom {
-//       button {
-//         font-size: 0.9rem;
-//       }
-//       a {
-//         font-size: 0.9rem;
-//       }
-//     }
-//   }
-//   .contact-form-custom {
-//     padding: 1rem;
-//   }
-//   .prices-table-custom {
-//     font-size: 0.95rem;
-//   }
-//   .input-field {
-//     font-size: 0.8rem;
-//   }
-//   .input-label {
-//     font-size: 0.9rem;
-//   }
-//   .contact-form-custom {
-//     padding: 1rem 0.5em;
-//   }
-//   .contact-btn-custom {
-//     font-size: 0.9rem;
-//   }
-// }
-
-// @media screen and (min-width: 330px) {
-//   .contact-form-custom {
-//     padding: 1rem;
-//   }
-// }
-// @media screen and (min-width: 576px) and (min-height: 270px) {
-//   .index-img-wrapper {
-//     width: 90%;
-//     margin: 0 auto;
-//     padding-top: $navbar-height;
-//   }
-//   .index-text {
-//     margin-top: 4.5rem;
-//   }
-//   .contact-form-custom {
-//     padding: 2rem;
-//   }
-// }
-// @media screen and (min-width: 810px) {
-//   .schedule-wrapper {
-//     margin: 0;
-//   }
-//   footer {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: center;
-//     .news-socia {
-//       display: flex;
-//       flex-direction: row;
-//     }
-//     .social-links {
-//       margin: -0.5rem 0 0 2rem !important;
-//     }
-//   }
-// }
-
-// @media screen and (min-width: 992px) {
-//   #contact {
-//     width: 60%;
-//   }
-// }
-// @media screen and (min-width: 1200px) {
-//   .index-text {
-//     font-size: 5rem;
-//   }
-//   .massages-dropup-custom {
-//     display: none;
-//   }
-//   #massages {
-//     width: 60%;
-//     .massages-list-custom {
-//       display: block;
-//     }
-//   }
-//   #contact {
-//     width: 40%;
-//   }
-// }

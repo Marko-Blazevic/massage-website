@@ -8,6 +8,7 @@
 
 html {
   scroll-padding-top: 66px;
+  overflow-x: hidden;
 }
 
 body {
@@ -591,13 +592,27 @@ footer .newsletter button {
   }
 }
 
+@media screen and (min-width: 1200px) {
+  .index-text {
+    font-size: 5rem;
+  }
+  .massages-dropup-custom {
+    display: none;
+  }
+  #massages {
+    width: 60%;
+  }
+  #massages .massages-list-custom {
+    display: block;
+  }
+}
+
 @media screen and (orientation: landscape) {
   .index-img {
     width: 50%;
     margin-top: -3rem;
   }
   .index-text {
-    font-size: 3rem;
     margin-top: -1rem;
   }
 }
