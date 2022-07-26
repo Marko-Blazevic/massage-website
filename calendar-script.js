@@ -114,9 +114,6 @@ const renderCalendar = () => {
       calendarModal.hide();
       scheduleModal.show();
       resetScheduleValues();
-      removeErrorStyle(selectHour);
-      removeErrorStyle(selectMin);
-      removeErrorStyle(selectMass);
     });
   });
 };
@@ -161,52 +158,40 @@ const onCalendarLoad = () => {
   calendarModal.show();
 };
 
-const removeErrorStyle = (elem) => {
-  elem.classList.remove('error-style');
+const schedulesSelect = document.querySelectorAll('.sch-select ');
+
+const removeSchErrorClass = (elem) => {
+  if (elem.value !== '' && elem.classList.contains('error-style')) {
+    elem.classList.remove('error-style');
+  }
 };
 
-selectHour.addEventListener('click', (event) => {
-  if (event.target.value !== '') {
-    removeErrorStyle(selectHour);
-  }
-});
-selectMin.addEventListener('click', (event) => {
-  if (event.target.value !== '') {
-    removeErrorStyle(selectMin);
-  }
-});
-selectMass.addEventListener('click', (event) => {
-  if (event.target.value !== '') {
-    removeErrorStyle(selectMass);
-  }
+schedulesSelect.forEach((elem) => {
+  elem.addEventListener('click', () => {
+    removeSchErrorClass(elem);
+  });
 });
 
 const resetScheduleValues = () => {
   selectHour.value = '';
   selectMin.value = '';
   selectMass.value = '';
+  selectHour.classList.remove('error-style');
+  selectMin.classList.remove('error-style');
+  selectMass.classList.remove('error-style');
 };
 
 continueBtn.addEventListener('click', () => {
-  if (
-    selectHour.value !== '' &&
-    selectMin.value !== '' &&
-    selectMass.value !== ''
-  ) {
-    scheduleModal.hide();
-    formModal.show();
-    resetScheduleValues();
-  } else {
-    if (selectHour.value === '') {
-      selectHour.classList.add('error-style');
+  schedulesSelect.forEach((elem) => {
+    if (elem.value !== '') {
+      scheduleModal.hide();
+      formModal.show();
+      resetScheduleValues();
     }
-    if (selectMin.value === '') {
-      selectMin.classList.add('error-style');
+    if (elem.value === '') {
+      elem.classList.add('error-style');
+      scheduleModal.hide();
+      errorModal.show();
     }
-    if (selectMass.value === '') {
-      selectMass.classList.add('error-style');
-    }
-    scheduleModal.hide();
-    errorModal.show();
-  }
+  });
 });
