@@ -233,6 +233,7 @@ form textarea {
 }
 
 .input {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -240,7 +241,6 @@ form textarea {
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
-  position: relative;
   padding-top: 1.5rem;
 }
 
@@ -249,9 +249,9 @@ form textarea {
 }
 
 .input-label {
-  color: #8597a3;
   position: absolute;
-  top: 1.5rem;
+  top: 1.8rem;
+  color: #8597a3;
   -webkit-transition: 0.25s ease;
   transition: 0.25s ease;
 }
@@ -268,8 +268,8 @@ form textarea {
 .input-field:focus, .input-field:valid {
   outline: 0;
   border-bottom-color: #8597a3;
-  -webkit-box-shadow: 0 0 3px 2px #fc9b00;
-          box-shadow: 0 0 3px 2px #fc9b00;
+  -webkit-box-shadow: 0 0 1px #21d321;
+          box-shadow: 0 0 1px #21d321;
 }
 
 .input-field:focus + .input-label, .input-field:valid + .input-label {

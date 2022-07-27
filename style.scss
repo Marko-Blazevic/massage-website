@@ -213,22 +213,20 @@ form {
 }
 
 .input {
+  position: relative;
   display: flex;
   flex-direction: column-reverse;
-  position: relative;
   padding-top: 1.5rem;
   & + .input {
     margin-top: 1.5rem;
   }
 }
-
 .input-label {
-  color: #8597a3;
   position: absolute;
-  top: 1.5rem;
+  top: 1.8rem;
+  color: #8597a3;
   transition: 0.25s ease;
 }
-
 .input-field {
   border: 0;
   z-index: 1;
@@ -240,7 +238,7 @@ form {
   &:valid {
     outline: 0;
     border-bottom-color: #8597a3;
-    box-shadow: 0 0 3px 2px $orange;
+    box-shadow: 0 0 1px rgb(33, 211, 33);
     & + .input-label {
       color: #787e83;
       transform: translateY(-2rem);

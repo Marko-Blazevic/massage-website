@@ -11,6 +11,7 @@
   <link rel="shortcut icon" href="images\icon.ico" />
   <script src="calendar-script.js" defer></script>
   <script src="animations.js" type="module" defer></script>
+  <script src="script.js" defer></script>
   <title>Oasis</title>
 </head>
 
@@ -150,40 +151,40 @@
           </div>
           <div class="modal-body">
             <div class="container">
-              <form class="px-3 needs-validation" novalidate>
+              <form class="px-3 validate-form" novalidate>
                 <div class="input">
+                  <div class="invalid-feedback">
+                    Upišite Vaše ime i prezime.
+                  </div>
                   <input id="name" type="text" class="form-control input-field" required />
                   <label for="name" class="form-label input-label">Ime i prezime</label>
-                  <div class="invalid-feedback">
-                    Please choose a username.
-                  </div>
                 </div>
                 <div class="input">
+                  <div class="invalid-feedback">
+                    Upišite Vaš broj telefona.
+                  </div>
                   <input id="phone-number" type="text" class="form-control input-field" required />
                   <label for="phone-number" class="form-label input-label">Broj telefona</label>
-                  <div class="invalid-feedback">
-                    Please choose a username.
-                  </div>
                 </div>
                 <div class="input">
+                  <div class="invalid-feedback">
+                    Upišite Vaš email.
+                  </div>
                   <input id="email" type="email" class="form-control input-field" required />
                   <label class="form-label input-label">Email</label>
-                  <div class="invalid-feedback">
-                    Please choose a username.
-                  </div>
                 </div>
                 <div class="input">
-                  <textarea id="message" class="form-control input-field" required></textarea>
+                  <textarea id="message" class="form-control input-field"></textarea>
                   <label for="message" class="form-label input-label">Poruka</label>
+                </div>
+                <div class="mt-4 text-center">
+                  <button type="button" class="btn btn-light shadow px-5 mx-1" data-bs-target="#schedule-modal"
+                    data-bs-toggle="modal" data-bs-dismiss="modal">Nazad</button>
+                  <button id="submit-btn" type="submit"
+                    class="action-button btn btn-warning shadow px-5">Pošalji</button>
                 </div>
               </form>
             </div>
-          </div>
-          <div class="modal-footer border-0 justify-content-center">
-            <button type="button" class="btn btn-light shadow px-5" data-bs-target="#schedule-modal"
-              data-bs-toggle="modal" data-bs-dismiss="modal">Nazad</button>
-            <button type="submit" class="action-button btn btn-warning shadow px-5"
-              data-bs-dismiss="modal">Pošalji</button>
           </div>
         </div>
       </div>

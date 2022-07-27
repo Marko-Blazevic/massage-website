@@ -133,6 +133,8 @@ const selectHour = document.getElementById('hour-select');
 const selectMin = document.getElementById('min-select');
 const selectMass = document.getElementById('mass-select');
 const continueBtn = document.getElementById('continue-btn');
+
+//not used
 const backBtn = document.getElementById('back-btn');
 
 let calendarModal = new bootstrap.Modal(
@@ -186,7 +188,7 @@ continueBtn.addEventListener('click', () => {
     if (elem.value !== '') {
       scheduleModal.hide();
       formModal.show();
-      resetScheduleValues();
+      // resetScheduleValues();
     }
     if (elem.value === '') {
       elem.classList.add('error-style');

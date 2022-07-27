@@ -1,12 +1,24 @@
-// const indexImage = document.querySelector('.index-img');
+// const form = document.querySelector('form');
+// console.log(form);
+// form.addEventListener('submit', (event) => {
+//   event.preventDefault();
+// });
 
-// var w = window.innerWidth;
-// var h = window.innerHeight;
+const forms = document.querySelectorAll('.validate-form');
 
-// if (h / w < 1) {
-//   indexImage.style.width = '50%';
-// } else {
-//   indexImage.style.width = '100%';
-// }
+// const validateForm = () => {};
+// Loop over them and prevent submission
+Array.prototype.slice.call(forms).forEach(function (form) {
+  form.addEventListener(
+    'submit',
+    function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
 
-// console.log(w, h);
+      form.classList.add('was-validated');
+    },
+    false
+  );
+});
