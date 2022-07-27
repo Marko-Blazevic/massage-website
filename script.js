@@ -1,13 +1,6 @@
-// const form = document.querySelector('form');
-// console.log(form);
-// form.addEventListener('submit', (event) => {
-//   event.preventDefault();
-// });
-
 const forms = document.querySelectorAll('.validate-form');
+const inputs = document.querySelectorAll('.input');
 
-// const validateForm = () => {};
-// Loop over them and prevent submission
 Array.prototype.slice.call(forms).forEach(function (form) {
   form.addEventListener(
     'submit',
@@ -21,4 +14,14 @@ Array.prototype.slice.call(forms).forEach(function (form) {
     },
     false
   );
+});
+
+inputs.forEach((input) => {
+  const inputField = input.querySelector('.input-field');
+  const inputLabel = input.querySelector('.input-label');
+  inputField.addEventListener('blur', () => {
+    if (inputField.value !== '') {
+      inputLabel.classList.add('used-field');
+    }
+  });
 });

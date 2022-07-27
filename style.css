@@ -265,14 +265,20 @@ form textarea {
   padding: 0.25rem 0.5rem;
 }
 
-.input-field:focus, .input-field:valid {
+.input-field:focus {
+  -webkit-box-shadow: 0 0 3px 2px #fc9b00;
+          box-shadow: 0 0 3px 2px #fc9b00;
   outline: 0;
-  border-bottom-color: #8597a3;
-  -webkit-box-shadow: 0 0 1px #21d321;
-          box-shadow: 0 0 1px #21d321;
 }
 
-.input-field:focus + .input-label, .input-field:valid + .input-label {
+.input-field:focus + .input-label {
+  color: #787e83;
+  -webkit-transform: translateY(-2rem);
+          transform: translateY(-2rem);
+  font-size: 0.9rem;
+}
+
+.used-field {
   color: #787e83;
   -webkit-transform: translateY(-2rem);
           transform: translateY(-2rem);
@@ -550,9 +556,6 @@ footer .newsletter button {
   }
   .input-label {
     font-size: 0.9rem;
-  }
-  .contact-form-custom {
-    padding: 1rem 0.5em;
   }
 }
 

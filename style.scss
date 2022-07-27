@@ -212,6 +212,7 @@ form {
   }
 }
 
+//form
 .input {
   position: relative;
   display: flex;
@@ -234,17 +235,22 @@ form {
   border-bottom: 2px solid #eee;
   font: inherit;
   padding: 0.25rem 0.5rem;
-  &:focus,
-  &:valid {
+  &:focus {
+    box-shadow: 0 0 3px 2px $orange;
     outline: 0;
-    border-bottom-color: #8597a3;
-    box-shadow: 0 0 1px rgb(33, 211, 33);
+
     & + .input-label {
       color: #787e83;
       transform: translateY(-2rem);
       font-size: 0.9rem;
     }
   }
+}
+
+.used-field {
+  color: #787e83;
+  transform: translateY(-2rem);
+  font-size: 0.9rem;
 }
 
 //Calendar
@@ -437,9 +443,6 @@ footer {
   }
   .input-label {
     font-size: 0.9rem;
-  }
-  .contact-form-custom {
-    padding: 1rem 0.5em;
   }
 }
 
