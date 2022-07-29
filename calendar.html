@@ -151,31 +151,33 @@
           </div>
           <div class="modal-body">
             <div class="container">
-              <form class="px-3 validate-form" novalidate>
+
+              <form class="p-3 validate-form" novalidate>
                 <div class="input">
                   <div class="invalid-feedback">
                     Upišite Vaše ime i prezime.
                   </div>
                   <input id="name" type="text" class="form-control input-field" required />
-                  <label for="name" class="form-label input-label">Ime i prezime</label>
+                  <label for="name" class="input-label">Ime i prezime</label>
                 </div>
                 <div class="input">
                   <div class="invalid-feedback">
                     Upišite Vaš broj telefona.
                   </div>
                   <input id="phone-number" type="text" class="form-control input-field" required />
-                  <label for="phone-number" class="form-label input-label">Broj telefona</label>
+                  <label for="phone-number" class="input-label">Broj telefona</label>
                 </div>
                 <div class="input">
                   <div class="invalid-feedback">
                     Upišite Vaš email.
                   </div>
                   <input id="email" type="email" class="form-control input-field" required />
-                  <label class="form-label input-label">Email</label>
+                  <label class="input-label">Email</label>
                 </div>
                 <div class="input">
-                  <textarea id="message" class="form-control input-field"></textarea>
-                  <label for="message" class="form-label input-label">Poruka</label>
+                  <div class="invalid-feedback"></div>
+                  <textarea id="message" class="form-control input-field textarea-input-field"></textarea>
+                  <label for="message" class="input-label">Poruka</label>
                 </div>
                 <div class="mt-4 text-center">
                   <button type="button" class="btn btn-light shadow px-5 mx-1 my-2" data-bs-target="#schedule-modal"

@@ -129,9 +129,6 @@ arrowNext.addEventListener('click', () => {
 
 renderCalendar();
 
-const selectHour = document.getElementById('hour-select');
-const selectMin = document.getElementById('min-select');
-const selectMass = document.getElementById('mass-select');
 const continueBtn = document.getElementById('continue-btn');
 
 //not used
@@ -160,7 +157,7 @@ const onCalendarLoad = () => {
   calendarModal.show();
 };
 
-const schedulesSelect = document.querySelectorAll('.sch-select ');
+const schedulesSelect = document.querySelectorAll('.sch-select');
 
 const removeSchErrorClass = (elem) => {
   if (elem.value !== '' && elem.classList.contains('error-style')) {
@@ -168,32 +165,94 @@ const removeSchErrorClass = (elem) => {
   }
 };
 
+const resetScheduleValues = () => {
+  schedulesSelect.forEach((elem) => {
+    elem.value = '';
+    elem.classList.remove('error-style');
+  });
+};
+
 schedulesSelect.forEach((elem) => {
   elem.addEventListener('click', () => {
-    removeSchErrorClass(elem);
+    if (elem.classList.contains('error-style')) {
+      removeSchErrorClass(elem);
+    }
   });
 });
 
-const resetScheduleValues = () => {
-  selectHour.value = '';
-  selectMin.value = '';
-  selectMass.value = '';
-  selectHour.classList.remove('error-style');
-  selectMin.classList.remove('error-style');
-  selectMass.classList.remove('error-style');
-};
-
+// continueBtn.addEventListener('click', () => {
+//   schedulesSelect.map((elem) => {
+//     if (elem.value === '') {
+//       elem.classList.add('error-style');
+//       scheduleModal.hide();
+//       errorModal.show();
+//       console.log(elem);
+//     }
+//   });
+// });
 continueBtn.addEventListener('click', () => {
+  const selectHour = document.getElementById('hour-select');
+  const selectMin = document.getElementById('min-select');
+  const selectMass = document.getElementById('mass-select');
   schedulesSelect.forEach((elem) => {
-    if (elem.value !== '') {
-      scheduleModal.hide();
-      formModal.show();
-      // resetScheduleValues();
-    }
     if (elem.value === '') {
       elem.classList.add('error-style');
       scheduleModal.hide();
       errorModal.show();
     }
+    if (
+      selectHour.value !== '' &&
+      selectMin.value !== 0 &&
+      selectMass.value !== ''
+    ) {
+      scheduleModal.hide();
+      formModal.show();
+    }
   });
 });
+// for (i = 0; i < schedulesSelect.length; i++) {
+//   console.log(schedulesSelect[i]);
+//   if (schedulesSelect[i] === '') {
+//     // schedulesSelect[i].classList.add('error-style');
+//     // scheduleModal.hide();
+//     // errorModal.show();
+//   }
+// }
+// });
+
+//   schedulesSelect.forEach((elem) => {
+//     if (elem.value === '') {
+//       // } else {
+//       //   scheduleModal.hide();
+//       //   formModal.show();
+//     }
+//   });
+// });
+
+//   schedulesSelect.forEach((elem) => {
+//     if (elem.value === '') {
+//       elem.classList.add('error-style');
+//       scheduleModal.hide();
+//       errorModal.show();
+//       console.log(elem);
+//     }
+//     if (elem.classList.contains('error-style')) {
+//       return;
+//     } else {
+//       scheduleModal.hide();
+//       formModal.show();
+//     }
+//   });
+// });
+
+// if (elem.value === '') {
+//   scheduleModal.hide();
+//   errorModal.show();
+//   elem.classList.add('error-style');}
+// else {
+//   console.log(elem.value);
+//   scheduleModal.hide();
+//   formModal.show();
+// }
+// });
+// });

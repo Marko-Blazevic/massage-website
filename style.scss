@@ -252,6 +252,10 @@ form {
   transform: translateY(-2rem);
   font-size: 0.9rem;
 }
+.error-input {
+  border-color: none;
+  border-bottom: solid 1px red;
+}
 
 //Calendar
 #calendar {

@@ -285,6 +285,11 @@ form textarea {
   font-size: 0.9rem;
 }
 
+.error-input {
+  border-color: none;
+  border-bottom: solid 1px red;
+}
+
 #calendar {
   width: 100vw;
   height: 100vh;
