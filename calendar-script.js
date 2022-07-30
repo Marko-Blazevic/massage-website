@@ -180,16 +180,6 @@ schedulesSelect.forEach((elem) => {
   });
 });
 
-// continueBtn.addEventListener('click', () => {
-//   schedulesSelect.map((elem) => {
-//     if (elem.value === '') {
-//       elem.classList.add('error-style');
-//       scheduleModal.hide();
-//       errorModal.show();
-//       console.log(elem);
-//     }
-//   });
-// });
 continueBtn.addEventListener('click', () => {
   const selectHour = document.getElementById('hour-select');
   const selectMin = document.getElementById('min-select');
@@ -210,49 +200,3 @@ continueBtn.addEventListener('click', () => {
     }
   });
 });
-// for (i = 0; i < schedulesSelect.length; i++) {
-//   console.log(schedulesSelect[i]);
-//   if (schedulesSelect[i] === '') {
-//     // schedulesSelect[i].classList.add('error-style');
-//     // scheduleModal.hide();
-//     // errorModal.show();
-//   }
-// }
-// });
-
-//   schedulesSelect.forEach((elem) => {
-//     if (elem.value === '') {
-//       // } else {
-//       //   scheduleModal.hide();
-//       //   formModal.show();
-//     }
-//   });
-// });
-
-//   schedulesSelect.forEach((elem) => {
-//     if (elem.value === '') {
-//       elem.classList.add('error-style');
-//       scheduleModal.hide();
-//       errorModal.show();
-//       console.log(elem);
-//     }
-//     if (elem.classList.contains('error-style')) {
-//       return;
-//     } else {
-//       scheduleModal.hide();
-//       formModal.show();
-//     }
-//   });
-// });
-
-// if (elem.value === '') {
-//   scheduleModal.hide();
-//   errorModal.show();
-//   elem.classList.add('error-style');}
-// else {
-//   console.log(elem.value);
-//   scheduleModal.hide();
-//   formModal.show();
-// }
-// });
-// });
