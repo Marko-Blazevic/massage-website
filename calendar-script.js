@@ -192,7 +192,7 @@ continueBtn.addEventListener('click', () => {
     }
     if (
       selectHour.value !== '' &&
-      selectMin.value !== 0 &&
+      selectMin.value !== '' &&
       selectMass.value !== ''
     ) {
       scheduleModal.hide();

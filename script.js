@@ -1,14 +1,32 @@
 const forms = document.querySelectorAll('.validate-form');
 const inputs = document.querySelectorAll('.input');
 const inputFields = document.querySelectorAll('.input-field');
-const invalidFeedbacks = document.querySelectorAll('.invalid-feedback');
+const nameInput = document.getElementById('name');
+const phoneInput = document.getElementById('phone-number');
+const emailInput = document.getElementById('email');
+const emailInputField = document.getElementById('email');
+const emailInputLabel = document.querySelector('label');
+const emailInvalidFeedback = document.querySelector('.email-invalid-feedback');
 const textareaInputField = document.querySelector('.textarea-input-field');
 
 window.addEventListener('load', function () {
-  inputFields.forEach((input) => {
-    input.value = '';
+  forms.forEach((form) => {
+    form.reset();
   });
 });
+
+const checkInputsValues = () => {
+  inputs.forEach((input) => {
+    const inputField = input.querySelector('.input-field');
+    const invalidFeedback = input.querySelector('.invalid-feedback');
+    if (inputField.value.trim() === '') {
+      inputField.classList.add('error-input');
+      invalidFeedback.style.display = 'block';
+    }
+  });
+  textareaInputField.classList.remove('error-input');
+};
+
 inputs.forEach((input) => {
   const field = input.querySelector('.input-field');
   const label = input.querySelector('.input-label');
@@ -22,6 +40,26 @@ inputs.forEach((input) => {
   });
 });
 
+const checkEmailInputValue = () => {
+  if (
+    !emailInputField.value.includes('@') ||
+    !emailInputField.value.includes('.')
+  ) {
+    emailInputField.classList.add('error-input');
+    emailInvalidFeedback.style.display = 'block';
+    return false;
+  } else {
+    emailInputLabel.classList.add('used-field');
+    emailInputField.classList.remove('error-input');
+    emailInvalidFeedback.style.display = 'none';
+    return true;
+  }
+};
+
+emailInputField.addEventListener('blur', () => {
+  checkEmailInputValue();
+});
+
 Array.prototype.slice.call(forms).forEach(function (form) {
   form.addEventListener(
     'submit',
@@ -30,44 +68,15 @@ Array.prototype.slice.call(forms).forEach(function (form) {
         event.preventDefault();
         event.stopPropagation();
       }
-
-      inputs.forEach((input) => {
-        const inputField = input.querySelector('.input-field');
-        const invalidFeedback = input.querySelector('.invalid-feedback');
-
-        if (inputField.value.trim() === '') {
-          inputField.classList.add('error-input');
-          invalidFeedback.style.display = 'block';
-        }
-      });
-
-      textareaInputField.classList.remove('error-input');
-
-      const emailInput = document.querySelector('.email-input');
-      const emailInputField = document.getElementById('email');
-      const emailInputLabel = emailInput.querySelector('label');
-      const emailInvalidFeedback = emailInput.querySelector(
-        '.email-invalid-feedback'
-      );
       if (
-        !emailInputField.value.includes('@') &&
-        !emailInputField.value.includes('.') &&
-        !emailInputField.classList.contains('error-input')
+        nameInput.value.trim() !== '' &&
+        phoneInput.value.trim() !== '' &&
+        checkEmailInputValue() === true
       ) {
-        emailInputField.classList.add('error-input');
-        emailInvalidFeedback.style.display = 'block';
+        console.log('form je OK');
+      } else {
+        checkInputsValues();
       }
-      emailInputField.addEventListener('blur', () => {
-        if (
-          emailInputField.value !== '' &&
-          emailInputField.value.includes('@') &&
-          emailInputField.value.includes('.')
-        ) {
-          emailInputLabel.classList.add('used-field');
-          emailInputField.classList.remove('error-input');
-          emailInvalidFeedback.style.display = 'none';
-        }
-      });
     },
     false
   );
