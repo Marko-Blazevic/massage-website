@@ -7,7 +7,6 @@ const dateDetailH = document.querySelector('.chosen-date h3');
 const date = new Date();
 
 const renderCalendar = () => {
-  const day = date.getDay();
   const month = date.getMonth();
 
   const meseci = [
@@ -35,10 +34,8 @@ const renderCalendar = () => {
   ];
 
   const mesec = meseci[month];
-  const dan = dani[day];
 
   currentMonth.innerHTML = `${mesec} ${date.getFullYear()}`;
-  dateDetailH.innerHTML = `${dan} ${date.getDate()} ${mesec} ${date.getFullYear()}`;
 
   const lastDateOfMonth = new Date(
     date.getFullYear(),
@@ -85,13 +82,10 @@ const renderCalendar = () => {
   const monthDates = days.querySelectorAll('div');
 
   const changeDateDetails = (elem) => {
-    let clickedDate = '';
-    elem.addEventListener('click', () => {
-      clickedDate = new Date(date.getFullYear(), month, elem.innerHTML);
-      const day = clickedDate.getDay();
-      const clickedDan = dani[day];
-      dateDetailH.innerHTML = `${clickedDan} ${clickedDate.getDate()} ${mesec} ${clickedDate.getFullYear()}`;
-    });
+    let clickedDate = new Date(date.getFullYear(), month, elem.innerHTML);
+    const day = clickedDate.getDay();
+    const clickedDan = dani[day];
+    dateDetailH.innerHTML = `${clickedDan} ${clickedDate.getDate()} ${mesec} ${clickedDate.getFullYear()}`;
   };
 
   const changePrevNextMonth = (elem) => {
@@ -107,16 +101,49 @@ const renderCalendar = () => {
     });
   };
 
-  monthDates.forEach((clickedOn) => {
-    changeDateDetails(clickedOn);
-    changePrevNextMonth(clickedOn);
-    clickedOn.addEventListener('click', () => {
+  const showCalendarError = () => {
+    calendarModal.hide();
+    calendarErrorModal.show();
+  };
+
+  //for const date -> month and year are changing because of date manipulation during month change, but the date for date is not i.e. it is today's date
+  const checkClickedDate = (elem) => {
+    const currentDate = new Date();
+    const clickedDate = new Date(date.getFullYear(), month, elem.innerHTML);
+
+    if (clickedDate.getFullYear() === currentDate.getFullYear()) {
+      if (clickedDate.getMonth() >= currentDate.getMonth()) {
+        if (clickedDate.getDate() >= currentDate.getDate()) {
+          calendarModal.hide();
+          scheduleModal.show();
+          resetScheduleValues();
+        } else {
+          showCalendarError();
+        }
+      } else {
+        showCalendarError();
+      }
+    }
+    if (clickedDate.getFullYear() < currentDate.getFullYear()) {
+      showCalendarError();
+    }
+    if (clickedDate.getFullYear() > currentDate.getFullYear()) {
       calendarModal.hide();
       scheduleModal.show();
       resetScheduleValues();
+    }
+  };
+
+  monthDates.forEach((dateDiv) => {
+    dateDiv.addEventListener('click', () => {
+      changeDateDetails(dateDiv);
+      changePrevNextMonth(dateDiv);
+      checkClickedDate(dateDiv);
     });
   });
 };
+
+renderCalendar();
 
 arrowPrev.addEventListener('click', () => {
   date.setMonth(date.getMonth() - 1);
@@ -127,15 +154,14 @@ arrowNext.addEventListener('click', () => {
   renderCalendar();
 });
 
-renderCalendar();
-
 const continueBtn = document.getElementById('continue-btn');
-
-//not used
-const backBtn = document.getElementById('back-btn');
 
 let calendarModal = new bootstrap.Modal(
   document.getElementById('calendar-modal'),
+  { backdrop: 'static', keyboard: false }
+);
+let calendarErrorModal = new bootstrap.Modal(
+  document.getElementById('calendar-error-modal'),
   { backdrop: 'static', keyboard: false }
 );
 let scheduleModal = new bootstrap.Modal(

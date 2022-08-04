@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="shortcut icon" href="images\icon.ico" />
   <script src="calendar-script.js" defer></script>
-  <script src="animations.js" type="module" defer></script>
+  <script src="animations.js" defer></script>
   <script src="form.js" defer></script>
   <title>Oasis</title>
 </head>
@@ -52,6 +52,22 @@
           <div class="modal-footer border-0 mx-auto">
             <button type="button" class="btn btn-light shadow px-5" data-bs-dismiss="modal"
               onclick="location.href = 'index.html';">Zatvori</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="calendar-error-modal" tabindex="-1" aria-labelledby="calendar-error-modal-label"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p class="error-text text-center m-0">Ne možete uraditi zakazivanje za dane koji su već prošli. Molimo Vas
+              odaberite neki drugi dan.</p>
+          </div>
+          <div class="modal-footer justify-content-center border-0">
+            <button class="btn btn-warning px-5" data-bs-target="#calendar-modal" data-bs-toggle="modal"
+              data-bs-dismiss="modal">U redu</button>
           </div>
         </div>
       </div>
