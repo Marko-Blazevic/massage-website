@@ -136,20 +136,18 @@ const backBtn = document.getElementById('back-btn');
 
 let calendarModal = new bootstrap.Modal(
   document.getElementById('calendar-modal'),
-  {
-    keyboard: false,
-  }
+  { backdrop: 'static', keyboard: false }
 );
 let scheduleModal = new bootstrap.Modal(
   document.getElementById('schedule-modal'),
-  {
-    keyboard: false,
-  }
+  { backdrop: 'static', keyboard: false }
 );
 let errorModal = new bootstrap.Modal(document.getElementById('error-modal'), {
+  backdrop: 'static',
   keyboard: false,
 });
 let formModal = new bootstrap.Modal(document.getElementById('form-modal'), {
+  backdrop: 'static',
   keyboard: false,
 });
 
