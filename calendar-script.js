@@ -106,7 +106,7 @@ const renderCalendar = () => {
     calendarErrorModal.show();
   };
 
-  //for const date -> month and year are changing because of date manipulation during month change, but the date for date is not i.e. it is today's date
+  //for "const date" - month and year are changing because of date manipulation during month change, but the date for date is not i.e. it is today's date
   const checkClickedDate = (elem) => {
     const currentDate = new Date();
     const clickedDate = new Date(date.getFullYear(), month, elem.innerHTML);

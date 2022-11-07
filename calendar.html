@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="shortcut icon" href="images\icon.ico" />
   <script src="calendar-script.js" defer></script>
-  <script src="animations.js" defer></script>
+  <!-- <script src="animations.js" defer></script> -->
   <script src="form.js" defer></script>
   <title>Oasis</title>
 </head>
@@ -51,7 +51,8 @@
           </div>
           <div class="modal-footer border-0 mx-auto">
             <button type="button" class="btn btn-light shadow px-5" data-bs-dismiss="modal"
-              onclick="location.href = 'index.html';">Zatvori</button>
+              onclick="window.close();">Zatvori</button>
+            <!-- onclick="location.href = 'index.html';">Zatvori</button> -->
           </div>
         </div>
       </div>
@@ -83,7 +84,7 @@
             <div class="schedule-wrapper">
               <div class="shadow">
                 <div class="chosen-date bg-warning">
-                  <h3 class="mb-0"></h3>
+                  <h3 class="mb-0 px-2"></h3>
                 </div>
                 <div class="schedule-input-wrapper  p-3 container">
                   <div class="row justify-content-center mb-3">
@@ -129,7 +130,7 @@
                       <option value="Anticelulit masaža">Anticelulit masaža</option>
                     </select>
                   </div>
-                  <p class="fw-light my-4 text-center">Za više informacija o ponudi masaža, kliknite<a
+                  <p class="fw-light my-4 text-center">Za više informacija o ponudi masaža, kliknite <a
                       href="massages.html" class="text-link">ovde</a></p>
                 </div>
               </div>
@@ -220,8 +221,8 @@
             <p>Uskoro ćete primiti email potvrde sa svim detaljima.</p>
           </div>
           <div class="modal-footer border-0 mx-auto">
-            <button class="btn btn-warning shadow px-5" data-bs-toggle="modal" data-bs-target="#confirmation-modal"
-              data-bs-dismiss="modal">Zatvori</button>
+            <button class="btn btn-warning shadow px-5" data-bs-dismiss="modal"
+              onclick="location.href = 'index.html';">Zatvori</button>
           </div>
         </div>
       </div>

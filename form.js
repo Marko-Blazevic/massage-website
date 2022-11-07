@@ -8,11 +8,16 @@ const emailInputField = document.getElementById('email');
 const emailInputLabel = document.querySelector('label');
 const emailInvalidFeedback = document.querySelector('.email-invalid-feedback');
 const textareaInputField = document.querySelector('.textarea-input-field');
+const scheduleMassage = document.querySelector('.on-click');
 
 window.addEventListener('load', function () {
   forms.forEach((form) => {
     form.reset();
   });
+});
+
+scheduleMassage.addEventListener('click', function () {
+  window.open('calendar.html', '_blank');
 });
 
 const checkInputsValues = () => {
@@ -67,6 +72,7 @@ Array.prototype.slice.call(forms).forEach(function (form) {
       if (!form.checkValidity()) {
         event.preventDefault();
         event.stopPropagation();
+        console.log('fssssssssssssssss');
       }
       if (
         nameInput.value.trim() !== '' &&

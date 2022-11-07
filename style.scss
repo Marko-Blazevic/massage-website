@@ -34,7 +34,6 @@ body {
 
 .nav-link-style {
   color: white;
-  border-bottom: solid 1px $gray;
   transition: 0.5s ease-in-out;
   &:hover {
     color: $orange;
@@ -57,7 +56,6 @@ body {
     padding: 0.5rem 1rem;
     color: rgba(0, 0, 0, 0.808);
     background-color: white;
-    border-bottom: solid 1px rgba(158, 158, 158, 0.4);
     transition: 0.5s ease-in-out;
     &:hover {
       color: $orange;
@@ -116,6 +114,10 @@ body {
   font-size: 2.6rem;
   // margin-top: 3rem;
   margin-bottom: 0;
+}
+
+.on-click {
+  cursor: pointer;
 }
 
 #about {
