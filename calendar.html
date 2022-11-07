@@ -52,7 +52,6 @@
           <div class="modal-footer border-0 mx-auto">
             <button type="button" class="btn btn-light shadow px-5" data-bs-dismiss="modal"
               onclick="window.close();">Zatvori</button>
-            <!-- onclick="location.href = 'index.html';">Zatvori</button> -->
           </div>
         </div>
       </div>
@@ -88,7 +87,10 @@
                 </div>
                 <div class="schedule-input-wrapper  p-3 container">
                   <div class="row justify-content-center mb-3">
-                    <select id="hour-select" class="sch-select form-select col-3 w-auto mx-1"
+                    <select id="time-select">
+                      <option value="" disabled selected hidden>sat</option>
+                    </select>
+                    <!-- <select id="hour-select" class="sch-select form-select col-3 w-auto mx-1"
                       aria-label="Schedule hour select">
                       <option value="" disabled selected hidden>sat</option>
                       <option value="10">10</option>
@@ -111,23 +113,24 @@
                       <option value="15">15</option>
                       <option value="30">30</option>
                       <option value="45">45</option>
-                    </select>
+                    </select> -->
                   </div>
                   <div class="row justify-content-center w-auto">
                     <select id="mass-select" class="sch-select form-select" aria-label="Schedule massage select">
                       <option value="" disabled selected hidden>Vrsta masaže</option>
-                      <option value="Holistička masaža">Holistička masaža</option>
-                      <option value="Klasična - Relax masaža">Klasična - Relax masaža</option>
-                      <option value="Anti-Stres Masaža">Anti-Stres Masaža</option>
-                      <option value="Masaža Vulkanskim kamenjem">Masaža Vulkanskim kamenjem</option>
-                      <option value="Masaža za trudnice">Masaža za trudnice</option>
-                      <option value="Parcijalne masaže">Parcijalne masaže</option>
-                      <option value="Terapeutska masaža">Terapeutska masaža</option>
-                      <option value="Limfna drenaža">Limfna drenaža</option>
-                      <option value="Ampuku">Ampuku</option>
-                      <option value="Refleksologija Stopala">Refleksologija Stopala</option>
-                      <option value="Rasayana Abhyanga">Rasayana Abhyanga</option>
-                      <option value="Anticelulit masaža">Anticelulit masaža</option>
+                      <option value="8">Holistička masaža</option>
+                      <option value="4">Klasična - Relax masaža</option>
+                      <option value="5">Anti-Stres Masaža</option>
+                      <option value="6">Masaža Vulkanskim kamenjem</option>
+                      <option value="4">Masaža za trudnice</option>
+                      <option value="2">Parcijalne masaže</option>
+                      <option value="3">Terapeutska masaža</option>
+                      <option value="4">Limfna drenaža</option>
+                      <option value="3">Ampuku</option>
+                      <option value="3">Refleksologija Stopala</option>
+                      <option value="4">Rasayana Abhyanga</option>
+                      <option value="2">Anticelulit masaža bez pakovanja</option>
+                      <option value="3">Anticelulit masaža sa pakovanjem</option>
                     </select>
                   </div>
                   <p class="fw-light my-4 text-center">Za više informacija o ponudi masaža, kliknite <a
