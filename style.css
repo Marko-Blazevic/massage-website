@@ -494,11 +494,16 @@ form textarea {
 .schedule-input-wrapper select:focus {
   -webkit-box-shadow: 0 0 3px 2px #fc9b00;
           box-shadow: 0 0 3px 2px #fc9b00;
+  border: none;
 }
 
 .schedule-input-wrapper .error-style {
   -webkit-box-shadow: 0 0 2px 1px red;
           box-shadow: 0 0 2px 1px red;
+}
+
+.schedule-input-wrapper option {
+  padding: 3rem;
 }
 
 footer {

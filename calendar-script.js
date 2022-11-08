@@ -263,8 +263,7 @@ schedulesSelect.forEach((elem) => {
 });
 
 continueBtn.addEventListener('click', () => {
-  const selectHour = document.getElementById('hour-select');
-  const selectMin = document.getElementById('min-select');
+  const selectTime = document.getElementById('time-select');
   const selectMass = document.getElementById('mass-select');
   schedulesSelect.forEach((elem) => {
     if (elem.value === '') {
@@ -272,11 +271,7 @@ continueBtn.addEventListener('click', () => {
       scheduleModal.hide();
       errorModal.show();
     }
-    if (
-      selectHour.value !== '' &&
-      selectMin.value !== '' &&
-      selectMass.value !== ''
-    ) {
+    if (selectTime.value !== '' && selectMass.value !== '') {
       scheduleModal.hide();
       formModal.show();
     }

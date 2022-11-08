@@ -381,11 +381,19 @@ form {
   align-items: center;
   justify-content: center;
   background-color: white;
+  // select {
+  //   border-radius: 5px;
+  //   background-color: white;
+  // }
   select:focus {
     box-shadow: 0 0 3px 2px $orange;
+    border: none;
   }
   .error-style {
     box-shadow: 0 0 2px 1px red;
+  }
+  option {
+    padding: 3rem;
   }
 }
 

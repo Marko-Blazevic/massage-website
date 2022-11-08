@@ -16,9 +16,11 @@ window.addEventListener('load', function () {
   });
 });
 
-scheduleMassage.addEventListener('click', function () {
-  window.open('calendar.html', '_blank');
-});
+if (scheduleMassage !== null) {
+  scheduleMassage.addEventListener('click', function () {
+    window.open('calendar.html', '_blank');
+  });
+}
 
 const checkInputsValues = () => {
   inputs.forEach((input) => {
