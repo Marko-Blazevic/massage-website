@@ -4,18 +4,16 @@ const days = document.querySelector('.days');
 const currentMonth = document.querySelector('.month h3');
 const dateDetailH = document.querySelector('.chosen-date h3');
 
-let bookingData = {
+const bookingData = {
   day: '',
   allTime: [],
   massageInfo: { masaza: '', vreme: '', cena: '' },
 };
-console.log(bookingData);
 
 const date = new Date();
 
 const renderCalendar = () => {
   const month = date.getMonth();
-
   const meseci = [
     'Januar',
     'Februar',
@@ -283,12 +281,10 @@ continueBtn.addEventListener('click', () => {
   });
   if (selectTime.value !== '' && selectMass.value !== '') {
     bookingData.massageInfo.masaza = selectMass.selectedOptions[0].textContent;
+    bookingData.massageInfo.cena = selectMass.selectedOptions[0].dataset.price;
     setBookedTime(selectTime.value, selectMass.value);
-
     scheduleModal.hide();
     formModal.show();
-
-    console.log(bookingData);
   }
 });
 
@@ -297,8 +293,8 @@ function setBookedTime(timeIndex, massageIndex) {
   const massage = Number(massageIndex);
   const add = time + massage;
   bookingData.massageInfo.vreme = `${timeSchedule[time]} - ${timeSchedule[add]}`;
-
   for (i = time; i < add; i++) {
     bookingData.allTime.push(timeSchedule[i]);
   }
+  console.log(bookingData);
 }
