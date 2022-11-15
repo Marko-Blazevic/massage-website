@@ -286,21 +286,30 @@ continueBtn.addEventListener('click', () => {
       scheduleModal.hide();
       errorModal.show();
     }
-    if (selectTime.value !== '' && selectMass.value !== '') {
-      bookingData.time = selectTime.selectedOptions[0].textContent;
-      bookingData.timeIndex = selectTime.value;
-      bookingData.massage = selectMass.selectedOptions[0].textContent;
-      bookingData.massageIndex = selectMass.value;
-      console.log(bookingData);
-      scheduleModal.hide();
-      formModal.show();
-    }
   });
+  if (selectTime.value !== '' && selectMass.value !== '') {
+    bookingData.time = selectTime.selectedOptions[0].textContent;
+    bookingData.timeIndex = selectTime.value;
+    bookingData.massage = selectMass.selectedOptions[0].textContent;
+    bookingData.massageIndex = selectMass.value;
+    console.log(bookingData);
+    scheduleModal.hide();
+    formModal.show();
+
+    setBookedTime(selectTime.value, selectMass.value);
+  }
 });
+// });
 
 const bookedTime = [];
-function setBookedTime(timeIndex, massage) {
-  timeSchedule[timeIndex];
-  // take clicked time index
-  // take value of massage and use it for calcula
+
+function setBookedTime(timeIndex, massageIndex) {
+  const time = Number(timeIndex);
+  const massage = Number(massageIndex);
+  const add = time + massage;
+
+  for (i = time; i < add; i++) {
+    bookedTime.push(timeSchedule[i]);
+  }
+  console.log(bookedTime);
 }
