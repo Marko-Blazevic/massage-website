@@ -4,16 +4,10 @@ const days = document.querySelector('.days');
 const currentMonth = document.querySelector('.month h3');
 const dateDetailH = document.querySelector('.chosen-date h3');
 
-const alreadyBookedData = {
-  day: 'Date Sat Nov 19 2022 00:00:00 GMT-0300 (Brasilia Standard Time)',
-};
 let bookingData = {
   day: '',
-  time: '',
-  timeIndex: '',
-  massage: '',
-  massageIndex: '',
-  form: '',
+  allTime: [],
+  massageInfo: { masaza: '', vreme: '', cena: '' },
 };
 console.log(bookingData);
 
@@ -288,28 +282,23 @@ continueBtn.addEventListener('click', () => {
     }
   });
   if (selectTime.value !== '' && selectMass.value !== '') {
-    bookingData.time = selectTime.selectedOptions[0].textContent;
-    bookingData.timeIndex = selectTime.value;
-    bookingData.massage = selectMass.selectedOptions[0].textContent;
-    bookingData.massageIndex = selectMass.value;
-    console.log(bookingData);
+    bookingData.massageInfo.masaza = selectMass.selectedOptions[0].textContent;
+    setBookedTime(selectTime.value, selectMass.value);
+
     scheduleModal.hide();
     formModal.show();
 
-    setBookedTime(selectTime.value, selectMass.value);
+    console.log(bookingData);
   }
 });
-// });
-
-const bookedTime = [];
 
 function setBookedTime(timeIndex, massageIndex) {
   const time = Number(timeIndex);
   const massage = Number(massageIndex);
   const add = time + massage;
+  bookingData.massageInfo.vreme = `${timeSchedule[time]} - ${timeSchedule[add]}`;
 
   for (i = time; i < add; i++) {
-    bookedTime.push(timeSchedule[i]);
+    bookingData.allTime.push(timeSchedule[i]);
   }
-  console.log(bookedTime);
 }
