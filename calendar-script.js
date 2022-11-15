@@ -4,6 +4,9 @@ const days = document.querySelector('.days');
 const currentMonth = document.querySelector('.month h3');
 const dateDetailH = document.querySelector('.chosen-date h3');
 
+let bookingData = { day: '', time: '', massage: '', form: '' };
+console.log(bookingData);
+
 const date = new Date();
 
 const renderCalendar = () => {
@@ -116,6 +119,7 @@ const renderCalendar = () => {
         if (clickedDate.getDate() >= currentDate.getDate()) {
           calendarModal.hide();
           scheduleModal.show();
+          bookingData.day = clickedDate;
           resetScheduleValues();
         } else {
           showCalendarError();
@@ -238,6 +242,7 @@ const timeSchedule = [
 timeSchedule.forEach((time) => {
   let option = document.createElement('option');
   option.innerText = time;
+  option.setAttribute('value', `${timeSchedule.indexOf(time)}`);
   document.querySelector('#time-select').appendChild(option);
 });
 
@@ -272,6 +277,9 @@ continueBtn.addEventListener('click', () => {
       errorModal.show();
     }
     if (selectTime.value !== '' && selectMass.value !== '') {
+      bookingData.time = selectTime.value;
+      bookingData.massage = selectMass.selectedOptions[0].textContent;
+      console.log(bookingData);
       scheduleModal.hide();
       formModal.show();
     }
