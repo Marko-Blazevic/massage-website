@@ -9,19 +9,12 @@ const emailInputField = document.getElementById('email');
 const emailInputLabel = document.querySelector('label');
 const emailInvalidFeedback = document.querySelector('.email-invalid-feedback');
 const textareaInputField = document.querySelector('.textarea-input-field');
-const scheduleMassage = document.querySelector('.on-click');
 
 window.addEventListener('load', function () {
   forms.forEach((form) => {
     form.reset();
   });
 });
-
-if (scheduleMassage !== null) {
-  scheduleMassage.addEventListener('click', function () {
-    window.open('calendar.html', '_blank');
-  });
-}
 
 const checkInputsValues = () => {
   inputs.forEach((input) => {

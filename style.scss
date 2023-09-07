@@ -32,17 +32,17 @@ body {
   box-shadow: none;
 }
 
-.nav-link-style {
-  color: white;
-  transition: 0.5s ease-in-out;
-  &:hover {
-    color: $orange;
-    transition: 0.2s ease-in-out;
-  }
-}
-
 .custom-navbar-dark {
   background-color: black;
+  .nav-link-style {
+    color: white;
+    transition: 0.5s ease-in-out;
+    text-decoration: none;
+    &:hover {
+      color: $orange;
+      transition: 0.2s ease-in-out;
+    }
+  }
 }
 
 .custom-navbar-light {
@@ -50,6 +50,7 @@ body {
   .nav-link-style {
     padding: 0.5rem 1rem;
     color: rgba(0, 0, 0, 0.808);
+    text-decoration: none;
     background-color: white;
     transition: 0.5s ease-in-out;
     &:hover {
@@ -98,7 +99,6 @@ a {
   position: relative;
   z-index: 3;
   margin-top: $navbar-height;
-  // padding: 0 0.5rem;
   width: 100vw;
   height: calc(100vh - #{$navbar-height});
   display: flex;
@@ -121,10 +121,6 @@ a {
   color: white;
   font-size: 2.6rem;
   margin-bottom: 0;
-}
-
-.on-click {
-  cursor: pointer;
 }
 
 #about {

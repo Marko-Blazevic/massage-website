@@ -40,31 +40,63 @@ const onCalendarLoad = () => {
 
 const date = new Date();
 
+const linkOfTheWebsiteUserCame = document.referrer;
+console.log(linkOfTheWebsiteUserCame);
+
 const renderCalendar = () => {
+  const meseci = [];
+  const dani = [];
   const month = date.getMonth();
-  const meseci = [
-    'Januar',
-    'Februar',
-    'Mart',
-    'April',
-    'Maj',
-    'Jun',
-    'Jul',
-    'Avgust',
-    'Septembar',
-    'Oktobar',
-    'Novembar',
-    'Decembar',
-  ];
-  const dani = [
-    'Nedelja',
-    'Ponedeljak',
-    'Utorak',
-    'Sreda',
-    'Četvrtak',
-    'Petak',
-    'Subota',
-  ];
+  if (linkOfTheWebsiteUserCame.includes('-en')) {
+    meseci.push(
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'Jun',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
+    );
+
+    dani.push(
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday'
+    );
+  } else {
+    meseci.push(
+      'Januar',
+      'Februar',
+      'Mart',
+      'April',
+      'Maj',
+      'Jun',
+      'Jul',
+      'Avgust',
+      'Septembar',
+      'Oktobar',
+      'Novembar',
+      'Decembar'
+    );
+    dani.push(
+      'Nedelja',
+      'Ponedeljak',
+      'Utorak',
+      'Sreda',
+      'Četvrtak',
+      'Petak',
+      'Subota'
+    );
+  }
 
   const mesec = meseci[month];
 
