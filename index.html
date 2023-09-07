@@ -16,51 +16,53 @@
 
 <body>
   <header>
-    <nav class="navbar fixed-top navbar-expand-sm custom-navbar-dark">
-      <div class="container-fluid">
-        <a href="index.html" class="navbar-brand"><img src="images\icon-png-white.png" alt="Icon image" width="40"
-            height="40" class="logo" />
-        </a>
-        <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
-          data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="main-navigation">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link nav-link-style" href="#about">O nama</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-style" href="massages.html">Masaže</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-style" href="#prices">Cenovnik</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-style" href="#contact">Kontakt</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-style on-click">Zakaži
-                masažu</a>
-            </li>
-          </ul>
-        </div>
-        <a href="index.html" class="language-icon"><img src="images/serbian-flag.png" alt="Serbian ;language icon image"
-            width="40" height="40" class="#" />
-          <a href="index-en.html" class="language-icon"><img src="images/uk-flag.png" alt="English language icon image"
-              width="40" height="40" class="#" />
+    <nav class="navbar container-fluid fixed-top navbar-expand-sm custom-navbar-dark">
+      <a href="index.html" class="navbar-brand">
+        <img src="images\icon-png-white.png" alt="Icon image" width="40" height="40" class="logo" />
+      </a>
+      <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
+        data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="main-navigation">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link nav-link-style" href="#about">O nama</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-style" href="massages.html">Masaže</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-style" href="#prices">Cenovnik</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-style" href="#contact">Kontakt</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-style on-click">Zakaži masažu</a>
+          </li>
+        </ul>
+        <div class="languages">
+          <a href="index.html" class="language-icon">
+            <img src="images/serbian-flag.png" alt="Serbian ;language icon image" width="40" height="40"
+              class="lang-icon-img" />
           </a>
+          <a href="index-en.html" class="language-icon">
+            <img src="images/uk-flag.png" alt="English language icon image" width="40" height="40"
+              class="lang-icon-img" />
+          </a>
+        </div>
       </div>
     </nav>
   </header>
 
   <main id="main">
-    <div class="overlay"> </div>
+    <div class="overlay"></div>
 
     <div id="index">
       <div class="overlay-index"></div>
-      <div class="index-wrapper"></div>
-      <div class="index-content ">
+      <div class="index-background"></div>
+      <div class="index-content">
         <img src="images/logo-text.png" class=" index-img fade-in"
           alt="Big Oasis logo with palm trees inside the letter O" />
         <p class="index-text text-center index-text-wrapper slide-up">Mesto gde pustinja prestaje...</p>
@@ -156,7 +158,6 @@
       </div>
       <div id="contact" class="container">
         <div class="container border shadow my-5 contact-form-custom">
-
           <form class="p-3 validate-form" novalidate>
             <div class="input slide-up-text">
               <div class="invalid-feedback">

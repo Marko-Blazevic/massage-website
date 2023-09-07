@@ -43,11 +43,6 @@ body {
 
 .custom-navbar-dark {
   background-color: black;
-  width: 100vw;
-}
-
-.navbar-brand {
-  margin-right: 0;
 }
 
 .custom-navbar-light {
@@ -68,6 +63,17 @@ body {
   }
 }
 
+a {
+  text-decoration: none;
+}
+
+.languages {
+  margin-top: 1rem;
+}
+.lang-icon-img {
+  filter: grayscale(100%);
+}
+
 .overlay-index {
   position: absolute;
   z-index: 2;
@@ -76,7 +82,7 @@ body {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.index-wrapper {
+.index-background {
   position: absolute;
   z-index: 1;
   width: 100vw;
@@ -92,7 +98,7 @@ body {
   position: relative;
   z-index: 3;
   margin-top: $navbar-height;
-  padding: 0 0.5rem;
+  // padding: 0 0.5rem;
   width: 100vw;
   height: calc(100vh - #{$navbar-height});
   display: flex;
@@ -102,17 +108,18 @@ body {
 }
 
 .index-img {
-  width: 90%;
+  width: 100%;
+  padding: 0 1rem;
   align-self: center;
 }
 
 .index-text {
   width: 100%;
+  padding: 0 1rem;
   font-family: $cursive-font-family;
   text-shadow: 2px 2px 3px black;
   color: white;
   font-size: 2.6rem;
-  // margin-top: 3rem;
   margin-bottom: 0;
 }
 
