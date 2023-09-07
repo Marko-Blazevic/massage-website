@@ -3,11 +3,39 @@ const arrowNext = document.querySelector('.arrow-next');
 const days = document.querySelector('.days');
 const currentMonth = document.querySelector('.month h3');
 const dateDetailH = document.querySelector('.chosen-date h3');
+const continueBtn = document.getElementById('continue-btn');
+const schedulesSelect = document.querySelectorAll('.sch-select');
 
 const bookingData = {
   day: '',
   allTime: [],
   massageInfo: { masaza: '', vreme: '', cena: '' },
+};
+
+let calendarModal = new bootstrap.Modal(
+  document.getElementById('calendar-modal'),
+  { backdrop: 'static', keyboard: false }
+);
+let calendarErrorModal = new bootstrap.Modal(
+  document.getElementById('calendar-error-modal'),
+  { backdrop: 'static', keyboard: false }
+);
+let scheduleModal = new bootstrap.Modal(
+  document.getElementById('schedule-modal'),
+  { backdrop: 'static', keyboard: false }
+);
+let errorModal = new bootstrap.Modal(document.getElementById('error-modal'), {
+  backdrop: 'static',
+  keyboard: false,
+});
+let formModal = new bootstrap.Modal(document.getElementById('form-modal'), {
+  backdrop: 'static',
+  keyboard: false,
+});
+
+const onCalendarLoad = () => {
+  calendarModal.show();
+  renderCalendar();
 };
 
 const date = new Date();
@@ -149,8 +177,6 @@ const renderCalendar = () => {
   });
 };
 
-renderCalendar();
-
 arrowPrev.addEventListener('click', () => {
   date.setMonth(date.getMonth() - 1);
   renderCalendar();
@@ -159,35 +185,6 @@ arrowNext.addEventListener('click', () => {
   date.setMonth(date.getMonth() + 1);
   renderCalendar();
 });
-
-const continueBtn = document.getElementById('continue-btn');
-
-let calendarModal = new bootstrap.Modal(
-  document.getElementById('calendar-modal'),
-  { backdrop: 'static', keyboard: false }
-);
-let calendarErrorModal = new bootstrap.Modal(
-  document.getElementById('calendar-error-modal'),
-  { backdrop: 'static', keyboard: false }
-);
-let scheduleModal = new bootstrap.Modal(
-  document.getElementById('schedule-modal'),
-  { backdrop: 'static', keyboard: false }
-);
-let errorModal = new bootstrap.Modal(document.getElementById('error-modal'), {
-  backdrop: 'static',
-  keyboard: false,
-});
-let formModal = new bootstrap.Modal(document.getElementById('form-modal'), {
-  backdrop: 'static',
-  keyboard: false,
-});
-
-const onCalendarLoad = () => {
-  calendarModal.show();
-};
-
-const schedulesSelect = document.querySelectorAll('.sch-select');
 
 const timeSchedule = [
   '10:00',
@@ -281,7 +278,7 @@ continueBtn.addEventListener('click', () => {
   });
   if (selectTime.value !== '' && selectMass.value !== '') {
     bookingData.massageInfo.masaza = selectMass.selectedOptions[0].textContent;
-    bookingData.massageInfo.cena = selectMass.selectedOptions[0].dataset.price;
+    bookingData.massageInfo.cena = `${selectMass.selectedOptions[0].dataset.price} dinara`;
     setBookedTime(selectTime.value, selectMass.value);
     scheduleModal.hide();
     formModal.show();
@@ -296,5 +293,4 @@ function setBookedTime(timeIndex, massageIndex) {
   for (i = time; i < add; i++) {
     bookingData.allTime.push(timeSchedule[i]);
   }
-  console.log(bookingData);
 }

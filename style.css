@@ -2,8 +2,7 @@
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
@@ -24,19 +23,15 @@ body {
 }
 
 .navbar-light.navbar-toggler:focus {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .nav-link-style {
   color: white;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
 }
-
 .nav-link-style:hover {
-  color: #fc9b00;
-  -webkit-transition: 0.2s ease-in-out;
+  color: rgb(252, 155, 0);
   transition: 0.2s ease-in-out;
 }
 
@@ -52,24 +47,19 @@ body {
 .custom-navbar-light {
   background-color: white;
 }
-
 .custom-navbar-light .nav-link-style {
   padding: 0.5rem 1rem;
   color: rgba(0, 0, 0, 0.808);
   background-color: white;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
 }
-
 .custom-navbar-light .nav-link-style:hover {
-  color: #fc9b00;
-  -webkit-transition: 0.2s ease-in-out;
+  color: rgb(252, 155, 0);
   transition: 0.2s ease-in-out;
 }
-
 .custom-navbar-light .current-page-style {
-  color: #fc9b00;
-  border-bottom: #fc9b00 solid 1px;
+  color: rgb(252, 155, 0);
+  border-bottom: rgb(252, 155, 0) solid 1px;
 }
 
 .overlay-index {
@@ -98,25 +88,15 @@ body {
   padding: 0 0.5rem;
   width: 100vw;
   height: calc(100vh - 66px);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
 .index-img {
   width: 90%;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
 }
 
 .index-text {
@@ -137,13 +117,11 @@ body {
   font-family: "Tangerine", cursive;
   font-size: 4rem;
 }
-
 #about .custom-para-about {
   font-size: 1.2rem;
   line-height: 2.2rem;
   font-weight: 300;
 }
-
 #about .about-name {
   font-family: "Tangerine", cursive;
   font-size: 2.5rem;
@@ -152,7 +130,6 @@ body {
 #massages {
   padding-top: 66px;
 }
-
 #massages .massages-list-custom {
   display: none;
   position: fixed;
@@ -163,48 +140,37 @@ body {
   font-size: 0.95rem;
   padding: 0 0.5rem;
 }
-
 #massages .massages-list-custom a {
   border: none;
   border-right: solid 1px rgba(200, 200, 200, 0.4);
-  color: black;
+  color: rgb(0, 0, 0);
   text-decoration: none;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-
 #massages .massages-list-custom a:hover {
-  color: #fc9b00;
-  -webkit-transition: 0.2s ease-in-out;
+  color: rgb(252, 155, 0);
   transition: 0.2s ease-in-out;
 }
-
 #massages .massages-list-custom a.active {
-  color: #fc9b00;
+  color: rgb(252, 155, 0);
   background-color: white;
 }
-
 #massages .massages-dropup-custom {
   position: fixed;
   z-index: 100;
   bottom: 10px;
   right: 10px;
 }
-
 #massages .massages-dropup-custom a {
   color: #666b70;
   font-size: 0.95rem;
-  -webkit-transition: 0.8s ease-in-out;
   transition: 0.8s ease-in-out;
 }
-
 #massages .massages-dropup-custom a:hover {
-  color: #fc9b00;
-  -webkit-transition: 0.2s ease-in-out;
+  color: rgb(252, 155, 0);
   transition: 0.2s ease-in-out;
   background-color: rgba(200, 200, 200, 0.4);
 }
-
 #massages .massages-dropup-custom .massages-dropup-menu {
   overflow-y: auto;
   max-height: calc(100vh - 150px);
@@ -227,7 +193,7 @@ table tr[data-href] {
 }
 
 .th-style {
-  border-bottom: solid 2px #fc9b00;
+  border-bottom: solid 2px rgb(252, 155, 0);
 }
 
 form textarea {
@@ -236,16 +202,10 @@ form textarea {
 
 .input {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: column-reverse;
-          flex-direction: column-reverse;
+  flex-direction: column-reverse;
   padding-top: 1.5rem;
 }
-
 .input + .input {
   margin-top: 1.5rem;
 }
@@ -254,7 +214,6 @@ form textarea {
   position: absolute;
   top: 1.8rem;
   color: #8597a3;
-  -webkit-transition: 0.25s ease;
   transition: 0.25s ease;
 }
 
@@ -266,24 +225,19 @@ form textarea {
   font: inherit;
   padding: 0.25rem 0.5rem;
 }
-
 .input-field:focus {
-  -webkit-box-shadow: 0 0 3px 2px #fc9b00;
-          box-shadow: 0 0 3px 2px #fc9b00;
+  box-shadow: 0 0 3px 2px rgb(252, 155, 0);
   outline: 0;
 }
-
 .input-field:focus + .input-label {
   color: #787e83;
-  -webkit-transform: translateY(-2rem);
-          transform: translateY(-2rem);
+  transform: translateY(-2rem);
   font-size: 0.9rem;
 }
 
 .used-field {
   color: #787e83;
-  -webkit-transform: translateY(-2rem);
-          transform: translateY(-2rem);
+  transform: translateY(-2rem);
   font-size: 0.9rem;
 }
 
@@ -292,7 +246,8 @@ form textarea {
   border-bottom: solid 1px #dc3545;
 }
 
-.email-invalid-feedback {
+.email-invalid-feedback,
+.phone-invalid-feedback {
   color: #dc3545;
   font-size: 0.875rem;
   display: none;
@@ -307,133 +262,85 @@ form textarea {
   background-repeat: no-repeat;
   background-position: center;
 }
-
 #calendar h3 {
   font-size: 1.5rem;
 }
 
 .calendar-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   padding: 0 3rem 0 3rem;
 }
 
 .calendar {
   width: 17.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .month {
   height: 5rem;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
   padding: 0.5rem 1rem;
 }
-
 .month h3 {
   padding: 0.5rem;
   margin-bottom: 0;
 }
-
 .month .month-text {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   text-align: center;
 }
 
 .arrow {
-  -webkit-transition: -webkit-transform 0.2s ease;
-  transition: -webkit-transform 0.2s ease;
   transition: transform 0.2s ease;
-  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
 }
 
 .arrow:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .weekdays {
   width: 100%;
   height: 2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   background-color: aliceblue;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .weekdays div {
-  width: calc(17.5rem / 7);
+  width: 2.5rem;
   text-align: center;
 }
 
 .days {
   width: 100%;
   height: 15rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   background-color: white;
 }
 
 .days div {
-  width: calc(17.5rem / 7);
+  width: 2.5rem;
   height: 2.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  -webkit-transition: background-color 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out;
 }
 
 .days div:hover:not(.today) {
-  background-color: #fc9b00;
+  background-color: rgb(252, 155, 0);
   cursor: pointer;
 }
 
@@ -447,61 +354,36 @@ form textarea {
 }
 
 .schedule-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  justify-content: center;
+  align-content: center;
   padding: 0 3rem 0 3rem;
 }
 
 .chosen-date {
   height: 5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   padding: 0.5rem;
 }
 
 .schedule-input-wrapper {
   width: 17.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: white;
 }
-
 .schedule-input-wrapper select:focus {
-  -webkit-box-shadow: 0 0 3px 2px #fc9b00;
-          box-shadow: 0 0 3px 2px #fc9b00;
+  box-shadow: 0 0 3px 2px rgb(252, 155, 0);
   border: none;
 }
-
 .schedule-input-wrapper .error-style {
-  -webkit-box-shadow: 0 0 2px 1px red;
-          box-shadow: 0 0 2px 1px red;
+  box-shadow: 0 0 2px 1px red;
 }
-
 .schedule-input-wrapper option {
   padding: 3rem;
 }
@@ -511,29 +393,23 @@ footer {
   font-family: sans-serif;
   margin-top: 1rem;
 }
-
 footer a {
   text-decoration: none;
 }
-
 footer .footer-logo {
   max-width: 80px;
 }
-
 footer .footer-links {
   max-width: 100px;
 }
-
 footer .newsletter input {
   max-width: 200px;
   border-radius: 5px;
 }
-
 footer .newsletter button {
   max-width: 100px;
   border-radius: 5px;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
 }
@@ -542,7 +418,6 @@ footer .newsletter button {
   background-color: black;
   color: white;
 }
-
 .dark-footer-custom .footer-links a {
   color: white;
 }
@@ -551,7 +426,6 @@ footer .newsletter button {
   border-top: solid 1px rgba(200, 200, 200, 0.4);
   background-color: white;
 }
-
 .light-footer-custom .footer-links a {
   color: black;
 }
@@ -577,37 +451,26 @@ footer .newsletter button {
     font-size: 0.9rem;
   }
 }
-
 @media screen and (min-width: 360px) {
   .index-text {
     font-size: 3rem;
   }
 }
-
 @media screen and (min-width: 500px) {
   .contact-form-custom {
     padding: 2rem;
   }
 }
-
 @media screen and (min-width: 576px) {
   .index-text {
     font-size: 3.5rem;
   }
   .footer-custom {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    flex-direction: row;
+    justify-content: center;
   }
 }
-
 @media screen and (min-width: 768px) {
   .index-text {
     font-size: 4rem;
@@ -619,7 +482,6 @@ footer .newsletter button {
     width: 75%;
   }
 }
-
 @media screen and (min-width: 992px) {
   .index-text {
     font-size: 4.5rem;
@@ -628,7 +490,6 @@ footer .newsletter button {
     width: 35rem;
   }
 }
-
 @media screen and (min-width: 1200px) {
   .index-text {
     font-size: 5rem;
@@ -643,7 +504,6 @@ footer .newsletter button {
     display: block;
   }
 }
-
 @media screen and (orientation: landscape) {
   .index-img {
     width: 50%;
@@ -653,10 +513,8 @@ footer .newsletter button {
     margin-top: -1rem;
   }
 }
-
 @media screen and (orientation: portrait) {
   .index-text {
     margin-top: 5rem;
   }
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

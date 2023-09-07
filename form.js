@@ -2,7 +2,8 @@ const forms = document.querySelectorAll('.validate-form');
 const inputs = document.querySelectorAll('.input');
 const inputFields = document.querySelectorAll('.input-field');
 const nameInput = document.getElementById('name');
-const phoneInput = document.getElementById('phone-number');
+const phoneInputField = document.getElementById('phone-number');
+const phoneInvalidFeedback = document.querySelector('.phone-invalid-feedback');
 const emailInput = document.getElementById('email');
 const emailInputField = document.getElementById('email');
 const emailInputLabel = document.querySelector('label');
@@ -47,6 +48,18 @@ inputs.forEach((input) => {
   });
 });
 
+const checkPhoneInputValue = () => {
+  if (isNaN(phoneInputField.value)) {
+    phoneInputField.classList.add('error-input');
+    phoneInvalidFeedback.style.display = 'block';
+    return false;
+  } else {
+    phoneInputField.classList.remove('error-input');
+    phoneInvalidFeedback.style.display = 'none';
+    return true;
+  }
+};
+
 const checkEmailInputValue = () => {
   if (
     !emailInputField.value.includes('@') ||
@@ -63,6 +76,10 @@ const checkEmailInputValue = () => {
   }
 };
 
+phoneInputField.addEventListener('blur', () => {
+  checkPhoneInputValue();
+});
+
 emailInputField.addEventListener('blur', () => {
   checkEmailInputValue();
 });
@@ -74,11 +91,10 @@ Array.prototype.slice.call(forms).forEach(function (form) {
       if (!form.checkValidity()) {
         event.preventDefault();
         event.stopPropagation();
-        console.log('fssssssssssssssss');
       }
       if (
         nameInput.value.trim() !== '' &&
-        phoneInput.value.trim() !== '' &&
+        checkPhoneInputValue() === true &&
         checkEmailInputValue() === true
       ) {
         console.log('form je OK');

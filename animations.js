@@ -55,6 +55,7 @@ gsap.set('.fade-in', {
 let tl = gsap.timeline();
 
 const fadeIn = document.querySelectorAll('.fade-in');
+
 fadeIn.forEach((elem) => {
   tl.to(
     elem,
