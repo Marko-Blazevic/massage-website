@@ -1,3 +1,12 @@
+if (
+  document.URL.includes('massages.html') ||
+  document.URL.includes('massages-en.html')
+) {
+  gsap.config({
+    nullTargetWarn: false,
+  });
+}
+
 gsap.registerPlugin(ScrollTrigger);
 
 const tableTr = document.querySelectorAll('.table-row');
