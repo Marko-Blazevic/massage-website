@@ -98,8 +98,7 @@ a {
 }
 
 .index-img {
-  width: 100%;
-  padding: 0 1rem;
+  width: 80%;
   align-self: center;
 }
 
@@ -110,7 +109,6 @@ a {
   text-shadow: 2px 2px 3px black;
   color: white;
   font-size: 2.6rem;
-  margin-bottom: 0;
 }
 
 #about h2 {
@@ -470,6 +468,11 @@ footer .newsletter button {
     display: flex;
     flex-direction: row;
     justify-content: center;
+  }
+}
+@media screen and (min-width: 575px) and (max-width: 614px) {
+  .nav-link-style {
+    font-size: 0.9rem;
   }
 }
 @media screen and (min-width: 768px) {

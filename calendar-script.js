@@ -40,14 +40,13 @@ const onCalendarLoad = () => {
 
 const date = new Date();
 
-const linkOfTheWebsiteUserCame = document.referrer;
-console.log(linkOfTheWebsiteUserCame);
+const pageURL = window.location.href;
 
 const renderCalendar = () => {
   const meseci = [];
   const dani = [];
   const month = date.getMonth();
-  if (linkOfTheWebsiteUserCame.includes('-en')) {
+  if (pageURL.includes('-en')) {
     meseci.push(
       'January',
       'February',
