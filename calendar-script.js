@@ -6,11 +6,11 @@ const dateDetailH = document.querySelector('.chosen-date h3');
 const continueBtn = document.getElementById('continue-btn');
 const schedulesSelect = document.querySelectorAll('.sch-select');
 
-const bookingData = {
-  day: '',
-  allTime: [],
-  massageInfo: { masaza: '', vreme: '', cena: '' },
-};
+async function fetchScheduleData() {
+  const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+  const scheduleData = await response.json();
+  return scheduleData;
+}
 
 let calendarModal = new bootstrap.Modal(
   document.getElementById('calendar-modal'),
@@ -46,6 +46,7 @@ const renderCalendar = () => {
   const meseci = [];
   const dani = [];
   const month = date.getMonth();
+
   if (pageURL.includes('-en')) {
     meseci.push(
       'January',
@@ -61,7 +62,6 @@ const renderCalendar = () => {
       'November',
       'December'
     );
-
     dani.push(
       'Sunday',
       'Monday',
@@ -106,21 +106,24 @@ const renderCalendar = () => {
     date.getMonth() + 1,
     0
   ).getDate();
+
   const prevMonthLastDate = new Date(
     date.getFullYear(),
     date.getMonth(),
     0
   ).getDate();
+
   const prevMonthLastDayIndex = new Date(
     date.getFullYear(),
     date.getMonth(),
     0
-  ).getDay();
+  ).getDay(); //day of the week
+
   const nextMonthFirstDayIndex = new Date(
     date.getFullYear(),
     date.getMonth() + 1,
     1
-  ).getDay();
+  ).getDay(); //day of the week
 
   days.innerHTML = '';
 
@@ -175,6 +178,8 @@ const renderCalendar = () => {
     const currentDate = new Date();
     const clickedDate = new Date(date.getFullYear(), month, elem.innerHTML);
 
+    const id = `${clickedDate.getFullYear()}${clickedDate.getMonth()}${clickedDate.getDate()}`;
+
     if (clickedDate.getFullYear() === currentDate.getFullYear()) {
       if (clickedDate.getMonth() >= currentDate.getMonth()) {
         if (clickedDate.getDate() >= currentDate.getDate()) {
@@ -217,57 +222,31 @@ arrowNext.addEventListener('click', () => {
   renderCalendar();
 });
 
-const timeSchedule = [
-  '10:00',
-  '10:15',
-  '10:30',
-  '10:45',
-  '11:00',
-  '11:15',
-  '11:30',
-  '11:45',
-  '12:00',
-  '12:15',
-  '12:30',
-  '12:45',
-  '13:00',
-  '13:15',
-  '13:30',
-  '13:45',
-  '14:00',
-  '14:15',
-  '14:30',
-  '14:45',
-  '15:00',
-  '15:15',
-  '15:30',
-  '15:45',
-  '16:00',
-  '16:15',
-  '16:30',
-  '16:45',
-  '17:00',
-  '17:15',
-  '17:30',
-  '17:45',
-  '18:00',
-  '18:15',
-  '18:30',
-  '18:45',
-  '19:00',
-  '19:15',
-  '19:30',
-  '19:45',
-  '20:00',
-  '20:15',
-  '20:30',
-  '20:45',
-  '21:00',
-  '21:15',
-  '21:30',
-  '21:45',
-  '22:00',
-];
+let timeSchedule = [];
+const min = ['00', '15', '30', '45'];
+let hour = 10;
+for (y = 0; y < 12; y++) {
+  const map = min.map((m) => `${hour}:${m}`);
+  hour++;
+  timeSchedule = timeSchedule.concat(map);
+}
+console.log(timeSchedule);
+
+//setting an id for every time point in timeSchedule
+const timeScheduleObjects = [];
+for (i = 0; i < 48; i++) {
+  let timeObject = { time: timeSchedule[i], id: i };
+  timeScheduleObjects.push(timeObject);
+}
+console.log(timeScheduleObjects);
+
+// const scheduledData = fetchScheduleData();
+// // scheduledData = [{id: id1, time: []}, {id: id2, time: []}]
+// for (const obj of scheduledData){
+// for (const key in obj){
+// if(timeScheduleObjects.includes(key.id){}
+// }
+// }
 
 timeSchedule.forEach((time) => {
   let option = document.createElement('option');
@@ -325,3 +304,8 @@ function setBookedTime(timeIndex, massageIndex) {
     bookingData.allTime.push(timeSchedule[i]);
   }
 }
+
+// const timeScheduleObject = {
+//   id: id,
+//   time: time
+// }
