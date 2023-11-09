@@ -185,7 +185,6 @@ const renderCalendar = () => {
         if (clickedDate.getDate() >= currentDate.getDate()) {
           calendarModal.hide();
           scheduleModal.show();
-          bookingData.day = clickedDate.toDateString();
           resetScheduleValues();
         } else {
           showCalendarError();
@@ -223,22 +222,21 @@ arrowNext.addEventListener('click', () => {
 });
 
 let timeSchedule = [];
-const min = ['00', '15', '30', '45'];
+//setting time values for schedule
+const minutes = ['00', '15', '30', '45'];
 let hour = 10;
 for (y = 0; y < 12; y++) {
-  const map = min.map((m) => `${hour}:${m}`);
+  const map = minutes.map((m) => `${hour}:${m}`);
   hour++;
   timeSchedule = timeSchedule.concat(map);
 }
-console.log(timeSchedule);
-
 //setting an id for every time point in timeSchedule
-const timeScheduleObjects = [];
-for (i = 0; i < 48; i++) {
-  let timeObject = { time: timeSchedule[i], id: i };
-  timeScheduleObjects.push(timeObject);
-}
-console.log(timeScheduleObjects);
+// const timeScheduleObjects = [];
+// for (i = 0; i < 48; i++) {
+//   let timeObject = { time: timeSchedule[i], id: i };
+//   timeScheduleObjects.push(timeObject);
+// }
+// console.log(timeScheduleObjects );
 
 // const scheduledData = fetchScheduleData();
 // // scheduledData = [{id: id1, time: []}, {id: id2, time: []}]
@@ -248,10 +246,11 @@ console.log(timeScheduleObjects);
 // }
 // }
 
+//!!!!!!!!!!!!!!!!!!!!!!!!!! ovo ili ne treba da postoji ili treba da se izmeni ideja od value ili id za timeschedule
 timeSchedule.forEach((time) => {
   let option = document.createElement('option');
   option.innerText = time;
-  option.setAttribute('value', `${timeSchedule.indexOf(time)}`);
+  option.setAttribute('data-index', `${timeSchedule.indexOf(time)}`);
   document.querySelector('#time-select').appendChild(option);
 });
 
@@ -261,6 +260,7 @@ const removeSchErrorClass = (elem) => {
   }
 };
 
+//removes selected sch-select values for every new date select
 const resetScheduleValues = () => {
   schedulesSelect.forEach((elem) => {
     elem.value = '';
@@ -287,23 +287,23 @@ continueBtn.addEventListener('click', () => {
     }
   });
   if (selectTime.value !== '' && selectMass.value !== '') {
-    bookingData.massageInfo.masaza = selectMass.selectedOptions[0].textContent;
-    bookingData.massageInfo.cena = `${selectMass.selectedOptions[0].dataset.price} dinara`;
-    setBookedTime(selectTime.value, selectMass.value);
+    // bookingData.massageInfo.masaza = selectMass.selectedOptions[0].textContent;
+    // bookingData.massageInfo.cena = `${selectMass.selectedOptions[0].dataset.price} dinara`;
+    // setBookedTime(selectTime.value, selectMass.value);
     scheduleModal.hide();
     formModal.show();
   }
 });
 
-function setBookedTime(timeIndex, massageIndex) {
-  const time = Number(timeIndex);
-  const massage = Number(massageIndex);
-  const add = time + massage;
-  bookingData.massageInfo.vreme = `${timeSchedule[time]} - ${timeSchedule[add]}`;
-  for (i = time; i < add; i++) {
-    bookingData.allTime.push(timeSchedule[i]);
-  }
-}
+// function setBookedTime(timeIndex, massageIndex) {
+//   const time = Number(timeIndex);
+//   const massage = Number(massageIndex);
+//   const add = time + massage;
+//   bookingData.massageInfo.vreme = `${timeSchedule[time]} - ${timeSchedule[add]}`;
+//   for (i = time; i < add; i++) {
+//     bookingData.allTime.push(timeSchedule[i]);
+//   }
+// }
 
 // const timeScheduleObject = {
 //   id: id,
