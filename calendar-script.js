@@ -5,6 +5,8 @@ const currentMonth = document.querySelector('.month h3');
 const dateDetailH = document.querySelector('.chosen-date h3');
 const continueBtn = document.getElementById('continue-btn');
 const schedulesSelect = document.querySelectorAll('.sch-select');
+const timeSelect = document.querySelectorAll('#time-select');
+const massSelect = document.querySelectorAll('#mass-select');
 
 async function fetchScheduleData() {
   const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
@@ -248,10 +250,12 @@ for (y = 0; y < 12; y++) {
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!! ovo ili ne treba da postoji ili treba da se izmeni ideja od value ili id za timeschedule
 timeSchedule.forEach((time) => {
+  const timeSelect = document.querySelector('#time-select');
   let option = document.createElement('option');
   option.innerText = time;
   option.setAttribute('data-index', `${timeSchedule.indexOf(time)}`);
-  document.querySelector('#time-select').appendChild(option);
+  option.className = 'time-option';
+  timeSelect.appendChild(option);
 });
 
 const removeSchErrorClass = (elem) => {
@@ -276,9 +280,16 @@ schedulesSelect.forEach((elem) => {
   });
 });
 
+const timeOptions = document.querySelectorAll('.time-option');
+
+timeOptions.forEach((elem) =>
+  elem.addEventListener('click', () => {
+    const value = elem.getAttribute('data-index');
+    console.log(value);
+  })
+);
+
 continueBtn.addEventListener('click', () => {
-  const selectTime = document.getElementById('time-select');
-  const selectMass = document.getElementById('mass-select');
   schedulesSelect.forEach((elem) => {
     if (elem.value === '') {
       elem.classList.add('error-style');
