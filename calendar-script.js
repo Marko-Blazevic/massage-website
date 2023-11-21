@@ -175,12 +175,17 @@ const renderCalendar = () => {
     calendarErrorModal.show();
   };
 
+  // const scheduleValues = { date: dateValue, time: timeValueArray };
+
+  const checkDateAndTime = () => {};
+
   //for "const date" - month and year are changing because of date manipulation during month change, but the date for date is not i.e. it is today's date
   const checkClickedDate = (elem) => {
     const currentDate = new Date();
     const clickedDate = new Date(date.getFullYear(), month, elem.innerHTML);
 
     const id = `${clickedDate.getFullYear()}${clickedDate.getMonth()}${clickedDate.getDate()}`;
+    console.log(id);
 
     if (clickedDate.getFullYear() === currentDate.getFullYear()) {
       if (clickedDate.getMonth() >= currentDate.getMonth()) {
@@ -188,6 +193,7 @@ const renderCalendar = () => {
           calendarModal.hide();
           scheduleModal.show();
           resetScheduleValues();
+          //here check if clicked date exists in data base and take time value for adding 'unclick' class
         } else {
           showCalendarError();
         }
@@ -202,6 +208,7 @@ const renderCalendar = () => {
       calendarModal.hide();
       scheduleModal.show();
       resetScheduleValues();
+      //here check if clicked date exists in data base and take time value for adding 'unclick' class
     }
   };
 
@@ -253,7 +260,7 @@ timeSchedule.forEach((time) => {
   const timeSelect = document.querySelector('#time-select');
   let option = document.createElement('option');
   option.innerText = time;
-  option.setAttribute('data-index', `${timeSchedule.indexOf(time)}`);
+  option.setAttribute('data-time-index', `${timeSchedule.indexOf(time)}`);
   option.className = 'time-option';
   timeSelect.appendChild(option);
 });
@@ -281,11 +288,19 @@ schedulesSelect.forEach((elem) => {
 });
 
 const timeOptions = document.querySelectorAll('.time-option');
+let timeIndex;
 
 timeOptions.forEach((elem) =>
   elem.addEventListener('click', () => {
-    const value = elem.getAttribute('data-index');
-    console.log(value);
+    timeIndex = elem.getAttribute('data-time-index');
+  })
+);
+
+const massageOptions = document.querySelectorAll('.massage-option');
+let massageValue;
+massageOptions.forEach((elem) =>
+  elem.addEventListener('click', () => {
+    massageValue = elem.getAttribute('data-massage-value');
   })
 );
 
@@ -295,15 +310,11 @@ continueBtn.addEventListener('click', () => {
       elem.classList.add('error-style');
       scheduleModal.hide();
       errorModal.show();
+    } else {
+      scheduleModal.hide();
+      formModal.show();
     }
   });
-  if (selectTime.value !== '' && selectMass.value !== '') {
-    // bookingData.massageInfo.masaza = selectMass.selectedOptions[0].textContent;
-    // bookingData.massageInfo.cena = `${selectMass.selectedOptions[0].dataset.price} dinara`;
-    // setBookedTime(selectTime.value, selectMass.value);
-    scheduleModal.hide();
-    formModal.show();
-  }
 });
 
 // function setBookedTime(timeIndex, massageIndex) {
