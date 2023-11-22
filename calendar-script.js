@@ -178,8 +178,14 @@ const renderCalendar = () => {
   //this data have to come from database
   const scheduleValuesData = {
     date: '20231025',
-    time: [2, 3, 4, 5, 6, 7, 8, 9],
+    time: [],
   };
+
+  for (let i = 3; i < 46; i++) {
+    scheduleValuesData.time.push(i);
+  }
+  console.log('Ovo je database array  ' + scheduleValuesData.time);
+
   // let dataTimeArray;
   // const checkDateAndTime = (dateId) => {
   //   for (const dataObject of scheduleValuesData) {
@@ -278,12 +284,20 @@ const renderCalendar = () => {
   const timeCheck = () => {
     const timeOptions = document.querySelectorAll('.time-option');
     const scheduleTimeData = scheduleValuesData.time;
+    const timeIndexes = [];
     timeOptions.forEach((time) => {
-      let attribute = time.getAttribute('data-time-index');
-      if (scheduleTimeData.includes(Number(attribute))) {
+      let timeIndexAttribute = time.getAttribute('data-time-index');
+      timeIndexes.push(timeIndexAttribute);
+      if (scheduleTimeData.includes(Number(timeIndexAttribute))) {
         time.className = 'hide';
       }
     });
+    const freeScheduleTime = timeIndexes.filter(
+      (elem) => !scheduleTimeData.includes(Number(elem))
+    );
+    console.log(freeScheduleTime);
+    console.log('Ovo su sva vremena ' + timeIndexes);
+    checkMassageOptionValidity(freeScheduleTime);
   };
 
   const removeSchErrorClass = (elem) => {
@@ -318,12 +332,30 @@ const renderCalendar = () => {
   );
 
   const massageOptions = document.querySelectorAll('.massage-option');
-  let massageValue;
-  massageOptions.forEach((elem) =>
-    elem.addEventListener('click', () => {
-      massageValue = elem.getAttribute('data-massage-value');
-    })
-  );
+
+  // let massageValue;
+  // massageOptions.forEach((elem) =>
+  //   elem.addEventListener('click', () => {
+  //     massageValue = elem.getAttribute('data-massage-value');
+  //     console.log(massageValue);
+  //   })
+  // );
+  const checkMassageOptionValidity = (freeScheduleTime) => {
+    massageOptions.forEach((opt) => {
+      let massageValue = opt.getAttribute('data-massage-value');
+      let massageTime = opt.getAttribute('data-massage-time');
+      let count = 1;
+      for (let i = 0; i < freeScheduleTime.length; i++) {
+        if (freeScheduleTime[i] == freeScheduleTime[i] - 1) {
+          count++;
+          console.log('Ovo je i  ' + i);
+        }
+        if (count < Number(massageValue)) {
+          opt.className = 'hide';
+        }
+      }
+    });
+  };
 
   continueBtn.addEventListener('click', () => {
     schedulesSelect.forEach((elem) => {
