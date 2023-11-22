@@ -175,17 +175,34 @@ const renderCalendar = () => {
     calendarErrorModal.show();
   };
 
-  // const scheduleValues = { date: dateValue, time: timeValueArray };
-
-  const checkDateAndTime = () => {};
+  //this data have to come from database
+  const scheduleValuesData = {
+    date: '20231025',
+    time: [2, 3, 4, 5, 6, 7, 8, 9],
+  };
+  // let dataTimeArray;
+  // const checkDateAndTime = (dateId) => {
+  //   for (const dataObject of scheduleValuesData) {
+  //     if (dateId === dataObject.date) {
+  //       dataTimeArray = dataObject.time;
+  //       //   for (let i = 0; i < timeArray.length; i++) {
+  //       //     if (timeIndexArray.includes(dataTimeArray[i])) {
+  //       //     }
+  //       //   }
+  //       // } else {
+  //       //   console.log('Nema nista za ovaj datum.');
+  //       // }
+  //     }
+  //   }
+  // };
+  // console.log(dataTimeArray);
 
   //for "const date" - month and year are changing because of date manipulation during month change, but the date for date is not i.e. it is today's date
   const checkClickedDate = (elem) => {
     const currentDate = new Date();
     const clickedDate = new Date(date.getFullYear(), month, elem.innerHTML);
 
-    const id = `${clickedDate.getFullYear()}${clickedDate.getMonth()}${clickedDate.getDate()}`;
-    console.log(id);
+    const dateId = `${clickedDate.getFullYear()}${clickedDate.getMonth()}${clickedDate.getDate()}`;
 
     if (clickedDate.getFullYear() === currentDate.getFullYear()) {
       if (clickedDate.getMonth() >= currentDate.getMonth()) {
@@ -193,7 +210,10 @@ const renderCalendar = () => {
           calendarModal.hide();
           scheduleModal.show();
           resetScheduleValues();
+
           //here check if clicked date exists in data base and take time value for adding 'unclick' class
+          setTimeValues();
+          // checkDateAndTime(dateId);
         } else {
           showCalendarError();
         }
@@ -209,6 +229,10 @@ const renderCalendar = () => {
       scheduleModal.show();
       resetScheduleValues();
       //here check if clicked date exists in data base and take time value for adding 'unclick' class
+
+      setTimeValues();
+
+      // checkDateAndTime(dateId);
     }
   };
 
@@ -219,115 +243,98 @@ const renderCalendar = () => {
       checkClickedDate(dateDiv);
     });
   });
-};
 
-arrowPrev.addEventListener('click', () => {
-  date.setMonth(date.getMonth() - 1);
-  renderCalendar();
-});
-arrowNext.addEventListener('click', () => {
-  date.setMonth(date.getMonth() + 1);
-  renderCalendar();
-});
-
-let timeSchedule = [];
-//setting time values for schedule
-const minutes = ['00', '15', '30', '45'];
-let hour = 10;
-for (y = 0; y < 12; y++) {
-  const map = minutes.map((m) => `${hour}:${m}`);
-  hour++;
-  timeSchedule = timeSchedule.concat(map);
-}
-//setting an id for every time point in timeSchedule
-// const timeScheduleObjects = [];
-// for (i = 0; i < 48; i++) {
-//   let timeObject = { time: timeSchedule[i], id: i };
-//   timeScheduleObjects.push(timeObject);
-// }
-// console.log(timeScheduleObjects );
-
-// const scheduledData = fetchScheduleData();
-// // scheduledData = [{id: id1, time: []}, {id: id2, time: []}]
-// for (const obj of scheduledData){
-// for (const key in obj){
-// if(timeScheduleObjects.includes(key.id){}
-// }
-// }
-
-//!!!!!!!!!!!!!!!!!!!!!!!!!! ovo ili ne treba da postoji ili treba da se izmeni ideja od value ili id za timeschedule
-timeSchedule.forEach((time) => {
-  const timeSelect = document.querySelector('#time-select');
-  let option = document.createElement('option');
-  option.innerText = time;
-  option.setAttribute('data-time-index', `${timeSchedule.indexOf(time)}`);
-  option.className = 'time-option';
-  timeSelect.appendChild(option);
-});
-
-const removeSchErrorClass = (elem) => {
-  if (elem.value !== '' && elem.classList.contains('error-style')) {
-    elem.classList.remove('error-style');
-  }
-};
-
-//removes selected sch-select values for every new date select
-const resetScheduleValues = () => {
-  schedulesSelect.forEach((elem) => {
-    elem.value = '';
-    elem.classList.remove('error-style');
+  arrowPrev.addEventListener('click', () => {
+    date.setMonth(date.getMonth() - 1);
+    renderCalendar();
   });
-};
+  arrowNext.addEventListener('click', () => {
+    date.setMonth(date.getMonth() + 1);
+    renderCalendar();
+  });
 
-schedulesSelect.forEach((elem) => {
-  elem.addEventListener('click', () => {
-    if (elem.classList.contains('error-style')) {
-      removeSchErrorClass(elem);
+  //setting time values for schedule
+  const setTimeValues = () => {
+    let timeSchedule = [];
+    const minutes = ['00', '15', '30', '45'];
+    let hour = 10;
+    for (let y = 0; y < 12; y++) {
+      const map = minutes.map((m) => `${hour}:${m}`);
+      hour++;
+      timeSchedule = timeSchedule.concat(map);
     }
-  });
-});
 
-const timeOptions = document.querySelectorAll('.time-option');
-let timeIndex;
+    const timeSelect = document.querySelector('#time-select');
+    timeSchedule.forEach((time) => {
+      let option = document.createElement('option');
+      option.innerText = time;
+      option.setAttribute('data-time-index', `${timeSchedule.indexOf(time)}`);
+      option.className = 'time-option';
+      timeSelect.appendChild(option);
+    });
+    timeCheck();
+  };
 
-timeOptions.forEach((elem) =>
-  elem.addEventListener('click', () => {
-    timeIndex = elem.getAttribute('data-time-index');
-  })
-);
+  const timeCheck = () => {
+    const timeOptions = document.querySelectorAll('.time-option');
+    const scheduleTimeData = scheduleValuesData.time;
+    timeOptions.forEach((time) => {
+      let attribute = time.getAttribute('data-time-index');
+      if (scheduleTimeData.includes(Number(attribute))) {
+        time.className = 'hide';
+      }
+    });
+  };
 
-const massageOptions = document.querySelectorAll('.massage-option');
-let massageValue;
-massageOptions.forEach((elem) =>
-  elem.addEventListener('click', () => {
-    massageValue = elem.getAttribute('data-massage-value');
-  })
-);
-
-continueBtn.addEventListener('click', () => {
-  schedulesSelect.forEach((elem) => {
-    if (elem.value === '') {
-      elem.classList.add('error-style');
-      scheduleModal.hide();
-      errorModal.show();
-    } else {
-      scheduleModal.hide();
-      formModal.show();
+  const removeSchErrorClass = (elem) => {
+    if (elem.value !== '' && elem.classList.contains('error-style')) {
+      elem.classList.remove('error-style');
     }
+  };
+
+  //removes selected sch-select values for every new date select
+  const resetScheduleValues = () => {
+    schedulesSelect.forEach((elem) => {
+      elem.value = '';
+      elem.classList.remove('error-style');
+    });
+  };
+
+  schedulesSelect.forEach((elem) => {
+    elem.addEventListener('click', () => {
+      if (elem.classList.contains('error-style')) {
+        removeSchErrorClass(elem);
+      }
+    });
   });
-});
 
-// function setBookedTime(timeIndex, massageIndex) {
-//   const time = Number(timeIndex);
-//   const massage = Number(massageIndex);
-//   const add = time + massage;
-//   bookingData.massageInfo.vreme = `${timeSchedule[time]} - ${timeSchedule[add]}`;
-//   for (i = time; i < add; i++) {
-//     bookingData.allTime.push(timeSchedule[i]);
-//   }
-// }
+  const timeOptions = document.querySelectorAll('.time-option');
+  let timeIndex;
 
-// const timeScheduleObject = {
-//   id: id,
-//   time: time
-// }
+  timeOptions.forEach((elem) =>
+    elem.addEventListener('click', () => {
+      timeIndex = elem.getAttribute('data-time-index');
+    })
+  );
+
+  const massageOptions = document.querySelectorAll('.massage-option');
+  let massageValue;
+  massageOptions.forEach((elem) =>
+    elem.addEventListener('click', () => {
+      massageValue = elem.getAttribute('data-massage-value');
+    })
+  );
+
+  continueBtn.addEventListener('click', () => {
+    schedulesSelect.forEach((elem) => {
+      if (elem.value === '') {
+        elem.classList.add('error-style');
+        scheduleModal.hide();
+        errorModal.show();
+      } else {
+        scheduleModal.hide();
+        formModal.show();
+      }
+    });
+  });
+};
