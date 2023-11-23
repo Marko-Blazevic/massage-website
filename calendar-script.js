@@ -178,13 +178,16 @@ const renderCalendar = () => {
   //this data have to come from database
   const scheduleValuesData = {
     date: '20231025',
-    time: [],
+    time: [
+      2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+      25, 26, 27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
+      46, 47,
+    ],
   };
 
-  for (let i = 3; i < 46; i++) {
-    scheduleValuesData.time.push(i);
-  }
-  console.log('Ovo je database array  ' + scheduleValuesData.time);
+  // for (let i = 3; i < 25; i++) {
+  //   scheduleValuesData.time.push(i);
+  // }
 
   // let dataTimeArray;
   // const checkDateAndTime = (dateId) => {
@@ -287,16 +290,18 @@ const renderCalendar = () => {
     const timeIndexes = [];
     timeOptions.forEach((time) => {
       let timeIndexAttribute = time.getAttribute('data-time-index');
-      timeIndexes.push(timeIndexAttribute);
+      timeIndexes.push(Number(timeIndexAttribute));
       if (scheduleTimeData.includes(Number(timeIndexAttribute))) {
         time.className = 'hide';
       }
     });
+
     const freeScheduleTime = timeIndexes.filter(
       (elem) => !scheduleTimeData.includes(Number(elem))
     );
+    console.log(timeIndexes);
+    console.log(scheduleTimeData);
     console.log(freeScheduleTime);
-    console.log('Ovo su sva vremena ' + timeIndexes);
     checkMassageOptionValidity(freeScheduleTime);
   };
 
@@ -344,17 +349,48 @@ const renderCalendar = () => {
     massageOptions.forEach((opt) => {
       let massageValue = opt.getAttribute('data-massage-value');
       let massageTime = opt.getAttribute('data-massage-time');
-      let count = 1;
-      for (let i = 0; i < freeScheduleTime.length; i++) {
-        if (freeScheduleTime[i] == freeScheduleTime[i] - 1) {
-          count++;
-          console.log('Ovo je i  ' + i);
-        }
-        if (count < Number(massageValue)) {
-          opt.className = 'hide';
-        }
+      console.log(massageValue, massageTime); // Output:
+      const testFreeTime = [
+        2, 3, 4, 12, 13, 14, 15, 16, 17, 34, 35, 36, 37, 38, 39, 40,
+      ];
+      const result = isContinuous(freeScheduleTime, massageValue);
+      console.log(result); // Output:
+      if (!result) {
+        opt.className = 'hide';
       }
     });
+  };
+
+  // const isContinuous = (freeScheduleTime, massageValue) => {
+  //   for (let i = 0; i < freeScheduleTime.length - massageValue + 1; i++) {
+  //     let isSequence = true;
+  //     for (let j = 0; j < massageValue - 1; j++) {
+  //       if (freeScheduleTime[i + j] !== freeScheduleTime[i] + j) {
+  //         isSequence = false;
+  //         break;
+  //       }
+  //     }
+  //     if (isSequence) {
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // };
+
+  const isContinuous = (freeScheduleTime, massageValue) => {
+    for (let i = 0; i < freeScheduleTime.length; i++) {
+      let isSequence = true;
+      for (let j = 1; j < massageValue - 1; j++) {
+        if (freeScheduleTime[i + j] !== freeScheduleTime[i] + j) {
+          isSequence = false;
+          break;
+        }
+      }
+      if (isSequence) {
+        return true;
+      }
+    }
+    return false;
   };
 
   continueBtn.addEventListener('click', () => {
