@@ -292,7 +292,8 @@ const renderCalendar = () => {
       let timeIndexAttribute = time.getAttribute('data-time-index');
       timeIndexes.push(Number(timeIndexAttribute));
       if (scheduleTimeData.includes(Number(timeIndexAttribute))) {
-        time.className = 'hide';
+        time.classList.add('hide');
+        time.disabled = true;
       }
     });
 
@@ -332,6 +333,9 @@ const renderCalendar = () => {
   timeOptions.forEach((elem) =>
     elem.addEventListener('click', () => {
       timeIndex = elem.getAttribute('data-time-index');
+      if (elem.classList.includes('hide')) {
+        console.log('ima hide');
+      }
     })
   );
 
@@ -340,6 +344,10 @@ const renderCalendar = () => {
   massageOptions.forEach((elem) =>
     elem.addEventListener('click', () => {
       massageValue = elem.getAttribute('data-massage-value');
+      if (elem.classList.contains('hide')) {
+        console.log(elem);
+        elem.disabled = true;
+      }
     })
   );
 
@@ -351,7 +359,8 @@ const renderCalendar = () => {
 
       const result = isContinuous(freeScheduleTime, massageValue);
       if (!result) {
-        opt.className = 'hide';
+        opt.classList.add('hide');
+        opt.disabled = true;
       }
     });
   };
@@ -381,13 +390,6 @@ const renderCalendar = () => {
   continueBtn.addEventListener('click', () => {
     let allSelectsHaveValue = true;
     schedulesSelect.forEach((elem) => {
-      console.log(elem);
-      // if (elem.getAttribute('data-time-index')) {
-      //   timeIndex = elem.getAttribute('data-time-index');
-      // } else if (elem.getAttribute('data-massage-value')) {
-      //   massageValue = elem.getAttribute('data-massage-value');
-      // } else {
-      // }
       if (elem.value === '') {
         elem.classList.add('error-style');
         scheduleModal.hide();
@@ -399,7 +401,6 @@ const renderCalendar = () => {
         formModal.show();
         removeErrorClass(elem);
       }
-      console.log(elem.value);
     });
     isContinuous(freeScheduleTime, massageValue, timeIndex);
   });

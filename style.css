@@ -388,7 +388,7 @@ form textarea {
 }
 
 .hide {
-  display: none;
+  color: rgba(0, 0, 0, 0.1098039216);
 }
 
 footer {
