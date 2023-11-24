@@ -345,7 +345,6 @@ const renderCalendar = () => {
     elem.addEventListener('click', () => {
       massageValue = elem.getAttribute('data-massage-value');
       if (elem.classList.contains('hide')) {
-        console.log(elem);
         elem.disabled = true;
       }
     })
@@ -396,12 +395,12 @@ const renderCalendar = () => {
         errorModal.show();
         allSelectsHaveValue = false;
       }
-      if (allSelectsHaveValue) {
-        scheduleModal.hide();
-        formModal.show();
-        removeErrorClass(elem);
-      }
     });
+    if (allSelectsHaveValue) {
+      scheduleModal.hide();
+      formModal.show();
+      removeErrorClass(elem);
+    }
     isContinuous(freeScheduleTime, massageValue, timeIndex);
   });
 };
