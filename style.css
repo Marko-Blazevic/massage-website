@@ -338,7 +338,7 @@ form textarea {
   transition: background-color 0.2s ease-in-out;
 }
 
-.days div:hover:not(.today) {
+.days div:hover {
   background-color: rgb(252, 155, 0);
   cursor: pointer;
 }

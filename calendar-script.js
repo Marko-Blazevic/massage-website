@@ -3,7 +3,8 @@ const arrowNext = document.querySelector('.arrow-next');
 const days = document.querySelector('.days');
 const currentMonth = document.querySelector('.month h3');
 const dateDetail = document.querySelector('.chosen-date h3');
-const continueBtn = document.getElementById('continue-btn');
+const schContinueBtn = document.getElementById('sch-continue-btn');
+const schBackBtn = document.getElementById('sch-back-btn');
 const schedulesSelect = document.querySelectorAll('.sch-select');
 const timeSelect = document.querySelectorAll('#time-select');
 const massSelect = document.querySelectorAll('#mass-select');
@@ -161,11 +162,11 @@ const renderCalendar = () => {
     elem.addEventListener('click', () => {
       if (elem.classList.contains('next-date')) {
         date.setMonth(month + 1);
-        renderCalendar();
+        // renderCalendar();
       }
       if (elem.classList.contains('prev-date')) {
         date.setMonth(month - 1);
-        renderCalendar();
+        // renderCalendar();
       }
     });
   };
@@ -176,14 +177,30 @@ const renderCalendar = () => {
   };
 
   //this data have to come from database
-  const scheduleValuesData = {
-    date: '20231025',
-    time: [
-      2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
-      25, 26, 27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
-      46, 47,
-    ],
-  };
+  const scheduleValuesData = [
+    {
+      date: '20231027',
+      time: [
+        2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+        25, 26, 27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
+        46, 47,
+      ],
+    },
+    {
+      date: '20231028',
+      time: [
+        2, 3, 4, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
+        26, 27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
+      ],
+    },
+    {
+      date: '20231029',
+      time: [
+        1, 2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 25, 26, 27, 28, 29, 30, 34, 35,
+        36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
+      ],
+    },
+  ];
 
   // for (let i = 3; i < 25; i++) {
   //   scheduleValuesData.time.push(i);
@@ -207,11 +224,12 @@ const renderCalendar = () => {
   // console.log(dataTimeArray);
 
   //for "const date" - month and year are changing because of date manipulation during month change, but the date for date is not i.e. it is today's date
+  let clickedDateId;
+
   const checkClickedDate = (elem) => {
     const currentDate = new Date();
     const clickedDate = new Date(date.getFullYear(), month, elem.innerHTML);
-
-    const dateId = `${clickedDate.getFullYear()}${clickedDate.getMonth()}${clickedDate.getDate()}`;
+    clickedDateId = `${clickedDate.getFullYear()}${clickedDate.getMonth()}${clickedDate.getDate()}`;
 
     if (clickedDate.getFullYear() === currentDate.getFullYear()) {
       if (clickedDate.getMonth() >= currentDate.getMonth()) {
@@ -219,10 +237,7 @@ const renderCalendar = () => {
           calendarModal.hide();
           scheduleModal.show();
           resetScheduleValues();
-
-          //here check if clicked date exists in data base and take time value for adding 'unclick' class
-          setTimeValues();
-          // checkDateAndTime(dateId);
+          // setTimeValues();
         } else {
           showCalendarError();
         }
@@ -237,11 +252,8 @@ const renderCalendar = () => {
       calendarModal.hide();
       scheduleModal.show();
       resetScheduleValues();
-      //here check if clicked date exists in data base and take time value for adding 'unclick' class
-
-      setTimeValues();
-
-      // checkDateAndTime(dateId);
+      //here check if clicked date exists in data base and take time value for adding 'unclick' class - if free time array.length == 0, unclick day
+      // setTimeValues();
     }
   };
 
@@ -250,6 +262,7 @@ const renderCalendar = () => {
       changeDateDetails(dateDiv);
       changePrevNextMonth(dateDiv);
       checkClickedDate(dateDiv);
+      timeCheck();
     });
   });
 
@@ -263,31 +276,40 @@ const renderCalendar = () => {
   });
 
   //setting time values for schedule
-  const setTimeValues = () => {
-    let timeSchedule = [];
-    const minutes = ['00', '15', '30', '45'];
-    let hour = 10;
-    for (let y = 0; y < 12; y++) {
-      const map = minutes.map((m) => `${hour}:${m}`);
-      hour++;
-      timeSchedule = timeSchedule.concat(map);
-    }
 
-    const timeSelect = document.querySelector('#time-select');
-    timeSchedule.forEach((time) => {
-      let option = document.createElement('option');
-      option.innerText = time;
-      option.setAttribute('data-time-index', `${timeSchedule.indexOf(time)}`);
-      option.className = 'time-option';
-      timeSelect.appendChild(option);
-    });
-    timeCheck();
-  };
-  let freeScheduleTime;
+  // const setTimeValues = () => {
+  let timeSchedule = [];
+  const minutes = ['00', '15', '30', '45'];
+  let hour = 10;
+  for (let y = 0; y < 12; y++) {
+    const map = minutes.map((m) => `${hour}:${m}`);
+    hour++;
+    timeSchedule = timeSchedule.concat(map);
+  }
+  const timeSelect = document.querySelector('#time-select');
+  timeSchedule.forEach((time) => {
+    let option = document.createElement('option');
+    option.innerText = time;
+    option.setAttribute('data-time-index', `${timeSchedule.indexOf(time)}`);
+    option.className = 'time-option';
+    timeSelect.appendChild(option);
+  });
+
+  // };
+  let freeScheduleTime = [];
+  let timeIndexes = [];
+  let scheduleTimeData = [];
+
+  console.log('On load:', scheduleTimeData, timeIndexes, freeScheduleTime);
+
   const timeCheck = () => {
+    console.log(timeIndexes);
     const timeOptions = document.querySelectorAll('.time-option');
-    const scheduleTimeData = scheduleValuesData.time;
-    const timeIndexes = [];
+    scheduleValuesData.forEach((data) => {
+      if (clickedDateId === data.date) {
+        scheduleTimeData.push(...data.time);
+      }
+    });
     timeOptions.forEach((time) => {
       let timeIndexAttribute = time.getAttribute('data-time-index');
       timeIndexes.push(Number(timeIndexAttribute));
@@ -295,13 +317,15 @@ const renderCalendar = () => {
         time.classList.add('hide');
         time.disabled = true;
       }
+      console.log(timeIndexes);
     });
 
     freeScheduleTime = timeIndexes.filter(
       (elem) => !scheduleTimeData.includes(Number(elem))
     );
-    console.log(timeIndexes);
+
     console.log(scheduleTimeData);
+    console.log(timeIndexes);
     console.log(freeScheduleTime);
     checkMassageOptionValidity(freeScheduleTime);
   };
@@ -328,27 +352,27 @@ const renderCalendar = () => {
     });
   });
 
-  const timeOptions = document.querySelectorAll('.time-option');
-  let timeIndex;
-  timeOptions.forEach((elem) =>
-    elem.addEventListener('click', () => {
-      timeIndex = elem.getAttribute('data-time-index');
-      if (elem.classList.includes('hide')) {
-        console.log('ima hide');
-      }
-    })
-  );
+  // const timeOptions = document.querySelectorAll('.time-option');
+  // let timeIndex;
+  // timeOptions.forEach((elem) =>
+  //   elem.addEventListener('click', () => {
+  //     timeIndex = elem.getAttribute('data-time-index');
+  //     if (elem.classList.contains('hide')) {
+  //       console.log('ima hide');
+  //     }
+  //   })
+  // );
 
   const massageOptions = document.querySelectorAll('.massage-option');
-  let massageValue;
-  massageOptions.forEach((elem) =>
-    elem.addEventListener('click', () => {
-      massageValue = elem.getAttribute('data-massage-value');
-      if (elem.classList.contains('hide')) {
-        elem.disabled = true;
-      }
-    })
-  );
+  // let massageValue;
+  // massageOptions.forEach((elem) =>
+  //   elem.addEventListener('click', () => {
+  //     massageValue = elem.getAttribute('data-massage-value');
+  //     if (elem.classList.contains('hide')) {
+  //       elem.disabled = true;
+  //     }
+  //   })
+  // );
 
   const checkMassageOptionValidity = (freeScheduleTime) => {
     massageOptions.forEach((opt) => {
@@ -386,7 +410,13 @@ const renderCalendar = () => {
     return false;
   };
 
-  continueBtn.addEventListener('click', () => {
+  schBackBtn.addEventListener('click', () => {
+    scheduleTimeData = [];
+    timeIndexes = [];
+    freeScheduleTime = [];
+  });
+
+  schContinueBtn.addEventListener('click', () => {
     let allSelectsHaveValue = true;
     schedulesSelect.forEach((elem) => {
       if (elem.value === '') {
@@ -394,12 +424,13 @@ const renderCalendar = () => {
         scheduleModal.hide();
         errorModal.show();
         allSelectsHaveValue = false;
+      } else {
+        removeErrorClass(elem);
       }
     });
     if (allSelectsHaveValue) {
       scheduleModal.hide();
       formModal.show();
-      removeErrorClass(elem);
     }
     isContinuous(freeScheduleTime, massageValue, timeIndex);
   });
