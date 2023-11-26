@@ -93,20 +93,45 @@
                   </div>
                   <div class="row justify-content-center">
                     <select id="mass-select" class="sch-select form-select" aria-label="Schedule massage select">
-                      <option value="" disabled selected hidden>Massage</option>
-                      <option value="8" data-price="2500">Holistic Massage</option>
-                      <option value="4" data-price="1800">Classic - Relax Massage</option>
-                      <option value="5" data-price="2000">Anti-Stress Massage</option>
-                      <option value="6" data-price="2200">Hot Stone Massage</option>
-                      <option value="4" data-price="1800">Prenatal Massage</option>
-                      <option value="2" data-price="1000">Partial Massage</option>
-                      <option value="3" data-price="1200">herapeutic Massage</option>
-                      <option value="4" data-price="1800">Lymphatic Drainage Massage</option>
-                      <option value="3" data-price="1400">Ampuku</option>
-                      <option value="3" data-price="1400">Feet Reflexology</option>
-                      <option value="4" data-price="2200">Rasayana Abhyanga</option>
-                      <option value="2" data-price="900">Anticellulite Massage without wrapp</option>
-                      <option value="3" data-price="1000">Anticellulite Massage with wrapp</option>
+                      <option value="" disabled selected hidden>Massage Type</option>
+                      <option class="massage-option" data-massage-time="120" data-massage-value="9"
+                        data-massage-price="2500">Holistic Massage 120 min.
+                      </option>
+                      <option class="massage-option" data-massage-time="60" data-massage-value="5"
+                        data-massage-price="1800">Classic - Relax Massage 60 min.
+                      </option>
+                      <option class="massage-option" data-massage-time="75" data-massage-value="6"
+                        data-massage-price="2000">Anti-Stress Massage 75 min.
+                      </option>
+                      <option class="massage-option" data-massage-time="90" data-massage-value="7"
+                        data-massage-price="2200">Hot Stone Massage 90 min.
+                      </option>
+                      <option class="massage-option" data-massage-time="60" data-massage-value="5"
+                        data-massage-price="1800">Prenatal Massage 60 min.
+                      </option>
+                      <option class="massage-option" data-massage-time="30" data-massage-value="3"
+                        data-massage-price="1000">Partial Massage 30 min.
+                      </option>
+                      <option class="massage-option" data-massage-time="45" data-massage-value="4"
+                        data-massage-price="1200">Therapeutic Massage 45 min.
+                      </option>
+                      <option class="massage-option" data-massage-time="60" data-massage-value="5"
+                        data-massage-price="1800">Lymphatic Drainage 60 min.
+                      </option>
+                      <option class="massage-option" data-massage-time="45" data-massage-value="4"
+                        data-massage-price="1400">Ampuku 45 min.</option>
+                      <option class="massage-option" data-massage-time="45" data-massage-value="4"
+                        data-massage-price="1400">Feet Reflexology 45 min.
+                      </option>
+                      <option class="massage-option" data-massage-time="60" data-massage-value="5"
+                        data-massage-price="2200">Rasayana Abhyanga 60 min.
+                      </option>
+                      <option class="massage-option" data-massage-time="30" data-massage-value="3"
+                        data-massage-price="900">Anticellulite Massage without wrapp 30 min.
+                      </option>
+                      <option class="massage-option" data-massage-time="45" data-massage-value="4"
+                        data-massage-price="1000">Anticellulite Massage with wrapp 45 min.
+                      </option>
                     </select>
                   </div>
                   <p class="fw-light my-4 text-center">For more information on the offer of massages, click <a
@@ -116,9 +141,9 @@
             </div>
           </div>
           <div class="modal-footer border-0 justify-content-center">
-            <button type="button" class="action-button btn btn-light shadow px-5 mx-1" data-bs-target="#calendar-modal"
-              data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
-            <button id="continue-btn" type="button"
+            <button id="sch-back-btn" type="button" class="action-button btn btn-light shadow px-5 mx-1"
+              data-bs-target="#calendar-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
+            <button id="sch-continue-btn" type="button"
               class="action-button btn btn-warning shadow px-5 mx-1">Continue</button>
           </div>
         </div>
@@ -210,8 +235,6 @@
       </div>
     </div>
   </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
