@@ -303,7 +303,6 @@ const renderCalendar = () => {
   console.log('On load:', scheduleTimeData, timeIndexes, freeScheduleTime);
 
   const timeCheck = () => {
-    console.log(timeIndexes);
     const timeOptions = document.querySelectorAll('.time-option');
     scheduleValuesData.forEach((data) => {
       if (clickedDateId === data.date) {
@@ -311,13 +310,16 @@ const renderCalendar = () => {
       }
     });
     timeOptions.forEach((time) => {
+      if (time.classList.contains('hide')) {
+        time.classList.remove('hide');
+        time.disabled = false;
+      }
       let timeIndexAttribute = time.getAttribute('data-time-index');
       timeIndexes.push(Number(timeIndexAttribute));
       if (scheduleTimeData.includes(Number(timeIndexAttribute))) {
         time.classList.add('hide');
         time.disabled = true;
       }
-      console.log(timeIndexes);
     });
 
     freeScheduleTime = timeIndexes.filter(
@@ -352,33 +354,15 @@ const renderCalendar = () => {
     });
   });
 
-  // const timeOptions = document.querySelectorAll('.time-option');
-  // let timeIndex;
-  // timeOptions.forEach((elem) =>
-  //   elem.addEventListener('click', () => {
-  //     timeIndex = elem.getAttribute('data-time-index');
-  //     if (elem.classList.contains('hide')) {
-  //       console.log('ima hide');
-  //     }
-  //   })
-  // );
-
   const massageOptions = document.querySelectorAll('.massage-option');
-  // let massageValue;
-  // massageOptions.forEach((elem) =>
-  //   elem.addEventListener('click', () => {
-  //     massageValue = elem.getAttribute('data-massage-value');
-  //     if (elem.classList.contains('hide')) {
-  //       elem.disabled = true;
-  //     }
-  //   })
-  // );
 
   const checkMassageOptionValidity = (freeScheduleTime) => {
     massageOptions.forEach((opt) => {
+      if (opt.classList.contains('hide')) {
+        opt.classList.remove('hide');
+        opt.disabled = false;
+      }
       let massageValue = opt.getAttribute('data-massage-value');
-      let massageTime = opt.getAttribute('data-massage-time');
-      console.log(massageValue, massageTime);
 
       const result = isContinuous(freeScheduleTime, massageValue);
       if (!result) {
