@@ -237,7 +237,7 @@ const renderCalendar = () => {
           calendarModal.hide();
           scheduleModal.show();
           resetScheduleValues();
-          // setTimeValues();
+          setTimeValues();
         } else {
           showCalendarError();
         }
@@ -253,7 +253,7 @@ const renderCalendar = () => {
       scheduleModal.show();
       resetScheduleValues();
       //here check if clicked date exists in data base and take time value for adding 'unclick' class - if free time array.length == 0, unclick day
-      // setTimeValues();
+      setTimeValues();
     }
   };
 
@@ -277,25 +277,24 @@ const renderCalendar = () => {
 
   //setting time values for schedule
 
-  // const setTimeValues = () => {
-  let timeSchedule = [];
-  const minutes = ['00', '15', '30', '45'];
-  let hour = 10;
-  for (let y = 0; y < 12; y++) {
-    const map = minutes.map((m) => `${hour}:${m}`);
-    hour++;
-    timeSchedule = timeSchedule.concat(map);
-  }
-  const timeSelect = document.querySelector('#time-select');
-  timeSchedule.forEach((time) => {
-    let option = document.createElement('option');
-    option.innerText = time;
-    option.setAttribute('data-time-index', `${timeSchedule.indexOf(time)}`);
-    option.className = 'time-option';
-    timeSelect.appendChild(option);
-  });
-
-  // };
+  const setTimeValues = () => {
+    let timeSchedule = [];
+    const minutes = ['00', '15', '30', '45'];
+    let hour = 10;
+    for (let y = 0; y < 12; y++) {
+      const map = minutes.map((m) => `${hour}:${m}`);
+      hour++;
+      timeSchedule = timeSchedule.concat(map);
+    }
+    const timeSelect = document.querySelector('#time-select');
+    timeSchedule.forEach((time) => {
+      let option = document.createElement('option');
+      option.innerText = time;
+      option.setAttribute('data-time-index', `${timeSchedule.indexOf(time)}`);
+      option.className = 'time-option';
+      timeSelect.appendChild(option);
+    });
+  };
   let freeScheduleTime = [];
   let timeIndexes = [];
   let scheduleTimeData = [];
@@ -325,10 +324,6 @@ const renderCalendar = () => {
     freeScheduleTime = timeIndexes.filter(
       (elem) => !scheduleTimeData.includes(Number(elem))
     );
-
-    console.log(scheduleTimeData);
-    console.log(timeIndexes);
-    console.log(freeScheduleTime);
     checkMassageOptionValidity(freeScheduleTime);
   };
 
@@ -338,7 +333,6 @@ const renderCalendar = () => {
     }
   };
 
-  //removes selected sch-select values for every new date select
   const resetScheduleValues = () => {
     schedulesSelect.forEach((elem) => {
       elem.value = '';
