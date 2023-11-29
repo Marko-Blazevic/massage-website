@@ -6,8 +6,8 @@ const dateDetail = document.querySelector('.chosen-date h3');
 const schContinueBtn = document.getElementById('sch-continue-btn');
 const schBackBtn = document.getElementById('sch-back-btn');
 const schedulesSelect = document.querySelectorAll('.sch-select');
-const timeSelect = document.querySelectorAll('#time-select');
-const massSelect = document.querySelectorAll('#mass-select');
+// const timeSelect = document.querySelectorAll('#time-select');
+// const massSelect = document.querySelectorAll('#mass-select');
 
 async function fetchScheduleData() {
   const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
@@ -179,7 +179,7 @@ const renderCalendar = () => {
   //this data have to come from database
   const scheduleValuesData = [
     {
-      date: '20231027',
+      date: '20231030',
       time: [
         2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
         25, 26, 27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
@@ -201,27 +201,6 @@ const renderCalendar = () => {
       ],
     },
   ];
-
-  // for (let i = 3; i < 25; i++) {
-  //   scheduleValuesData.time.push(i);
-  // }
-
-  // let dataTimeArray;
-  // const checkDateAndTime = (dateId) => {
-  //   for (const dataObject of scheduleValuesData) {
-  //     if (dateId === dataObject.date) {
-  //       dataTimeArray = dataObject.time;
-  //       //   for (let i = 0; i < timeArray.length; i++) {
-  //       //     if (timeIndexArray.includes(dataTimeArray[i])) {
-  //       //     }
-  //       //   }
-  //       // } else {
-  //       //   console.log('Nema nista za ovaj datum.');
-  //       // }
-  //     }
-  //   }
-  // };
-  // console.log(dataTimeArray);
 
   //for "const date" - month and year are changing because of date manipulation during month change, but the date for date is not i.e. it is today's date
   let clickedDateId;
@@ -299,8 +278,6 @@ const renderCalendar = () => {
   let timeIndexes = [];
   let scheduleTimeData = [];
 
-  console.log('On load:', scheduleTimeData, timeIndexes, freeScheduleTime);
-
   const timeCheck = () => {
     const timeOptions = document.querySelectorAll('.time-option');
     scheduleValuesData.forEach((data) => {
@@ -366,14 +343,14 @@ const renderCalendar = () => {
     });
   };
 
-  const isContinuous = (freeScheduleTime, massageValue, timeIndex) => {
-    let s;
-    if (!timeIndex) {
-      s = 0;
-    } else {
-      s = timeIndex;
-    }
-    for (let i = s; i < freeScheduleTime.length - s; i++) {
+  const isContinuous = (freeScheduleTime, massageValue) => {
+    // let s;
+    // if (!timeIndex) {
+    //   s = 0;
+    // } else {
+    //   s = timeIndex;
+    // }
+    for (let i = 0; i < freeScheduleTime.length; i++) {
       let isSequence = true;
       for (let j = 1; j < massageValue - 1; j++) {
         if (freeScheduleTime[i + j] !== freeScheduleTime[i] + j) {
@@ -404,12 +381,57 @@ const renderCalendar = () => {
         allSelectsHaveValue = false;
       } else {
         removeErrorClass(elem);
+        checkSelectedTime();
       }
     });
     if (allSelectsHaveValue) {
       scheduleModal.hide();
       formModal.show();
     }
-    isContinuous(freeScheduleTime, massageValue, timeIndex);
+    // isContinuous(freeScheduleTime, massageValue, timeIndex);
   });
+  let massageDataValue;
+  let timeDataIndex;
+  const timeSelect = document.getElementById('time-select');
+  const massageSelect = document.getElementById('mass-select');
+  timeSelect.addEventListener('change', () => {
+    let checkTime = true;
+    const index = timeSelect.selectedIndex;
+    timeDataIndex = Number(timeSelect.options[index].dataset.timeIndex) + 1;
+    console.log(timeSelect.value, index, timeDataIndex);
+    for (i = timeDataIndex; i < timeDataIndex + 2 && i < 48; i++) {
+      let timeClass = timeSelect[i].classList.value;
+      const noSpace = timeClass.replace(/ /g, '');
+      if (noSpace.includes('hide')) {
+        checkTime = false;
+      }
+      console.log(noSpace);
+    }
+    console.log(checkTime);
+  });
+  massageSelect.addEventListener('change', () => {
+    const index = massageSelect.selectedIndex;
+    massageDataValue = Number(
+      massageSelect.options[index].dataset.massageSelect
+    );
+    console.log(
+      massageSelect.value,
+      index,
+      massageDataValue,
+      massageSelect[index].classList.value === 'massage-option'
+    );
+  });
+  const checkSelectedTime = () => {
+    for (
+      i = timeDataIndex;
+      i < timeDataIndex + massageDataValue && i < 48;
+      i++
+    ) {
+      // if (timeSelect[i].classList.value === 'hide') {
+      //   console.log('ima hide');
+      // }
+      console.log(i);
+    }
+  };
+  // };
 };
