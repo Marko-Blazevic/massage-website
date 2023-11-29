@@ -6,8 +6,15 @@ const dateDetail = document.querySelector('.chosen-date h3');
 const schContinueBtn = document.getElementById('sch-continue-btn');
 const schBackBtn = document.getElementById('sch-back-btn');
 const schedulesSelect = document.querySelectorAll('.sch-select');
-// const timeSelect = document.querySelectorAll('#time-select');
-// const massSelect = document.querySelectorAll('#mass-select');
+const timeSelect = document.getElementById('time-select');
+const massageSelect = document.getElementById('mass-select');
+let freeScheduleTime = [];
+let timeIndexes = [];
+let scheduleTimeData = [];
+let clickedDateId;
+let checkTime;
+let massageDataValue;
+let timeDataIndex;
 
 async function fetchScheduleData() {
   const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
@@ -162,11 +169,11 @@ const renderCalendar = () => {
     elem.addEventListener('click', () => {
       if (elem.classList.contains('next-date')) {
         date.setMonth(month + 1);
-        // renderCalendar();
+        renderCalendar();
       }
       if (elem.classList.contains('prev-date')) {
         date.setMonth(month - 1);
-        // renderCalendar();
+        renderCalendar();
       }
     });
   };
@@ -203,13 +210,10 @@ const renderCalendar = () => {
   ];
 
   //for "const date" - month and year are changing because of date manipulation during month change, but the date for date is not i.e. it is today's date
-  let clickedDateId;
-
   const checkClickedDate = (elem) => {
     const currentDate = new Date();
     const clickedDate = new Date(date.getFullYear(), month, elem.innerHTML);
     clickedDateId = `${clickedDate.getFullYear()}${clickedDate.getMonth()}${clickedDate.getDate()}`;
-
     if (clickedDate.getFullYear() === currentDate.getFullYear()) {
       if (clickedDate.getMonth() >= currentDate.getMonth()) {
         if (clickedDate.getDate() >= currentDate.getDate()) {
@@ -235,7 +239,6 @@ const renderCalendar = () => {
       setTimeValues();
     }
   };
-
   monthDates.forEach((dateDiv) => {
     dateDiv.addEventListener('click', () => {
       changeDateDetails(dateDiv);
@@ -244,7 +247,6 @@ const renderCalendar = () => {
       timeCheck();
     });
   });
-
   arrowPrev.addEventListener('click', () => {
     date.setMonth(date.getMonth() - 1);
     renderCalendar();
@@ -255,7 +257,6 @@ const renderCalendar = () => {
   });
 
   //setting time values for schedule
-
   const setTimeValues = () => {
     let timeSchedule = [];
     const minutes = ['00', '15', '30', '45'];
@@ -274,10 +275,6 @@ const renderCalendar = () => {
       timeSelect.appendChild(option);
     });
   };
-  let freeScheduleTime = [];
-  let timeIndexes = [];
-  let scheduleTimeData = [];
-
   const timeCheck = () => {
     const timeOptions = document.querySelectorAll('.time-option');
     scheduleValuesData.forEach((data) => {
@@ -297,26 +294,22 @@ const renderCalendar = () => {
         time.disabled = true;
       }
     });
-
     freeScheduleTime = timeIndexes.filter(
       (elem) => !scheduleTimeData.includes(Number(elem))
     );
     checkMassageOptionValidity(freeScheduleTime);
   };
-
   const removeErrorClass = (elem) => {
     if (elem.value !== '' && elem.classList.contains('error-style')) {
       elem.classList.remove('error-style');
     }
   };
-
   const resetScheduleValues = () => {
     schedulesSelect.forEach((elem) => {
       elem.value = '';
       elem.classList.remove('error-style');
     });
   };
-
   schedulesSelect.forEach((elem) => {
     elem.addEventListener('click', () => {
       if (elem.classList.contains('error-style')) {
@@ -324,9 +317,7 @@ const renderCalendar = () => {
       }
     });
   });
-
   const massageOptions = document.querySelectorAll('.massage-option');
-
   const checkMassageOptionValidity = (freeScheduleTime) => {
     massageOptions.forEach((opt) => {
       if (opt.classList.contains('hide')) {
@@ -334,7 +325,6 @@ const renderCalendar = () => {
         opt.disabled = false;
       }
       let massageValue = opt.getAttribute('data-massage-value');
-
       const result = isContinuous(freeScheduleTime, massageValue);
       if (!result) {
         opt.classList.add('hide');
@@ -342,14 +332,7 @@ const renderCalendar = () => {
       }
     });
   };
-
   const isContinuous = (freeScheduleTime, massageValue) => {
-    // let s;
-    // if (!timeIndex) {
-    //   s = 0;
-    // } else {
-    //   s = timeIndex;
-    // }
     for (let i = 0; i < freeScheduleTime.length; i++) {
       let isSequence = true;
       for (let j = 1; j < massageValue - 1; j++) {
@@ -364,13 +347,11 @@ const renderCalendar = () => {
     }
     return false;
   };
-
   schBackBtn.addEventListener('click', () => {
     scheduleTimeData = [];
     timeIndexes = [];
     freeScheduleTime = [];
   });
-
   schContinueBtn.addEventListener('click', () => {
     checkTimeAndMassage();
     let allSelectsHaveValue = true;
@@ -381,45 +362,27 @@ const renderCalendar = () => {
         errorModal.show();
         allSelectsHaveValue = false;
       } else {
+        allSelectsHaveValue = true;
         removeErrorClass(elem);
       }
     });
-    if (allSelectsHaveValue && checkTime === true) {
+    if (allSelectsHaveValue && checkTime) {
       scheduleModal.hide();
       formModal.show();
-    } else {
-      alert('Time and Massage not suitable');
     }
-    // isContinuous(freeScheduleTime, massageValue, timeIndex);
+    if (!checkTime) {
+      alert('Time and Massage not suitable'); //make new modal for this !!!!!!!!!!!!!!!
+    }
   });
-  let checkTime;
-  let massageDataValue;
-  let timeDataIndex;
-  const timeSelect = document.getElementById('time-select');
-  const massageSelect = document.getElementById('mass-select');
-
   const checkTimeAndMassage = () => {
     checkTime = true;
     const schMassIndex = massageSelect.selectedIndex;
     massageDataValue = Number(
       massageSelect.options[schMassIndex].dataset.massageValue
     );
-    console.log(massageSelect.options[schMassIndex]);
-    console.log(massageSelect.options[schMassIndex].dataset.massageValue);
-
-    console.log(
-      massageSelect.value,
-      schMassIndex,
-      massageDataValue,
-      massageSelect[schMassIndex].classList.value === 'massage-option'
-    );
-
     const schTimeIndex = timeSelect.selectedIndex;
     timeDataIndex =
       Number(timeSelect.options[schTimeIndex].dataset.timeIndex) + 1;
-
-    console.log(timeSelect.value, schTimeIndex, timeDataIndex);
-
     for (
       i = timeDataIndex;
       i < timeDataIndex + massageDataValue - 1 && i < 48;
@@ -430,11 +393,6 @@ const renderCalendar = () => {
       if (noSpace.includes('hide')) {
         checkTime = false;
       }
-      console.log(noSpace);
-      console.log(timeClass);
     }
-    console.log(checkTime);
-    console.log(timeDataIndex);
-    console.log(timeSelect[i].classList.value);
   };
 };
