@@ -372,6 +372,7 @@ const renderCalendar = () => {
   });
 
   schContinueBtn.addEventListener('click', () => {
+    checkTimeAndMassage();
     let allSelectsHaveValue = true;
     schedulesSelect.forEach((elem) => {
       if (elem.value === '') {
@@ -381,57 +382,59 @@ const renderCalendar = () => {
         allSelectsHaveValue = false;
       } else {
         removeErrorClass(elem);
-        checkSelectedTime();
       }
     });
-    if (allSelectsHaveValue) {
+    if (allSelectsHaveValue && checkTime === true) {
       scheduleModal.hide();
       formModal.show();
+    } else {
+      alert('Time and Massage not suitable');
     }
     // isContinuous(freeScheduleTime, massageValue, timeIndex);
   });
+  let checkTime;
   let massageDataValue;
   let timeDataIndex;
   const timeSelect = document.getElementById('time-select');
   const massageSelect = document.getElementById('mass-select');
-  timeSelect.addEventListener('change', () => {
-    let checkTime = true;
-    const index = timeSelect.selectedIndex;
-    timeDataIndex = Number(timeSelect.options[index].dataset.timeIndex) + 1;
-    console.log(timeSelect.value, index, timeDataIndex);
-    for (i = timeDataIndex; i < timeDataIndex + 2 && i < 48; i++) {
+
+  const checkTimeAndMassage = () => {
+    checkTime = true;
+    const schMassIndex = massageSelect.selectedIndex;
+    massageDataValue = Number(
+      massageSelect.options[schMassIndex].dataset.massageValue
+    );
+    console.log(massageSelect.options[schMassIndex]);
+    console.log(massageSelect.options[schMassIndex].dataset.massageValue);
+
+    console.log(
+      massageSelect.value,
+      schMassIndex,
+      massageDataValue,
+      massageSelect[schMassIndex].classList.value === 'massage-option'
+    );
+
+    const schTimeIndex = timeSelect.selectedIndex;
+    timeDataIndex =
+      Number(timeSelect.options[schTimeIndex].dataset.timeIndex) + 1;
+
+    console.log(timeSelect.value, schTimeIndex, timeDataIndex);
+
+    for (
+      i = timeDataIndex;
+      i < timeDataIndex + massageDataValue - 1 && i < 48;
+      i++
+    ) {
       let timeClass = timeSelect[i].classList.value;
       const noSpace = timeClass.replace(/ /g, '');
       if (noSpace.includes('hide')) {
         checkTime = false;
       }
       console.log(noSpace);
+      console.log(timeClass);
     }
     console.log(checkTime);
-  });
-  massageSelect.addEventListener('change', () => {
-    const index = massageSelect.selectedIndex;
-    massageDataValue = Number(
-      massageSelect.options[index].dataset.massageSelect
-    );
-    console.log(
-      massageSelect.value,
-      index,
-      massageDataValue,
-      massageSelect[index].classList.value === 'massage-option'
-    );
-  });
-  const checkSelectedTime = () => {
-    for (
-      i = timeDataIndex;
-      i < timeDataIndex + massageDataValue && i < 48;
-      i++
-    ) {
-      // if (timeSelect[i].classList.value === 'hide') {
-      //   console.log('ima hide');
-      // }
-      console.log(i);
-    }
+    console.log(timeDataIndex);
+    console.log(timeSelect[i].classList.value);
   };
-  // };
 };
