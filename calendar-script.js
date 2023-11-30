@@ -1,7 +1,7 @@
 const arrowPrev = document.querySelector('.arrow-prev');
 const arrowNext = document.querySelector('.arrow-next');
 const days = document.querySelector('.days');
-const currentMonth = document.querySelector('.month h3');
+const currentMonthH3 = document.querySelector('.month h3');
 const dateDetail = document.querySelector('.chosen-date h3');
 const schContinueBtn = document.getElementById('sch-continue-btn');
 const schBackBtn = document.getElementById('sch-back-btn');
@@ -79,12 +79,12 @@ const date = new Date();
 const pageURL = window.location.href;
 
 const renderCalendar = () => {
-  const meseci = [];
-  const dani = [];
-  const month = date.getMonth();
+  const monthsList = [];
+  const daysList = [];
+  let monthIndex = date.getMonth();
 
   if (pageURL.includes('-en')) {
-    meseci.push(
+    monthsList.push(
       'January',
       'February',
       'March',
@@ -98,7 +98,7 @@ const renderCalendar = () => {
       'November',
       'December'
     );
-    dani.push(
+    daysList.push(
       'Sunday',
       'Monday',
       'Tuesday',
@@ -108,7 +108,7 @@ const renderCalendar = () => {
       'Saturday'
     );
   } else {
-    meseci.push(
+    monthsList.push(
       'Januar',
       'Februar',
       'Mart',
@@ -122,7 +122,7 @@ const renderCalendar = () => {
       'Novembar',
       'Decembar'
     );
-    dani.push(
+    daysList.push(
       'Nedelja',
       'Ponedeljak',
       'Utorak',
@@ -133,9 +133,9 @@ const renderCalendar = () => {
     );
   }
 
-  const mesec = meseci[month];
+  const displayedMonth = monthsList[monthIndex];
 
-  currentMonth.innerHTML = `${mesec} ${date.getFullYear()}`;
+  currentMonthH3.innerHTML = `${displayedMonth} ${date.getFullYear()}`;
 
   const lastDateOfMonth = new Date(
     date.getFullYear(),
@@ -182,27 +182,32 @@ const renderCalendar = () => {
     days.innerHTML += `<div class="next-date">${x}</div>`;
   }
 
-  const monthDates = days.querySelectorAll('div');
+  const monthDates = days.childNodes;
+  console.log(monthDates);
 
   const changeDateDetails = (elem) => {
-    let clickedDate = new Date(date.getFullYear(), month, elem.innerHTML);
+    const clickedDate = new Date(
+      date.getFullYear(),
+      monthIndex,
+      elem.innerHTML
+    );
     const day = clickedDate.getDay();
-    const clickedDan = dani[day];
-    dateDetail.innerHTML = `${clickedDan} ${clickedDate.getDate()} ${mesec} ${clickedDate.getFullYear()}`;
+    const clickedDan = daysList[day];
+    dateDetail.innerHTML = `${clickedDan} ${clickedDate.getDate()} ${displayedMonth} ${clickedDate.getFullYear()}`;
   };
 
-  const changePrevNextMonth = (elem) => {
-    elem.addEventListener('click', () => {
-      if (elem.classList.contains('next-date')) {
-        date.setMonth(month + 1);
-        renderCalendar();
-      }
-      if (elem.classList.contains('prev-date')) {
-        date.setMonth(month - 1);
-        renderCalendar();
-      }
-    });
-  };
+  // const changePrevNextMonth = (elem) => {
+  //   elem.addEventListener('click', () => {
+  //     if (elem.classList.contains('next-date')) {
+  //       date.setMonth(month + 1);
+  //       renderCalendar();
+  //     }
+  //     if (elem.classList.contains('prev-date')) {
+  //       date.setMonth(month - 1);
+  //       renderCalendar();
+  //     }
+  //   });
+  // };
 
   const showCalendarError = () => {
     calendarModal.hide();
@@ -212,8 +217,31 @@ const renderCalendar = () => {
   //for "const date" - month and year are changing because of date manipulation during month change, but the date for date is not i.e. it is today's date
   const checkClickedDate = (elem) => {
     const currentDate = new Date();
-    const clickedDate = new Date(date.getFullYear(), month, elem.innerHTML);
+
+    if (elem.classList.contains('next-date')) {
+      const nextMonthIndex = monthIndex + 1;
+      date.setMonth(nextMonthIndex);
+      monthIndex = date.getMonth();
+      console.log(monthIndex);
+      console.log(nextMonthIndex);
+      renderCalendar();
+    }
+    if (elem.classList.contains('prev-date')) {
+      const prevMonthIndex = monthIndex - 1;
+      date.setMonth(prevMonthIndex);
+      monthIndex = date.getMonth();
+      console.log(monthIndex);
+      console.log(prevMonthIndex);
+
+      renderCalendar();
+    }
+    const clickedDate = new Date(
+      date.getFullYear(),
+      monthIndex,
+      elem.innerHTML
+    );
     clickedDateId = `${clickedDate.getFullYear()}${clickedDate.getMonth()}${clickedDate.getDate()}`;
+    console.log(clickedDateId);
     if (clickedDate.getFullYear() === currentDate.getFullYear()) {
       if (clickedDate.getMonth() >= currentDate.getMonth()) {
         if (clickedDate.getDate() >= currentDate.getDate()) {
@@ -241,8 +269,9 @@ const renderCalendar = () => {
   };
   monthDates.forEach((dateDiv) => {
     dateDiv.addEventListener('click', () => {
+      console.log(dateDiv);
       changeDateDetails(dateDiv);
-      changePrevNextMonth(dateDiv);
+      // changePrevNextMonth(dateDiv);
       checkClickedDate(dateDiv);
       timeCheck();
     });
@@ -253,15 +282,11 @@ arrowPrev.addEventListener('click', () => {
   const prevMonth = date.getMonth() - 1;
   date.setMonth(prevMonth);
   renderCalendar();
-  console.log(date);
-  console.log(prevMonth);
 });
 arrowNext.addEventListener('click', () => {
   const nextMonth = date.getMonth() + 1;
   date.setMonth(nextMonth);
   renderCalendar();
-  console.log(date);
-  console.log(nextMonth);
 });
 
 //setting time values for schedule
