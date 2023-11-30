@@ -217,22 +217,16 @@ const renderCalendar = () => {
   //for "const date" - month and year are changing because of date manipulation during month change, but the date for date is not i.e. it is today's date
   const checkClickedDate = (elem) => {
     const currentDate = new Date();
-
     if (elem.classList.contains('next-date')) {
       const nextMonthIndex = monthIndex + 1;
       date.setMonth(nextMonthIndex);
       monthIndex = date.getMonth();
-      console.log(monthIndex);
-      console.log(nextMonthIndex);
       renderCalendar();
     }
     if (elem.classList.contains('prev-date')) {
       const prevMonthIndex = monthIndex - 1;
       date.setMonth(prevMonthIndex);
       monthIndex = date.getMonth();
-      console.log(monthIndex);
-      console.log(prevMonthIndex);
-
       renderCalendar();
     }
     const clickedDate = new Date(
@@ -240,22 +234,27 @@ const renderCalendar = () => {
       monthIndex,
       elem.innerHTML
     );
-    clickedDateId = `${clickedDate.getFullYear()}${clickedDate.getMonth()}${clickedDate.getDate()}`;
-    console.log(clickedDateId);
-    if (clickedDate.getFullYear() === currentDate.getFullYear()) {
-      if (clickedDate.getMonth() >= currentDate.getMonth()) {
-        if (clickedDate.getDate() >= currentDate.getDate()) {
-          calendarModal.hide();
-          scheduleModal.show();
-          resetScheduleValues();
-          setTimeValues();
-        } else {
-          showCalendarError();
-        }
-      } else {
-        showCalendarError();
-      }
+    // const clickedDateId = Number(
+    //   `${clickedDate.getFullYear()}${clickedDate.getMonth()}${clickedDate.getDate()}`
+    // );
+    // const currentDateId = Number(
+    //   `${currentDate.getFullYear()}${currentDate.getMonth()}${currentDate.getDate()}`
+    // );
+    // console.log(clickedDateId, currentDateId);
+
+    if (
+      (clickedDate.getFullYear() >= currentDate.getFullYear() &&
+        clickedDate.getMonth() >= currentDate.getDate()) ||
+      elem.classList.contains('next-date')
+    ) {
+      calendarModal.hide();
+      scheduleModal.show();
+      resetScheduleValues();
+      setTimeValues();
+    } else {
+      showCalendarError();
     }
+
     if (clickedDate.getFullYear() < currentDate.getFullYear()) {
       showCalendarError();
     }
