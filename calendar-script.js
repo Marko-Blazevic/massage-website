@@ -69,16 +69,16 @@ let formModal = new bootstrap.Modal(document.getElementById('form-modal'), {
   keyboard: false,
 });
 
+let date;
 const onCalendarLoad = () => {
+  date = new Date();
   calendarModal.show();
-  renderCalendar();
+  renderCalendar(date);
 };
-
-const date = new Date();
 
 const pageURL = window.location.href;
 
-const renderCalendar = () => {
+const renderCalendar = (date) => {
   const monthsList = [];
   const daysList = [];
   let monthIndex = date.getMonth();
@@ -181,10 +181,7 @@ const renderCalendar = () => {
   for (x = 1; x < 9 - nextMonthFirstDayIndex; x++) {
     days.innerHTML += `<div class="next-date">${x}</div>`;
   }
-
   const monthDates = days.childNodes;
-  console.log(monthDates);
-
   const changeDateDetails = (elem) => {
     const clickedDate = new Date(
       date.getFullYear(),
@@ -209,66 +206,44 @@ const renderCalendar = () => {
   //   });
   // };
 
-  const showCalendarError = () => {
-    calendarModal.hide();
-    calendarErrorModal.show();
-  };
-
-  //for "const date" - month and year are changing because of date manipulation during month change, but the date for date is not i.e. it is today's date
   const checkClickedDate = (elem) => {
+    const clickedDateOk = () => {
+      calendarModal.hide();
+      scheduleModal.show();
+      resetScheduleValues();
+      setTimeValues();
+    };
+    const clickedDateNotOk = () => {
+      calendarModal.hide();
+      calendarErrorModal.show();
+    };
     const currentDate = new Date();
-    if (elem.classList.contains('next-date')) {
-      const nextMonthIndex = monthIndex + 1;
-      date.setMonth(nextMonthIndex);
-      monthIndex = date.getMonth();
-      renderCalendar();
-    }
-    if (elem.classList.contains('prev-date')) {
-      const prevMonthIndex = monthIndex - 1;
-      date.setMonth(prevMonthIndex);
-      monthIndex = date.getMonth();
-      renderCalendar();
-    }
     const clickedDate = new Date(
       date.getFullYear(),
       monthIndex,
       elem.innerHTML
     );
-    // const clickedDateId = Number(
-    //   `${clickedDate.getFullYear()}${clickedDate.getMonth()}${clickedDate.getDate()}`
-    // );
-    // const currentDateId = Number(
-    //   `${currentDate.getFullYear()}${currentDate.getMonth()}${currentDate.getDate()}`
-    // );
-    // console.log(clickedDateId, currentDateId);
-
-    if (
-      (clickedDate.getFullYear() >= currentDate.getFullYear() &&
-        clickedDate.getMonth() >= currentDate.getDate()) ||
-      elem.classList.contains('next-date')
-    ) {
-      calendarModal.hide();
-      scheduleModal.show();
-      resetScheduleValues();
-      setTimeValues();
+    if (clickedDate.getFullYear() === currentDate.getFullYear()) {
+      if (clickedDate.getMonth() === currentDate.getMonth()) {
+        if (clickedDate.getDate() >= currentDate.getDate()) {
+          clickedDateOk();
+        } else {
+          clickedDateNotOk();
+        }
+      } else if (clickedDate.getMonth() > currentDate.getMonth()) {
+        clickedDateOk();
+      } else {
+        clickedDateNotOk();
+      }
+    } else if (clickedDate.getFullYear() > currentDate.getFullYear()) {
+      clickedDateOk();
     } else {
-      showCalendarError();
+      clickedDateNotOk();
     }
-
-    if (clickedDate.getFullYear() < currentDate.getFullYear()) {
-      showCalendarError();
-    }
-    if (clickedDate.getFullYear() > currentDate.getFullYear()) {
-      calendarModal.hide();
-      scheduleModal.show();
-      resetScheduleValues();
-      //here check if clicked date exists in data base and take time value for adding 'unclick' class - if free time array.length == 0, unclick day
-      setTimeValues();
-    }
+    //here check if clicked date exists in data base and take time value for adding 'unclick' class - if free time array.length == 0, unclick day
   };
   monthDates.forEach((dateDiv) => {
     dateDiv.addEventListener('click', () => {
-      console.log(dateDiv);
       changeDateDetails(dateDiv);
       // changePrevNextMonth(dateDiv);
       checkClickedDate(dateDiv);
@@ -280,12 +255,14 @@ const renderCalendar = () => {
 arrowPrev.addEventListener('click', () => {
   const prevMonth = date.getMonth() - 1;
   date.setMonth(prevMonth);
-  renderCalendar();
+  console.log(prevMonth, date.getMonth());
+  renderCalendar(date);
 });
 arrowNext.addEventListener('click', () => {
   const nextMonth = date.getMonth() + 1;
   date.setMonth(nextMonth);
-  renderCalendar();
+  console.log(nextMonth, date.getMonth());
+  renderCalendar(date);
 });
 
 //setting time values for schedule

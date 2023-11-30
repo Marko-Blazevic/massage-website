@@ -329,6 +329,7 @@ form {
 .prev-date,
 .next-date {
   color: rgba(0, 0, 0, 0.301);
+  pointer-events: none;
 }
 .today {
   background-color: #ffc107;
