@@ -1,8 +1,10 @@
-const arrowPrev = document.querySelector('.arrow-prev');
-const arrowNext = document.querySelector('.arrow-next');
+const arrowPrevMonth = document.querySelector('.arrow-prev-month');
+const arrowNextMonth = document.querySelector('.arrow-next-month');
+const arrowPrevDay = document.querySelector('.arrow-prev-day');
+const arrowNextDay = document.querySelector('.arrow-next-day');
 const days = document.querySelector('.days');
 const currentMonthH3 = document.querySelector('.month h3');
-const dateDetail = document.querySelector('.chosen-date h3');
+const chosenDate = document.querySelector('.chosen-date h3');
 const schContinueBtn = document.getElementById('sch-continue-btn');
 const schBackBtn = document.getElementById('sch-back-btn');
 const schedulesSelect = document.querySelectorAll('.sch-select');
@@ -182,30 +184,24 @@ const renderCalendar = (date) => {
     days.innerHTML += `<div class="next-date">${x}</div>`;
   }
   const monthDates = days.childNodes;
-  const changeDateDetails = (elem) => {
-    const clickedDate = new Date(
-      date.getFullYear(),
-      monthIndex,
-      elem.innerHTML
-    );
-    const day = clickedDate.getDay();
-    const clickedDan = daysList[day];
-    dateDetail.innerHTML = `${clickedDan} ${clickedDate.getDate()} ${displayedMonth} ${clickedDate.getFullYear()}`;
+  const clickedDate = (date, elem) => {
+    return new Date(date.getFullYear(), monthIndex, elem.innerHTML);
   };
+  const changeDateDetails = (elem) => {
+    const clickedDateValue = clickedDate(date, elem);
+    console.log(clickedDateValue);
 
-  // const changePrevNextMonth = (elem) => {
-  //   elem.addEventListener('click', () => {
-  //     if (elem.classList.contains('next-date')) {
-  //       date.setMonth(month + 1);
-  //       renderCalendar();
-  //     }
-  //     if (elem.classList.contains('prev-date')) {
-  //       date.setMonth(month - 1);
-  //       renderCalendar();
-  //     }
-  //   });
-  // };
-
+    // clickedDate(date, elem); ovoooooo
+    // const clickedDate = new Date(
+    //   date.getFullYear(),
+    //   monthIndex,
+    //   elem.innerHTML
+    // );
+    const day = clickedDateValue.getDay();
+    const clickedDay = daysList[day];
+    chosenDate.innerHTML = `${clickedDay} ${clickedDateValue.getDate()} ${displayedMonth} ${clickedDateValue.getFullYear()}`;
+    clickedDateId = `${clickedDateValue.getFullYear()}${clickedDateValue.getMonth()}${clickedDateValue.getDate()}`;
+  };
   const checkClickedDate = (elem) => {
     const clickedDateOk = () => {
       calendarModal.hide();
@@ -218,24 +214,26 @@ const renderCalendar = (date) => {
       calendarErrorModal.show();
     };
     const currentDate = new Date();
-    const clickedDate = new Date(
-      date.getFullYear(),
-      monthIndex,
-      elem.innerHTML
-    );
-    if (clickedDate.getFullYear() === currentDate.getFullYear()) {
-      if (clickedDate.getMonth() === currentDate.getMonth()) {
-        if (clickedDate.getDate() >= currentDate.getDate()) {
+    const clickedDateValue = clickedDate(date, elem);
+
+    // const clickedDate = new Date(
+    //   date.getFullYear(),
+    //   monthIndex,
+    //   elem.innerHTML
+    // );
+    if (clickedDateValue.getFullYear() === currentDate.getFullYear()) {
+      if (clickedDateValue.getMonth() === currentDate.getMonth()) {
+        if (clickedDateValue.getDate() >= currentDate.getDate()) {
           clickedDateOk();
         } else {
           clickedDateNotOk();
         }
-      } else if (clickedDate.getMonth() > currentDate.getMonth()) {
+      } else if (clickedDateValue.getMonth() > currentDate.getMonth()) {
         clickedDateOk();
       } else {
         clickedDateNotOk();
       }
-    } else if (clickedDate.getFullYear() > currentDate.getFullYear()) {
+    } else if (clickedDateValue.getFullYear() > currentDate.getFullYear()) {
       clickedDateOk();
     } else {
       clickedDateNotOk();
@@ -245,20 +243,19 @@ const renderCalendar = (date) => {
   monthDates.forEach((dateDiv) => {
     dateDiv.addEventListener('click', () => {
       changeDateDetails(dateDiv);
-      // changePrevNextMonth(dateDiv);
       checkClickedDate(dateDiv);
       timeCheck();
     });
   });
 };
 
-arrowPrev.addEventListener('click', () => {
+arrowPrevMonth.addEventListener('click', () => {
   const prevMonth = date.getMonth() - 1;
   date.setMonth(prevMonth);
   console.log(prevMonth, date.getMonth());
   renderCalendar(date);
 });
-arrowNext.addEventListener('click', () => {
+arrowNextMonth.addEventListener('click', () => {
   const nextMonth = date.getMonth() + 1;
   date.setMonth(nextMonth);
   console.log(nextMonth, date.getMonth());
@@ -287,6 +284,7 @@ const setTimeValues = () => {
 const timeCheck = () => {
   const timeOptions = document.querySelectorAll('.time-option');
   scheduleValuesData.forEach((data) => {
+    console.log(clickedDateId, data.date);
     if (clickedDateId === data.date) {
       scheduleTimeData.push(...data.time);
     }
