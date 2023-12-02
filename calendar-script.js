@@ -13,6 +13,7 @@ const massageSelect = document.getElementById('mass-select');
 let freeScheduleTime = [];
 let timeIndexes = [];
 let scheduleTimeData = [];
+let displayedDate;
 let clickedDateId;
 let checkTime;
 let massageDataValue;
@@ -248,9 +249,18 @@ const renderCalendar = (date) => {
   });
   arrowPrevDay.addEventListener('click', () => {
     const displayedFullDate = chosenDate.textContent.split(' ');
-    const displayedDate = displayedFullDate[1];
+    const displayedDate = Number(displayedFullDate[1]);
     const prevDay = displayedDate - 1;
     changeDateDetails(prevDay);
+    // date.setDate(prevDay);
+    // renderCalendar(date);
+    // console.log(prevDay);
+  });
+  arrowNextDay.addEventListener('click', () => {
+    const displayedFullDate = chosenDate.textContent.split(' ');
+    displayedDate = Number(displayedFullDate[1]);
+    const nextDay = displayedDate + 1;
+    changeDateDetails(nextDay);
     // date.setDate(prevDay);
     // renderCalendar(date);
     // console.log(prevDay);
@@ -364,6 +374,7 @@ schBackBtn.addEventListener('click', () => {
   scheduleTimeData = [];
   timeIndexes = [];
   freeScheduleTime = [];
+  displayedDate = '';
 });
 schContinueBtn.addEventListener('click', () => {
   checkTimeAndMassage();
