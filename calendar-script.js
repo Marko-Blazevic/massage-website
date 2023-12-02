@@ -83,7 +83,7 @@ const pageURL = window.location.href;
 const renderCalendar = (date) => {
   const monthsList = [];
   const daysList = [];
-  let monthIndex = date.getMonth();
+  const monthIndex = date.getMonth();
 
   if (pageURL.includes('-en')) {
     monthsList.push(
@@ -184,22 +184,19 @@ const renderCalendar = (date) => {
     days.innerHTML += `<div class="next-date">${x}</div>`;
   }
   const monthDates = days.childNodes;
-  const clickedDate = (date, elem) => {
-    return new Date(date.getFullYear(), monthIndex, elem.innerHTML);
+  const clickedDate = (elem) => {
+    console.log(elem);
+    return new Date(date.getFullYear(), monthIndex, elem);
   };
   const changeDateDetails = (elem) => {
-    const clickedDateValue = clickedDate(date, elem);
+    console.log(elem);
+    const clickedDateValue = clickedDate(elem);
     console.log(clickedDateValue);
-
-    // clickedDate(date, elem); ovoooooo
-    // const clickedDate = new Date(
-    //   date.getFullYear(),
-    //   monthIndex,
-    //   elem.innerHTML
-    // );
     const day = clickedDateValue.getDay();
     const clickedDay = daysList[day];
+
     chosenDate.innerHTML = `${clickedDay} ${clickedDateValue.getDate()} ${displayedMonth} ${clickedDateValue.getFullYear()}`;
+
     clickedDateId = `${clickedDateValue.getFullYear()}${clickedDateValue.getMonth()}${clickedDateValue.getDate()}`;
   };
   const checkClickedDate = (elem) => {
@@ -214,13 +211,7 @@ const renderCalendar = (date) => {
       calendarErrorModal.show();
     };
     const currentDate = new Date();
-    const clickedDateValue = clickedDate(date, elem);
-
-    // const clickedDate = new Date(
-    //   date.getFullYear(),
-    //   monthIndex,
-    //   elem.innerHTML
-    // );
+    const clickedDateValue = clickedDate(elem);
     if (clickedDateValue.getFullYear() === currentDate.getFullYear()) {
       if (clickedDateValue.getMonth() === currentDate.getMonth()) {
         if (clickedDateValue.getDate() >= currentDate.getDate()) {
@@ -242,7 +233,8 @@ const renderCalendar = (date) => {
   };
   monthDates.forEach((dateDiv) => {
     dateDiv.addEventListener('click', () => {
-      changeDateDetails(dateDiv);
+      const dateValue = dateDiv.textContent;
+      changeDateDetails(dateValue);
       checkClickedDate(dateDiv);
       timeCheck();
     });
@@ -250,16 +242,35 @@ const renderCalendar = (date) => {
 };
 
 arrowPrevMonth.addEventListener('click', () => {
-  const prevMonth = date.getMonth() - 1;
+  let prevMonth = date.getMonth() - 1;
+  if (prevMonth === -1) {
+    prevMonth = 11;
+  }
   date.setMonth(prevMonth);
   console.log(prevMonth, date.getMonth());
   renderCalendar(date);
 });
 arrowNextMonth.addEventListener('click', () => {
-  const nextMonth = date.getMonth() + 1;
+  let nextMonth = date.getMonth() + 1;
+  if (nextMonth === 12) {
+    nextMonth = 0;
+  }
   date.setMonth(nextMonth);
   console.log(nextMonth, date.getMonth());
   renderCalendar(date);
+});
+
+arrowPrevDay.addEventListener('click', () => {
+  const displayedFullDate = chosenDate.textContent.split(' ');
+  const displayedDate = displayedFullDate[1];
+  const prevDay = displayedDate - 1;
+  if (prevDay === 0) {
+    prevDay = -1;
+  }
+  changeDateDetails(prevDay);
+  // date.setDate(prevDay);
+  // renderCalendar(date);
+  // console.log(prevDay);
 });
 
 //setting time values for schedule
