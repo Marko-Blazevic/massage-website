@@ -28,7 +28,7 @@ let timeDataIndex;
 //this data have to come from database
 const scheduleValuesData = [
   {
-    date: '20231030',
+    date: '20231119',
     time: [
       2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
       25, 26, 27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
@@ -36,14 +36,14 @@ const scheduleValuesData = [
     ],
   },
   {
-    date: '20231028',
+    date: '20231120',
     time: [
       2, 3, 4, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
       27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
     ],
   },
   {
-    date: '20231029',
+    date: '20231121',
     time: [
       1, 2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 25, 26, 27, 28, 29, 30, 34, 35,
       36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
@@ -187,6 +187,7 @@ const renderCalendar = (date) => {
   const monthDates = days.childNodes;
 
   const clickedDate = (elem) => {
+    console.log(elem);
     let elemText = elem.textContent;
     if (isNaN(elem)) {
       console.log(elem);
@@ -242,9 +243,10 @@ const renderCalendar = (date) => {
   monthDates.forEach((dateDiv) => {
     dateDiv.addEventListener('click', () => {
       const dateValue = dateDiv.textContent;
+      console.log(dateValue);
       changeDateDetails(dateValue);
       checkClickedDate(dateDiv);
-      timeCheck();
+      timeCheck(clickedDateId);
     });
   });
   arrowPrevDay.addEventListener('click', () => {
@@ -252,6 +254,12 @@ const renderCalendar = (date) => {
     const displayedDate = Number(displayedFullDate[1]);
     const prevDay = displayedDate - 1;
     changeDateDetails(prevDay);
+    const date = clickedDate(prevDay);
+    clickedDateId = `${date.getFullYear()}${date.getMonth()}${date.getDate()}`;
+    console.log(clickedDateId);
+    resetScheduleData();
+    timeCheck(clickedDateId);
+
     // date.setDate(prevDay);
     // renderCalendar(date);
     // console.log(prevDay);
@@ -261,12 +269,22 @@ const renderCalendar = (date) => {
     displayedDate = Number(displayedFullDate[1]);
     const nextDay = displayedDate + 1;
     changeDateDetails(nextDay);
+    const date = clickedDate(nextDay);
+    clickedDateId = `${date.getFullYear()}${date.getMonth()}${date.getDate()}`;
+    console.log(clickedDateId);
+    resetScheduleData();
+    timeCheck(clickedDateId);
     // date.setDate(prevDay);
     // renderCalendar(date);
     // console.log(prevDay);
   });
 };
-
+const resetScheduleData = () => {
+  scheduleTimeData = [];
+  timeIndexes = [];
+  freeScheduleTime = [];
+  displayedDate = '';
+};
 arrowPrevMonth.addEventListener('click', () => {
   let prevMonth = date.getMonth() - 1;
   date.setMonth(prevMonth);
@@ -297,7 +315,7 @@ const setTimeValues = () => {
     timeSelect.appendChild(option);
   });
 };
-const timeCheck = () => {
+const timeCheck = (clickedDateId) => {
   const timeOptions = document.querySelectorAll('.time-option');
   scheduleValuesData.forEach((data) => {
     console.log(clickedDateId, data.date);
@@ -371,10 +389,7 @@ const isContinuous = (freeScheduleTime, massageValue) => {
   return false;
 };
 schBackBtn.addEventListener('click', () => {
-  scheduleTimeData = [];
-  timeIndexes = [];
-  freeScheduleTime = [];
-  displayedDate = '';
+  resetScheduleData();
 });
 schContinueBtn.addEventListener('click', () => {
   checkTimeAndMassage();
