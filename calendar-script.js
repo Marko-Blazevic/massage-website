@@ -1,7 +1,8 @@
 const arrowPrevMonth = document.querySelector('.arrow-prev-month');
 const arrowNextMonth = document.querySelector('.arrow-next-month');
-const arrowPrevDay = document.querySelector('.arrow-prev-day');
-const arrowNextDay = document.querySelector('.arrow-next-day');
+// const arrowPrevDay = document.querySelector('.arrow-prev-day');
+// const arrowNextDay = document.querySelector('.arrow-next-day');
+const arrowPrevNextDay = document.querySelectorAll('.arrow-day');
 const days = document.querySelector('.days');
 const currentMonthH3 = document.querySelector('.month h3');
 const chosenDate = document.querySelector('.chosen-date h3');
@@ -187,19 +188,16 @@ const renderCalendar = (date) => {
   const monthDates = days.childNodes;
 
   const clickedDate = (elem) => {
-    console.log(elem);
-    let elemText = elem.textContent;
+    let elemText;
     if (isNaN(elem)) {
-      console.log(elem);
+      elemText = Number(elem.textContent);
     } else {
       elemText = elem;
     }
     return new Date(date.getFullYear(), monthIndex, elemText);
   };
   const changeDateDetails = (elem) => {
-    console.log(elem);
     const clickedDateValue = clickedDate(elem);
-    console.log(clickedDateValue);
     const day = clickedDateValue.getDay();
     const clickedDay = daysList[day];
 
@@ -243,41 +241,49 @@ const renderCalendar = (date) => {
   monthDates.forEach((dateDiv) => {
     dateDiv.addEventListener('click', () => {
       const dateValue = dateDiv.textContent;
-      console.log(dateValue);
       changeDateDetails(dateValue);
       checkClickedDate(dateDiv);
       timeCheck(clickedDateId);
     });
   });
-  arrowPrevDay.addEventListener('click', () => {
-    const displayedFullDate = chosenDate.textContent.split(' ');
-    const displayedDate = Number(displayedFullDate[1]);
-    const prevDay = displayedDate - 1;
-    changeDateDetails(prevDay);
-    const date = clickedDate(prevDay);
-    clickedDateId = `${date.getFullYear()}${date.getMonth()}${date.getDate()}`;
-    console.log(clickedDateId);
-    resetScheduleData();
-    timeCheck(clickedDateId);
-
-    // date.setDate(prevDay);
-    // renderCalendar(date);
-    // console.log(prevDay);
+  arrowPrevNextDay.forEach((elem) => {
+    elem.addEventListener('click', () => {
+      let prevNextDay;
+      const displayedFullDate = chosenDate.textContent.split(' ');
+      const displayedDate = Number(displayedFullDate[1]);
+      if (elem.hasAttribute('data-prev')) {
+        prevNextDay = displayedDate - 1;
+      }
+      if (elem.hasAttribute('data-next')) {
+        prevNextDay = displayedDate + 1;
+      }
+      changeDateDetails(prevNextDay);
+      const date = clickedDate(prevNextDay);
+      clickedDateId = `${date.getFullYear()}${date.getMonth()}${date.getDate()}`;
+      resetScheduleData();
+      timeCheck(clickedDateId);
+    });
   });
-  arrowNextDay.addEventListener('click', () => {
-    const displayedFullDate = chosenDate.textContent.split(' ');
-    displayedDate = Number(displayedFullDate[1]);
-    const nextDay = displayedDate + 1;
-    changeDateDetails(nextDay);
-    const date = clickedDate(nextDay);
-    clickedDateId = `${date.getFullYear()}${date.getMonth()}${date.getDate()}`;
-    console.log(clickedDateId);
-    resetScheduleData();
-    timeCheck(clickedDateId);
-    // date.setDate(prevDay);
-    // renderCalendar(date);
-    // console.log(prevDay);
-  });
+  // arrowPrevDay.addEventListener('click', () => {
+  //   const displayedFullDate = chosenDate.textContent.split(' ');
+  //   const displayedDate = Number(displayedFullDate[1]);
+  //   const prevDay = displayedDate - 1;
+  //   changeDateDetails(prevDay);
+  //   const date = clickedDate(prevDay);
+  //   clickedDateId = `${date.getFullYear()}${date.getMonth()}${date.getDate()}`;
+  //   resetScheduleData();
+  //   timeCheck(clickedDateId);
+  // });
+  // arrowNextDay.addEventListener('click', () => {
+  //   const displayedFullDate = chosenDate.textContent.split(' ');
+  //   displayedDate = Number(displayedFullDate[1]);
+  //   const nextDay = displayedDate + 1;
+  //   changeDateDetails(nextDay);
+  //   const date = clickedDate(nextDay);
+  //   clickedDateId = `${date.getFullYear()}${date.getMonth()}${date.getDate()}`;
+  //   resetScheduleData();
+  //   timeCheck(clickedDateId);
+  // });
 };
 const resetScheduleData = () => {
   scheduleTimeData = [];
@@ -318,7 +324,6 @@ const setTimeValues = () => {
 const timeCheck = (clickedDateId) => {
   const timeOptions = document.querySelectorAll('.time-option');
   scheduleValuesData.forEach((data) => {
-    console.log(clickedDateId, data.date);
     if (clickedDateId === data.date) {
       scheduleTimeData.push(...data.time);
     }
