@@ -338,7 +338,9 @@ form {
   display: flex;
   justify-content: center;
   align-content: center;
-  padding: 0 3rem 0 3rem;
+}
+.schedule-display {
+  width: 360px;
 }
 .chosen-date {
   height: 5rem;

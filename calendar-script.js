@@ -184,9 +184,15 @@ const renderCalendar = (date) => {
     days.innerHTML += `<div class="next-date">${x}</div>`;
   }
   const monthDates = days.childNodes;
+
   const clickedDate = (elem) => {
-    console.log(elem);
-    return new Date(date.getFullYear(), monthIndex, elem);
+    let elemText = elem.textContent;
+    if (isNaN(elem)) {
+      console.log(elem);
+    } else {
+      elemText = elem;
+    }
+    return new Date(date.getFullYear(), monthIndex, elemText);
   };
   const changeDateDetails = (elem) => {
     console.log(elem);
@@ -211,6 +217,7 @@ const renderCalendar = (date) => {
       calendarErrorModal.show();
     };
     const currentDate = new Date();
+    // const clickedDateText = elem.textContent;
     const clickedDateValue = clickedDate(elem);
     if (clickedDateValue.getFullYear() === currentDate.getFullYear()) {
       if (clickedDateValue.getMonth() === currentDate.getMonth()) {
@@ -239,38 +246,26 @@ const renderCalendar = (date) => {
       timeCheck();
     });
   });
+  arrowPrevDay.addEventListener('click', () => {
+    const displayedFullDate = chosenDate.textContent.split(' ');
+    const displayedDate = displayedFullDate[1];
+    const prevDay = displayedDate - 1;
+    changeDateDetails(prevDay);
+    // date.setDate(prevDay);
+    // renderCalendar(date);
+    // console.log(prevDay);
+  });
 };
 
 arrowPrevMonth.addEventListener('click', () => {
   let prevMonth = date.getMonth() - 1;
-  if (prevMonth === -1) {
-    prevMonth = 11;
-  }
   date.setMonth(prevMonth);
-  console.log(prevMonth, date.getMonth());
   renderCalendar(date);
 });
 arrowNextMonth.addEventListener('click', () => {
   let nextMonth = date.getMonth() + 1;
-  if (nextMonth === 12) {
-    nextMonth = 0;
-  }
   date.setMonth(nextMonth);
-  console.log(nextMonth, date.getMonth());
   renderCalendar(date);
-});
-
-arrowPrevDay.addEventListener('click', () => {
-  const displayedFullDate = chosenDate.textContent.split(' ');
-  const displayedDate = displayedFullDate[1];
-  const prevDay = displayedDate - 1;
-  if (prevDay === 0) {
-    prevDay = -1;
-  }
-  changeDateDetails(prevDay);
-  // date.setDate(prevDay);
-  // renderCalendar(date);
-  // console.log(prevDay);
 });
 
 //setting time values for schedule
