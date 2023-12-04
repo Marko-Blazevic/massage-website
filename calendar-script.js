@@ -32,7 +32,7 @@ let prevNextDay; //should this be deleted?
 //this data have to come from database
 const scheduleValuesData = [
   {
-    date: '2023125',
+    date: '2023115',
     time: [
       2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
       25, 26, 27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
@@ -40,14 +40,14 @@ const scheduleValuesData = [
     ],
   },
   {
-    date: '2023127',
+    date: '2023117',
     time: [
       2, 3, 4, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
       27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
     ],
   },
   {
-    date: '2023129',
+    date: '2023119',
     time: [
       1, 2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 25, 26, 27, 28, 29, 30, 34, 35,
       36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
@@ -182,6 +182,7 @@ const renderCalendar = (date) => {
       changeDateDetails(dateValue);
       checkClickedDate(dateValue);
       timeCheck(clickedDateId);
+      console.log(clickedDateId);
     });
   });
 };
@@ -256,7 +257,10 @@ const arrowPrevNextDayHandler = (elem) => {
 };
 if (!arrowPrevNextDayListener) {
   arrowPrevNextDay.forEach((elem) => {
-    elem.addEventListener('click', () => arrowPrevNextDayHandler(elem));
+    elem.addEventListener('click', () => {
+      resetScheduleData();
+      arrowPrevNextDayHandler(elem);
+    });
   });
   arrowPrevNextDayListener = true;
 }
@@ -265,6 +269,7 @@ function onSchBackBtnClick() {
   arrowPrevNextDay.forEach((elem) => {
     elem.removeEventListener('click', () => arrowPrevNextDayHandler(elem));
     arrowPrevNextDayListener = false;
+    resetScheduleData();
   });
   onCalendarLoad();
 }
@@ -278,13 +283,13 @@ arrowNextMonth.addEventListener('click', () => {
   date.setMonth(nextMonth);
   renderCalendar(date);
 });
-const resetScheduleData = () => {
+function resetScheduleData() {
   scheduleTimeData = [];
   timeIndexes = [];
   freeScheduleTime = [];
   displayedDate = null;
   clickedDateId = '';
-};
+}
 
 //setting time values for schedule
 const setTimeValues = () => {
