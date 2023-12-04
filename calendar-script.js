@@ -182,7 +182,6 @@ const renderCalendar = (date) => {
       changeDateDetails(dateValue);
       checkClickedDate(dateValue);
       timeCheck(clickedDateId);
-      console.log(clickedDateId);
     });
   });
 };
