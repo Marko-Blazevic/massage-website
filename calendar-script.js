@@ -1,7 +1,5 @@
 const arrowPrevMonth = document.querySelector('.arrow-prev-month');
 const arrowNextMonth = document.querySelector('.arrow-next-month');
-// const arrowPrevDay = document.querySelector('.arrow-prev-day');
-// const arrowNextDay = document.querySelector('.arrow-next-day');
 const arrowPrevNextDay = document.querySelectorAll('.arrow-day');
 const days = document.querySelector('.days');
 const currentMonthH3 = document.querySelector('.month h3');
@@ -83,9 +81,10 @@ const onCalendarLoad = () => {
 const pageURL = window.location.href;
 
 const renderCalendar = (date) => {
+  console.log(date);
   const monthsList = [];
   const daysList = [];
-  const monthIndex = date.getMonth();
+  let monthIndex = date.getMonth();
 
   if (pageURL.includes('-en')) {
     monthsList.push(
@@ -188,19 +187,25 @@ const renderCalendar = (date) => {
   const monthDates = days.childNodes;
 
   const clickedDate = (elem) => {
-    let elemText;
+    let dateText;
     if (isNaN(elem)) {
-      elemText = Number(elem.textContent);
+      dateText = Number(elem.textContent);
     } else {
-      elemText = elem;
+      dateText = elem;
     }
-    return new Date(date.getFullYear(), monthIndex, elemText);
+    return new Date(date.getFullYear(), date.getMonth(), dateText);
   };
   const changeDateDetails = (elem) => {
     const clickedDateValue = clickedDate(elem);
+    console.log(clickedDateValue);
     const day = clickedDateValue.getDay();
     const clickedDay = daysList[day];
-
+    const displayedMonth = monthsList[clickedDateValue.getMonth()];
+    date = new Date(
+      clickedDateValue.getFullYear(),
+      clickedDateValue.getMonth(),
+      clickedDateValue.getDate()
+    );
     chosenDate.innerHTML = `${clickedDay} ${clickedDateValue.getDate()} ${displayedMonth} ${clickedDateValue.getFullYear()}`;
 
     clickedDateId = `${clickedDateValue.getFullYear()}${clickedDateValue.getMonth()}${clickedDateValue.getDate()}`;
@@ -219,6 +224,7 @@ const renderCalendar = (date) => {
     const currentDate = new Date();
     // const clickedDateText = elem.textContent;
     const clickedDateValue = clickedDate(elem);
+    console.log(clickedDateValue);
     if (clickedDateValue.getFullYear() === currentDate.getFullYear()) {
       if (clickedDateValue.getMonth() === currentDate.getMonth()) {
         if (clickedDateValue.getDate() >= currentDate.getDate()) {
@@ -240,56 +246,41 @@ const renderCalendar = (date) => {
   };
   monthDates.forEach((dateDiv) => {
     dateDiv.addEventListener('click', () => {
-      const dateValue = dateDiv.textContent;
+      console.log(dateDiv);
+      const dateValue = Number(dateDiv.textContent);
+      console.log(dateValue);
       changeDateDetails(dateValue);
-      checkClickedDate(dateDiv);
+      checkClickedDate(dateValue);
       timeCheck(clickedDateId);
     });
   });
   arrowPrevNextDay.forEach((elem) => {
     elem.addEventListener('click', () => {
-      let prevNextDay;
+      let prevNextDay = null;
       const displayedFullDate = chosenDate.textContent.split(' ');
-      const displayedDate = Number(displayedFullDate[1]);
+      console.log(displayedFullDate);
+      displayedDate = Number(displayedFullDate[1]);
       if (elem.hasAttribute('data-prev')) {
         prevNextDay = displayedDate - 1;
       }
       if (elem.hasAttribute('data-next')) {
         prevNextDay = displayedDate + 1;
       }
-      changeDateDetails(prevNextDay);
       const date = clickedDate(prevNextDay);
+      console.log(prevNextDay);
       clickedDateId = `${date.getFullYear()}${date.getMonth()}${date.getDate()}`;
-      resetScheduleData();
+      console.log(clickedDateId);
+      changeDateDetails(prevNextDay);
       timeCheck(clickedDateId);
     });
   });
-  // arrowPrevDay.addEventListener('click', () => {
-  //   const displayedFullDate = chosenDate.textContent.split(' ');
-  //   const displayedDate = Number(displayedFullDate[1]);
-  //   const prevDay = displayedDate - 1;
-  //   changeDateDetails(prevDay);
-  //   const date = clickedDate(prevDay);
-  //   clickedDateId = `${date.getFullYear()}${date.getMonth()}${date.getDate()}`;
-  //   resetScheduleData();
-  //   timeCheck(clickedDateId);
-  // });
-  // arrowNextDay.addEventListener('click', () => {
-  //   const displayedFullDate = chosenDate.textContent.split(' ');
-  //   displayedDate = Number(displayedFullDate[1]);
-  //   const nextDay = displayedDate + 1;
-  //   changeDateDetails(nextDay);
-  //   const date = clickedDate(nextDay);
-  //   clickedDateId = `${date.getFullYear()}${date.getMonth()}${date.getDate()}`;
-  //   resetScheduleData();
-  //   timeCheck(clickedDateId);
-  // });
 };
 const resetScheduleData = () => {
   scheduleTimeData = [];
   timeIndexes = [];
   freeScheduleTime = [];
-  displayedDate = '';
+  displayedDate = null;
+  clickedDateId = '';
 };
 arrowPrevMonth.addEventListener('click', () => {
   let prevMonth = date.getMonth() - 1;
@@ -395,6 +386,7 @@ const isContinuous = (freeScheduleTime, massageValue) => {
 };
 schBackBtn.addEventListener('click', () => {
   resetScheduleData();
+  onCalendarLoad();
 });
 schContinueBtn.addEventListener('click', () => {
   checkTimeAndMassage();
