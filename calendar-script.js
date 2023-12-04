@@ -32,7 +32,7 @@ let prevNextDay; //should this be deleted?
 //this data have to come from database
 const scheduleValuesData = [
   {
-    date: '20231119',
+    date: '2023125',
     time: [
       2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
       25, 26, 27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
@@ -40,14 +40,14 @@ const scheduleValuesData = [
     ],
   },
   {
-    date: '20231120',
+    date: '2023127',
     time: [
       2, 3, 4, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
       27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
     ],
   },
   {
-    date: '20231121',
+    date: '2023129',
     time: [
       1, 2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 25, 26, 27, 28, 29, 30, 34, 35,
       36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
@@ -176,10 +176,8 @@ const renderCalendar = (date) => {
     days.innerHTML += `<div class="next-date">${x}</div>`;
   }
   const monthDates = days.childNodes;
-  console.log(monthDates);
   monthDates.forEach((dateDiv) => {
     dateDiv.addEventListener('click', () => {
-      console.log(dateDiv);
       const dateValue = Number(dateDiv.textContent);
       changeDateDetails(dateValue);
       checkClickedDate(dateValue);
@@ -187,7 +185,6 @@ const renderCalendar = (date) => {
     });
   });
 };
-
 const clickedDate = (elem) => {
   let dateText;
   if (isNaN(elem)) {
@@ -209,7 +206,6 @@ const clickedDateNotOk = () => {
 };
 const checkClickedDate = (elem) => {
   const clickedDateValue = clickedDate(elem);
-  console.log(clickedDateValue);
   if (clickedDateValue.getFullYear() === date.getFullYear()) {
     if (clickedDateValue.getMonth() === date.getMonth()) {
       if (clickedDateValue.getDate() >= date.getDate()) {
@@ -230,7 +226,6 @@ const checkClickedDate = (elem) => {
 };
 const changeDateDetails = (elem) => {
   const clickedDateValue = clickedDate(elem);
-  console.log(clickedDateValue);
   const day = clickedDateValue.getDay();
   const clickedDay = daysList[day];
   const displayedMonth = monthsList[clickedDateValue.getMonth()];
