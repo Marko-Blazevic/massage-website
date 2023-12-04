@@ -259,6 +259,7 @@ const arrowPrevNextDayHandler = (elem) => {
   const newDate = clickedDate(prevNextDay);
   clickedDateId = `${newDate.getFullYear()}${newDate.getMonth()}${newDate.getDate()}`;
   changeDateDetails(prevNextDay);
+  resetScheduleValues();
   timeCheck(clickedDateId);
 };
 if (!arrowPrevNextDayListener) {
