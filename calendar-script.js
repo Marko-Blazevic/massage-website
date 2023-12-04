@@ -67,6 +67,13 @@ let scheduleModal = new bootstrap.Modal(
   document.getElementById('schedule-modal'),
   { backdrop: 'static', keyboard: false }
 );
+let timeErrorModal = new bootstrap.Modal(
+  document.getElementById('time-error-modal'),
+  {
+    backdrop: 'static',
+    keyboard: false,
+  }
+);
 let errorModal = new bootstrap.Modal(document.getElementById('error-modal'), {
   backdrop: 'static',
   keyboard: false,
@@ -401,7 +408,8 @@ schContinueBtn.addEventListener('click', () => {
     formModal.show();
   }
   if (!checkTime) {
-    alert('Time and Massage not suitable'); //make new modal for this !!!!!!!!!!!!!!!
+    scheduleModal.hide();
+    timeErrorModal.show();
   }
 });
 const checkTimeAndMassage = () => {
