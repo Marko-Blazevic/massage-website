@@ -277,9 +277,7 @@ form {
   justify-content: space-between;
   align-content: center;
   align-items: center;
-  padding: 0.5rem 1rem;
   h3 {
-    padding: 0.5rem;
     margin-bottom: 0;
   }
   .month-text {
@@ -290,6 +288,7 @@ form {
 }
 .arrow {
   transition: transform 0.2s ease;
+  padding: 1.5rem 1rem 1.5rem 1rem;
 }
 .arrow:hover {
   transform: scale(1.2);
@@ -337,9 +336,9 @@ form {
 button {
   width: 160px;
   align-self: center;
-  &:hover {
-    scale: 1.018;
-  }
+}
+button:hover {
+  transform: scale(1.018);
 }
 .modal-footer {
   width: 360px;

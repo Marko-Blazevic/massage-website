@@ -286,10 +286,8 @@ form textarea {
   justify-content: space-between;
   align-content: center;
   align-items: center;
-  padding: 0.5rem 1rem;
 }
 .month h3 {
-  padding: 0.5rem;
   margin-bottom: 0;
 }
 .month .month-text {
@@ -300,6 +298,7 @@ form textarea {
 
 .arrow {
   transition: transform 0.2s ease;
+  padding: 1.5rem 1rem 1.5rem 1rem;
 }
 
 .arrow:hover {
@@ -357,8 +356,9 @@ button {
   width: 160px;
   align-self: center;
 }
+
 button:hover {
-  scale: 1.018;
+  transform: scale(1.018);
 }
 
 .modal-footer {
