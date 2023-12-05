@@ -334,6 +334,17 @@ form {
 .today {
   background-color: #ffc107;
 }
+button {
+  width: 160px;
+  align-self: center;
+  &:hover {
+    scale: 1.018;
+  }
+}
+.modal-footer {
+  width: 360px;
+  align-self: center;
+}
 .schedule-wrapper {
   display: flex;
   justify-content: center;
