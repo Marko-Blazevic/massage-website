@@ -87,7 +87,9 @@ let formModal = new bootstrap.Modal(document.getElementById('form-modal'), {
 });
 
 const onCalendarLoad = () => {
-  dateToday = new Date();
+  date = new Date();
+  dateToday = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  console.log(dateToday);
   calendarModal.show();
   renderCalendar(dateToday);
 };
@@ -218,11 +220,19 @@ const clickedDateNotOk = () => {
 };
 const checkClickedDate = (year, month, date) => {
   const clickedDateValue = clickedDate(year, month, date);
+  console.log(clickedDateValue);
   if (clickedDateValue >= dateToday) {
+    console.log('it is the more date');
     clickedDateOk();
-  } else {
+  }
+  if (clickedDateValue < dateToday) {
+    console.log('it is the less date');
     clickedDateNotOk();
   }
+  // } else {
+  //   console.log('it is the same date');
+  //   clickedDateOk();
+  // }
 };
 const changeDateDetailsHandler = (year, month, date) => {
   const clickedDateValue = clickedDate(year, month, date);
@@ -244,6 +254,7 @@ const arrowPrevNextDayHandler = (elem, date) => {
   console.log(date);
   prevNextDay = null;
   const displayedFullDate = chosenDateH3.textContent.split(' ');
+  console.log(displayedFullDate);
   displayedDate = Number(displayedFullDate[1]);
   if (elem.hasAttribute('data-prev')) {
     prevNextDay = displayedDate - 1;
@@ -251,14 +262,10 @@ const arrowPrevNextDayHandler = (elem, date) => {
   if (elem.hasAttribute('data-next')) {
     prevNextDay = displayedDate + 1;
   }
-  const newDate = clickedDate(date.getFullYear(), date.getMonth(), prevNextDay);
-  console.log(newDate);
-  clickedDateId = `${newDate.getFullYear()}${newDate.getMonth()}${newDate.getDate()}`;
-  changeDateDetailsHandler(
-    newDate.getFullYear(),
-    newDate.getMonth(),
-    prevNextDay
-  );
+  date.setDate(prevNextDay);
+  console.log(date);
+  clickedDateId = `${date.getFullYear()}${date.getMonth()}${date.getDate()}`;
+  changeDateDetailsHandler(date.getFullYear(), date.getMonth(), date.getDate());
   resetScheduleValues();
   timeCheck(clickedDateId);
 };
@@ -271,14 +278,20 @@ if (!arrowPrevNextDayListener) {
   });
   arrowPrevNextDayListener = true;
 }
-schBackBtn.addEventListener('click', onSchBackBtnClick);
+let schBackBtnListener = false;
+if (!schBackBtnListener) {
+  schBackBtn.addEventListener('click', onSchBackBtnClick);
+  schBackBtnListener = true;
+}
+
 function onSchBackBtnClick() {
   arrowPrevNextDay.forEach((elem) => {
     elem.removeEventListener('click', () => {
       arrowPrevNextDayListener = false;
     });
-    resetScheduleData();
   });
+
+  resetScheduleData();
   onCalendarLoad();
 }
 arrowPrevMonth.addEventListener('click', () => {
