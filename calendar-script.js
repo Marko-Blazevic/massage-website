@@ -89,7 +89,7 @@ let formModal = new bootstrap.Modal(document.getElementById('form-modal'), {
 const onCalendarLoad = () => {
   date = new Date();
   dateToday = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-  console.log(dateToday);
+
   calendarModal.show();
   renderCalendar(dateToday);
 };
@@ -200,7 +200,6 @@ const renderCalendar = (date) => {
 const clickedDate = (year, month, date) => {
   let dateText;
   if (isNaN(date)) {
-    console.log(date);
     // dateText = Number(date.textContent);
   } else {
     dateText = date;
@@ -220,19 +219,13 @@ const clickedDateNotOk = () => {
 };
 const checkClickedDate = (year, month, date) => {
   const clickedDateValue = clickedDate(year, month, date);
-  console.log(clickedDateValue);
+
   if (clickedDateValue >= dateToday) {
-    console.log('it is the more date');
     clickedDateOk();
   }
   if (clickedDateValue < dateToday) {
-    console.log('it is the less date');
     clickedDateNotOk();
   }
-  // } else {
-  //   console.log('it is the same date');
-  //   clickedDateOk();
-  // }
 };
 const changeDateDetailsHandler = (year, month, date) => {
   const clickedDateValue = clickedDate(year, month, date);
@@ -251,10 +244,9 @@ const changeDateDetailsHandler = (year, month, date) => {
 let arrowPrevNextDayListener = false;
 
 const arrowPrevNextDayHandler = (elem, date) => {
-  console.log(date);
   prevNextDay = null;
   const displayedFullDate = chosenDateH3.textContent.split(' ');
-  console.log(displayedFullDate);
+
   displayedDate = Number(displayedFullDate[1]);
   if (elem.hasAttribute('data-prev')) {
     prevNextDay = displayedDate - 1;
@@ -263,7 +255,7 @@ const arrowPrevNextDayHandler = (elem, date) => {
     prevNextDay = displayedDate + 1;
   }
   date.setDate(prevNextDay);
-  console.log(date);
+
   clickedDateId = `${date.getFullYear()}${date.getMonth()}${date.getDate()}`;
   changeDateDetailsHandler(date.getFullYear(), date.getMonth(), date.getDate());
   resetScheduleValues();
