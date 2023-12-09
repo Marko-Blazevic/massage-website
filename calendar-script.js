@@ -12,7 +12,7 @@ const massageSelect = document.getElementById('mass-select');
 const pageURL = window.location.href;
 const monthsList = [];
 const daysList = [];
-let date;
+let date = new Date();
 let dateToday;
 let freeScheduleTime = [];
 let timeIndexes = [];
@@ -189,20 +189,22 @@ const renderCalendar = (date) => {
   monthDates.forEach((dateDiv) => {
     dateDiv.addEventListener('click', () => {
       const dateValue = Number(dateDiv.textContent);
-      changeDateDetails(dateValue);
-      checkClickedDate(dateValue);
+      changeDateDetailsHandler(date.getFullYear(), date.getMonth(), dateValue);
+      checkClickedDate(date.getFullYear(), date.getMonth(), dateValue);
       timeCheck(clickedDateId);
     });
   });
 };
-const clickedDate = (elem) => {
+const clickedDate = (year, month, date) => {
   let dateText;
-  if (isNaN(elem)) {
-    dateText = Number(elem.textContent);
+  if (isNaN(date)) {
+    console.log(date);
+    // dateText = Number(date.textContent);
   } else {
-    dateText = elem;
+    dateText = date;
   }
-  return new Date(dateToday.getFullYear(), dateToday.getMonth(), dateText);
+  return new Date(year, month, dateText);
+  // return new Date(dateToday.getFullYear(), dateToday.getMonth(), dateText);
 };
 const clickedDateOk = () => {
   calendarModal.hide();
@@ -214,36 +216,16 @@ const clickedDateNotOk = () => {
   calendarModal.hide();
   calendarErrorModal.show();
 };
-const checkClickedDate = (elem) => {
-  const clickedDateValue = clickedDate(elem);
-  console.log(dateToday);
-  console.log(clickedDateValue);
-  console.log(clickedDateValue >= dateToday);
+const checkClickedDate = (year, month, date) => {
+  const clickedDateValue = clickedDate(year, month, date);
   if (clickedDateValue >= dateToday) {
     clickedDateOk();
   } else {
     clickedDateNotOk();
   }
-  // if (clickedDateValue.getFullYear() === date.getFullYear()) {
-  //   if (clickedDateValue.getMonth() === date.getMonth()) {
-  //     if (clickedDateValue.getDate() >= date.getDate()) {
-  //       clickedDateOk();
-  //     } else {
-  //       clickedDateNotOk();
-  //     }
-  //   } else if (clickedDateValue.getMonth() > date.getMonth()) {
-  //     clickedDateOk();
-  //   } else {
-  //     clickedDateNotOk();
-  //   }
-  // } else if (clickedDateValue.getFullYear() > date.getFullYear()) {
-  //   clickedDateOk();
-  // } else {
-  //   clickedDateNotOk();
-  // }
 };
-const changeDateDetails = (elem) => {
-  const clickedDateValue = clickedDate(elem);
+const changeDateDetailsHandler = (year, month, date) => {
+  const clickedDateValue = clickedDate(year, month, date);
   const day = clickedDateValue.getDay();
   const clickedDay = daysList[day];
   const displayedMonth = monthsList[clickedDateValue.getMonth()];
@@ -257,7 +239,9 @@ const changeDateDetails = (elem) => {
 };
 
 let arrowPrevNextDayListener = false;
-const arrowPrevNextDayHandler = (elem) => {
+
+const arrowPrevNextDayHandler = (elem, date) => {
+  console.log(date);
   prevNextDay = null;
   const displayedFullDate = chosenDateH3.textContent.split(' ');
   displayedDate = Number(displayedFullDate[1]);
@@ -267,9 +251,14 @@ const arrowPrevNextDayHandler = (elem) => {
   if (elem.hasAttribute('data-next')) {
     prevNextDay = displayedDate + 1;
   }
-  const newDate = clickedDate(prevNextDay);
+  const newDate = clickedDate(date.getFullYear(), date.getMonth(), prevNextDay);
+  console.log(newDate);
   clickedDateId = `${newDate.getFullYear()}${newDate.getMonth()}${newDate.getDate()}`;
-  changeDateDetails(prevNextDay);
+  changeDateDetailsHandler(
+    newDate.getFullYear(),
+    newDate.getMonth(),
+    prevNextDay
+  );
   resetScheduleValues();
   timeCheck(clickedDateId);
 };
@@ -277,7 +266,7 @@ if (!arrowPrevNextDayListener) {
   arrowPrevNextDay.forEach((elem) => {
     elem.addEventListener('click', () => {
       resetScheduleData();
-      arrowPrevNextDayHandler(elem);
+      arrowPrevNextDayHandler(elem, date);
     });
   });
   arrowPrevNextDayListener = true;
@@ -285,8 +274,9 @@ if (!arrowPrevNextDayListener) {
 schBackBtn.addEventListener('click', onSchBackBtnClick);
 function onSchBackBtnClick() {
   arrowPrevNextDay.forEach((elem) => {
-    elem.removeEventListener('click', () => arrowPrevNextDayHandler(elem));
-    arrowPrevNextDayListener = false;
+    elem.removeEventListener('click', () => {
+      arrowPrevNextDayListener = false;
+    });
     resetScheduleData();
   });
   onCalendarLoad();
@@ -297,6 +287,7 @@ arrowPrevMonth.addEventListener('click', () => {
   renderCalendar(date);
 });
 arrowNextMonth.addEventListener('click', () => {
+  // date = new Date();
   let nextMonth = date.getMonth() + 1;
   date.setMonth(nextMonth);
   renderCalendar(date);
