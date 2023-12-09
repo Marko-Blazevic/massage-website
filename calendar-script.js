@@ -13,6 +13,7 @@ const pageURL = window.location.href;
 const monthsList = [];
 const daysList = [];
 let date;
+let dateToday;
 let freeScheduleTime = [];
 let timeIndexes = [];
 let scheduleTimeData = [];
@@ -24,9 +25,11 @@ let timeDataIndex;
 let prevNextDay; //should this be deleted?
 
 // async function fetchScheduleData() {
-//   const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+//   const response = await fetch('#');
+//   if (!response.ok) {
+//     throw new Error(`ERRRRROOOORRRR ${response.status}`);
+//   }
 //   const scheduleData = await response.json();
-//   return scheduleData;
 // }
 
 //this data have to come from database
@@ -84,9 +87,9 @@ let formModal = new bootstrap.Modal(document.getElementById('form-modal'), {
 });
 
 const onCalendarLoad = () => {
-  date = new Date();
+  dateToday = new Date();
   calendarModal.show();
-  renderCalendar(date);
+  renderCalendar(dateToday);
 };
 
 const renderCalendar = (date) => {
@@ -199,7 +202,7 @@ const clickedDate = (elem) => {
   } else {
     dateText = elem;
   }
-  return new Date(date.getFullYear(), date.getMonth(), dateText);
+  return new Date(dateToday.getFullYear(), dateToday.getMonth(), dateText);
 };
 const clickedDateOk = () => {
   calendarModal.hide();
@@ -213,23 +216,31 @@ const clickedDateNotOk = () => {
 };
 const checkClickedDate = (elem) => {
   const clickedDateValue = clickedDate(elem);
-  if (clickedDateValue.getFullYear() === date.getFullYear()) {
-    if (clickedDateValue.getMonth() === date.getMonth()) {
-      if (clickedDateValue.getDate() >= date.getDate()) {
-        clickedDateOk();
-      } else {
-        clickedDateNotOk();
-      }
-    } else if (clickedDateValue.getMonth() > date.getMonth()) {
-      clickedDateOk();
-    } else {
-      clickedDateNotOk();
-    }
-  } else if (clickedDateValue.getFullYear() > date.getFullYear()) {
+  console.log(dateToday);
+  console.log(clickedDateValue);
+  console.log(clickedDateValue >= dateToday);
+  if (clickedDateValue >= dateToday) {
     clickedDateOk();
   } else {
     clickedDateNotOk();
   }
+  // if (clickedDateValue.getFullYear() === date.getFullYear()) {
+  //   if (clickedDateValue.getMonth() === date.getMonth()) {
+  //     if (clickedDateValue.getDate() >= date.getDate()) {
+  //       clickedDateOk();
+  //     } else {
+  //       clickedDateNotOk();
+  //     }
+  //   } else if (clickedDateValue.getMonth() > date.getMonth()) {
+  //     clickedDateOk();
+  //   } else {
+  //     clickedDateNotOk();
+  //   }
+  // } else if (clickedDateValue.getFullYear() > date.getFullYear()) {
+  //   clickedDateOk();
+  // } else {
+  //   clickedDateNotOk();
+  // }
 };
 const changeDateDetails = (elem) => {
   const clickedDateValue = clickedDate(elem);
