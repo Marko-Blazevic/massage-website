@@ -9,6 +9,8 @@ const schBackBtn = document.getElementById('sch-back-btn');
 const schedulesSelect = document.querySelectorAll('.sch-select');
 const timeSelect = document.getElementById('time-select');
 const massageSelect = document.getElementById('mass-select');
+const massageOption = document.querySelector('.massage-option');
+const massageOptions = document.querySelectorAll('.massage-option');
 const pageURL = window.location.href;
 const monthsList = [];
 const daysList = [];
@@ -22,20 +24,59 @@ let clickedDateId;
 let checkTime;
 let massageDataValue;
 let timeDataIndex;
-let prevNextDay; //should this be deleted?
+let prevNextDay;
 
+// window.onload = () => {
+//   const scheduleValuesData = fetchScheduleData();
+// };
 // async function fetchScheduleData() {
 //   const response = await fetch('#');
+//   console.log(response);
 //   if (!response.ok) {
 //     throw new Error(`ERRRRROOOORRRR ${response.status}`);
 //   }
 //   const scheduleData = await response.json();
+//   return scheduleData;
 // }
-
-//this data have to come from database
 const scheduleValuesData = [
+  { date: '20231110', time: [0, 1] },
+  { date: '20231111', time: [5, 6, 7] },
+  { date: '20231111', time: [10, 11, 12, 13] },
+  { date: '20231111', time: [20, 21, 22, 23, 24] },
+  { date: '20231112', time: [30, 31, 32, 33, 34, 35] },
+  { date: '20231112', time: [40, 41, 42, 43] },
+  { date: '20231113', time: [45, 46, 47] },
+  { date: '20231113', time: [0, 1, 2] },
+  { date: '20231114', time: [10, 11, 12, 13, 14, 15] },
+  { date: '20231114', time: [20, 21, 22, 23, 24] },
+  { date: '20231114', time: [30, 31, 32, 33, 34, 35, 36] },
+  { date: '20231115', time: [40, 41, 42, 43, 44, 45] },
+  { date: '20231115', time: [5, 6, 7, 8] },
+  { date: '20231116', time: [15, 16, 17, 18, 19, 20] },
+  { date: '20231116', time: [25, 26, 27, 28, 29, 30] },
+  { date: '20231116', time: [35, 36, 37, 38, 39, 40, 41] },
+  { date: '20231117', time: [45, 46, 47] },
+  { date: '20231117', time: [0, 1, 2, 3, 4] },
+  { date: '20231117', time: [10, 11, 12, 13, 14, 15] },
+  { date: '20231118', time: [20, 21, 22, 23, 24] },
+  { date: '20231118', time: [30, 31, 32, 33, 34, 35, 36] },
+  { date: '20231119', time: [40, 41, 42, 43, 44, 45] },
+  { date: '20231119', time: [5, 6, 7, 8, 9, 10] },
+  { date: '20231120', time: [15, 16, 17, 18, 19, 20] },
+  { date: '20231120', time: [25, 26, 27, 28, 29, 30, 31] },
+  { date: '20231120', time: [35, 36, 37, 38, 39, 40, 41, 42] },
+  { date: '20231121', time: [45, 46, 47] },
+  { date: '20231121', time: [0, 1, 2, 3, 4] },
+  { date: '20231121', time: [10, 11, 12, 13, 14, 15, 16] },
+  { date: '20231122', time: [20, 21, 22, 23, 24] },
+  { date: '20231122', time: [30, 31, 32, 33, 34, 35, 36] },
+  { date: '20231123', time: [40, 41, 42, 43, 44, 45] },
+  { date: '20231123', time: [5, 6, 7, 8, 9, 10, 11] },
+  { date: '20231124', time: [15, 16, 17, 18, 19, 20] },
+  { date: '20231124', time: [25, 26, 27, 28, 29, 30, 31, 32] },
+  { date: '20231124', time: [35, 36, 37, 38, 39, 40, 41] },
   {
-    date: '2023115',
+    date: '20231125',
     time: [
       2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
       25, 26, 27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
@@ -43,14 +84,14 @@ const scheduleValuesData = [
     ],
   },
   {
-    date: '2023117',
+    date: '20231127',
     time: [
       2, 3, 4, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
       27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
     ],
   },
   {
-    date: '2023119',
+    date: '20231129',
     time: [
       1, 2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 25, 26, 27, 28, 29, 30, 34, 35,
       36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
@@ -89,7 +130,6 @@ let formModal = new bootstrap.Modal(document.getElementById('form-modal'), {
 const onCalendarLoad = () => {
   date = new Date();
   dateToday = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-
   calendarModal.show();
   renderCalendar(dateToday);
 };
@@ -193,19 +233,17 @@ const renderCalendar = (date) => {
       const dateValue = Number(dateDiv.textContent);
       changeDateDetailsHandler(date.getFullYear(), date.getMonth(), dateValue);
       checkClickedDate(date.getFullYear(), date.getMonth(), dateValue);
-      timeCheck(clickedDateId);
+      timeCheckHandler(clickedDateId);
     });
   });
 };
 const clickedDate = (year, month, date) => {
   let dateText;
   if (isNaN(date)) {
-    // dateText = Number(date.textContent);
   } else {
     dateText = date;
   }
   return new Date(year, month, dateText);
-  // return new Date(dateToday.getFullYear(), dateToday.getMonth(), dateText);
 };
 const clickedDateOk = () => {
   calendarModal.hide();
@@ -259,7 +297,7 @@ const arrowPrevNextDayHandler = (elem, date) => {
   clickedDateId = `${date.getFullYear()}${date.getMonth()}${date.getDate()}`;
   changeDateDetailsHandler(date.getFullYear(), date.getMonth(), date.getDate());
   resetScheduleValues();
-  timeCheck(clickedDateId);
+  timeCheckHandler(clickedDateId);
 };
 if (!arrowPrevNextDayListener) {
   arrowPrevNextDay.forEach((elem) => {
@@ -282,7 +320,6 @@ function onSchBackBtnClick() {
       arrowPrevNextDayListener = false;
     });
   });
-
   resetScheduleData();
   onCalendarLoad();
 }
@@ -305,7 +342,7 @@ function resetScheduleData() {
   clickedDateId = '';
 }
 
-//setting time values for schedule
+//setting dropdown time values for schedule
 const setTimeValues = () => {
   let timeSchedule = [];
   const minutes = ['00', '15', '30', '45'];
@@ -315,7 +352,6 @@ const setTimeValues = () => {
     hour++;
     timeSchedule = timeSchedule.concat(map);
   }
-  const timeSelect = document.querySelector('#time-select');
   timeSchedule.forEach((time) => {
     let option = document.createElement('option');
     option.innerText = time;
@@ -324,11 +360,11 @@ const setTimeValues = () => {
     timeSelect.appendChild(option);
   });
 };
-const timeCheck = (clickedDateId) => {
+const timeCheckHandler = (clickedDateId) => {
   const timeOptions = document.querySelectorAll('.time-option');
   scheduleValuesData.forEach((data) => {
     if (clickedDateId === data.date) {
-      scheduleTimeData.push(...data.time);
+      scheduleTimeData.push(...data.time); //total already occupied time array for selected date
     }
   });
   timeOptions.forEach((time) => {
@@ -366,7 +402,6 @@ schedulesSelect.forEach((elem) => {
     }
   });
 });
-const massageOptions = document.querySelectorAll('.massage-option');
 const checkMassageOptionValidity = (freeScheduleTime) => {
   massageOptions.forEach((opt) => {
     if (opt.classList.contains('hide')) {
@@ -397,8 +432,32 @@ const isContinuous = (freeScheduleTime, massageValue) => {
   return false;
 };
 
+const getTimeAndDateValuesHandler = () => {
+  const checkTimeAndMassageArray = checkTimeAndMassageHandler();
+  if (checkTimeAndMassageArray[0]) {
+    const chosenTimeAndMassageData = { date: clickedDateId, time: [] };
+    // const chosenTime = chosenTimeAndMassageData.time;
+    const timedataIndex = checkTimeAndMassageArray[1];
+    const massageDataValue = checkTimeAndMassageArray[2];
+    for (i = 0; i < massageDataValue; i++) {
+      chosenTimeAndMassageData.time.push(timedataIndex + i);
+    }
+    console.log(chosenTimeAndMassageData);
+  }
+  // console.log(checkTimeAndMassageArray);
+
+  //get clickedDateId and assign its value to object.date
+  //get time index of selected time option
+  //get massage value of selected massage option
+  //first timeAndMassage check needs to be done -> VALIDITY
+  //for loop for time index + massage-value
+  //push time values/indexes to object.time
+};
+
 schContinueBtn.addEventListener('click', () => {
-  checkTimeAndMassage();
+  console.log(timeSelect.selectedIndex - 1, massageOption);
+  checkTimeAndMassageHandler();
+  getTimeAndDateValuesHandler();
   let allSelectsHaveValue = true;
   schedulesSelect.forEach((elem) => {
     if (elem.value === '') {
@@ -420,7 +479,7 @@ schContinueBtn.addEventListener('click', () => {
     timeErrorModal.show();
   }
 });
-const checkTimeAndMassage = () => {
+const checkTimeAndMassageHandler = () => {
   checkTime = true;
   const schMassIndex = massageSelect.selectedIndex;
   massageDataValue = Number(
@@ -440,4 +499,5 @@ const checkTimeAndMassage = () => {
       checkTime = false;
     }
   }
+  return [checkTime, timeDataIndex, massageDataValue];
 };
