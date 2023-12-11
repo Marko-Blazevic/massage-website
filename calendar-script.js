@@ -432,32 +432,22 @@ const isContinuous = (freeScheduleTime, massageValue) => {
   return false;
 };
 
-const getTimeAndDateValuesHandler = () => {
+const getDataValuesHandler = () => {
   const checkTimeAndMassageArray = checkTimeAndMassageHandler();
   if (checkTimeAndMassageArray[0]) {
     const chosenTimeAndMassageData = { date: clickedDateId, time: [] };
-    // const chosenTime = chosenTimeAndMassageData.time;
     const timedataIndex = checkTimeAndMassageArray[1];
     const massageDataValue = checkTimeAndMassageArray[2];
     for (i = 0; i < massageDataValue; i++) {
-      chosenTimeAndMassageData.time.push(timedataIndex + i);
+      chosenTimeAndMassageData.time.push(timedataIndex + i - 1);
     }
     console.log(chosenTimeAndMassageData);
   }
-  // console.log(checkTimeAndMassageArray);
-
-  //get clickedDateId and assign its value to object.date
-  //get time index of selected time option
-  //get massage value of selected massage option
-  //first timeAndMassage check needs to be done -> VALIDITY
-  //for loop for time index + massage-value
-  //push time values/indexes to object.time
 };
 
 schContinueBtn.addEventListener('click', () => {
-  console.log(timeSelect.selectedIndex - 1, massageOption);
   checkTimeAndMassageHandler();
-  getTimeAndDateValuesHandler();
+  getDataValuesHandler();
   let allSelectsHaveValue = true;
   schedulesSelect.forEach((elem) => {
     if (elem.value === '') {
