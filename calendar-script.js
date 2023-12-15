@@ -103,19 +103,38 @@ const scheduleValuesData = [
   },
 ];
 
-// fetch(
-//   'https://console.firebase.google.com/u/0/project/calendar-schedule-time/database/calendar-schedule-time-default-rtdb/data/~2F',
-//   {
-//     method: 'POST',
-//     headers: {
-//       Accept: 'application/json',
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(scheduleValuesData),
-//   }
-// )
-//   .then((response) => response.json())
-//   .then((response) => console.log(JSON.stringify(response)));
+const postDataToFirebase = async (obj) => {
+  try {
+    const response = await fetch(
+      `https://calendar-schedule-time-default-rtdb.firebaseio.com/schedule.json`,
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          userId: obj.date,
+          date: obj.date,
+          time: obj.time,
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log('Successfully posted data:', data);
+  } catch (error) {
+    console.error('Error posting data:', error);
+  }
+};
+
+const postAllDataToFirebase = async () => {
+  for (const obj of scheduleValuesData) {
+    await postDataToFirebase(obj);
+  }
+};
+
+postAllDataToFirebase();
 
 let calendarModal = new bootstrap.Modal(
   document.getElementById('calendar-modal'),
