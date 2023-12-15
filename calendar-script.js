@@ -1,3 +1,19 @@
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+import { getDatabase } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyAEYSxupn0RyDuPgc_Y2bboAgGdOmD7ZvE',
+  authDomain: 'calendar-schedule-time.firebaseapp.com',
+  databaseURL: 'https://calendar-schedule-time-default-rtdb.firebaseio.com',
+  projectId: 'calendar-schedule-time',
+  storageBucket: 'calendar-schedule-time.appspot.com',
+  messagingSenderId: '254505069588',
+  appId: '1:254505069588:web:fa953266a14267c48e0b01',
+};
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+console.log(database);
+
 const arrowPrevMonth = document.querySelector('.arrow-prev-month');
 const arrowNextMonth = document.querySelector('.arrow-next-month');
 const arrowPrevNextDay = document.querySelectorAll('.arrow-day');
@@ -26,18 +42,6 @@ let massageDataValue;
 let timeDataIndex;
 let prevNextDay;
 
-// window.onload = () => {
-//   const scheduleValuesData = fetchScheduleData();
-// };
-// async function fetchScheduleData() {
-//   const response = await fetch('#');
-//   console.log(response);
-//   if (!response.ok) {
-//     throw new Error(`ERRRRROOOORRRR ${response.status}`);
-//   }
-//   const scheduleData = await response.json();
-//   return scheduleData;
-// }
 const scheduleValuesData = [
   { date: '20231110', time: [0, 1] },
   { date: '20231111', time: [5, 6, 7] },
@@ -99,6 +103,20 @@ const scheduleValuesData = [
   },
 ];
 
+// fetch(
+//   'https://console.firebase.google.com/u/0/project/calendar-schedule-time/database/calendar-schedule-time-default-rtdb/data/~2F',
+//   {
+//     method: 'POST',
+//     headers: {
+//       Accept: 'application/json',
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(scheduleValuesData),
+//   }
+// )
+//   .then((response) => response.json())
+//   .then((response) => console.log(JSON.stringify(response)));
+
 let calendarModal = new bootstrap.Modal(
   document.getElementById('calendar-modal'),
   { backdrop: 'static', keyboard: false }
@@ -127,14 +145,16 @@ let formModal = new bootstrap.Modal(document.getElementById('form-modal'), {
   keyboard: false,
 });
 
-const onCalendarLoad = () => {
+function onCalendarLoad() {
   date = new Date();
   dateToday = new Date(date.getFullYear(), date.getMonth(), date.getDate());
   calendarModal.show();
   renderCalendar(dateToday);
-};
+}
 
-const renderCalendar = (date) => {
+window.onload = onCalendarLoad();
+
+function renderCalendar(date) {
   let monthIndex = date.getMonth();
   if (pageURL.includes('-en')) {
     monthsList.push(
@@ -209,12 +229,12 @@ const renderCalendar = (date) => {
     1
   ).getDay();
   days.innerHTML = '';
-  for (j = prevMonthLastDayIndex; j > 0; j--) {
+  for (let j = prevMonthLastDayIndex; j > 0; j--) {
     days.innerHTML += `<div class="prev-date">${
       prevMonthLastDate - j + 1
     }</div>`;
   }
-  for (i = 1; i <= lastDateOfMonth; i++) {
+  for (let i = 1; i <= lastDateOfMonth; i++) {
     if (
       new Date().getDate() === i &&
       new Date().getMonth() === date.getMonth()
@@ -224,7 +244,7 @@ const renderCalendar = (date) => {
       days.innerHTML += `<div>${i}</div>`;
     }
   }
-  for (x = 1; x < 9 - nextMonthFirstDayIndex; x++) {
+  for (let x = 1; x < 9 - nextMonthFirstDayIndex; x++) {
     days.innerHTML += `<div class="next-date">${x}</div>`;
   }
   const monthDates = days.childNodes;
@@ -236,7 +256,7 @@ const renderCalendar = (date) => {
       timeCheckHandler(clickedDateId);
     });
   });
-};
+}
 const clickedDate = (year, month, date) => {
   let dateText;
   if (isNaN(date)) {
@@ -438,7 +458,7 @@ const getDataValuesHandler = () => {
     const chosenTimeAndMassageData = { date: clickedDateId, time: [] };
     const timedataIndex = checkTimeAndMassageArray[1];
     const massageDataValue = checkTimeAndMassageArray[2];
-    for (i = 0; i < massageDataValue; i++) {
+    for (let i = 0; i < massageDataValue; i++) {
       chosenTimeAndMassageData.time.push(timedataIndex + i - 1);
     }
     console.log(chosenTimeAndMassageData);
@@ -479,7 +499,7 @@ const checkTimeAndMassageHandler = () => {
   timeDataIndex =
     Number(timeSelect.options[schTimeIndex].dataset.timeIndex) + 1;
   for (
-    i = timeDataIndex;
+    let i = timeDataIndex;
     i < timeDataIndex + massageDataValue - 1 && i < 48;
     i++
   ) {
