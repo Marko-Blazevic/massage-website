@@ -41,100 +41,120 @@ let checkTime;
 let massageDataValue;
 let timeDataIndex;
 let prevNextDay;
+const occupiedTimeData = [];
 
-const scheduleValuesData = [
-  { date: '20231110', time: [0, 1] },
-  { date: '20231111', time: [5, 6, 7] },
-  { date: '20231111', time: [10, 11, 12, 13] },
-  { date: '20231111', time: [20, 21, 22, 23, 24] },
-  { date: '20231112', time: [30, 31, 32, 33, 34, 35] },
-  { date: '20231112', time: [40, 41, 42, 43] },
-  { date: '20231113', time: [45, 46, 47] },
-  { date: '20231113', time: [0, 1, 2] },
-  { date: '20231114', time: [10, 11, 12, 13, 14, 15] },
-  { date: '20231114', time: [20, 21, 22, 23, 24] },
-  { date: '20231114', time: [30, 31, 32, 33, 34, 35, 36] },
-  { date: '20231115', time: [40, 41, 42, 43, 44, 45] },
-  { date: '20231115', time: [5, 6, 7, 8] },
-  { date: '20231116', time: [15, 16, 17, 18, 19, 20] },
-  { date: '20231116', time: [25, 26, 27, 28, 29, 30] },
-  { date: '20231116', time: [35, 36, 37, 38, 39, 40, 41] },
-  { date: '20231117', time: [45, 46, 47] },
-  { date: '20231117', time: [0, 1, 2, 3, 4] },
-  { date: '20231117', time: [10, 11, 12, 13, 14, 15] },
-  { date: '20231118', time: [20, 21, 22, 23, 24] },
-  { date: '20231118', time: [30, 31, 32, 33, 34, 35, 36] },
-  { date: '20231119', time: [40, 41, 42, 43, 44, 45] },
-  { date: '20231119', time: [5, 6, 7, 8, 9, 10] },
-  { date: '20231120', time: [15, 16, 17, 18, 19, 20] },
-  { date: '20231120', time: [25, 26, 27, 28, 29, 30, 31] },
-  { date: '20231120', time: [35, 36, 37, 38, 39, 40, 41, 42] },
-  { date: '20231121', time: [45, 46, 47] },
-  { date: '20231121', time: [0, 1, 2, 3, 4] },
-  { date: '20231121', time: [10, 11, 12, 13, 14, 15, 16] },
-  { date: '20231122', time: [20, 21, 22, 23, 24] },
-  { date: '20231122', time: [30, 31, 32, 33, 34, 35, 36] },
-  { date: '20231123', time: [40, 41, 42, 43, 44, 45] },
-  { date: '20231123', time: [5, 6, 7, 8, 9, 10, 11] },
-  { date: '20231124', time: [15, 16, 17, 18, 19, 20] },
-  { date: '20231124', time: [25, 26, 27, 28, 29, 30, 31, 32] },
-  { date: '20231124', time: [35, 36, 37, 38, 39, 40, 41] },
-  {
-    date: '20231125',
-    time: [
-      2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
-      25, 26, 27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
-      46, 47,
-    ],
-  },
-  {
-    date: '20231127',
-    time: [
-      2, 3, 4, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
-      27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
-    ],
-  },
-  {
-    date: '20231129',
-    time: [
-      1, 2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 25, 26, 27, 28, 29, 30, 34, 35,
-      36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
-    ],
-  },
-];
+// const scheduleValuesData = [
+//   { date: '20231110', time: [0, 1] },
+//   { date: '20231111', time: [5, 6, 7] },
+//   { date: '20231111', time: [10, 11, 12, 13] },
+//   { date: '20231111', time: [20, 21, 22, 23, 24] },
+//   { date: '20231112', time: [30, 31, 32, 33, 34, 35] },
+//   { date: '20231112', time: [40, 41, 42, 43] },
+//   { date: '20231113', time: [45, 46, 47] },
+//   { date: '20231113', time: [0, 1, 2] },
+//   { date: '20231114', time: [10, 11, 12, 13, 14, 15] },
+//   { date: '20231114', time: [20, 21, 22, 23, 24] },
+//   { date: '20231114', time: [30, 31, 32, 33, 34, 35, 36] },
+//   { date: '20231115', time: [40, 41, 42, 43, 44, 45] },
+//   { date: '20231115', time: [5, 6, 7, 8] },
+//   { date: '20231116', time: [15, 16, 17, 18, 19, 20] },
+//   { date: '20231116', time: [25, 26, 27, 28, 29, 30] },
+//   { date: '20231116', time: [35, 36, 37, 38, 39, 40, 41] },
+//   { date: '20231117', time: [45, 46, 47] },
+//   { date: '20231117', time: [0, 1, 2, 3, 4] },
+//   { date: '20231117', time: [10, 11, 12, 13, 14, 15] },
+//   { date: '20231118', time: [20, 21, 22, 23, 24] },
+//   { date: '20231118', time: [30, 31, 32, 33, 34, 35, 36] },
+//   { date: '20231119', time: [40, 41, 42, 43, 44, 45] },
+//   { date: '20231119', time: [5, 6, 7, 8, 9, 10] },
+//   { date: '20231120', time: [15, 16, 17, 18, 19, 20] },
+//   { date: '20231120', time: [25, 26, 27, 28, 29, 30, 31] },
+//   { date: '20231120', time: [35, 36, 37, 38, 39, 40, 41, 42] },
+//   { date: '20231121', time: [45, 46, 47] },
+//   { date: '20231121', time: [0, 1, 2, 3, 4] },
+//   { date: '20231121', time: [10, 11, 12, 13, 14, 15, 16] },
+//   { date: '20231122', time: [20, 21, 22, 23, 24] },
+//   { date: '20231122', time: [30, 31, 32, 33, 34, 35, 36] },
+//   { date: '20231123', time: [40, 41, 42, 43, 44, 45] },
+//   { date: '20231123', time: [5, 6, 7, 8, 9, 10, 11] },
+//   { date: '20231124', time: [15, 16, 17, 18, 19, 20] },
+//   { date: '20231124', time: [25, 26, 27, 28, 29, 30, 31, 32] },
+//   { date: '20231124', time: [35, 36, 37, 38, 39, 40, 41] },
+//   {
+//     date: '20231125',
+//     time: [
+//       2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+//       25, 26, 27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
+//       46, 47,
+//     ],
+//   },
+//   {
+//     date: '20231127',
+//     time: [
+//       2, 3, 4, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
+//       27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
+//     ],
+//   },
+//   {
+//     date: '20231129',
+//     time: [
+//       1, 2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 25, 26, 27, 28, 29, 30, 34, 35,
+//       36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
+//     ],
+//   },
+// ];
 
-const postDataToFirebase = async (obj) => {
+const fetchOcupiedTimeData = async () => {
   try {
     const response = await fetch(
-      `https://calendar-schedule-time-default-rtdb.firebaseio.com/schedule.json`,
-      {
-        method: 'POST',
-        body: JSON.stringify({
-          userId: obj.date,
-          date: obj.date,
-          time: obj.time,
-        }),
-      }
+      'https://calendar-schedule-time-default-rtdb.firebaseio.com/schedule.json'
     );
-
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+      throw new Error('Can not get data!');
     }
-
     const data = await response.json();
-    console.log('Successfully posted data:', data);
+    for (const obj in data) {
+      const dataArray = data[obj];
+      occupiedTimeData.push(dataArray);
+    }
   } catch (error) {
-    console.error('Error posting data:', error);
+    setError(error.message);
   }
+  console.log(occupiedTimeData);
 };
+fetchOcupiedTimeData();
 
-const postAllDataToFirebase = async () => {
-  for (const obj of scheduleValuesData) {
-    await postDataToFirebase(obj);
-  }
-};
-
-postAllDataToFirebase();
+// const postDataToFirebase = async (obj) => {
+//   try {
+//     const response = await fetch(
+//       `https://calendar-schedule-time-default-rtdb.firebaseio.com/schedule.json`,
+//       {
+//         method: 'POST',
+//         body: JSON.stringify({
+//           userId: obj.date,
+//           date: obj.date,
+//           time: obj.time,
+//         }),
+//       }
+// headers: {
+//   "Content-Type": "application/json",
+// },
+//     );
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! Status: ${response.status}`);
+//     }
+//     const data = await response.json();
+//     console.log('Successfully posted data:', data);
+//   } catch (error) {
+//     console.error('Error posting data:', error);
+//   }
+// };
+// const postAllDataToFirebase = async () => {
+//   for (const obj of scheduleValuesData) {
+//     await postDataToFirebase(obj);
+//   }
+// };
+// postAllDataToFirebase();
 
 let calendarModal = new bootstrap.Modal(
   document.getElementById('calendar-modal'),
@@ -401,7 +421,7 @@ const setTimeValues = () => {
 };
 const timeCheckHandler = (clickedDateId) => {
   const timeOptions = document.querySelectorAll('.time-option');
-  scheduleValuesData.forEach((data) => {
+  occupiedTimeData.forEach((data) => {
     if (clickedDateId === data.date) {
       scheduleTimeData.push(...data.time); //total already occupied time array for selected date
     }
