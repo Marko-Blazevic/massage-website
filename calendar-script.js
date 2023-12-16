@@ -1,18 +1,18 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-import { getDatabase } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+// import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+// import { getDatabase } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
 
-const firebaseConfig = {
-  apiKey: 'AIzaSyAEYSxupn0RyDuPgc_Y2bboAgGdOmD7ZvE',
-  authDomain: 'calendar-schedule-time.firebaseapp.com',
-  databaseURL: 'https://calendar-schedule-time-default-rtdb.firebaseio.com',
-  projectId: 'calendar-schedule-time',
-  storageBucket: 'calendar-schedule-time.appspot.com',
-  messagingSenderId: '254505069588',
-  appId: '1:254505069588:web:fa953266a14267c48e0b01',
-};
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
-console.log(database);
+// const firebaseConfig = {
+//   apiKey: 'AIzaSyAEYSxupn0RyDuPgc_Y2bboAgGdOmD7ZvE',
+//   authDomain: 'calendar-schedule-time.firebaseapp.com',
+//   databaseURL: 'https://calendar-schedule-time-default-rtdb.firebaseio.com',
+//   projectId: 'calendar-schedule-time',
+//   storageBucket: 'calendar-schedule-time.appspot.com',
+//   messagingSenderId: '254505069588',
+//   appId: '1:254505069588:web:fa953266a14267c48e0b01',
+// };
+// const app = initializeApp(firebaseConfig);
+// const database = getDatabase(app);
+// console.log(database);
 
 const arrowPrevMonth = document.querySelector('.arrow-prev-month');
 const arrowNextMonth = document.querySelector('.arrow-next-month');
