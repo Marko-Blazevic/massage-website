@@ -1,3 +1,4 @@
+import { chosenTimeAndMassageData } from './calendar-script.mjs';
 const forms = document.querySelectorAll('.validate-form');
 const inputs = document.querySelectorAll('.input');
 const inputFields = document.querySelectorAll('.input-field');
@@ -77,6 +78,27 @@ emailInputField.addEventListener('blur', () => {
   checkEmailInputValue();
 });
 
+const fetchSelectedTimeAndMassage = async () => {
+  try {
+    const response = await fetch(
+      'https://calendar-schedule-time-default-rtdb.firebaseio.com/schedule.json',
+      {
+        method: 'POST',
+        // headers: {
+        //   Accept: 'application/json',
+        //   'Content-Type': 'application/json',
+        // },
+        body: JSON.stringify(chosenTimeAndMassageData),
+      }
+    );
+    if (!response.ok) {
+      throw new Error();
+    }
+  } catch (error) {
+    alert(error);
+  }
+};
+
 Array.prototype.slice.call(forms).forEach(function (form) {
   form.addEventListener(
     'submit',
@@ -90,7 +112,7 @@ Array.prototype.slice.call(forms).forEach(function (form) {
         checkPhoneInputValue() === true &&
         checkEmailInputValue() === true
       ) {
-        console.log('form je OK');
+        fetchSelectedTimeAndMassage();
       } else {
         checkInputsValues();
       }

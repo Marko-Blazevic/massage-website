@@ -1,19 +1,4 @@
-// import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-// import { getDatabase } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
-
-// const firebaseConfig = {
-//   apiKey: 'AIzaSyAEYSxupn0RyDuPgc_Y2bboAgGdOmD7ZvE',
-//   authDomain: 'calendar-schedule-time.firebaseapp.com',
-//   databaseURL: 'https://calendar-schedule-time-default-rtdb.firebaseio.com',
-//   projectId: 'calendar-schedule-time',
-//   storageBucket: 'calendar-schedule-time.appspot.com',
-//   messagingSenderId: '254505069588',
-//   appId: '1:254505069588:web:fa953266a14267c48e0b01',
-// };
-// const app = initializeApp(firebaseConfig);
-// const database = getDatabase(app);
-// console.log(database);
-
+export let chosenTimeAndMassageData;
 const arrowPrevMonth = document.querySelector('.arrow-prev-month');
 const arrowNextMonth = document.querySelector('.arrow-next-month');
 const arrowPrevNextDay = document.querySelectorAll('.arrow-day');
@@ -30,6 +15,8 @@ const massageOptions = document.querySelectorAll('.massage-option');
 const pageURL = window.location.href;
 const monthsList = [];
 const daysList = [];
+const occupiedTimeData = [];
+let timeOptions;
 let date = new Date();
 let dateToday;
 let freeScheduleTime = [];
@@ -41,8 +28,28 @@ let checkTime;
 let massageDataValue;
 let timeDataIndex;
 let prevNextDay;
-const occupiedTimeData = [];
+chosenTimeAndMassageData = { date: '', time: [] };
 
+const fetchOcupiedTimeData = async () => {
+  try {
+    const response = await fetch(
+      'https://calendar-schedule-time-default-rtdb.firebaseio.com/schedule.json'
+    );
+    if (!response.ok) {
+      throw new Error('Can not get data!');
+    }
+    const data = await response.json();
+    for (const obj in data) {
+      const dataArray = data[obj];
+      occupiedTimeData.push(dataArray);
+    }
+  } catch (error) {
+    alert(error.message + ' Please try again latter.');
+    window.close();
+  }
+};
+
+// FOR TESTING  !!!
 // const scheduleValuesData = [
 //   { date: '20231110', time: [0, 1] },
 //   { date: '20231111', time: [5, 6, 7] },
@@ -103,27 +110,6 @@ const occupiedTimeData = [];
 //     ],
 //   },
 // ];
-
-const fetchOcupiedTimeData = async () => {
-  try {
-    const response = await fetch(
-      'https://calendar-schedule-time-default-rtdb.firebaseio.com/schedule.json'
-    );
-    if (!response.ok) {
-      throw new Error('Can not get data!');
-    }
-    const data = await response.json();
-    for (const obj in data) {
-      const dataArray = data[obj];
-      occupiedTimeData.push(dataArray);
-    }
-  } catch (error) {
-    setError(error.message);
-  }
-  console.log(occupiedTimeData);
-};
-fetchOcupiedTimeData();
-
 // const postDataToFirebase = async (obj) => {
 //   try {
 //     const response = await fetch(
@@ -185,6 +171,7 @@ let formModal = new bootstrap.Modal(document.getElementById('form-modal'), {
 });
 
 function onCalendarLoad() {
+  fetchOcupiedTimeData();
   date = new Date();
   dateToday = new Date(date.getFullYear(), date.getMonth(), date.getDate());
   calendarModal.show();
@@ -192,6 +179,15 @@ function onCalendarLoad() {
 }
 
 window.onload = onCalendarLoad();
+
+const onClickTime = () => {
+  const dateString = date.toString();
+  const dateArr = dateString.split(' ');
+  const timeArr = dateArr[4].split(':');
+  const timeHour = timeArr[0];
+  const timeMinutes = timeArr[1];
+  return timeHour, timeMinutes;
+};
 
 function renderCalendar(date) {
   let monthIndex = date.getMonth();
@@ -418,14 +414,15 @@ const setTimeValues = () => {
     option.className = 'time-option';
     timeSelect.appendChild(option);
   });
+  timeOptions = document.querySelectorAll('.time-option');
 };
 const timeCheckHandler = (clickedDateId) => {
-  const timeOptions = document.querySelectorAll('.time-option');
   occupiedTimeData.forEach((data) => {
     if (clickedDateId === data.date) {
       scheduleTimeData.push(...data.time); //total already occupied time array for selected date
     }
   });
+  //resets time options
   timeOptions.forEach((time) => {
     if (time.classList.contains('hide')) {
       time.classList.remove('hide');
@@ -494,7 +491,7 @@ const isContinuous = (freeScheduleTime, massageValue) => {
 const getDataValuesHandler = () => {
   const checkTimeAndMassageArray = checkTimeAndMassageHandler();
   if (checkTimeAndMassageArray[0]) {
-    const chosenTimeAndMassageData = { date: clickedDateId, time: [] };
+    chosenTimeAndMassageData.date = clickedDateId;
     const timedataIndex = checkTimeAndMassageArray[1];
     const massageDataValue = checkTimeAndMassageArray[2];
     for (let i = 0; i < massageDataValue; i++) {
