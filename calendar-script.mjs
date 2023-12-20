@@ -30,7 +30,7 @@ let timeDataIndex;
 let prevNextDay;
 chosenTimeAndMassageData = { date: '', time: [] };
 
-const fetchOcupiedTimeData = async () => {
+const getOcupiedTimeData = async () => {
   try {
     const response = await fetch(
       'https://calendar-schedule-time-default-rtdb.firebaseio.com/schedule.json'
@@ -170,8 +170,8 @@ let formModal = new bootstrap.Modal(document.getElementById('form-modal'), {
   keyboard: false,
 });
 
-function onCalendarLoad() {
-  fetchOcupiedTimeData();
+export function onCalendarLoad() {
+  getOcupiedTimeData();
   date = new Date();
   dateToday = new Date(date.getFullYear(), date.getMonth(), date.getDate());
   calendarModal.show();
