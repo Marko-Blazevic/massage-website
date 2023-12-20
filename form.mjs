@@ -84,10 +84,10 @@ const fetchSelectedTimeAndMassage = async () => {
       'https://calendar-schedule-time-default-rtdb.firebaseio.com/schedule.json',
       {
         method: 'POST',
-        // headers: {
-        //   Accept: 'application/json',
-        //   'Content-Type': 'application/json',
-        // },
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(chosenTimeAndMassageData),
       }
     );
@@ -96,6 +96,7 @@ const fetchSelectedTimeAndMassage = async () => {
     }
   } catch (error) {
     alert(error);
+    console.log('kkaslidakjhldkh');
   }
 };
 

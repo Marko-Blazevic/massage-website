@@ -497,7 +497,6 @@ const getDataValuesHandler = () => {
     for (let i = 0; i < massageDataValue; i++) {
       chosenTimeAndMassageData.time.push(timedataIndex + i - 1);
     }
-    console.log(chosenTimeAndMassageData);
   }
 };
 
