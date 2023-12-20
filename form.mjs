@@ -82,7 +82,7 @@ emailInputField.addEventListener('blur', () => {
 const postSelectedTimeAndMassage = async () => {
   try {
     const response = await fetch(
-      'https://calendar-schedule-time-default-rtdb.firebaseio.com/schedule.json',
+      'https://calendar-schedule-time-default-rtdb.firebaseio.c2om/schedule.json',
       {
         method: 'POST',
         headers: {
@@ -98,6 +98,9 @@ const postSelectedTimeAndMassage = async () => {
       throw new Error('Could not POST data to server.');
     }
   } catch (error) {
+    alert(
+      'Sorry, we could not post your data to server. Please try again later.'
+    );
     console.log(error.message);
   }
 };
