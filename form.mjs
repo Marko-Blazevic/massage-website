@@ -98,10 +98,10 @@ const postSelectedTimeAndMassage = async () => {
       throw new Error('Could not POST data to server.');
     }
   } catch (error) {
+    console.log(error.message);
     alert(
       'Sorry, we could not post your data to server. Please try again later.'
     );
-    console.log(error.message);
   }
 };
 

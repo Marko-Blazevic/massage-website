@@ -19,6 +19,7 @@ const occupiedTimeData = [];
 let timeOptions;
 let date = new Date();
 let dateToday;
+let currentTime;
 let freeScheduleTime = [];
 let timeIndexes = [];
 let scheduleTimeData = [];
@@ -180,13 +181,14 @@ export function onCalendarLoad() {
 
 window.onload = onCalendarLoad();
 
-const onClickTime = () => {
+const currentTimeHandler = () => {
   const dateString = date.toString();
   const dateArr = dateString.split(' ');
   const timeArr = dateArr[4].split(':');
-  const timeHour = timeArr[0];
-  const timeMinutes = timeArr[1];
-  return timeHour, timeMinutes;
+  const timeHour = Number(timeArr[0]);
+  const timeMinutes = Number(timeArr[1]);
+  console.log(timeHour, timeMinutes);
+  return [timeHour, timeMinutes];
 };
 
 function renderCalendar(date) {
@@ -288,7 +290,9 @@ function renderCalendar(date) {
       const dateValue = Number(dateDiv.textContent);
       changeDateDetailsHandler(date.getFullYear(), date.getMonth(), dateValue);
       checkClickedDate(date.getFullYear(), date.getMonth(), dateValue);
+      currentTime = currentTimeHandler();
       timeCheckHandler(clickedDateId);
+      console.log(currentTime);
     });
   });
 }
@@ -434,11 +438,24 @@ const timeCheckHandler = (clickedDateId) => {
       time.classList.add('hide');
       time.disabled = true;
     }
+    const dropdownTime = time.innerText;
+    const timeArr = dropdownTime.split(':');
+    const timeHour = Number(timeArr[0]);
+    const timeMinutes = Number(timeArr[1]);
+    const currentHour = currentTime[0];
+    const currentMinutes = currentTime[1];
+    if (currentHour > timeHour) {
+      time.classList.add('hide');
+      time.disabled = true;
+    } else if (currentHour === timeHour && currentMinutes > timeMinutes) {
+      time.classList.add('hide');
+      time.disabled = true;
+    }
   });
   freeScheduleTime = timeIndexes.filter(
     (elem) => !scheduleTimeData.includes(Number(elem))
   );
-  checkMassageOptionValidity(freeScheduleTime);
+  massageCheckHandler(freeScheduleTime);
 };
 const removeErrorClass = (elem) => {
   if (elem.value !== '' && elem.classList.contains('error-style')) {
@@ -458,7 +475,8 @@ schedulesSelect.forEach((elem) => {
     }
   });
 });
-const checkMassageOptionValidity = (freeScheduleTime) => {
+
+const massageCheckHandler = (freeScheduleTime) => {
   massageOptions.forEach((opt) => {
     if (opt.classList.contains('hide')) {
       opt.classList.remove('hide');
