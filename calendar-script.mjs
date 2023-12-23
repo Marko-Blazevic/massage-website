@@ -44,6 +44,7 @@ const getOcupiedTimeData = async () => {
       const dataArray = data[obj];
       occupiedTimeData.push(dataArray);
     }
+    console.log(occupiedTimeData);
   } catch (error) {
     alert(error.message + ' Please try again latter.');
     window.close();
@@ -187,7 +188,6 @@ const currentTimeHandler = () => {
   const timeArr = dateArr[4].split(':');
   const timeHour = Number(timeArr[0]);
   const timeMinutes = Number(timeArr[1]);
-  console.log(timeHour, timeMinutes);
   return [timeHour, timeMinutes];
 };
 
@@ -291,8 +291,8 @@ function renderCalendar(date) {
       changeDateDetailsHandler(date.getFullYear(), date.getMonth(), dateValue);
       checkClickedDate(date.getFullYear(), date.getMonth(), dateValue);
       currentTime = currentTimeHandler();
-      timeCheckHandler(clickedDateId);
-      console.log(currentTime);
+      const clickedDate = [clickedDateId, dateValue];
+      timeCheckHandler(clickedDate);
     });
   });
 }
@@ -421,12 +421,19 @@ const setTimeValues = () => {
   timeOptions = document.querySelectorAll('.time-option');
 };
 const timeCheckHandler = (clickedDateId) => {
+  let clickedDateNumber;
+  let clickedDateIdVar;
+  if (clickedDateId instanceof Array) {
+    clickedDateIdVar = clickedDateId[0];
+    clickedDateNumber = clickedDateId[1];
+  } else {
+    clickedDateIdVar = clickedDateId;
+  }
   occupiedTimeData.forEach((data) => {
-    if (clickedDateId === data.date) {
+    if (clickedDateIdVar === data.date) {
       scheduleTimeData.push(...data.time); //total already occupied time array for selected date
     }
   });
-  //resets time options
   timeOptions.forEach((time) => {
     if (time.classList.contains('hide')) {
       time.classList.remove('hide');
@@ -438,18 +445,20 @@ const timeCheckHandler = (clickedDateId) => {
       time.classList.add('hide');
       time.disabled = true;
     }
-    const dropdownTime = time.innerText;
-    const timeArr = dropdownTime.split(':');
-    const timeHour = Number(timeArr[0]);
-    const timeMinutes = Number(timeArr[1]);
-    const currentHour = currentTime[0];
-    const currentMinutes = currentTime[1];
-    if (currentHour > timeHour) {
-      time.classList.add('hide');
-      time.disabled = true;
-    } else if (currentHour === timeHour && currentMinutes > timeMinutes) {
-      time.classList.add('hide');
-      time.disabled = true;
+    if (dateToday.getDate() === clickedDateNumber) {
+      const dropdownTime = time.innerText;
+      const timeArr = dropdownTime.split(':');
+      const timeHour = Number(timeArr[0]);
+      const timeMinutes = Number(timeArr[1]);
+      const currentHour = currentTime[0];
+      const currentMinutes = currentTime[1];
+      if (currentHour > timeHour) {
+        time.classList.add('hide');
+        time.disabled = true;
+      } else if (currentHour === timeHour && currentMinutes > timeMinutes) {
+        time.classList.add('hide');
+        time.disabled = true;
+      }
     }
   });
   freeScheduleTime = timeIndexes.filter(
