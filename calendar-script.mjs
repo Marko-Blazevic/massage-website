@@ -10,7 +10,6 @@ const schBackBtn = document.getElementById('sch-back-btn');
 const schedulesSelect = document.querySelectorAll('.sch-select');
 const timeSelect = document.getElementById('time-select');
 const massageSelect = document.getElementById('mass-select');
-const massageOption = document.querySelector('.massage-option');
 const massageOptions = document.querySelectorAll('.massage-option');
 const pageURL = window.location.href;
 const monthsList = [];
@@ -520,43 +519,6 @@ const isContinuous = (freeScheduleTime, massageValue) => {
   }
   return false;
 };
-
-const getDataValuesHandler = () => {
-  const checkTimeAndMassageArray = checkTimeAndMassageHandler();
-  if (checkTimeAndMassageArray[0]) {
-    chosenTimeAndMassageData.date = clickedDateId;
-    const timedataIndex = checkTimeAndMassageArray[1];
-    const massageDataValue = checkTimeAndMassageArray[2];
-    for (let i = 0; i < massageDataValue; i++) {
-      chosenTimeAndMassageData.time.push(timedataIndex + i - 1);
-    }
-  }
-};
-
-schContinueBtn.addEventListener('click', () => {
-  checkTimeAndMassageHandler();
-  getDataValuesHandler();
-  let allSelectsHaveValue = true;
-  schedulesSelect.forEach((elem) => {
-    if (elem.value === '') {
-      elem.classList.add('error-style');
-      scheduleModal.hide();
-      errorModal.show();
-      allSelectsHaveValue = false;
-    } else {
-      allSelectsHaveValue = true;
-      removeErrorClass(elem);
-    }
-  });
-  if (allSelectsHaveValue && checkTime) {
-    scheduleModal.hide();
-    formModal.show();
-  }
-  if (!checkTime) {
-    scheduleModal.hide();
-    timeErrorModal.show();
-  }
-});
 const checkTimeAndMassageHandler = () => {
   checkTime = true;
   const schMassIndex = massageSelect.selectedIndex;
@@ -568,14 +530,50 @@ const checkTimeAndMassageHandler = () => {
     Number(timeSelect.options[schTimeIndex].dataset.timeIndex) + 1;
   for (
     let i = timeDataIndex;
-    i < timeDataIndex + massageDataValue - 1 && i < 48;
+    i < timeDataIndex + massageDataValue && i < 48;
     i++
   ) {
     let timeClass = timeSelect[i].classList.value;
     const noSpace = timeClass.replace(/ /g, '');
     if (noSpace.includes('hide')) {
       checkTime = false;
+      scheduleModal.hide();
+      timeErrorModal.show();
     }
   }
   return [checkTime, timeDataIndex, massageDataValue];
 };
+const getDataValuesHandler = () => {
+  const checkTimeAndMassageArray = checkTimeAndMassageHandler();
+  chosenTimeAndMassageData.date = clickedDateId;
+  const timedataIndex = checkTimeAndMassageArray[1];
+  const massageDataValue = checkTimeAndMassageArray[2];
+  for (let i = 0; i < massageDataValue; i++) {
+    chosenTimeAndMassageData.time.push(timedataIndex + i - 1);
+  }
+};
+schContinueBtn.addEventListener('click', () => {
+  const timeForMassage = checkTimeAndMassageHandler();
+  const timeListener = timeForMassage[0];
+  if (timeListener) {
+    getDataValuesHandler();
+  }
+  let hasValue = true;
+  if (timeSelect.value === '') {
+    timeSelect.classList.add('error-style');
+  }
+  if (massageSelect.value === '') {
+    massageSelect.classList.add('error-style');
+  }
+  if (timeSelect.value === '' || massageSelect.value === '') {
+    scheduleModal.hide();
+    errorModal.show();
+    hasValue = false;
+  }
+  if (hasValue && timeListener) {
+    scheduleModal.hide();
+    formModal.show();
+    timeSelect.classList.remove('error-style');
+    massageSelect.classList.remove('error-style');
+  }
+});
