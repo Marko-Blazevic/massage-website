@@ -336,6 +336,8 @@ const changeDateDetailsHandler = (year, month, date) => {
   );
   chosenDateH3.innerHTML = `${clickedDay} ${clickedDateValue.getDate()} ${displayedMonth} ${clickedDateValue.getFullYear()}`;
   clickedDateId = `${clickedDateValue.getFullYear()}${clickedDateValue.getMonth()}${clickedDateValue.getDate()}`;
+  const displayedFullDate = chosenDateH3.textContent.split(' ');
+  displayedDate = Number(displayedFullDate[1]);
 };
 
 let arrowPrevNextDayListener = false;
@@ -399,7 +401,6 @@ function resetScheduleData() {
   displayedDate = null;
   clickedDateId = '';
 }
-
 //setting dropdown time values for schedule
 const setTimeValues = () => {
   let timeSchedule = [];
@@ -419,7 +420,6 @@ const setTimeValues = () => {
   });
   timeOptions = document.querySelectorAll('.time-option');
 };
-
 const hideOptionHandler = (option) => {
   option.classList.add('hide');
   option.disabled = true;
@@ -448,8 +448,6 @@ const timeCheckHandler = (clickedDateId) => {
     if (scheduleTimeData.includes(Number(timeIndexAttribute))) {
       hideOptionHandler(time);
     }
-    const displayedFullDate = chosenDateH3.textContent.split(' ');
-    displayedDate = Number(displayedFullDate[1]);
     if (dateToday.getDate() > displayedDate) {
       hideOptionHandler(time);
     }
@@ -502,8 +500,6 @@ const massageCheckHandler = (freeScheduleTime) => {
     if (!result) {
       hideOptionHandler(opt);
     }
-    const displayedFullDate = chosenDateH3.textContent.split(' ');
-    displayedDate = Number(displayedFullDate[1]);
     if (dateToday.getDate() > displayedDate) {
       hideOptionHandler(opt);
     }
