@@ -352,7 +352,6 @@ const arrowPrevNextDayHandler = (elem, date) => {
     prevNextDay = displayedDate + 1;
   }
   date.setDate(prevNextDay);
-
   clickedDateId = `${date.getFullYear()}${date.getMonth()}${date.getDate()}`;
   changeDateDetailsHandler(date.getFullYear(), date.getMonth(), date.getDate());
   resetScheduleValues();
@@ -420,6 +419,11 @@ const setTimeValues = () => {
   });
   timeOptions = document.querySelectorAll('.time-option');
 };
+
+const hideOptionHandler = (option) => {
+  option.classList.add('hide');
+  option.disabled = true;
+};
 const timeCheckHandler = (clickedDateId) => {
   let clickedDateNumber;
   let clickedDateIdVar;
@@ -439,11 +443,15 @@ const timeCheckHandler = (clickedDateId) => {
       time.classList.remove('hide');
       time.disabled = false;
     }
-    let timeIndexAttribute = time.getAttribute('data-time-index');
+    const timeIndexAttribute = time.getAttribute('data-time-index');
     timeIndexes.push(Number(timeIndexAttribute));
     if (scheduleTimeData.includes(Number(timeIndexAttribute))) {
-      time.classList.add('hide');
-      time.disabled = true;
+      hideOptionHandler(time);
+    }
+    const displayedFullDate = chosenDateH3.textContent.split(' ');
+    displayedDate = Number(displayedFullDate[1]);
+    if (dateToday.getDate() > displayedDate) {
+      hideOptionHandler(time);
     }
     if (dateToday.getDate() === clickedDateNumber) {
       const dropdownTime = time.innerText;
@@ -453,11 +461,9 @@ const timeCheckHandler = (clickedDateId) => {
       const currentHour = currentTime[0];
       const currentMinutes = currentTime[1];
       if (currentHour > timeHour) {
-        time.classList.add('hide');
-        time.disabled = true;
+        hideOptionHandler(time);
       } else if (currentHour === timeHour && currentMinutes > timeMinutes) {
-        time.classList.add('hide');
-        time.disabled = true;
+        hideOptionHandler(time);
       }
     }
   });
@@ -494,8 +500,12 @@ const massageCheckHandler = (freeScheduleTime) => {
     let massageValue = opt.getAttribute('data-massage-value');
     const result = isContinuous(freeScheduleTime, massageValue);
     if (!result) {
-      opt.classList.add('hide');
-      opt.disabled = true;
+      hideOptionHandler(opt);
+    }
+    const displayedFullDate = chosenDateH3.textContent.split(' ');
+    displayedDate = Number(displayedFullDate[1]);
+    if (dateToday.getDate() > displayedDate) {
+      hideOptionHandler(opt);
     }
   });
 };
