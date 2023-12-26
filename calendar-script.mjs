@@ -288,10 +288,16 @@ function renderCalendar(date) {
     dateDiv.addEventListener('click', () => {
       const dateValue = Number(dateDiv.textContent);
       changeDateDetailsHandler(date.getFullYear(), date.getMonth(), dateValue);
-      checkClickedDate(date.getFullYear(), date.getMonth(), dateValue);
-      currentTime = currentTimeHandler();
-      const clickedDate = [clickedDateId, dateValue];
-      timeCheckHandler(clickedDate);
+      const checkedDate = checkClickedDate(
+        date.getFullYear(),
+        date.getMonth(),
+        dateValue
+      );
+      if (checkedDate) {
+        currentTime = currentTimeHandler();
+        const clickedDate = [clickedDateId, dateValue];
+        timeCheckHandler(clickedDate);
+      }
     });
   });
 }
@@ -318,9 +324,11 @@ const checkClickedDate = (year, month, date) => {
 
   if (clickedDateValue >= dateToday) {
     clickedDateOk();
+    return true;
   }
   if (clickedDateValue < dateToday) {
     clickedDateNotOk();
+    return false;
   }
 };
 const changeDateDetailsHandler = (year, month, date) => {
