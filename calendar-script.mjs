@@ -301,14 +301,6 @@ function renderCalendar(date) {
     });
   });
 }
-const clickedDate = (year, month, date) => {
-  let dateText;
-  if (isNaN(date)) {
-  } else {
-    dateText = date;
-  }
-  return new Date(year, month, dateText);
-};
 const clickedDateOk = () => {
   calendarModal.hide();
   scheduleModal.show();
@@ -320,7 +312,7 @@ const clickedDateNotOk = () => {
   calendarErrorModal.show();
 };
 const checkClickedDate = (year, month, date) => {
-  const clickedDateValue = clickedDate(year, month, date);
+  const clickedDateValue = new Date(year, month, date);
 
   if (clickedDateValue >= dateToday) {
     clickedDateOk();
@@ -332,7 +324,7 @@ const checkClickedDate = (year, month, date) => {
   }
 };
 const changeDateDetailsHandler = (year, month, date) => {
-  const clickedDateValue = clickedDate(year, month, date);
+  const clickedDateValue = new Date(year, month, date);
   const day = clickedDateValue.getDay();
   const clickedDay = daysList[day];
   const displayedMonth = monthsList[clickedDateValue.getMonth()];
@@ -348,7 +340,6 @@ const changeDateDetailsHandler = (year, month, date) => {
 };
 
 let arrowPrevNextDayListener = false;
-
 const arrowPrevNextDayHandler = (elem, date) => {
   prevNextDay = null;
   const displayedFullDate = chosenDateH3.textContent.split(' ');
@@ -396,7 +387,6 @@ arrowPrevMonth.addEventListener('click', () => {
   renderCalendar(date);
 });
 arrowNextMonth.addEventListener('click', () => {
-  // date = new Date();
   let nextMonth = date.getMonth() + 1;
   date.setMonth(nextMonth);
   renderCalendar(date);
@@ -538,12 +528,12 @@ const checkTimeAndMassageHandler = () => {
     Number(timeSelect.options[schTimeIndex].dataset.timeIndex) + 1;
   for (
     let i = timeDataIndex;
-    i < timeDataIndex + massageDataValue && i < 48;
+    i < timeDataIndex + massageDataValue && i < 49;
     i++
   ) {
     let timeClass = timeSelect[i].classList.value;
     const noSpace = timeClass.replace(/ /g, '');
-    if (noSpace.includes('hide')) {
+    if (noSpace.includes('hide') && timeDataIndex + massageDataValue - 1 > 48) {
       checkTime = false;
       scheduleModal.hide();
       timeErrorModal.show();
