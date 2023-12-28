@@ -1,6 +1,6 @@
-// import { chosenTimeAndMassageData } from './calendar-script.js';
-// // import { onCalendarLoad } from './calendar-script.js';
-// import { getAllValuesHandler } from './calendar-script.js';
+import { chosenTimeAndMassageData } from './calendar-script.js';
+// import { onCalendarLoad } from './calendar-script.js';
+import { getAllValuesHandler } from './calendar-script.js';
 const inputs = document.querySelectorAll('.input');
 // const inputFields = document.querySelectorAll('.input-field');
 const nameInput = document.getElementById('name');
@@ -84,31 +84,31 @@ const sendConfirmationEmail = () => {
   const selectedMassage = getAllValuesHandler[2];
   console.log(selectedDate, selectedTime, selectedMassage);
 };
-// const postSelectedTimeAndMassage = async () => {
-//   try {
-//     const response = await fetch(
-//       'https://calendar-schedule-time-default-rtdb.firebaseio.c2om/schedule.json',
-//       {
-//         method: 'POST',
-//         headers: {
-//           Accept: 'application/json',
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(chosenTimeAndMassageData),
-//       }
-//     );
-//     alert('Your data has been posted.');
-//     window.close();
-//     if (!response.ok) {
-//       throw new Error('Could not POST data to server.');
-//     }
-//   } catch (error) {
-//     console.log(error.message);
-//     alert(
-//       'Sorry, we could not post your data to server. Please try again later.'
-//     );
-//   }
-// };
+const postSelectedTimeAndMassage = async () => {
+  try {
+    const response = await fetch(
+      'https://calendar-schedule-time-default-rtdb.firebaseio.c2om/schedule.json',
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(chosenTimeAndMassageData),
+      }
+    );
+    alert('Your data has been posted.');
+    window.close();
+    if (!response.ok) {
+      throw new Error('Could not POST data to server.');
+    }
+  } catch (error) {
+    console.log(error.message);
+    alert(
+      'Sorry, we could not post your data to server. Please try again later.'
+    );
+  }
+};
 
 form.addEventListener(
   'submit',
