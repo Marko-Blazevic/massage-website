@@ -1,8 +1,8 @@
-import { chosenTimeAndMassageData } from './calendar-script.mjs';
-import { onCalendarLoad } from './calendar-script.mjs';
-const forms = document.querySelectorAll('.validate-form');
+// import { chosenTimeAndMassageData } from './calendar-script.js';
+// // import { onCalendarLoad } from './calendar-script.js';
+// import { getAllValuesHandler } from './calendar-script.js';
 const inputs = document.querySelectorAll('.input');
-const inputFields = document.querySelectorAll('.input-field');
+// const inputFields = document.querySelectorAll('.input-field');
 const nameInput = document.getElementById('name');
 const phoneInputField = document.getElementById('phone-number');
 const phoneInvalidFeedback = document.querySelector('.phone-invalid-feedback');
@@ -11,12 +11,12 @@ const emailInputField = document.getElementById('email');
 const emailInputLabel = document.querySelector('label');
 const emailInvalidFeedback = document.querySelector('.email-invalid-feedback');
 const textareaInputField = document.querySelector('.textarea-input-field');
+const form = document.querySelector('.form');
 
 window.addEventListener('load', function () {
-  forms.forEach((form) => {
-    form.reset();
-  });
+  form.reset();
 });
+console.log(form);
 
 const checkInputsValues = () => {
   inputs.forEach((input) => {
@@ -78,51 +78,54 @@ phoneInputField.addEventListener('blur', () => {
 emailInputField.addEventListener('blur', () => {
   checkEmailInputValue();
 });
-
-const postSelectedTimeAndMassage = async () => {
-  try {
-    const response = await fetch(
-      'https://calendar-schedule-time-default-rtdb.firebaseio.c2om/schedule.json',
-      {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(chosenTimeAndMassageData),
-      }
-    );
-    alert('Your data has been posted.');
-    window.close();
-    if (!response.ok) {
-      throw new Error('Could not POST data to server.');
-    }
-  } catch (error) {
-    console.log(error.message);
-    alert(
-      'Sorry, we could not post your data to server. Please try again later.'
-    );
-  }
+const sendConfirmationEmail = () => {
+  const selectedDate = getAllValuesHandler[0];
+  const selectedTime = getAllValuesHandler[1];
+  const selectedMassage = getAllValuesHandler[2];
+  console.log(selectedDate, selectedTime, selectedMassage);
 };
+// const postSelectedTimeAndMassage = async () => {
+//   try {
+//     const response = await fetch(
+//       'https://calendar-schedule-time-default-rtdb.firebaseio.c2om/schedule.json',
+//       {
+//         method: 'POST',
+//         headers: {
+//           Accept: 'application/json',
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(chosenTimeAndMassageData),
+//       }
+//     );
+//     alert('Your data has been posted.');
+//     window.close();
+//     if (!response.ok) {
+//       throw new Error('Could not POST data to server.');
+//     }
+//   } catch (error) {
+//     console.log(error.message);
+//     alert(
+//       'Sorry, we could not post your data to server. Please try again later.'
+//     );
+//   }
+// };
 
-Array.prototype.slice.call(forms).forEach(function (form) {
-  form.addEventListener(
-    'submit',
-    function (event) {
-      if (!form.checkValidity()) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      if (
-        nameInput.value.trim() !== '' &&
-        checkPhoneInputValue() === true &&
-        checkEmailInputValue() === true
-      ) {
-        postSelectedTimeAndMassage();
-      } else {
-        checkInputsValues();
-      }
-    },
-    false
-  );
-});
+form.addEventListener(
+  'submit',
+  function (event) {
+    if (!form.checkValidity()) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    if (
+      nameInput.value.trim() !== '' &&
+      checkPhoneInputValue() === true &&
+      checkEmailInputValue() === true
+    ) {
+      postSelectedTimeAndMassage();
+    } else {
+      checkInputsValues();
+    }
+  },
+  false
+);

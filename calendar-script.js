@@ -1,4 +1,4 @@
-export let chosenTimeAndMassageData;
+const calendar = document.getElementById('calendar');
 const arrowPrevMonth = document.querySelector('.arrow-prev-month');
 const arrowNextMonth = document.querySelector('.arrow-next-month');
 const arrowPrevNextDay = document.querySelectorAll('.arrow-day');
@@ -15,6 +15,12 @@ const pageURL = window.location.href;
 const monthsList = [];
 const daysList = [];
 const occupiedTimeData = [];
+let calendarModal;
+let calendarErrorModal;
+let scheduleModal;
+let timeErrorModal;
+let errorModal;
+let formModal;
 let timeOptions;
 let date = new Date();
 let dateToday;
@@ -28,6 +34,7 @@ let checkTime;
 let massageDataValue;
 let timeDataIndex;
 let prevNextDay;
+export let chosenTimeAndMassageData;
 chosenTimeAndMassageData = { date: '', time: [] };
 
 const getOcupiedTimeData = async () => {
@@ -143,33 +150,41 @@ const getOcupiedTimeData = async () => {
 // };
 // postAllDataToFirebase();
 
-let calendarModal = new bootstrap.Modal(
-  document.getElementById('calendar-modal'),
-  { backdrop: 'static', keyboard: false }
-);
-let calendarErrorModal = new bootstrap.Modal(
-  document.getElementById('calendar-error-modal'),
-  { backdrop: 'static', keyboard: false }
-);
-let scheduleModal = new bootstrap.Modal(
-  document.getElementById('schedule-modal'),
-  { backdrop: 'static', keyboard: false }
-);
-let timeErrorModal = new bootstrap.Modal(
-  document.getElementById('time-error-modal'),
-  {
-    backdrop: 'static',
-    keyboard: false,
+const checkIsCalendarLoaded = () => {
+  if (calendar) {
+    calendarModal = new bootstrap.Modal(
+      document.getElementById('calendar-modal'),
+      { backdrop: 'static', keyboard: false }
+    );
+    calendarErrorModal = new bootstrap.Modal(
+      document.getElementById('calendar-error-modal'),
+      { backdrop: 'static', keyboard: false }
+    );
+    scheduleModal = new bootstrap.Modal(
+      document.getElementById('schedule-modal'),
+      { backdrop: 'static', keyboard: false }
+    );
+    timeErrorModal = new bootstrap.Modal(
+      document.getElementById('time-error-modal'),
+      {
+        backdrop: 'static',
+        keyboard: false,
+      }
+    );
+    errorModal = new bootstrap.Modal(document.getElementById('error-modal'), {
+      backdrop: 'static',
+      keyboard: false,
+    });
+    formModal = new bootstrap.Modal(document.getElementById('form-modal'), {
+      backdrop: 'static',
+      keyboard: false,
+    });
+  } else {
+    return;
   }
-);
-let errorModal = new bootstrap.Modal(document.getElementById('error-modal'), {
-  backdrop: 'static',
-  keyboard: false,
-});
-let formModal = new bootstrap.Modal(document.getElementById('form-modal'), {
-  backdrop: 'static',
-  keyboard: false,
-});
+};
+
+checkIsCalendarLoaded();
 
 export function onCalendarLoad() {
   getOcupiedTimeData();
@@ -550,15 +565,12 @@ const getDataValuesHandler = () => {
     chosenTimeAndMassageData.time.push(timedataIndex + i - 1);
   }
 };
-const getAllValuesHandler = (time, massage) => {
+export const getAllValuesHandler = (time, massage) => {
   const selectedDate = chosenDateH3.innerText;
   const selectedTime = time;
   const selectedMassage = massage;
   console.log(selectedDate, selectedTime, selectedMassage);
-
-  //iz schedule H3 datum
-  //iz schedule select.value time i massage
-  //iz FORM ostale podaci iz INPUTA
+  return [selectedDate, selectedTime, selectedMassage];
 };
 schContinueBtn.addEventListener('click', () => {
   const timeForMassage = checkTimeAndMassageHandler();
