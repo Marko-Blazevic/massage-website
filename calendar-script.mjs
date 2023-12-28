@@ -550,6 +550,16 @@ const getDataValuesHandler = () => {
     chosenTimeAndMassageData.time.push(timedataIndex + i - 1);
   }
 };
+const getAllValuesHandler = (time, massage) => {
+  const selectedDate = chosenDateH3.innerText;
+  const selectedTime = time;
+  const selectedMassage = massage;
+  console.log(selectedDate, selectedTime, selectedMassage);
+
+  //iz schedule H3 datum
+  //iz schedule select.value time i massage
+  //iz FORM ostale podaci iz INPUTA
+};
 schContinueBtn.addEventListener('click', () => {
   const timeForMassage = checkTimeAndMassageHandler();
   const timeListener = timeForMassage[0];
@@ -573,5 +583,6 @@ schContinueBtn.addEventListener('click', () => {
     formModal.show();
     timeSelect.classList.remove('error-style');
     massageSelect.classList.remove('error-style');
+    getAllValuesHandler(timeSelect.value, massageSelect.value);
   }
 });
