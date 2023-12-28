@@ -110,22 +110,18 @@ const postSelectedTimeAndMassage = async () => {
   }
 };
 
-form.addEventListener(
-  'submit',
-  function (event) {
-    if (!form.checkValidity()) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    if (
-      nameInput.value.trim() !== '' &&
-      checkPhoneInputValue() === true &&
-      checkEmailInputValue() === true
-    ) {
-      postSelectedTimeAndMassage();
-    } else {
-      checkInputsValues();
-    }
-  },
-  false
-);
+form.addEventListener('submit', function (event) {
+  if (!form.checkValidity()) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+  if (
+    nameInput.value.trim() !== '' &&
+    checkPhoneInputValue() === true &&
+    checkEmailInputValue() === true
+  ) {
+    postSelectedTimeAndMassage();
+  } else {
+    checkInputsValues();
+  }
+});
