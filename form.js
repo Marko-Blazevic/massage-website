@@ -16,7 +16,6 @@ const form = document.querySelector('.form');
 window.addEventListener('load', function () {
   form.reset();
 });
-console.log(form);
 
 const checkInputsValues = () => {
   inputs.forEach((input) => {

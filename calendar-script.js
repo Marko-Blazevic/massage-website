@@ -37,87 +37,86 @@ let prevNextDay;
 export let chosenTimeAndMassageData;
 chosenTimeAndMassageData = { date: '', time: [] };
 
-// const getOcupiedTimeData = async () => {
-//   try {
-//     const response = await fetch(
-//       'https://calendar-schedule-time-default-rtdb.firebaseio.com/schedule.json'
-//     );
-//     if (!response.ok) {
-//       throw new Error('Can not get data!');
-//     }
-//     const data = await response.json();
-//     for (const obj in data) {
-//       const dataArray = data[obj];
-//       occupiedTimeData.push(dataArray);
-//     }
-//     console.log(occupiedTimeData);
-//   } catch (error) {
-//     alert(error.message + ' Please try again latter.');
-//     window.close();
-//   }
-// };
+const getOcupiedTimeData = async () => {
+  try {
+    const response = await fetch(
+      'https://calendar-schedule-time-default-rtdb.firebaseio.com/schedule.json'
+    );
+    if (!response.ok) {
+      throw new Error('Can not get data!');
+    }
+    const data = await response.json();
+    for (const obj in data) {
+      const dataArray = data[obj];
+      occupiedTimeData.push(dataArray);
+    }
+  } catch (error) {
+    alert(error.message + ' Please try again latter.');
+    window.close();
+  }
+};
 
 // FOR TESTING  !!!
-// const scheduleValuesData = [
-//   { date: '20231110', time: [0, 1] },
-//   { date: '20231111', time: [5, 6, 7] },
-//   { date: '20231111', time: [10, 11, 12, 13] },
-//   { date: '20231111', time: [20, 21, 22, 23, 24] },
-//   { date: '20231112', time: [30, 31, 32, 33, 34, 35] },
-//   { date: '20231112', time: [40, 41, 42, 43] },
-//   { date: '20231113', time: [45, 46, 47] },
-//   { date: '20231113', time: [0, 1, 2] },
-//   { date: '20231114', time: [10, 11, 12, 13, 14, 15] },
-//   { date: '20231114', time: [20, 21, 22, 23, 24] },
-//   { date: '20231114', time: [30, 31, 32, 33, 34, 35, 36] },
-//   { date: '20231115', time: [40, 41, 42, 43, 44, 45] },
-//   { date: '20231115', time: [5, 6, 7, 8] },
-//   { date: '20231116', time: [15, 16, 17, 18, 19, 20] },
-//   { date: '20231116', time: [25, 26, 27, 28, 29, 30] },
-//   { date: '20231116', time: [35, 36, 37, 38, 39, 40, 41] },
-//   { date: '20231117', time: [45, 46, 47] },
-//   { date: '20231117', time: [0, 1, 2, 3, 4] },
-//   { date: '20231117', time: [10, 11, 12, 13, 14, 15] },
-//   { date: '20231118', time: [20, 21, 22, 23, 24] },
-//   { date: '20231118', time: [30, 31, 32, 33, 34, 35, 36] },
-//   { date: '20231119', time: [40, 41, 42, 43, 44, 45] },
-//   { date: '20231119', time: [5, 6, 7, 8, 9, 10] },
-//   { date: '20231120', time: [15, 16, 17, 18, 19, 20] },
-//   { date: '20231120', time: [25, 26, 27, 28, 29, 30, 31] },
-//   { date: '20231120', time: [35, 36, 37, 38, 39, 40, 41, 42] },
-//   { date: '20231121', time: [45, 46, 47] },
-//   { date: '20231121', time: [0, 1, 2, 3, 4] },
-//   { date: '20231121', time: [10, 11, 12, 13, 14, 15, 16] },
-//   { date: '20231122', time: [20, 21, 22, 23, 24] },
-//   { date: '20231122', time: [30, 31, 32, 33, 34, 35, 36] },
-//   { date: '20231123', time: [40, 41, 42, 43, 44, 45] },
-//   { date: '20231123', time: [5, 6, 7, 8, 9, 10, 11] },
-//   { date: '20231124', time: [15, 16, 17, 18, 19, 20] },
-//   { date: '20231124', time: [25, 26, 27, 28, 29, 30, 31, 32] },
-//   { date: '20231124', time: [35, 36, 37, 38, 39, 40, 41] },
-//   {
-//     date: '20231125',
-//     time: [
-//       2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
-//       25, 26, 27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
-//       46, 47,
-//     ],
-//   },
-//   {
-//     date: '20231127',
-//     time: [
-//       2, 3, 4, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
-//       27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
-//     ],
-//   },
-//   {
-//     date: '20231129',
-//     time: [
-//       1, 2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 25, 26, 27, 28, 29, 30, 34, 35,
-//       36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
-//     ],
-//   },
-// ];
+const scheduleValuesData = [
+  { date: '2025310', time: [0, 1] },
+  { date: '2025311', time: [5, 6, 7] },
+  { date: '2025311', time: [10, 11, 12, 13] },
+  { date: '2025311', time: [20, 21, 22, 23, 24] },
+  { date: '2025312', time: [30, 31, 32, 33, 34, 35] },
+  { date: '2025312', time: [40, 41, 42, 43] },
+  { date: '2025313', time: [45, 46, 47] },
+  { date: '2025313', time: [0, 1, 2] },
+  { date: '2025314', time: [10, 11, 12, 13, 14, 15] },
+  { date: '2025314', time: [20, 21, 22, 23, 24] },
+  { date: '2025314', time: [30, 31, 32, 33, 34, 35, 36] },
+  { date: '2025315', time: [40, 41, 42, 43, 44, 45] },
+  { date: '2025315', time: [5, 6, 7, 8] },
+  { date: '2025316', time: [15, 16, 17, 18, 19, 20] },
+  { date: '2025316', time: [25, 26, 27, 28, 29, 30] },
+  { date: '2025316', time: [35, 36, 37, 38, 39, 40, 41] },
+  { date: '2025317', time: [45, 46, 47] },
+  { date: '2025317', time: [0, 1, 2, 3, 4] },
+  { date: '2025317', time: [10, 11, 12, 13, 14, 15] },
+  { date: '2025318', time: [20, 21, 22, 23, 24] },
+  { date: '2025318', time: [30, 31, 32, 33, 34, 35, 36] },
+  { date: '2025319', time: [40, 41, 42, 43, 44, 45] },
+  { date: '2025319', time: [5, 6, 7, 8, 9, 10] },
+  { date: '2025320', time: [15, 16, 17, 18, 19, 20] },
+  { date: '2025320', time: [25, 26, 27, 28, 29, 30, 31] },
+  { date: '2025320', time: [35, 36, 37, 38, 39, 40, 41, 42] },
+  { date: '2025321', time: [45, 46, 47] },
+  { date: '2025321', time: [0, 1, 2, 3, 4] },
+  { date: '2025321', time: [10, 11, 12, 13, 14, 15, 16] },
+  { date: '2025322', time: [20, 21, 22, 23, 24] },
+  { date: '2025322', time: [30, 31, 32, 33, 34, 35, 36] },
+  { date: '2025323', time: [40, 41, 42, 43, 44, 45] },
+  { date: '2025323', time: [5, 6, 7, 8, 9, 10, 11] },
+  { date: '2025324', time: [15, 16, 17, 18, 19, 20] },
+  { date: '2025324', time: [25, 26, 27, 28, 29, 30, 31, 32] },
+  { date: '2025324', time: [35, 36, 37, 38, 39, 40, 41] },
+  {
+    date: '2025325',
+    time: [
+      2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+      25, 26, 27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
+      46, 47,
+    ],
+  },
+  {
+    date: '2025327',
+    time: [
+      2, 3, 4, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
+      27, 28, 29, 30, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
+    ],
+  },
+  {
+    date: '2025329',
+    time: [
+      1, 2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 25, 26, 27, 28, 29, 30, 34, 35,
+      36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
+    ],
+  },
+];
 // const postDataToFirebase = async (obj) => {
 //   try {
 //     const response = await fetch(
@@ -129,10 +128,11 @@ chosenTimeAndMassageData = { date: '', time: [] };
 //           date: obj.date,
 //           time: obj.time,
 //         }),
+
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
 //       }
-// headers: {
-//   "Content-Type": "application/json",
-// },
 //     );
 //     if (!response.ok) {
 //       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -143,6 +143,7 @@ chosenTimeAndMassageData = { date: '', time: [] };
 //     console.error('Error posting data:', error);
 //   }
 // };
+
 // const postAllDataToFirebase = async () => {
 //   for (const obj of scheduleValuesData) {
 //     await postDataToFirebase(obj);
@@ -187,7 +188,7 @@ const checkIsCalendarLoaded = () => {
 checkIsCalendarLoaded();
 
 export function onCalendarLoad() {
-  // getOcupiedTimeData();
+  getOcupiedTimeData();
   date = new Date();
   dateToday = new Date(date.getFullYear(), date.getMonth(), date.getDate());
   calendarModal.show();
