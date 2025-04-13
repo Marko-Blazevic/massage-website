@@ -31,6 +31,7 @@ body {
 .custom-navbar-dark {
   background-color: black;
   .nav-link-style {
+    padding: 0.5rem 1rem;
     color: white;
     transition: 0.5s ease-in-out;
     text-decoration: none;
@@ -485,6 +486,9 @@ footer {
     .massages-dropup-custom {
       right: 22px;
     }
+  }
+  .language-icon {
+    padding: 0 1rem;
   }
 }
 @media screen and (min-width: 768px) {
