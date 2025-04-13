@@ -6,7 +6,7 @@
 }
 
 html {
-  scroll-padding-top: 66px;
+  scroll-padding-top: 56px;
   overflow-x: hidden;
 }
 
@@ -88,9 +88,9 @@ a {
 .index-content {
   position: relative;
   z-index: 3;
-  margin-top: 66px;
+  margin-top: 56px;
   width: 100vw;
-  height: calc(100vh - 66px);
+  height: calc(100vh - 56px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -127,7 +127,7 @@ a {
 }
 
 #massages {
-  padding-top: 66px;
+  padding-top: 56px;
 }
 #massages .massages-list-custom {
   display: none;
@@ -154,11 +154,14 @@ a {
   color: rgb(252, 155, 0);
   background-color: white;
 }
+#massages p {
+  text-align: justify;
+}
 #massages .massages-dropup-custom {
   position: fixed;
   z-index: 100;
-  bottom: 10px;
-  right: 10px;
+  bottom: 12px;
+  right: 12px;
 }
 #massages .massages-dropup-custom a {
   color: #666b70;
@@ -352,7 +355,7 @@ form textarea {
   background-color: #ffc107;
 }
 
-button {
+button:not(.navbar-toggler) {
   width: 160px;
   align-self: center;
 }
@@ -491,9 +494,17 @@ footer .newsletter button {
     justify-content: center;
   }
 }
-@media screen and (min-width: 575px) and (max-width: 614px) {
+@media screen and (min-width: 575px) and (max-width: 675px) {
   .nav-link-style {
     font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .logo {
+    margin-left: 12px;
+  }
+  #massages .massages-dropup-custom {
+    right: 22px;
   }
 }
 @media screen and (min-width: 768px) {

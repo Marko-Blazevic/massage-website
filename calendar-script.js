@@ -37,25 +37,25 @@ let prevNextDay;
 export let chosenTimeAndMassageData;
 chosenTimeAndMassageData = { date: '', time: [] };
 
-const getOcupiedTimeData = async () => {
-  try {
-    const response = await fetch(
-      'https://calendar-schedule-time-default-rtdb.firebaseio.com/schedule.json'
-    );
-    if (!response.ok) {
-      throw new Error('Can not get data!');
-    }
-    const data = await response.json();
-    for (const obj in data) {
-      const dataArray = data[obj];
-      occupiedTimeData.push(dataArray);
-    }
-    console.log(occupiedTimeData);
-  } catch (error) {
-    alert(error.message + ' Please try again latter.');
-    window.close();
-  }
-};
+// const getOcupiedTimeData = async () => {
+//   try {
+//     const response = await fetch(
+//       'https://calendar-schedule-time-default-rtdb.firebaseio.com/schedule.json'
+//     );
+//     if (!response.ok) {
+//       throw new Error('Can not get data!');
+//     }
+//     const data = await response.json();
+//     for (const obj in data) {
+//       const dataArray = data[obj];
+//       occupiedTimeData.push(dataArray);
+//     }
+//     console.log(occupiedTimeData);
+//   } catch (error) {
+//     alert(error.message + ' Please try again latter.');
+//     window.close();
+//   }
+// };
 
 // FOR TESTING  !!!
 // const scheduleValuesData = [
@@ -187,7 +187,7 @@ const checkIsCalendarLoaded = () => {
 checkIsCalendarLoaded();
 
 export function onCalendarLoad() {
-  getOcupiedTimeData();
+  // getOcupiedTimeData();
   date = new Date();
   dateToday = new Date(date.getFullYear(), date.getMonth(), date.getDate());
   calendarModal.show();

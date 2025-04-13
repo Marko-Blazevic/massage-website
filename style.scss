@@ -4,7 +4,7 @@ $cursive-font-family: 'Tangerine', cursive;
 $text-font-family: 'Open Sans', sans-serif;
 $orange: rgb(252, 155, 0);
 $gray: rgba(128, 128, 128, 0.4);
-$navbar-height: 66px;
+$navbar-height: 56px;
 
 *,
 *::before,
@@ -151,11 +151,14 @@ a {
       }
     }
   }
+  p {
+    text-align: justify;
+  }
   .massages-dropup-custom {
     position: fixed;
     z-index: 100;
-    bottom: 10px;
-    right: 10px;
+    bottom: 12px;
+    right: 12px;
     a {
       color: #666b70;
       font-size: 0.95rem;
@@ -333,7 +336,7 @@ form {
 .today {
   background-color: #ffc107;
 }
-button {
+button:not(.navbar-toggler) {
   width: 160px;
   align-self: center;
 }
@@ -469,9 +472,19 @@ footer {
     justify-content: center;
   }
 }
-@media screen and (min-width: 575px) and (max-width: 614px) {
+@media screen and (min-width: 575px) and (max-width: 675px) {
   .nav-link-style {
     font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .logo {
+    margin-left: 12px;
+  }
+  #massages {
+    .massages-dropup-custom {
+      right: 22px;
+    }
   }
 }
 @media screen and (min-width: 768px) {
